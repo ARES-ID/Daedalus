@@ -8,7 +8,6 @@ plugins {
 android {
     namespace = "me.renespies.daedalus"
     compileSdk = libs.versions.compileSdk.get().toInt()
-    flavorDimensions += listOf("default")
 
     defaultConfig {
         applicationId = "me.renespies.daedalus"
@@ -16,6 +15,7 @@ android {
         targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = libs.versions.versionCode.get().toInt()
         versionName = libs.versions.versionName.get()
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -24,21 +24,6 @@ android {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
-
-        debug {
-            applicationIdSuffix = ".debug"
-            versionNameSuffix = "-debug"
-            isDebuggable = true
-            isCrunchPngs = false
-        }
-    }
-
-    productFlavors {
-        create("development") {
-            resourceConfigurations += setOf("de", "xxhdpi")
-            isDefault = true
-        }
-        create("full")
     }
 
     compileOptions {
