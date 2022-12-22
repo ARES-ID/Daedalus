@@ -1,5 +1,6 @@
 package me.renespies.daedalus
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -11,12 +12,11 @@ import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import me.renespies.daedalus.ui.theme.DaedalusTheme
-import me.renespies.daedalus.ui.theme.DaedalusTypography
 import me.renespies.daedalus.weightgraph.WeightGraphScreen
 
 class MainActivity : ComponentActivity() {
+    @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

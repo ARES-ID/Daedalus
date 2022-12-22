@@ -7,8 +7,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import me.renespies.daedalus.ui.theme.DaedalusTypography
 import me.renespies.daedalus.compose.verticalSpacingXXL
+import me.renespies.daedalus.ui.theme.DaedalusTypography
 
 @Composable
 fun WeightGraphScreen() {
