@@ -27,7 +27,7 @@ fun DaedalusTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composab
         content = {
             CompositionLocalProvider(
                 LocalDaedalusColors provides colors,
-                LocalTextStyle provides TextStyle(color = Color(0xFF00FF00)),
+                LocalTextStyle provides TextStyle(color = Color(color = 0xFF00FF00)),
                 content = content,
             )
         }
@@ -47,7 +47,7 @@ val LocalDaedalusColors = staticCompositionLocalOf<DaedalusColors> {
 
 private fun debugColors(
     darkTheme: Boolean,
-    debugColor: Color = Color(0xFFFF00FF),
+    debugColor: Color = Color(color = 0xFFFF00FF),
 ) = Colors(
     primary = debugColor,
     primaryVariant = debugColor,

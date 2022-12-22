@@ -8,9 +8,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import me.renespies.daedalus.ui.theme.DaedalusTypography
-import me.renespies.daedalus.ui.theme.VerticalSpacerXL
-import me.renespies.daedalus.ui.theme.horizontalSpacingM
-import me.renespies.daedalus.ui.theme.verticalSpacingXXL
+import me.renespies.daedalus.compose.VerticalSpacerXL
+import me.renespies.daedalus.compose.horizontalSpacingM
+import me.renespies.daedalus.compose.verticalSpacingXXL
 
 @Composable
 fun AddWeightScreen() {
