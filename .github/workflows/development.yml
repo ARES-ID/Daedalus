@@ -1,0 +1,20 @@
+name: Development
+run-name: Development
+on: [ push ]
+jobs:
+  ktlintCheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: ktlintCheck
+        run: ./gradlew ktlintCheck
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Clean
+        run: ./gradlew clean
+      - name: Assemble
+        run: ./gradlew assemble
