@@ -50,3 +50,4 @@ debug = [
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version = "11.0.0" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version = "1.22.0" }

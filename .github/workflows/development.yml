@@ -7,8 +7,15 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: ktlintCheck
+      - name: Check
         run: ./gradlew ktlintCheck
+  detekt:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Detekt
+        run: ./gradlew detekt
   assemble:
     runs-on: ubuntu-latest
     steps:
