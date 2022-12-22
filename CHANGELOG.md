@@ -2,6 +2,8 @@
 
 ### Added
 - Gradle version catalogs with TOML (DDS-4)
+- ktlint & detekt (DDS-9)
+- Configuration for GitHub Actions (DDS-9)
 
 ### Changed
 - Migrated from Groovy to KTS (DDS-2)
