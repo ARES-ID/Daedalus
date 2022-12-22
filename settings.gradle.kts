@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Daedalus"
-include ':app'
+include(":app")

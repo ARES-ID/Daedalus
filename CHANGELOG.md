@@ -3,6 +3,7 @@
 ### Added
 
 ### Changed
+- Migrated from Groovy to KTS (DDS-2)
 
 ### Removed
 
