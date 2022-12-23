@@ -16,13 +16,14 @@ androidx-compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compos
 androidx-compose-uiToolingPreview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 androidx-coreKtx = "androidx.core:core-ktx:1.9.0"
 androidx-lifecycle-runtimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
-debug-androidx-compose-uiTestManifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose" }
+timber = "com.jakewharton.timber:timber:5.0.1"
 # Debug libraries
+debug-androidx-compose-uiTestManifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose" }
 debug-androidx-compose-uiTooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
+# Test libraries
 test-androidx-compose-uiTestJunit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "compose" }
 test-androidx-espresso = "androidx.test.espresso:espresso-core:3.5.0"
 test-androidx-junit = "androidx.test.ext:junit:1.1.4"
-# Test libraries
 test-junit = "junit:junit:4.13.2"
 
 [bundles]

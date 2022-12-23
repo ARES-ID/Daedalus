@@ -67,6 +67,7 @@ android {
 
 dependencies {
     implementation(libs.bundles.androidx)
+    implementation(libs.timber)
     testImplementation(libs.test.junit)
     androidTestImplementation(libs.bundles.androidTest)
     debugImplementation(libs.bundles.debug)
