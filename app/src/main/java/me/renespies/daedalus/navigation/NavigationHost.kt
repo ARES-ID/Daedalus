@@ -12,7 +12,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import me.renespies.daedalus.compose.greenEngineeringMenuGestureDetector
 import me.renespies.daedalus.greenengineeringmenu.GreenEngineeringMenuScreen
-import me.renespies.daedalus.greenengineeringmenu.TypographyGallery
+import me.renespies.daedalus.greenengineeringmenu.TypographyGalleryScreen
 
 @Composable
 fun NavigationHost(controller: NavHostController, paddingValues: PaddingValues) {
@@ -31,9 +31,10 @@ fun NavigationHost(controller: NavHostController, paddingValues: PaddingValues) 
             composable(
                 route = Route.GreenEngineeringMenu.Entry.actual,
                 content = {
-                    GreenEngineeringMenuScreen {
-                        controller.navigate(Route.GreenEngineeringMenu.Typography.actual)
-                    }
+                    GreenEngineeringMenuScreen(
+                        onBack = controller::navigateUp,
+                        navigateToItem = { controller.navigate(it.actual) }
+                    )
                 }
             )
             composable(
@@ -44,7 +45,7 @@ fun NavigationHost(controller: NavHostController, paddingValues: PaddingValues) 
             )
             composable(
                 route = Route.GreenEngineeringMenu.Typography.actual,
-                content = { TypographyGallery() }
+                content = { TypographyGalleryScreen { controller.navigateUp() } }
             )
         }
     )
