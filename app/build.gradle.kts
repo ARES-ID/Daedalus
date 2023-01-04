@@ -72,3 +72,7 @@ dependencies {
     androidTestImplementation(libs.bundles.androidTest)
     debugImplementation(libs.bundles.debug)
 }
+
+detekt {
+    baseline = file("${rootDir.path}/config/detekt/baseline.xml")
+}
