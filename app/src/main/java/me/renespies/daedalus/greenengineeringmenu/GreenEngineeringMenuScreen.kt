@@ -13,38 +13,46 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import me.renespies.daedalus.R
+import me.renespies.daedalus.compose.ToolbarContent
 import me.renespies.daedalus.compose.horizontalSpacingM
 import me.renespies.daedalus.compose.verticalSpacingXXL
+import me.renespies.daedalus.navigation.Route
 import me.renespies.daedalus.ui.theme.Spacings
 
 @Composable
-fun GreenEngineeringMenuScreen(navigateToItem: () -> Unit) {
-    LazyColumn(
-        modifier = Modifier
-            .fillMaxSize()
-            .verticalSpacingXXL()
-            .navigationBarsPadding()
-            .horizontalSpacingM(),
-        verticalArrangement = Arrangement.spacedBy(Spacings.XS),
-        content = {
-            items(
-                items = GreenEngineeringMenu.values(),
-                key = { it.name },
-                itemContent = { GreenEngineeringMenuEntry(it, navigateToItem) }
-            )
-        }
-    )
+fun GreenEngineeringMenuScreen(onBack: () -> Unit, navigateToItem: (Route) -> Unit) {
+    ToolbarContent(title = stringResource(R.string.green_engineering_menu_title), onBack = onBack) {
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .verticalSpacingXXL()
+                .navigationBarsPadding()
+                .horizontalSpacingM(),
+            verticalArrangement = Arrangement.spacedBy(Spacings.XS),
+            content = {
+                items(
+                    items = GreenEngineeringMenuItems.values(),
+                    key = { it.name },
+                    itemContent = { GreenEngineeringMenuEntry(it, navigateToItem) }
+                )
+            }
+        )
+    }
 }
 
 @Composable
 fun GreenEngineeringMenuEntry(
-    item: GreenEngineeringMenu,
-    onNavigation: () -> Unit
+    item: GreenEngineeringMenuItems,
+    onNavigation: (Route) -> Unit
 ) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable(onClick = onNavigation)
+            .clickable {
+                onNavigation(item.route)
+            }
     ) {
         Text(
             text = item.name,

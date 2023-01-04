@@ -14,51 +14,56 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.Dp
+import me.renespies.daedalus.R
+import me.renespies.daedalus.compose.ToolbarContent
 import me.renespies.daedalus.compose.horizontalSpacingM
 import me.renespies.daedalus.compose.verticalSpacingXXL
 import me.renespies.daedalus.ui.theme.Spacings
 
 @Composable
-fun TypographyGallery() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .verticalScroll(rememberScrollState())
-            .verticalSpacingXXL()
-            .navigationBarsPadding(),
-        content = {
-            HeadlineTexts()
-            Spacer(modifier = Modifier.height(Spacings.M))
-            SubtitleTexts()
-            Spacer(modifier = Modifier.height(Spacings.M))
-            BodyTexts()
-            Spacer(modifier = Modifier.height(Spacings.M))
-            Text(
-                text = "button",
-                modifier = Modifier
-                    .horizontalSpacingM()
-                    .typographyBorder(),
-                style = MaterialTheme.typography.button
-            )
-            Spacer(modifier = Modifier.height(Spacings.M))
-            Text(
-                text = "caption",
-                modifier = Modifier
-                    .horizontalSpacingM()
-                    .typographyBorder(),
-                style = MaterialTheme.typography.caption
-            )
-            Spacer(modifier = Modifier.height(Spacings.M))
-            Text(
-                text = "overline",
-                modifier = Modifier
-                    .horizontalSpacingM()
-                    .typographyBorder(),
-                style = MaterialTheme.typography.overline
-            )
-        }
-    )
+fun TypographyGalleryScreen(onBack: () -> Unit) {
+    ToolbarContent(title = stringResource(R.string.green_engineering_menu_item_typography_title), onBack) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState())
+                .verticalSpacingXXL()
+                .navigationBarsPadding(),
+            content = {
+                HeadlineTexts()
+                Spacer(modifier = Modifier.height(Spacings.M))
+                SubtitleTexts()
+                Spacer(modifier = Modifier.height(Spacings.M))
+                BodyTexts()
+                Spacer(modifier = Modifier.height(Spacings.M))
+                Text(
+                    text = "button",
+                    modifier = Modifier
+                        .horizontalSpacingM()
+                        .typographyBorder(),
+                    style = MaterialTheme.typography.button
+                )
+                Spacer(modifier = Modifier.height(Spacings.M))
+                Text(
+                    text = "caption",
+                    modifier = Modifier
+                        .horizontalSpacingM()
+                        .typographyBorder(),
+                    style = MaterialTheme.typography.caption
+                )
+                Spacer(modifier = Modifier.height(Spacings.M))
+                Text(
+                    text = "overline",
+                    modifier = Modifier
+                        .horizontalSpacingM()
+                        .typographyBorder(),
+                    style = MaterialTheme.typography.overline
+                )
+            }
+        )
+    }
 }
 
 @Composable
@@ -153,7 +158,7 @@ private fun BodyTexts() {
 private fun Modifier.typographyBorder() = composed {
     border(
         border = BorderStroke(
-            width = 1.dp,
+            width = Dp.Hairline,
             color = MaterialTheme.colors.onBackground
         )
     )
