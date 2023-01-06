@@ -23,8 +23,8 @@ fun NavigationHost(controller: NavHostController, paddingValues: PaddingValues) 
             .fillMaxSize()
             .padding(paddingValues)
             .greenEngineeringMenuGestureDetector("navigationHost") {
-                controller.navigate(Route.GreenEngineeringMenu.Entry.actual) {
-                    launchSingleTop = true
+                if (controller.backQueue.none { it.destination.route == Route.GreenEngineeringMenu.Entry.actual }) {
+                    controller.navigate(Route.GreenEngineeringMenu.Entry.actual)
                 }
             },
         builder = {
