@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.ktlint)
     alias(libs.plugins.detekt)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -71,8 +72,13 @@ dependencies {
     testImplementation(libs.test.junit)
     androidTestImplementation(libs.bundles.androidTest)
     debugImplementation(libs.bundles.debug)
+    ksp(libs.androidx.room.compiler)
 }
 
 detekt {
     baseline = file("${rootDir.path}/config/detekt/baseline.xml")
+}
+
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas")
 }

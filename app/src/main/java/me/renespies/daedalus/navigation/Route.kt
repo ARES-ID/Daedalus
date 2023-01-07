@@ -6,5 +6,8 @@ sealed class Route(val actual: String) {
         object Typography : GreenEngineeringMenu("Typography")
     }
 
-    object Home : Route("Home")
+    sealed class Home(subRoute: String) : Route("Home#$subRoute") {
+        object Entry : Home("Entry")
+        object AddWeight : Home("AddWeight")
+    }
 }
