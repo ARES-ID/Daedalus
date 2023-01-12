@@ -20,40 +20,40 @@ import me.renespies.daedalus.greenengineeringmenu.TypographyGalleryScreen
 fun NavigationHost(controller: NavHostController, paddingValues: PaddingValues) {
     NavHost(
         navController = controller,
-        startDestination = Route.Home.Entry.actual,
+        startDestination = Routes.Home,
         modifier = Modifier
             .fillMaxSize()
             .padding(paddingValues)
             .greenEngineeringMenuGestureDetector("navigationHost") {
-                if (controller.backQueue.none { it.destination.route == Route.GreenEngineeringMenu.Entry.actual }) {
-                    controller.navigate(Route.GreenEngineeringMenu.Entry.actual)
+                if (controller.backQueue.none { it.destination.route == Routes.GreenEngineeringMenu }) {
+                    controller.navigate(Routes.GreenEngineeringMenu)
                 }
             },
         builder = {
             composable(
-                route = Route.GreenEngineeringMenu.Entry.actual,
+                route = Routes.GreenEngineeringMenu,
                 content = {
                     GreenEngineeringMenuScreen(
                         onBack = controller::navigateUp,
-                        navigateToItem = { controller.navigate(it.actual) }
+                        navigateToItem = { controller.navigate(it) }
                     )
                 }
             )
             composable(
-                route = Route.Home.Entry.actual,
+                route = Routes.Home,
                 content = {
                     Button(
-                        onClick = { controller.navigate(Route.Home.AddWeight.actual) },
+                        onClick = { controller.navigate(Routes.AddWeight) },
                         content = { Text("add weight", style = MaterialTheme.typography.button) }
                     )
                 }
             )
             composable(
-                route = Route.GreenEngineeringMenu.Typography.actual,
-                content = { TypographyGalleryScreen { controller.navigateUp() } }
+                route = Routes.Typography,
+                content = { TypographyGalleryScreen(controller::navigateUp) }
             )
             composable(
-                route = Route.Home.AddWeight.actual,
+                route = Routes.AddWeight,
                 content = { AddWeightScreen(controller::navigateUp) }
             )
         }
