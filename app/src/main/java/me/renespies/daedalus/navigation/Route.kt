@@ -7,4 +7,5 @@ object Routes {
     const val Typography = "typography"
     const val Home = "home"
     const val AddWeight = "addWeight"
+    const val WeightHistory = "weightHistory"
 }

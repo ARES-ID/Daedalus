@@ -3,10 +3,11 @@ package me.renespies.daedalus
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import io.kotest.property.checkAll
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
-import me.renespies.daedalus.addweight.data.Weight
-import me.renespies.daedalus.addweight.data.WeightDao
 import me.renespies.daedalus.database.WeightDatabase
+import me.renespies.daedalus.weight.service.data.Weight
+import me.renespies.daedalus.weight.service.data.WeightDao
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -31,11 +32,17 @@ class WeightDatabaseTest {
 
     @Test
     @Throws(Exception::class)
-    fun writeWeight() {
+    fun readWriteWeight() {
         runBlocking {
             checkAll<Int, String> { weight, note ->
                 val optionalNote = if (note.length % 2 == 0) null else note
                 weightDao.insert(Weight(weight = weight, note = optionalNote))
+                val weights = weightDao.weights()
+                weights.first().first().also {
+                    assert(it.weight == weight)
+                    assert(it.note == optionalNote)
+                }
+                weightDao.clear()
             }
         }
     }

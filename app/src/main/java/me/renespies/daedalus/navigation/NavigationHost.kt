@@ -1,5 +1,6 @@
 package me.renespies.daedalus.navigation
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -11,10 +12,11 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import me.renespies.daedalus.addweight.AddWeightScreen
 import me.renespies.daedalus.compose.greenEngineeringMenuGestureDetector
 import me.renespies.daedalus.greenengineeringmenu.GreenEngineeringMenuScreen
 import me.renespies.daedalus.greenengineeringmenu.TypographyGalleryScreen
+import me.renespies.daedalus.weight.addweight.AddWeightScreen
+import me.renespies.daedalus.weight.weighthistory.WeightHistoryScreen
 
 @Composable
 fun NavigationHost(controller: NavHostController, paddingValues: PaddingValues) {
@@ -42,10 +44,16 @@ fun NavigationHost(controller: NavHostController, paddingValues: PaddingValues) 
             composable(
                 route = Routes.Home,
                 content = {
-                    Button(
-                        onClick = { controller.navigate(Routes.AddWeight) },
-                        content = { Text("add weight", style = MaterialTheme.typography.button) }
-                    )
+                    Column {
+                        Button(
+                            onClick = { controller.navigate(Routes.AddWeight) },
+                            content = { Text("add weight", style = MaterialTheme.typography.button) }
+                        )
+                        Button(
+                            onClick = { controller.navigate(Routes.WeightHistory) },
+                            content = { Text("history", style = MaterialTheme.typography.button) }
+                        )
+                    }
                 }
             )
             composable(
@@ -55,6 +63,10 @@ fun NavigationHost(controller: NavHostController, paddingValues: PaddingValues) 
             composable(
                 route = Routes.AddWeight,
                 content = { AddWeightScreen(controller::navigateUp) }
+            )
+            composable(
+                route = Routes.WeightHistory,
+                content = { WeightHistoryScreen(controller::navigateUp) }
             )
         }
     )

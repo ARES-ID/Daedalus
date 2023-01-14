@@ -1,4 +1,4 @@
-package me.renespies.daedalus.addweight.data
+package me.renespies.daedalus.weight.service.data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
