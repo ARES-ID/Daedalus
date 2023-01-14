@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import me.renespies.daedalus.addweight.data.Weight
-import me.renespies.daedalus.addweight.data.WeightDao
+import me.renespies.daedalus.weight.service.data.Weight
+import me.renespies.daedalus.weight.service.data.WeightDao
 
 @Database(entities = [Weight::class], version = 1)
 abstract class WeightDatabase : RoomDatabase() {

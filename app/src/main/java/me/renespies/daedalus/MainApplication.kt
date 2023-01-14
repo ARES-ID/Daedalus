@@ -1,9 +1,9 @@
 package me.renespies.daedalus
 
 import android.app.Application
-import me.renespies.daedalus.addweight.AddWeightService
-import me.renespies.daedalus.addweight.data.WeightDao
 import me.renespies.daedalus.database.WeightDatabase
+import me.renespies.daedalus.weight.service.WeightService
+import me.renespies.daedalus.weight.service.data.WeightDao
 import timber.log.Timber
 
 class MainApplication : Application() {
@@ -13,8 +13,8 @@ class MainApplication : Application() {
     private val weightDao: WeightDao
         get() = weightDatabase.weightDao()
 
-    val addWeightService by lazy {
-        AddWeightService(weightDao)
+    val weightService by lazy {
+        WeightService(weightDao)
     }
 
     override fun onCreate() {

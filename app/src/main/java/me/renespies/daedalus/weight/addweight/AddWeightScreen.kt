@@ -1,4 +1,4 @@
-package me.renespies.daedalus.addweight
+package me.renespies.daedalus.weight.addweight
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -20,11 +20,11 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import me.renespies.daedalus.addweight.data.Weight
 import me.renespies.daedalus.compose.ToolbarContent
 import me.renespies.daedalus.compose.horizontalSpacingM
 import me.renespies.daedalus.compose.verticalSpacingXXL
 import me.renespies.daedalus.ui.theme.Spacings
+import me.renespies.daedalus.weight.service.data.Weight
 
 @Composable
 fun AddWeightScreen(
