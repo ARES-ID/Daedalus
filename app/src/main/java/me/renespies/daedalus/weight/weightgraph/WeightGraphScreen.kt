@@ -2,11 +2,9 @@ package me.renespies.daedalus.weight.weightgraph
 
 import android.graphics.Point
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -25,10 +23,8 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntSize
 import androidx.lifecycle.viewmodel.compose.viewModel
-import me.renespies.daedalus.ui.theme.Spacings
 import kotlin.math.roundToInt
 
 @OptIn(ExperimentalTextApi::class)
@@ -47,10 +43,7 @@ fun WeightGraphScreen(
 @ExperimentalTextApi
 @Composable
 fun Graph(coordinates: Set<Point>) {
-    Box(
-        modifier = Modifier.border(width = Dp.Hairline, color = Color.White),
-        contentAlignment = Alignment.Center
-    ) {
+    Box(contentAlignment = Alignment.Center) {
         val textMeasurer = rememberTextMeasurer()
         val textStyle = MaterialTheme.typography.overline
         val thousand = with(LocalDensity.current) { 1000.toDp() }
@@ -62,7 +55,7 @@ fun Graph(coordinates: Set<Point>) {
         ) {
             val axisPadding = calculateAxisPadding(coordinates, textMeasurer, textStyle)
             drawYAxis(coordinates, axisPadding, textMeasurer, textStyle)
-            drawXAxis(coordinates, axisPadding)
+            drawXAxis(coordinates, axisPadding, textMeasurer, textStyle)
             drawPoints(coordinates, axisPadding)
         }
     }
@@ -75,6 +68,14 @@ private fun calculateYAxisSections(area: Rect, yAxisData: Set<Int>): Map<Offset,
         Offset(area.right, area.top + sectionHeight * index)
     }.reversed()
     return sectionOffsets.mapIndexed { index, offset -> offset to (yAxisData.min() + (sectionDataStep * index)).roundToInt() }.toMap()
+}
+
+private fun calculateXAxisSections(area: Rect, xAxisData: Set<Int>): Map<Offset, Int> {
+    val sectionWidth = area.width / (xAxisData.count() - 1)
+    val sectionOffsets = List(xAxisData.size) { index ->
+        Offset(area.left + sectionWidth * index, area.top)
+    }
+    return sectionOffsets.mapIndexed { index, offset -> offset to xAxisData.elementAt(index) }.toMap()
 }
 
 private fun DrawScope.drawPoints(dataSet: Set<Point>, axisPadding: Int) {
@@ -117,14 +118,17 @@ private fun DrawScope.drawYAxis(dataSet: Set<Point>, axisPadding: Int, textMeasu
     val sections = calculateYAxisSections(area, dataSet.map { it.y }.toSet())
     drawLine(
         color = Color.White,
-        start = Offset(area.right, area.top),
-        end = Offset(area.right, area.bottom)
+        start = Offset(area.right, 0f),
+        end = Offset(area.right, size.height)
     )
     sections.forEach { (offset, data) ->
         drawText(
             textMeasurer = textMeasurer,
             text = data.toString(),
-            topLeft = offset,
+            topLeft = Offset(
+                offset.x - (textMeasurer.measure(buildAnnotatedString { append(data.toString()) }, textStyle).size.width),
+                offset.y - (textMeasurer.measure(buildAnnotatedString { append(data.toString()) }, textStyle).size.height / 2)
+            ),
             style = textStyle.copy(color = Color.White)
         )
         drawLine(
@@ -142,18 +146,26 @@ private fun DrawScope.drawYAxis(dataSet: Set<Point>, axisPadding: Int, textMeasu
 //    }
 }
 
-private fun DrawScope.drawXAxis(dataSet: Set<Point>, axisPadding: Int) {
+@ExperimentalTextApi
+private fun DrawScope.drawXAxis(dataSet: Set<Point>, axisPadding: Int, textMeasurer: TextMeasurer, textStyle: TextStyle) {
     val area = calculateXAxisArea(axisPadding)
+    val sections = calculateXAxisSections(area, dataSet.map { it.x }.toSet())
     drawLine(
         color = Color.White,
-        start = Offset(area.left, area.top),
-        end = Offset(area.right, area.top)
+        start = Offset(0f, area.top),
+        end = Offset(size.width, area.top)
     )
-    dataSet.forEachIndexed { index, _ ->
-        drawLine(
+    sections.forEach { (offset, data) ->
+        drawText(
+            textMeasurer = textMeasurer,
+            text = sections.values.indexOf(data).toString(),
+            topLeft = offset,
+            style = textStyle.copy(color = Color.White)
+        )
+        drawCircle(
             color = Color.White,
-            start = Offset(area.left + ((area.width / (dataSet.count() - 1)) * index), area.top),
-            end = Offset(area.left + ((area.width / (dataSet.count() - 1)) * index), area.bottom - area.height / 2)
+            radius = 5f,
+            center = offset
         )
     }
 }
@@ -171,7 +183,7 @@ private fun DrawScope.calculateYAxisArea(padding: Int): Rect {
 }
 
 private fun DrawScope.calculateXAxisArea(padding: Int): Rect {
-    return Rect(topLeft = Offset(padding.toFloat(), size.height - padding), bottomRight = Offset(size.width, size.height))
+    return Rect(topLeft = Offset(padding + 30f, size.height - padding), bottomRight = Offset(size.width - 30f, size.height))
 }
 
 @ExperimentalTextApi
