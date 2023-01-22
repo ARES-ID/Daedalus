@@ -34,7 +34,7 @@ fun WeightGraphScreen(
     viewModel: WeightGraphViewModel = viewModel(factory = WeightGraphViewModel.Factory)
 ) {
     val weights by viewModel.weights.collectAsState()
-    val data = weights.map { Point(it.dateTime.nano, it.weight) }
+    val data = weights.map { Point(it.dateTime.toEpochSecond().toInt(), it.weight) }
     if (data.isNotEmpty()) {
         Graph(coordinates = data.toSet())
     }
@@ -56,7 +56,7 @@ fun Graph(coordinates: Set<Point>) {
             val axisPadding = calculateAxisPadding(coordinates, textMeasurer, textStyle)
             drawYAxis(coordinates, axisPadding, textMeasurer, textStyle)
             drawXAxis(coordinates, axisPadding, textMeasurer, textStyle)
-            drawPoints(coordinates, axisPadding)
+            drawPoints(coordinates, axisPadding, textMeasurer, textStyle)
         }
     }
 }
@@ -78,18 +78,23 @@ private fun calculateXAxisSections(area: Rect, xAxisData: Set<Int>): Map<Offset,
     return sectionOffsets.mapIndexed { index, offset -> offset to xAxisData.elementAt(index) }.toMap()
 }
 
-private fun DrawScope.drawPoints(dataSet: Set<Point>, axisPadding: Int) {
+@ExperimentalTextApi
+private fun DrawScope.drawPoints(dataSet: Set<Point>, axisPadding: Int, textMeasurer: TextMeasurer, textStyle: TextStyle) {
     val area = calculateDataArea(axisPadding)
-    val yAxisStep = area.height / (dataSet.count() - 1)
     val xAxisStep = area.width / (dataSet.count() - 1)
     val offsets = dataSet.sortedBy { it.x }.mapIndexed { index, point ->
-        val yIndex = dataSet.map { it.y }.indexOf(point.y)
-        val offset = Offset((xAxisStep * index) + area.left, area.bottom - (yAxisStep * yIndex))
+        val offset = Offset((xAxisStep * index) + area.left, area.top + area.height - ((area.height / (dataSet.maxOf { it.y } - dataSet.minOf { it.y })) * point.y))
 
         drawCircle(
             color = Color.White,
             center = offset,
             radius = 10f
+        )
+        drawText(
+            textMeasurer = textMeasurer,
+            text = point.y.toString(),
+            topLeft = offset,
+            style = textStyle.copy(color = Color.White)
         )
         offset
     }
@@ -109,7 +114,7 @@ private fun DrawScope.drawPoints(dataSet: Set<Point>, axisPadding: Int) {
 private fun DrawScope.calculateDataArea(axisPadding: Int): Rect {
     val yAxisArea = calculateYAxisArea(axisPadding)
     val xAxisArea = calculateXAxisArea(axisPadding)
-    return Rect(topLeft = yAxisArea.topRight, bottomRight = xAxisArea.topRight)
+    return Rect(topLeft = Offset(xAxisArea.left, yAxisArea.top), bottomRight = Offset(xAxisArea.right, yAxisArea.bottom))
 }
 
 @ExperimentalTextApi
@@ -131,19 +136,17 @@ private fun DrawScope.drawYAxis(dataSet: Set<Point>, axisPadding: Int, textMeasu
             ),
             style = textStyle.copy(color = Color.White)
         )
+        drawCircle(
+            color = Color.White,
+            radius = 5f,
+            center = offset
+        )
         drawLine(
             color = Color.White,
             start = offset,
             end = Offset(size.width, offset.y)
         )
     }
-//    dataSet.forEachIndexed { index, _ ->
-//        drawLine(
-//            color = Color.White,
-//            start = Offset(area.right / 2, (area.height / (dataSet.count() - 1)) * index),
-//            end = Offset(area.right, (area.height / (dataSet.count() - 1)) * index)
-//        )
-//    }
 }
 
 @ExperimentalTextApi
