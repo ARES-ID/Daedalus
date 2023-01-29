@@ -13,6 +13,8 @@ import me.renespies.daedalus.weight.service.WeightService
 class WeightHistoryViewModel private constructor(private val service: WeightService) : ViewModel() {
     val weights = service.weights().stateIn(viewModelScope, SharingStarted.WhileSubscribed(), emptyList())
 
+    suspend fun clearWeights() = service.clearWeights()
+
     companion object {
         val Factory = viewModelFactory {
             initializer {

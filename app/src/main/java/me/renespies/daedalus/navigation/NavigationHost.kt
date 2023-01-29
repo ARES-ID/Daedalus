@@ -54,7 +54,7 @@ fun NavigationHost(controller: NavHostController, paddingValues: PaddingValues) 
                             onClick = { controller.navigate(Routes.WeightHistory) },
                             content = { Text("history", style = MaterialTheme.typography.button) }
                         )
-                        WeightGraphScreen(controller::navigateUp)
+                        WeightGraphScreen()
                     }
                 }
             )
