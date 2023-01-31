@@ -15,6 +15,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.DrawScope
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.TextMeasurer
 import androidx.compose.ui.text.TextStyle
@@ -25,6 +26,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import kotlin.math.pow
 import kotlin.math.roundToInt
 
 @OptIn(ExperimentalTextApi::class)
@@ -32,7 +34,7 @@ import kotlin.math.roundToInt
 fun WeightGraphScreen(viewModel: WeightGraphViewModel = viewModel(factory = WeightGraphViewModel.Factory)) {
     val weights by viewModel.weights.collectAsState()
     val data = weights.map { Point(it.dateTime.toEpochSecond().toInt(), it.weight) }
-    if (data.isNotEmpty()) {
+    if (data.size > 1) {
         Graph(coordinates = data.toSet())
     }
 }
@@ -74,6 +76,12 @@ private fun DrawScope.drawYAxis(dataSet: Set<Point>, axisPadding: Int, textMeasu
         start = Offset(area.right, 0f),
         end = Offset(area.right, size.height)
     )
+    drawRect(
+        color = Color.White,
+        topLeft = area.topLeft,
+        size = area.size,
+        style = Stroke()
+    )
     sections.forEach { (offset, data) ->
         drawText(
             textMeasurer = textMeasurer,
@@ -106,6 +114,12 @@ private fun DrawScope.drawXAxis(dataSet: Set<Point>, axisPadding: Int, textMeasu
         start = Offset(0f, area.top),
         end = Offset(size.width, area.top)
     )
+    drawRect(
+        color = Color.White,
+        topLeft = area.topLeft,
+        size = area.size,
+        style = Stroke()
+    )
     sections.forEach { (offset, data) ->
         drawText(
             textMeasurer = textMeasurer,
@@ -124,10 +138,10 @@ private fun DrawScope.drawXAxis(dataSet: Set<Point>, axisPadding: Int, textMeasu
 @ExperimentalTextApi
 private fun DrawScope.drawPoints(dataSet: Set<Point>, axisPadding: Int, textMeasurer: TextMeasurer, textStyle: TextStyle) {
     val area = calculateDataArea(axisPadding)
-    val xAxisStep = area.width / (dataSet.count() + 1)
-    val yAxisStep = area.height / (dataSet.count() + 1)
+    val xAxisStep = area.width / (dataSet.count() - 1)
+    val yAxisStep = area.height / (dataSet.count() - 1)
     val offsets = dataSet.sortedBy { it.x }.mapIndexed { index, point ->
-        val offset = Offset(xAxisStep * (index + 1) + area.left, yAxisStep * (dataSet.indexOfLast { it.y == point.y } + 1) + area.top)
+        val offset = Offset(xAxisStep * index + area.left, yAxisStep * (dataSet.sortedByDescending { it.y }.indexOf(point)) + area.top)
         drawCircle(
             color = Color.White,
             center = offset,
@@ -154,19 +168,24 @@ private fun DrawScope.drawPoints(dataSet: Set<Point>, axisPadding: Int, textMeas
     }
 }
 
-private fun calculateYAxisSections(area: Rect, yAxisData: Set<Int>): Map<Offset, Int> {
+private fun calculateYAxisSections(area: Rect, yAxisData: Set<Int>): Map<Offset, Float> {
     val sectionDataStep = (yAxisData.max() - yAxisData.min()) / (yAxisData.count().coerceAtMost(4).toFloat())
-    val sectionHeight = area.height / (yAxisData.count() + 1)
+    val sectionHeight = area.height / (yAxisData.count().coerceAtMost(4))
     val sectionOffsets = List(yAxisData.count().coerceAtMost(5)) { index ->
-        Offset(area.right, area.top + sectionHeight * (index + 1))
+        Offset(area.right, area.top + sectionHeight * index)
     }.reversed()
-    return sectionOffsets.mapIndexed { index, offset -> offset to (yAxisData.min() + (sectionDataStep * index)).roundToInt() }.toMap()
+    return sectionOffsets.mapIndexed { index, offset -> offset to (yAxisData.min() + (sectionDataStep * index)).round(1) }.toMap()
+}
+
+private fun Float.round(decimals: Int): Float {
+    val factor = 10.0.pow(decimals)
+    return ((this * factor).roundToInt() / factor).toFloat()
 }
 
 private fun calculateXAxisSections(area: Rect, xAxisData: Set<Int>): Map<Offset, Int> {
-    val sectionWidth = area.width / (xAxisData.count() + 1)
+    val sectionWidth = area.width / (xAxisData.count() - 1)
     val sectionOffsets = List(xAxisData.count()) { index ->
-        Offset(area.left + sectionWidth * (index + 1), area.top)
+        Offset(area.left + sectionWidth * index, area.top)
     }
     return sectionOffsets.mapIndexed { index, offset -> offset to xAxisData.elementAt(index) }.toMap()
 }
@@ -190,12 +209,12 @@ private fun DrawScope.calculateXAxisArea(padding: Int): Rect {
 
 @ExperimentalTextApi
 private fun TextMeasurer.width(point: Point, textStyle: TextStyle): Int {
-    return size(point.y, textStyle).width
+    return size(point.y * 100, textStyle).width
 }
 
 @ExperimentalTextApi
 private fun TextMeasurer.height(point: Point, textStyle: TextStyle): Int {
-    return size(point.x, textStyle).height
+    return size(point.x * 100, textStyle).height
 }
 
 @ExperimentalTextApi
