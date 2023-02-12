@@ -1,9 +1,11 @@
 package me.renespies.daedalus
 
+import android.database.sqlite.SQLiteConstraintException
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
+import io.kotest.assertions.throwables.shouldThrowExactly
 import io.kotest.property.checkAll
-import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.runBlocking
 import me.renespies.daedalus.database.WeightDatabase
 import me.renespies.daedalus.weight.service.data.Weight
@@ -34,11 +36,17 @@ class WeightDatabaseTest {
     @Throws(Exception::class)
     fun readWriteWeight() {
         runBlocking {
-            checkAll<Int, String> { weight, note ->
+            checkAll<Float, String> { weight, note ->
                 val optionalNote = if (note.length % 2 == 0) null else note
-                weightDao.insert(Weight(weight = weight, note = optionalNote))
+
+                if (weight.isNaN()) {
+                    shouldThrowExactly<SQLiteConstraintException> {
+                        weightDao.insert(Weight(weight = weight, note = optionalNote))
+                    }
+                } else weightDao.insert(Weight(weight = weight, note = optionalNote))
+
                 val weights = weightDao.weights()
-                weights.first().first().also {
+                weights.firstOrNull()?.firstOrNull()?.also {
                     assert(it.weight == weight)
                     assert(it.note == optionalNote)
                 }

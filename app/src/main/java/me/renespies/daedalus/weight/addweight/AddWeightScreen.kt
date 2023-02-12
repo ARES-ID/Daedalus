@@ -41,7 +41,7 @@ fun AddWeightScreen(
                 val note = remember { mutableStateOf<String?>(null) }
                 val coroutineScope = rememberCoroutineScope()
 
-                suspend fun saveWeight(weight: Int, note: String?) {
+                suspend fun saveWeight(weight: Float, note: String?) {
                     viewModel.saveWeight(
                         weight = Weight(
                             weight = weight,
@@ -75,7 +75,7 @@ fun AddWeightScreen(
                 )
                 Button(
                     onClick = {
-                        weight.value?.toInt()?.let {
+                        weight.value?.toFloatOrNull()?.let {
                             coroutineScope.launch(Dispatchers.IO) {
                                 saveWeight(it, note.value)
                             }
