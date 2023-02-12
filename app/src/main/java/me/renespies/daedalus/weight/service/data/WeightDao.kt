@@ -15,5 +15,5 @@ interface WeightDao {
     fun weights(): Flow<List<Weight>>
 
     @Query("DELETE FROM Weight")
-    fun clear()
+    suspend fun clear()
 }

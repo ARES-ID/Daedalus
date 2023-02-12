@@ -16,6 +16,7 @@ import me.renespies.daedalus.compose.greenEngineeringMenuGestureDetector
 import me.renespies.daedalus.greenengineeringmenu.GreenEngineeringMenuScreen
 import me.renespies.daedalus.greenengineeringmenu.TypographyGalleryScreen
 import me.renespies.daedalus.weight.addweight.AddWeightScreen
+import me.renespies.daedalus.weight.weightgraph.WeightGraphScreen
 import me.renespies.daedalus.weight.weighthistory.WeightHistoryScreen
 
 @Composable
@@ -53,6 +54,7 @@ fun NavigationHost(controller: NavHostController, paddingValues: PaddingValues) 
                             onClick = { controller.navigate(Routes.WeightHistory) },
                             content = { Text("history", style = MaterialTheme.typography.button) }
                         )
+                        WeightGraphScreen()
                     }
                 }
             )

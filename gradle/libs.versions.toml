@@ -26,6 +26,7 @@ androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 timber = "com.jakewharton.timber:timber:5.0.1"
+vico-compose = "com.patrykandpatrick.vico:compose-m3:1.6.3"
 
 # Debug libraries
 debug-androidx-compose-uiTestManifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose" }
