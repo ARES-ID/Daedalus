@@ -1,6 +1,6 @@
 name: Development
 run-name: Development
-on: [ push ]
+on: [ pull_request ]
 jobs:
   development:
     runs-on: macos-latest
@@ -35,8 +35,20 @@ jobs:
           disable-animations: false
           script: echo "Generated AVD snapshot for caching."
 
-      - name: Build
-        run: ./gradlew build
+      - name: Detekt
+        run: ./gradlew detekt
+
+      - name: Ktlint
+        run: ./gradlew ktlintCheck
+
+      - name: Lint
+        run: ./gradlew lintAnalyzeDebug
+
+      - name: Assemble
+        run: ./gradlew assembleDebug
+
+      - name: Unit tests
+        run: ./gradlew check
 
       - name: Run connected tests
         uses: reactivecircus/android-emulator-runner@v2
