@@ -34,7 +34,7 @@ class WeightDatabaseTest {
     @Throws(Exception::class)
     fun readWriteWeight() {
         runBlocking {
-            checkAll<Int, String> { weight, note ->
+            checkAll<Float, String> { weight, note ->
                 val optionalNote = if (note.length % 2 == 0) null else note
                 weightDao.insert(Weight(weight = weight, note = optionalNote))
                 val weights = weightDao.weights()
