@@ -13,6 +13,8 @@ import com.patrykandpatrick.vico.core.chart.values.AxisValuesOverrider
 import com.patrykandpatrick.vico.core.entry.ChartEntryModelProducer
 import me.renespies.daedalus.weight.weightgraph.ui.rememberMarker
 
+private const val YAxisValuePadding = 1.01f
+
 @Composable
 fun WeightGraphScreen(viewModel: WeightGraphViewModel = viewModel(factory = WeightGraphViewModel.Factory)) {
     val weights by viewModel.weights.collectAsState()
@@ -27,7 +29,7 @@ fun WeightGraphScreen(viewModel: WeightGraphViewModel = viewModel(factory = Weig
     }
     val lineProducer = remember(weights) { ChartEntryModelProducer(entries) }
     val axisFormatter = remember { WeightDateAxisFormatter }
-    val valuesOverrider = remember { AxisValuesOverrider.adaptiveYValues(1.01f) }
+    val valuesOverrider = remember { AxisValuesOverrider.adaptiveYValues(YAxisValuePadding) }
 
     Chart(
         chart = lineChart(axisValuesOverrider = valuesOverrider),

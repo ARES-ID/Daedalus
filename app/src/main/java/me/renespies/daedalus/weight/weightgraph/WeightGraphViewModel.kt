@@ -13,7 +13,11 @@ import me.renespies.daedalus.weight.service.WeightService
 import me.renespies.daedalus.weight.service.data.Weight
 
 class WeightGraphViewModel private constructor(private val weightService: WeightService) : ViewModel() {
-    val weights: StateFlow<List<Weight>> = weightService.weights().stateIn(viewModelScope, SharingStarted.WhileSubscribed(), emptyList())
+    val weights: StateFlow<List<Weight>> = weightService.weights().stateIn(
+        scope = viewModelScope,
+        started = SharingStarted.WhileSubscribed(),
+        initialValue = emptyList()
+    )
 
     companion object {
         val Factory = viewModelFactory {

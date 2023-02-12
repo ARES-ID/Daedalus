@@ -34,7 +34,7 @@ internal fun rememberMarker(): Marker {
     }
     val label = textComponent(
         background = labelBackground,
-        lineCount = LABEL_LINE_COUNT,
+        lineCount = LabelLineCount,
         padding = labelPadding,
         typeface = Typeface.MONOSPACE,
     )
@@ -51,44 +51,41 @@ internal fun rememberMarker(): Marker {
         innerPaddingAll = indicatorCenterAndOuterComponentPaddingValue,
     )
     val guideline = lineComponent(
-        MaterialTheme.colors.onSurface.copy(GUIDELINE_ALPHA),
+        MaterialTheme.colors.onSurface.copy(GuidelineAlpha),
         guidelineThickness,
         guidelineShape,
     )
     return remember(label, indicator, guideline) {
         object : MarkerComponent(label, indicator, guideline) {
             init {
-                indicatorSizeDp = INDICATOR_SIZE_DP
+                indicatorSizeDp = IndicatorSizeDp
                 onApplyEntryColor = { entryColor ->
-                    indicatorOuterComponent.color = entryColor.copyColor(INDICATOR_OUTER_COMPONENT_ALPHA)
+                    indicatorOuterComponent.color = entryColor.copyColor(IndicatorOuterComponentAlpha)
                     with(indicatorCenterComponent) {
                         color = entryColor
-                        setShadow(radius = INDICATOR_CENTER_COMPONENT_SHADOW_RADIUS, color = entryColor)
+                        setShadow(radius = IndicatorCenterComponentShadowRadius, color = entryColor)
                     }
                 }
             }
 
             @RequiresApi(Build.VERSION_CODES.Q)
-            override fun getInsets(context: MeasureContext, outInsets: Insets, segmentProperties: SegmentProperties) =
-                with(context) {
-                    outInsets.top = label.getHeight(context) + labelBackgroundShape.tickSizeDp.pixels +
-                            LABEL_BACKGROUND_SHADOW_RADIUS.pixels * SHADOW_RADIUS_MULTIPLIER -
-                            LABEL_BACKGROUND_SHADOW_DY.pixels
-                }
+            override fun getInsets(context: MeasureContext, outInsets: Insets, segmentProperties: SegmentProperties) = with(context) {
+                outInsets.top = label.getHeight(context) + labelBackgroundShape.tickSizeDp.pixels + LabelBackgroundShadowRadius.pixels * ShadowRadiusMultiplier - LabelBackgroundShadowDy.pixels
+            }
         }
     }
 }
 
-private const val LABEL_BACKGROUND_SHADOW_RADIUS = 4f
-private const val LABEL_BACKGROUND_SHADOW_DY = 2f
-private const val LABEL_LINE_COUNT = 1
-private const val GUIDELINE_ALPHA = .2f
-private const val INDICATOR_SIZE_DP = 36f
-private const val INDICATOR_OUTER_COMPONENT_ALPHA = 32
-private const val INDICATOR_CENTER_COMPONENT_SHADOW_RADIUS = 12f
-private const val GUIDELINE_DASH_LENGTH_DP = 8f
-private const val GUIDELINE_GAP_LENGTH_DP = 4f
-private const val SHADOW_RADIUS_MULTIPLIER = 1.3f
+private const val LabelBackgroundShadowRadius = 4f
+private const val LabelBackgroundShadowDy = 2f
+private const val LabelLineCount = 1
+private const val GuidelineAlpha = .2f
+private const val IndicatorSizeDp = 36f
+private const val IndicatorOuterComponentAlpha = 32
+private const val IndicatorCenterComponentShadowRadius = 12f
+private const val GuidelineDashLengthDp = 8f
+private const val GuidelineGapLengthDp = 4f
+private const val ShadowRadiusMultiplier = 1.3f
 
 private val labelBackgroundShape = MarkerCorneredShape(Corner.FullyRounded)
 private val labelHorizontalPaddingValue = 8.dp
@@ -97,4 +94,4 @@ private val labelPadding = dimensionsOf(labelHorizontalPaddingValue, labelVertic
 private val indicatorInnerAndCenterComponentPaddingValue = 5.dp
 private val indicatorCenterAndOuterComponentPaddingValue = 10.dp
 private val guidelineThickness = 2.dp
-private val guidelineShape = DashedShape(Shapes.pillShape, GUIDELINE_DASH_LENGTH_DP, GUIDELINE_GAP_LENGTH_DP)
+private val guidelineShape = DashedShape(Shapes.pillShape, GuidelineDashLengthDp, GuidelineGapLengthDp)
