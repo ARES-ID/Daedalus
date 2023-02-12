@@ -63,6 +63,7 @@ android {
 dependencies {
     implementation(libs.bundles.androidx)
     implementation(libs.timber)
+    implementation(libs.vico.compose)
     testImplementation(libs.test.junit)
     androidTestImplementation(libs.bundles.androidTest)
     debugImplementation(libs.bundles.debug)
