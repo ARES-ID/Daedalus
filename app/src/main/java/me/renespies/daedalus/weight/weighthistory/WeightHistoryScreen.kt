@@ -4,9 +4,10 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Button
-import androidx.compose.material.Card
-import androidx.compose.material.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.Card
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -18,6 +19,7 @@ import me.renespies.daedalus.compose.ToolbarContent
 import me.renespies.daedalus.ui.theme.Spacings
 import java.time.ZonedDateTime
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun WeightHistoryScreen(
     onBack: () -> Unit,

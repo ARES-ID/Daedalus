@@ -1,6 +1,6 @@
 package me.renespies.daedalus.ui.theme
 
-import androidx.compose.material.Typography
+import androidx.compose.material3.Typography
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -12,4 +12,4 @@ private val fonts = FontFamily(
     Font(R.font.poppins_light, weight = FontWeight.Light),
 )
 
-val Typography = Typography(defaultFontFamily = fonts)
+val Typography = Typography()

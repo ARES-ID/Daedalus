@@ -9,8 +9,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
@@ -22,6 +23,7 @@ import me.renespies.daedalus.compose.horizontalSpacingM
 import me.renespies.daedalus.compose.verticalSpacingXXL
 import me.renespies.daedalus.ui.theme.Spacings
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TypographyGalleryScreen(onBack: () -> Unit) {
     ToolbarContent(title = stringResource(R.string.green_engineering_menu_item_typography_title), onBack) {
@@ -43,7 +45,7 @@ fun TypographyGalleryScreen(onBack: () -> Unit) {
                     modifier = Modifier
                         .horizontalSpacingM()
                         .typographyBorder(),
-                    style = MaterialTheme.typography.button
+//                    style = MaterialTheme.typography.button TODO
                 )
                 Spacer(modifier = Modifier.height(Spacings.M))
                 Text(
@@ -51,7 +53,7 @@ fun TypographyGalleryScreen(onBack: () -> Unit) {
                     modifier = Modifier
                         .horizontalSpacingM()
                         .typographyBorder(),
-                    style = MaterialTheme.typography.caption
+//                    style = MaterialTheme.typography.caption TODO
                 )
                 Spacer(modifier = Modifier.height(Spacings.M))
                 Text(
@@ -59,7 +61,7 @@ fun TypographyGalleryScreen(onBack: () -> Unit) {
                     modifier = Modifier
                         .horizontalSpacingM()
                         .typographyBorder(),
-                    style = MaterialTheme.typography.overline
+//                    style = MaterialTheme.typography.overline TODO
                 )
             }
         )
@@ -73,7 +75,7 @@ private fun HeadlineTexts() {
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-        style = MaterialTheme.typography.h1
+//        style = MaterialTheme.typography.h1 TODO
     )
     Spacer(modifier = Modifier.height(Spacings.M))
     Text(
@@ -81,7 +83,7 @@ private fun HeadlineTexts() {
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-        style = MaterialTheme.typography.h2
+//        style = MaterialTheme.typography.h2 TODO
     )
     Spacer(modifier = Modifier.height(Spacings.M))
     Text(
@@ -89,7 +91,7 @@ private fun HeadlineTexts() {
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-        style = MaterialTheme.typography.h3
+//        style = MaterialTheme.typography.h3 TODO
     )
     Spacer(modifier = Modifier.height(Spacings.M))
     Text(
@@ -97,7 +99,7 @@ private fun HeadlineTexts() {
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-        style = MaterialTheme.typography.h4
+//        style = MaterialTheme.typography.h4 TODO
     )
     Spacer(modifier = Modifier.height(Spacings.M))
     Text(
@@ -105,7 +107,7 @@ private fun HeadlineTexts() {
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-        style = MaterialTheme.typography.h5
+//        style = MaterialTheme.typography.h5 TODO
     )
     Spacer(modifier = Modifier.height(Spacings.M))
     Text(
@@ -113,7 +115,7 @@ private fun HeadlineTexts() {
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-        style = MaterialTheme.typography.h6
+//        style = MaterialTheme.typography.h6 TODO
     )
 }
 
@@ -124,7 +126,7 @@ private fun SubtitleTexts() {
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-        style = MaterialTheme.typography.subtitle1
+//        style = MaterialTheme.typography.subtitle1 TODO
     )
     Spacer(modifier = Modifier.height(Spacings.M))
     Text(
@@ -132,7 +134,7 @@ private fun SubtitleTexts() {
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-        style = MaterialTheme.typography.subtitle2
+////        style = MaterialTheme.typography.subtitle2 TODO
     )
 }
 
@@ -143,7 +145,7 @@ private fun BodyTexts() {
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-        style = MaterialTheme.typography.body1
+//        style = MaterialTheme.typography.body1 TODO
     )
     Spacer(modifier = Modifier.height(Spacings.M))
     Text(
@@ -151,7 +153,7 @@ private fun BodyTexts() {
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-        style = MaterialTheme.typography.body2
+//        style = MaterialTheme.typography.body2 TODO
     )
 }
 
@@ -159,7 +161,7 @@ private fun Modifier.typographyBorder() = composed {
     border(
         border = BorderStroke(
             width = Dp.Hairline,
-            color = MaterialTheme.colors.onBackground
+            color = MaterialTheme.colorScheme.onBackground
         )
     )
 }

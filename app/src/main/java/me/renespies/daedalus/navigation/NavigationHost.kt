@@ -4,9 +4,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -48,11 +47,11 @@ fun NavigationHost(controller: NavHostController, paddingValues: PaddingValues) 
                     Column {
                         Button(
                             onClick = { controller.navigate(Routes.AddWeight) },
-                            content = { Text("add weight", style = MaterialTheme.typography.button) }
+                            content = { Text("add weight") }
                         )
                         Button(
                             onClick = { controller.navigate(Routes.WeightHistory) },
-                            content = { Text("history", style = MaterialTheme.typography.button) }
+                            content = { Text("history") }
                         )
                         WeightGraphScreen()
                     }

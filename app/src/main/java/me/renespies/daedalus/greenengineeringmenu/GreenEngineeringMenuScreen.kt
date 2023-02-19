@@ -8,9 +8,10 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.Card
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -21,6 +22,7 @@ import me.renespies.daedalus.compose.verticalSpacingXXL
 import me.renespies.daedalus.navigation.Route
 import me.renespies.daedalus.ui.theme.Spacings
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GreenEngineeringMenuScreen(onBack: () -> Unit, navigateToItem: (Route) -> Unit) {
     ToolbarContent(title = stringResource(R.string.green_engineering_menu_title), onBack = onBack) {
@@ -57,7 +59,7 @@ fun GreenEngineeringMenuEntry(
         Text(
             text = item.name,
             modifier = Modifier.padding(Spacings.M),
-            style = MaterialTheme.typography.body1
+            style = MaterialTheme.typography.bodyLarge
         )
     }
 }
