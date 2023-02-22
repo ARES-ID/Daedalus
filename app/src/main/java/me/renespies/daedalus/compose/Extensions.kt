@@ -1,6 +1,7 @@
 package me.renespies.daedalus.compose
 
 import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -40,7 +41,7 @@ fun Modifier.greenEngineeringMenuGestureDetector(vararg keys: Any?, onDetection:
 
 @ExperimentalMaterial3Api
 @Composable
-fun ToolbarContent(title: String, onBack: () -> Unit, content: @Composable (PaddingValues) -> Unit) {
+fun ToolbarContent(title: String, onBack: () -> Unit, content: @Composable () -> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -63,6 +64,10 @@ fun ToolbarContent(title: String, onBack: () -> Unit, content: @Composable (Padd
                 }
             )
         },
-        content = content,
+        content = {
+            Box(Modifier.padding(it)) {
+                content()
+            }
+        },
     )
 }
