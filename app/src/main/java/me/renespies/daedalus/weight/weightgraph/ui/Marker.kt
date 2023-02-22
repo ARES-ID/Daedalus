@@ -3,7 +3,7 @@ package me.renespies.daedalus.weight.weightgraph.ui
 import android.graphics.Typeface
 import android.os.Build
 import androidx.annotation.RequiresApi
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
@@ -28,7 +28,7 @@ import com.patrykandpatrick.vico.core.marker.Marker
 
 @Composable
 internal fun rememberMarker(): Marker {
-    val labelBackgroundColor = MaterialTheme.colors.surface
+    val labelBackgroundColor = MaterialTheme.colorScheme.surface
     val labelBackground = remember(labelBackgroundColor) {
         ShapeComponent(labelBackgroundShape, labelBackgroundColor.toArgb())
     }
@@ -38,7 +38,7 @@ internal fun rememberMarker(): Marker {
         padding = labelPadding,
         typeface = Typeface.MONOSPACE,
     )
-    val indicatorInnerComponent = shapeComponent(Shapes.pillShape, MaterialTheme.colors.surface)
+    val indicatorInnerComponent = shapeComponent(Shapes.pillShape, MaterialTheme.colorScheme.surface)
     val indicatorCenterComponent = shapeComponent(Shapes.pillShape, Color.White)
     val indicatorOuterComponent = shapeComponent(Shapes.pillShape, Color.White)
     val indicator = overlayingComponent(
@@ -51,7 +51,7 @@ internal fun rememberMarker(): Marker {
         innerPaddingAll = indicatorCenterAndOuterComponentPaddingValue,
     )
     val guideline = lineComponent(
-        MaterialTheme.colors.onSurface.copy(GuidelineAlpha),
+        MaterialTheme.colorScheme.onSurface.copy(GuidelineAlpha),
         guidelineThickness,
         guidelineShape,
     )

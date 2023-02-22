@@ -3,6 +3,7 @@ package me.renespies.daedalus
 import android.database.sqlite.SQLiteConstraintException
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
+import androidx.test.filters.SmallTest
 import io.kotest.assertions.throwables.shouldThrowExactly
 import io.kotest.property.checkAll
 import kotlinx.coroutines.flow.firstOrNull
@@ -33,6 +34,7 @@ class WeightDatabaseTest {
     }
 
     @Test
+    @SmallTest
     @Throws(Exception::class)
     fun readWriteWeight() {
         runBlocking {

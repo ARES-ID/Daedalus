@@ -6,10 +6,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -26,6 +26,7 @@ import me.renespies.daedalus.compose.verticalSpacingXXL
 import me.renespies.daedalus.ui.theme.Spacings
 import me.renespies.daedalus.weight.service.data.Weight
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AddWeightScreen(
     onBack: () -> Unit,
@@ -81,7 +82,7 @@ fun AddWeightScreen(
                             }
                         }
                     },
-                    content = { Text("Add", style = MaterialTheme.typography.button) },
+                    content = { Text("Add") },
                     modifier = Modifier
                         .fillMaxWidth()
                         .horizontalSpacingM()
