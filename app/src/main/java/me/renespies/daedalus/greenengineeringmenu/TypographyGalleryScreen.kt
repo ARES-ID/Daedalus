@@ -3,9 +3,7 @@ package me.renespies.daedalus.greenengineeringmenu
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -19,9 +17,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import me.renespies.daedalus.R
 import me.renespies.daedalus.compose.ToolbarContent
+import me.renespies.daedalus.compose.VerticalSpacerM
 import me.renespies.daedalus.compose.horizontalSpacingM
 import me.renespies.daedalus.compose.verticalSpacingXXL
-import me.renespies.daedalus.ui.theme.Spacings
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -34,126 +32,152 @@ fun TypographyGalleryScreen(onBack: () -> Unit) {
                 .verticalSpacingXXL()
                 .navigationBarsPadding(),
             content = {
+                DisplayTexts()
+                VerticalSpacerM()
                 HeadlineTexts()
-                Spacer(modifier = Modifier.height(Spacings.M))
-                SubtitleTexts()
-                Spacer(modifier = Modifier.height(Spacings.M))
+                VerticalSpacerM()
+                TitleTexts()
+                VerticalSpacerM()
+                LabelTexts()
+                VerticalSpacerM()
                 BodyTexts()
-                Spacer(modifier = Modifier.height(Spacings.M))
-                Text(
-                    text = "button",
-                    modifier = Modifier
-                        .horizontalSpacingM()
-                        .typographyBorder(),
-//                    style = MaterialTheme.typography.button TODO
-                )
-                Spacer(modifier = Modifier.height(Spacings.M))
-                Text(
-                    text = "caption",
-                    modifier = Modifier
-                        .horizontalSpacingM()
-                        .typographyBorder(),
-//                    style = MaterialTheme.typography.caption TODO
-                )
-                Spacer(modifier = Modifier.height(Spacings.M))
-                Text(
-                    text = "overline",
-                    modifier = Modifier
-                        .horizontalSpacingM()
-                        .typographyBorder(),
-//                    style = MaterialTheme.typography.overline TODO
-                )
             }
         )
     }
 }
 
 @Composable
-private fun HeadlineTexts() {
+private fun DisplayTexts() {
     Text(
-        text = "h1",
+        text = "displayLarge",
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-//        style = MaterialTheme.typography.h1 TODO
+        style = MaterialTheme.typography.displayLarge
     )
-    Spacer(modifier = Modifier.height(Spacings.M))
+    VerticalSpacerM()
     Text(
-        text = "h2",
+        text = "displayMedium",
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-//        style = MaterialTheme.typography.h2 TODO
+        style = MaterialTheme.typography.displayMedium
     )
-    Spacer(modifier = Modifier.height(Spacings.M))
+    VerticalSpacerM()
     Text(
-        text = "h3",
+        text = "displaySmall",
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-//        style = MaterialTheme.typography.h3 TODO
-    )
-    Spacer(modifier = Modifier.height(Spacings.M))
-    Text(
-        text = "h4",
-        modifier = Modifier
-            .horizontalSpacingM()
-            .typographyBorder(),
-//        style = MaterialTheme.typography.h4 TODO
-    )
-    Spacer(modifier = Modifier.height(Spacings.M))
-    Text(
-        text = "h5",
-        modifier = Modifier
-            .horizontalSpacingM()
-            .typographyBorder(),
-//        style = MaterialTheme.typography.h5 TODO
-    )
-    Spacer(modifier = Modifier.height(Spacings.M))
-    Text(
-        text = "h6",
-        modifier = Modifier
-            .horizontalSpacingM()
-            .typographyBorder(),
-//        style = MaterialTheme.typography.h6 TODO
+        style = MaterialTheme.typography.displaySmall
     )
 }
 
 @Composable
-private fun SubtitleTexts() {
+private fun HeadlineTexts() {
     Text(
-        text = "subtitle1",
+        text = "headlineLarge",
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-//        style = MaterialTheme.typography.subtitle1 TODO
+        style = MaterialTheme.typography.headlineLarge
     )
-    Spacer(modifier = Modifier.height(Spacings.M))
+    VerticalSpacerM()
     Text(
-        text = "subtitle2",
+        text = "headlineMedium",
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-////        style = MaterialTheme.typography.subtitle2 TODO
+        style = MaterialTheme.typography.headlineMedium
+    )
+    VerticalSpacerM()
+    Text(
+        text = "headlineSmall",
+        modifier = Modifier
+            .horizontalSpacingM()
+            .typographyBorder(),
+        style = MaterialTheme.typography.headlineSmall
+    )
+}
+
+@Composable
+private fun TitleTexts() {
+    Text(
+        text = "titleLarge",
+        modifier = Modifier
+            .horizontalSpacingM()
+            .typographyBorder(),
+        style = MaterialTheme.typography.titleLarge
+    )
+    VerticalSpacerM()
+    Text(
+        text = "titleMedium",
+        modifier = Modifier
+            .horizontalSpacingM()
+            .typographyBorder(),
+        style = MaterialTheme.typography.titleMedium
+    )
+    VerticalSpacerM()
+    Text(
+        text = "titleSmall",
+        modifier = Modifier
+            .horizontalSpacingM()
+            .typographyBorder(),
+        style = MaterialTheme.typography.titleSmall
+    )
+}
+
+@Composable
+private fun LabelTexts() {
+    Text(
+        text = "labelLarge",
+        modifier = Modifier
+            .horizontalSpacingM()
+            .typographyBorder(),
+        style = MaterialTheme.typography.labelLarge
+    )
+    VerticalSpacerM()
+    Text(
+        text = "labelMedium",
+        modifier = Modifier
+            .horizontalSpacingM()
+            .typographyBorder(),
+        style = MaterialTheme.typography.labelMedium
+    )
+    VerticalSpacerM()
+    Text(
+        text = "labelSmall",
+        modifier = Modifier
+            .horizontalSpacingM()
+            .typographyBorder(),
+        style = MaterialTheme.typography.labelSmall
     )
 }
 
 @Composable
 private fun BodyTexts() {
     Text(
-        text = "body1",
+        text = "bodyLarge",
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-//        style = MaterialTheme.typography.body1 TODO
+        style = MaterialTheme.typography.bodyLarge
     )
-    Spacer(modifier = Modifier.height(Spacings.M))
+    VerticalSpacerM()
     Text(
-        text = "body2",
+        text = "bodyMedium",
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-//        style = MaterialTheme.typography.body2 TODO
+        style = MaterialTheme.typography.bodyMedium
+    )
+    VerticalSpacerM()
+    Text(
+        text = "bodySmall",
+        modifier = Modifier
+            .horizontalSpacingM()
+            .typographyBorder(),
+        style = MaterialTheme.typography.bodySmall
     )
 }
 

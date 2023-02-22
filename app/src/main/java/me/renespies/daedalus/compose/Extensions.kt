@@ -2,7 +2,6 @@ package me.renespies.daedalus.compose
 
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -29,6 +28,11 @@ fun Modifier.horizontalSpacingM() = padding(horizontal = Spacings.M)
 @Composable
 fun VerticalSpacerXL() {
     Spacer(modifier = Modifier.height(Spacings.XL))
+}
+
+@Composable
+fun VerticalSpacerM() {
+    Spacer(modifier = Modifier.height(Spacings.M))
 }
 
 fun Modifier.greenEngineeringMenuGestureDetector(vararg keys: Any?, onDetection: () -> Unit): Modifier {
