@@ -12,6 +12,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import me.renespies.daedalus.compose.greenEngineeringMenuGestureDetector
+import me.renespies.daedalus.greenengineeringmenu.ButtonGalleryScreen
 import me.renespies.daedalus.greenengineeringmenu.GreenEngineeringMenuScreen
 import me.renespies.daedalus.greenengineeringmenu.TypographyGalleryScreen
 import me.renespies.daedalus.weight.addweight.AddWeightScreen
@@ -68,6 +69,10 @@ fun NavigationHost(controller: NavHostController, paddingValues: PaddingValues) 
             composable(
                 route = Routes.WeightHistory,
                 content = { WeightHistoryScreen(controller::navigateUp) }
+            )
+            composable(
+                route = Routes.Button,
+                content = { ButtonGalleryScreen(controller::navigateUp) }
             )
         }
     )

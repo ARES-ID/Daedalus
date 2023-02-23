@@ -8,4 +8,5 @@ object Routes {
     const val Home = "home"
     const val AddWeight = "addWeight"
     const val WeightHistory = "weightHistory"
+    const val Button = "button"
 }

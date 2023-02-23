@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -33,6 +34,11 @@ fun VerticalSpacerXL() {
 @Composable
 fun VerticalSpacerM() {
     Spacer(modifier = Modifier.height(Spacings.M))
+}
+
+@Composable
+fun HorizontalSpacerM() {
+    Spacer(modifier = Modifier.width(Spacings.M))
 }
 
 fun Modifier.greenEngineeringMenuGestureDetector(vararg keys: Any?, onDetection: () -> Unit): Modifier {
