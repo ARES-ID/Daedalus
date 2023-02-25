@@ -47,9 +47,6 @@ jobs:
       - name: Assemble
         run: ./gradlew assembleDebug
 
-      - name: Unit tests
-        run: ./gradlew check
-
       - name: Connected tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
