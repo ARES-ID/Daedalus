@@ -1,9 +1,7 @@
 package me.renespies.daedalus.navigation
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,13 +18,12 @@ import me.renespies.daedalus.weight.weightgraph.WeightGraphScreen
 import me.renespies.daedalus.weight.weighthistory.WeightHistoryScreen
 
 @Composable
-fun NavigationHost(controller: NavHostController, paddingValues: PaddingValues) {
+fun NavigationHost(controller: NavHostController) {
     NavHost(
         navController = controller,
         startDestination = Routes.Home,
         modifier = Modifier
             .fillMaxSize()
-            .padding(paddingValues)
             .greenEngineeringMenuGestureDetector("navigationHost") {
                 if (controller.backQueue.none { it.destination.route == Routes.GreenEngineeringMenu }) {
                     controller.navigate(Routes.GreenEngineeringMenu)
