@@ -1,9 +1,6 @@
 package me.renespies.daedalus.navigation
 
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Button
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -13,8 +10,8 @@ import me.renespies.daedalus.compose.greenEngineeringMenuGestureDetector
 import me.renespies.daedalus.greenengineeringmenu.ButtonGalleryScreen
 import me.renespies.daedalus.greenengineeringmenu.GreenEngineeringMenuScreen
 import me.renespies.daedalus.greenengineeringmenu.TypographyGalleryScreen
+import me.renespies.daedalus.home.HomeScreen
 import me.renespies.daedalus.weight.addweight.AddWeightScreen
-import me.renespies.daedalus.weight.weightgraph.WeightGraphScreen
 import me.renespies.daedalus.weight.weighthistory.WeightHistoryScreen
 
 @Composable
@@ -41,19 +38,7 @@ fun NavigationHost(controller: NavHostController) {
             )
             composable(
                 route = Routes.Home,
-                content = {
-                    Column {
-                        Button(
-                            onClick = { controller.navigate(Routes.AddWeight) },
-                            content = { Text("add weight") }
-                        )
-                        Button(
-                            onClick = { controller.navigate(Routes.WeightHistory) },
-                            content = { Text("history") }
-                        )
-                        WeightGraphScreen()
-                    }
-                }
+                content = { HomeScreen() }
             )
             composable(
                 route = Routes.Typography,
