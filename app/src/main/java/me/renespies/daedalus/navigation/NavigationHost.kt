@@ -38,7 +38,12 @@ fun NavigationHost(controller: NavHostController) {
             )
             composable(
                 route = Routes.Home,
-                content = { HomeScreen() }
+                content = {
+                    HomeScreen(
+                        toAddWeight = { controller.navigate(Routes.AddWeight) },
+                        toWeightHistory = { controller.navigate(Routes.WeightHistory) }
+                    )
+                }
             )
             composable(
                 route = Routes.Typography,

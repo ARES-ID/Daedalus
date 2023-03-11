@@ -24,6 +24,7 @@ import me.renespies.daedalus.R
 import me.renespies.daedalus.ui.theme.Spacings
 
 fun Modifier.verticalSpacingXXL() = padding(vertical = Spacings.XXL)
+fun Modifier.verticalSpacingM() = padding(vertical = Spacings.M)
 fun Modifier.horizontalSpacingM() = padding(horizontal = Spacings.M)
 
 @Composable

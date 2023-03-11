@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_title">Deine Statistik</string>
+    <string name="home_add_weight_button_text">Neue Messung hinzufügen</string>
+    <string name="home_weight_history_button_text">Verlauf ansehen</string>
+</resources>
