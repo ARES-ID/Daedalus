@@ -28,19 +28,13 @@ fun Modifier.verticalSpacingM() = padding(vertical = Spacings.M)
 fun Modifier.horizontalSpacingM() = padding(horizontal = Spacings.M)
 
 @Composable
-fun VerticalSpacerXL() {
-    Spacer(modifier = Modifier.height(Spacings.XL))
-}
+fun VerticalSpacerXL() = Spacer(modifier = Modifier.height(Spacings.XL))
 
 @Composable
-fun VerticalSpacerM() {
-    Spacer(modifier = Modifier.height(Spacings.M))
-}
+fun VerticalSpacerM() = Spacer(modifier = Modifier.height(Spacings.M))
 
 @Composable
-fun HorizontalSpacerM() {
-    Spacer(modifier = Modifier.width(Spacings.M))
-}
+fun HorizontalSpacerM() = Spacer(modifier = Modifier.width(Spacings.M))
 
 fun Modifier.greenEngineeringMenuGestureDetector(vararg keys: Any?, onDetection: () -> Unit): Modifier {
     return if (BuildConfig.DEBUG) {
