@@ -26,6 +26,7 @@ androidx-constraintLayout = "androidx.constraintlayout:constraintlayout-compose:
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
+androidx-materialIconsExtended = { module = "androidx.compose.material:material-icons-extended", version.ref = "compose" }
 timber = "com.jakewharton.timber:timber:5.0.1"
 vico-compose = "com.patrykandpatrick.vico:compose-m3:1.6.3"
 accompanist-systemUiController = "com.google.accompanist:accompanist-systemuicontroller:0.27.0"
@@ -58,7 +59,8 @@ androidx = [
     "androidx-room-runtime",
     "androidx-room-ktx",
     "androidx-compose-material3",
-    "androidx-constraintLayout"
+    "androidx-constraintLayout",
+    "androidx-materialIconsExtended"
 ]
 debug = [
     "debug-androidx-compose-uiTestManifest",
