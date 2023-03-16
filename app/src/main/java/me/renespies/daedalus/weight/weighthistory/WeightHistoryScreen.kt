@@ -111,14 +111,14 @@ private fun Avatar(
             .then(modifier),
         content = {
             val color = when (state) {
-                ArrowState.Neutral -> DaedalusTheme.colors.onBackground
+                ArrowState.Neutral -> DaedalusTheme.colors.text
                 ArrowState.Positive -> DaedalusTheme.colors.positive
                 ArrowState.Negative -> DaedalusTheme.colors.negative
             }
             val icon = when (state) {
                 ArrowState.Neutral -> Icons.Outlined.Remove
-                ArrowState.Positive -> Icons.Outlined.ArrowUpward
-                ArrowState.Negative -> Icons.Outlined.ArrowDownward
+                ArrowState.Positive -> Icons.Outlined.ArrowDownward
+                ArrowState.Negative -> Icons.Outlined.ArrowUpward
             }
 
             Icon(
