@@ -38,4 +38,5 @@ object DaedalusTheme {
         get() = LocalDaedalusColors.current
 }
 
-val LocalDaedalusColors: ProvidableCompositionLocal<DaedalusColors> = staticCompositionLocalOf { error("LocalDaedalusColors are not provided!") }
+val LocalDaedalusColors: ProvidableCompositionLocal<DaedalusColors>
+    get() = staticCompositionLocalOf { error("LocalDaedalusColors are not provided!") }
