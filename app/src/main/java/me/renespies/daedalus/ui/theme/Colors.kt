@@ -1,10 +1,8 @@
 package me.renespies.daedalus.ui.theme
 
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.lightColorScheme
 import androidx.compose.ui.graphics.Color
 
-private interface DaedalusColors {
+interface DaedalusColors {
     val primary: Color
     val onPrimary: Color
     val primaryContainer: Color
@@ -34,9 +32,11 @@ private interface DaedalusColors {
     val surfaceTint: Color
     val outlineVariant: Color
     val scrim: Color
+    val positive: Color
+    val negative: Color
 }
 
-private object DaedalusLightColors : DaedalusColors {
+object DaedalusLightColors : DaedalusColors {
     override val primary: Color
         get() = Color(0xFF006C4D)
     override val onPrimary: Color
@@ -95,9 +95,13 @@ private object DaedalusLightColors : DaedalusColors {
         get() = Color(0xFF006C4D)
     override val scrim: Color
         get() = Color(0xFFBFC9C2)
+    override val positive: Color
+        get() = Color(0xFF009900)
+    override val negative: Color
+        get() = Color(0xFFEB0D3F)
 }
 
-private object DaedalusDarkColors : DaedalusColors {
+object DaedalusDarkColors : DaedalusColors {
     override val primary: Color
         get() = Color(0xFF6BDBAD)
     override val onPrimary: Color
@@ -156,68 +160,8 @@ private object DaedalusDarkColors : DaedalusColors {
         get() = Color(0xFF6BDBAD)
     override val scrim: Color
         get() = Color(0xFF404944)
+    override val positive: Color
+        get() = Color(0xFF00A800)
+    override val negative: Color
+        get() = Color(0xFFFD2C4E)
 }
-
-val LightColors = lightColorScheme(
-    primary = DaedalusLightColors.primary,
-    onPrimary = DaedalusLightColors.onPrimary,
-    primaryContainer = DaedalusLightColors.primaryContainer,
-    onPrimaryContainer = DaedalusLightColors.onPrimaryContainer,
-    secondary = DaedalusLightColors.secondary,
-    onSecondary = DaedalusLightColors.onSecondary,
-    secondaryContainer = DaedalusLightColors.secondaryContainer,
-    onSecondaryContainer = DaedalusLightColors.onSecondaryContainer,
-    tertiary = DaedalusLightColors.tertiary,
-    onTertiary = DaedalusLightColors.onTertiary,
-    tertiaryContainer = DaedalusLightColors.tertiaryContainer,
-    onTertiaryContainer = DaedalusLightColors.onTertiaryContainer,
-    error = DaedalusLightColors.error,
-    errorContainer = DaedalusLightColors.errorContainer,
-    onError = DaedalusLightColors.onError,
-    onErrorContainer = DaedalusLightColors.onErrorContainer,
-    background = DaedalusLightColors.background,
-    onBackground = DaedalusLightColors.onBackground,
-    surface = DaedalusLightColors.surface,
-    onSurface = DaedalusLightColors.onSurface,
-    surfaceVariant = DaedalusLightColors.surfaceVariant,
-    onSurfaceVariant = DaedalusLightColors.onSurfaceVariant,
-    outline = DaedalusLightColors.outline,
-    inverseOnSurface = DaedalusLightColors.inverseOnSurface,
-    inverseSurface = DaedalusLightColors.inverseSurface,
-    inversePrimary = DaedalusLightColors.inversePrimary,
-    surfaceTint = DaedalusLightColors.surfaceTint,
-    outlineVariant = DaedalusLightColors.outlineVariant,
-    scrim = DaedalusLightColors.scrim,
-)
-
-val DarkColors = darkColorScheme(
-    primary = DaedalusDarkColors.primary,
-    onPrimary = DaedalusDarkColors.onPrimary,
-    primaryContainer = DaedalusDarkColors.primaryContainer,
-    onPrimaryContainer = DaedalusDarkColors.onPrimaryContainer,
-    secondary = DaedalusDarkColors.secondary,
-    onSecondary = DaedalusDarkColors.onSecondary,
-    secondaryContainer = DaedalusDarkColors.secondaryContainer,
-    onSecondaryContainer = DaedalusDarkColors.onSecondaryContainer,
-    tertiary = DaedalusDarkColors.tertiary,
-    onTertiary = DaedalusDarkColors.onTertiary,
-    tertiaryContainer = DaedalusDarkColors.tertiaryContainer,
-    onTertiaryContainer = DaedalusDarkColors.onTertiaryContainer,
-    error = DaedalusDarkColors.error,
-    errorContainer = DaedalusDarkColors.errorContainer,
-    onError = DaedalusDarkColors.onError,
-    onErrorContainer = DaedalusDarkColors.onErrorContainer,
-    background = DaedalusDarkColors.background,
-    onBackground = DaedalusDarkColors.onBackground,
-    surface = DaedalusDarkColors.surface,
-    onSurface = DaedalusDarkColors.onSurface,
-    surfaceVariant = DaedalusDarkColors.surfaceVariant,
-    onSurfaceVariant = DaedalusDarkColors.onSurfaceVariant,
-    outline = DaedalusDarkColors.outline,
-    inverseOnSurface = DaedalusDarkColors.inverseOnSurface,
-    inverseSurface = DaedalusDarkColors.inverseSurface,
-    inversePrimary = DaedalusDarkColors.inversePrimary,
-    surfaceTint = DaedalusDarkColors.surfaceTint,
-    outlineVariant = DaedalusDarkColors.outlineVariant,
-    scrim = DaedalusDarkColors.scrim,
-)
