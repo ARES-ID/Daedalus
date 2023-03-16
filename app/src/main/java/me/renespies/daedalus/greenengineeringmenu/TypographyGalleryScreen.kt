@@ -20,6 +20,7 @@ import me.renespies.daedalus.compose.ToolbarContent
 import me.renespies.daedalus.compose.VerticalSpacerM
 import me.renespies.daedalus.compose.horizontalSpacingM
 import me.renespies.daedalus.compose.verticalSpacingXXL
+import me.renespies.daedalus.ui.theme.DaedalusTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -185,7 +186,7 @@ private fun Modifier.typographyBorder() = composed {
     border(
         border = BorderStroke(
             width = Dp.Hairline,
-            color = MaterialTheme.colorScheme.onBackground
+            color = DaedalusTheme.colors.text
         )
     )
 }

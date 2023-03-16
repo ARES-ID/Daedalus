@@ -25,7 +25,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import me.renespies.daedalus.BuildConfig
 import me.renespies.daedalus.R
+import me.renespies.daedalus.ui.theme.DaedalusTheme
 import me.renespies.daedalus.ui.theme.Spacings
+import me.renespies.daedalus.ui.theme.daedalusTopAppBarColors
 
 fun Modifier.verticalSpacingXXL() = padding(vertical = Spacings.XXL)
 fun Modifier.verticalSpacingM() = padding(vertical = Spacings.M)
@@ -73,8 +75,10 @@ fun Modifier.greenEngineeringMenuGestureDetector(vararg keys: Any?, onDetection:
 @Composable
 fun ToolbarContent(title: String, onBack: () -> Unit, content: @Composable () -> Unit) {
     Scaffold(
+        containerColor = DaedalusTheme.colors.background,
         topBar = {
             TopAppBar(
+                colors = daedalusTopAppBarColors(),
                 title = {
                     Text(
                         text = title,
