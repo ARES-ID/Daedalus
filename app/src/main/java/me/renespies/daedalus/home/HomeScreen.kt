@@ -18,8 +18,8 @@ import me.renespies.daedalus.R
 import me.renespies.daedalus.compose.horizontalSpacingM
 import me.renespies.daedalus.compose.verticalSpacingM
 import me.renespies.daedalus.ui.theme.Spacings
-import me.renespies.daedalus.ui.widgets.FilledButton
-import me.renespies.daedalus.ui.widgets.OutlinedButton
+import me.renespies.daedalus.ui.widgets.ButtonType
+import me.renespies.daedalus.ui.widgets.DaedalusButton
 import me.renespies.daedalus.weight.weightgraph.WeightGraphScreen
 
 @Composable
@@ -45,16 +45,18 @@ fun HomeScreen(toAddWeight: () -> Unit, toWeightHistory: () -> Unit) {
                 content = { WeightGraphScreen() }
             )
             Spacer(modifier = Modifier.weight(1f))
-            FilledButton(
+            DaedalusButton(
                 text = stringResource(id = R.string.home_add_weight_button_text),
+                type = ButtonType.Filled,
                 onClick = toAddWeight,
                 modifier = Modifier
                     .fillMaxWidth()
                     .horizontalSpacingM()
                     .padding(top = Spacings.M)
             )
-            OutlinedButton(
+            DaedalusButton(
                 text = stringResource(id = R.string.home_weight_history_button_text),
+                type = ButtonType.Outlined,
                 onClick = toWeightHistory,
                 modifier = Modifier
                     .fillMaxWidth()
