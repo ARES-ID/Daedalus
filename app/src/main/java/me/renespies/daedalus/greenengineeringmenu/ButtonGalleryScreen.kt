@@ -12,9 +12,8 @@ import me.renespies.daedalus.compose.ToolbarContent
 import me.renespies.daedalus.compose.VerticalSpacerM
 import me.renespies.daedalus.compose.horizontalSpacingM
 import me.renespies.daedalus.compose.verticalSpacingXXL
-import me.renespies.daedalus.ui.widgets.FilledButton
-import me.renespies.daedalus.ui.widgets.OutlinedButton
-import me.renespies.daedalus.ui.widgets.TransparentButton
+import me.renespies.daedalus.ui.widgets.ButtonType
+import me.renespies.daedalus.ui.widgets.DaedalusButton
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -26,24 +25,27 @@ fun ButtonGalleryScreen(onBack: () -> Unit) {
                 .verticalScroll(rememberScrollState())
                 .verticalSpacingXXL(),
             content = {
-                FilledButton(
+                DaedalusButton(
                     text = "Filled button",
+                    type = ButtonType.Filled,
                     onClick = {},
                     modifier = Modifier
                         .fillMaxWidth()
                         .horizontalSpacingM()
                 )
                 VerticalSpacerM()
-                OutlinedButton(
+                DaedalusButton(
                     text = "Outlined button",
+                    type = ButtonType.Outlined,
                     onClick = {},
                     modifier = Modifier
                         .fillMaxWidth()
                         .horizontalSpacingM()
                 )
                 VerticalSpacerM()
-                TransparentButton(
+                DaedalusButton(
                     text = "Transparent button",
+                    type = ButtonType.Transparent,
                     onClick = {},
                     modifier = Modifier
                         .fillMaxWidth()
