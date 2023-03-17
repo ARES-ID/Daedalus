@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="green_engineering_menu_title" translatable="false">Green Engineering Menu</string>
-    <string name="green_engineering_menu_item_typography_title" translatable="false">Typography</string>
+    <string name="green_engineering_menu_item_typography_title" translatable="false">Typografie</string>
 </resources>
