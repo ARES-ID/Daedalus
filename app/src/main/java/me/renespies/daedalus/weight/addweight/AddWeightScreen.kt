@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -24,6 +23,7 @@ import me.renespies.daedalus.compose.ToolbarContent
 import me.renespies.daedalus.compose.horizontalSpacingM
 import me.renespies.daedalus.compose.verticalSpacingXXL
 import me.renespies.daedalus.ui.theme.Spacings
+import me.renespies.daedalus.ui.widgets.DaedalusOutlinedTextField
 import me.renespies.daedalus.weight.service.data.Weight
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -32,7 +32,7 @@ fun AddWeightScreen(
     onBack: () -> Unit,
     viewModel: AddWeightViewModel = viewModel(factory = AddWeightViewModel.Factory),
 ) {
-    ToolbarContent(title = "Add weight", onBack = onBack) {
+    ToolbarContent(title = "Messung hinzufügen", onBack = onBack) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -51,13 +51,13 @@ fun AddWeightScreen(
                     )
                 }
 
-                OutlinedTextField(
+                DaedalusOutlinedTextField(
                     value = weight.value ?: "",
                     onValueChange = { weight.value = it },
                     modifier = Modifier
                         .fillMaxWidth()
                         .horizontalSpacingM(),
-                    label = { Text("Weight") },
+                    label = "Gewicht",
                     singleLine = true,
                     keyboardOptions = KeyboardOptions(
                         keyboardType = KeyboardType.Decimal,
@@ -65,13 +65,13 @@ fun AddWeightScreen(
                     )
                 )
                 Spacer(modifier = Modifier.height(Spacings.M))
-                OutlinedTextField(
+                DaedalusOutlinedTextField(
                     value = note.value ?: "",
                     onValueChange = { note.value = it },
                     modifier = Modifier
                         .fillMaxWidth()
                         .horizontalSpacingM(),
-                    label = { Text("Note") },
+                    label = "Notiz",
                     keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done)
                 )
                 Button(

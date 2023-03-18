@@ -11,6 +11,8 @@ interface DaedalusColors {
     val background: Color
     val positive: Color
     val negative: Color
+    val outlinedTextFieldUnfocused: Color
+    val disabled: Color
 }
 
 object DaedalusLightColors : DaedalusColors {
@@ -30,6 +32,10 @@ object DaedalusLightColors : DaedalusColors {
         get() = Color(0xFF009900)
     override val negative: Color
         get() = Color(0xFFEB0D3F)
+    override val outlinedTextFieldUnfocused: Color
+        get() = text.copy(alpha = .6f)
+    override val disabled: Color
+        get() = text.copy(alpha = .3f)
 }
 
 object DaedalusDarkColors : DaedalusColors {
@@ -49,4 +55,8 @@ object DaedalusDarkColors : DaedalusColors {
         get() = Color(0xFF00A800)
     override val negative: Color
         get() = Color(0xFFFD2C4E)
+    override val outlinedTextFieldUnfocused: Color
+        get() = text.copy(alpha = .6f)
+    override val disabled: Color
+        get() = text.copy(alpha = .3f)
 }
