@@ -1,6 +1,7 @@
 package me.renespies.daedalus.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -21,10 +22,10 @@ fun DaedalusTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composab
 
     MaterialTheme(
         typography = Typography,
-        shapes = Shapes,
         content = {
             CompositionLocalProvider(
                 LocalDaedalusColors provides colors,
+                LocalContentColor provides colors.text,
                 content = content
             )
         }
