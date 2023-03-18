@@ -9,7 +9,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyItemScope
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.twotone.ArrowBack
+import androidx.compose.material.icons.outlined.ArrowBack
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -82,7 +82,7 @@ fun ToolbarContent(title: String, onBack: () -> Unit, content: @Composable () ->
                 title = {
                     Text(
                         text = title,
-                        style = MaterialTheme.typography.headlineSmall
+                        style = MaterialTheme.typography.titleMedium
                     )
                 },
                 navigationIcon = {
@@ -90,7 +90,7 @@ fun ToolbarContent(title: String, onBack: () -> Unit, content: @Composable () ->
                         onClick = onBack,
                         content = {
                             Icon(
-                                imageVector = Icons.TwoTone.ArrowBack,
+                                imageVector = Icons.Outlined.ArrowBack,
                                 contentDescription = stringResource(R.string.extensions_content_description_toolbar_navigation_icon),
                             )
                         }
