@@ -31,7 +31,7 @@ object DaedalusLightColors : DaedalusColors {
     override val positive: Color
         get() = Color(0xFF009900)
     override val negative: Color
-        get() = Color(0xFFEB0D3F)
+        get() = Color(0xFFF70202)
     override val outlinedTextFieldUnfocused: Color
         get() = text.copy(alpha = .6f)
     override val disabled: Color

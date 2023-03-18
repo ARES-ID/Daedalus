@@ -40,6 +40,15 @@ fun VerticalSpacerXL() = Spacer(modifier = Modifier.height(Spacings.XL))
 fun VerticalSpacerM() = Spacer(modifier = Modifier.height(Spacings.M))
 
 @Composable
+fun VerticalSpacerXS() = Spacer(modifier = Modifier.height(Spacings.XS))
+
+@Composable
+fun VerticalSpacerXXS() = Spacer(modifier = Modifier.height(Spacings.XXS))
+
+@Composable
+fun HorizontalSpacerXXS() = Spacer(modifier = Modifier.width(Spacings.XXS))
+
+@Composable
 fun HorizontalSpacerM() = Spacer(modifier = Modifier.width(Spacings.M))
 
 @Composable
