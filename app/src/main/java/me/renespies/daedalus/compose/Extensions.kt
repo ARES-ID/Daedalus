@@ -2,10 +2,10 @@ package me.renespies.daedalus.compose
 
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyItemScope
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.material.icons.Icons
@@ -26,21 +26,13 @@ import androidx.compose.ui.unit.Dp
 import me.renespies.daedalus.BuildConfig
 import me.renespies.daedalus.R
 import me.renespies.daedalus.ui.theme.DaedalusTheme
-import me.renespies.daedalus.ui.theme.Spacings
 import me.renespies.daedalus.ui.theme.daedalusTopAppBarColors
 
-fun Modifier.verticalSpacingXXL() = padding(vertical = Spacings.XXL)
-fun Modifier.verticalSpacingM() = padding(vertical = Spacings.M)
-fun Modifier.horizontalSpacingM() = padding(horizontal = Spacings.M)
+@Composable
+fun RowScope.WeightedSpacer(weight: Float = 1f) = Spacer(modifier = Modifier.weight(weight))
 
 @Composable
-fun VerticalSpacerXL() = Spacer(modifier = Modifier.height(Spacings.XL))
-
-@Composable
-fun VerticalSpacerM() = Spacer(modifier = Modifier.height(Spacings.M))
-
-@Composable
-fun HorizontalSpacerM() = Spacer(modifier = Modifier.width(Spacings.M))
+fun ColumnScope.WeightedSpacer(weight: Float = 1f) = Spacer(modifier = Modifier.weight(weight))
 
 @Composable
 fun Divider() = Divider(
