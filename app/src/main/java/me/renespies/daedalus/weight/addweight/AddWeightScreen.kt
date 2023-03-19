@@ -34,6 +34,7 @@ import me.renespies.daedalus.weight.service.data.Weight
 @Composable
 fun AddWeightScreen(
     onBack: () -> Unit,
+    showSnackbar: suspend (message: String) -> Unit,
     viewModel: AddWeightViewModel = viewModel(factory = AddWeightViewModel.Factory),
 ) {
     ToolbarContent(title = stringResource(R.string.add_weight_toolbar_title), onBack = onBack) {
@@ -47,6 +48,7 @@ fun AddWeightScreen(
                 val weightError = remember { mutableStateOf<WeightError?>(null) }
                 val note = remember { mutableStateOf<String?>(null) }
                 val coroutineScope = rememberCoroutineScope()
+                val addWeightSuccessMessage = stringResource(R.string.add_weight_add_success_message)
                 val weightSupportingText = when (weightError.value) {
                     is WeightError.Empty -> stringResource(R.string.add_weight_weight_text_field_supporting_message)
                     is WeightError.Undefined -> stringResource(R.string.add_weight_weight_text_field_error_message)
@@ -91,6 +93,8 @@ fun AddWeightScreen(
                                     note = note.value
                                 )
                             )
+
+                            showSnackbar(addWeightSuccessMessage)
                         }
                     } ?: run {
                         weightError.value = if (weight.value.isNullOrEmpty()) {
