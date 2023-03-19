@@ -1,6 +1,7 @@
 package me.renespies.daedalus.navigation
 
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -15,7 +16,7 @@ import me.renespies.daedalus.weight.addweight.AddWeightScreen
 import me.renespies.daedalus.weight.weighthistory.WeightHistoryScreen
 
 @Composable
-fun NavigationHost(controller: NavHostController) {
+fun NavigationHost(controller: NavHostController, snackbarHostState: SnackbarHostState) {
     NavHost(
         navController = controller,
         startDestination = Routes.Home,
@@ -51,7 +52,17 @@ fun NavigationHost(controller: NavHostController) {
             )
             composable(
                 route = Routes.AddWeight,
-                content = { AddWeightScreen(controller::navigateUp) }
+                content = {
+                    AddWeightScreen(
+                        onBack = controller::navigateUp,
+                        showSnackbar = {
+                            snackbarHostState.showSnackbar(
+                                message = "Erfolgreich hinzugefügt",
+                                withDismissAction = true
+                            )
+                        }
+                    )
+                }
             )
             composable(
                 route = Routes.WeightHistory,
