@@ -2,11 +2,10 @@ package me.renespies.daedalus.home
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
@@ -15,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import me.renespies.daedalus.R
+import me.renespies.daedalus.compose.WeightedSpacer
 import me.renespies.daedalus.compose.horizontalSpacingM
 import me.renespies.daedalus.compose.verticalSpacingM
 import me.renespies.daedalus.ui.theme.Spacings
@@ -28,7 +28,7 @@ fun HomeScreen(toAddWeight: () -> Unit, toWeightHistory: () -> Unit) {
         modifier = Modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
-            .navigationBarsPadding()
+            .systemBarsPadding()
             .verticalSpacingM(),
         content = {
             Text(
@@ -44,7 +44,7 @@ fun HomeScreen(toAddWeight: () -> Unit, toWeightHistory: () -> Unit) {
                     .horizontalSpacingM(),
                 content = { WeightGraphScreen() }
             )
-            Spacer(modifier = Modifier.weight(1f))
+            WeightedSpacer()
             DaedalusButton(
                 text = stringResource(id = R.string.home_add_weight_button_text),
                 type = ButtonType.Filled,

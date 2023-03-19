@@ -1,7 +1,6 @@
 package me.renespies.daedalus.navigation
 
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -22,7 +21,6 @@ fun NavigationHost(controller: NavHostController) {
         startDestination = Routes.Home,
         modifier = Modifier
             .fillMaxSize()
-            .systemBarsPadding()
             .greenEngineeringMenuGestureDetector("navigationHost") {
                 if (controller.backQueue.none { it.destination.route == Routes.GreenEngineeringMenu }) {
                     controller.navigate(Routes.GreenEngineeringMenu)
