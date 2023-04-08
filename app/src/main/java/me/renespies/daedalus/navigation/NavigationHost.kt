@@ -4,9 +4,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import me.renespies.daedalus.R
 import me.renespies.daedalus.compose.greenEngineeringMenuGestureDetector
 import me.renespies.daedalus.greenengineeringmenu.ButtonGalleryScreen
 import me.renespies.daedalus.greenengineeringmenu.GreenEngineeringMenuScreen
@@ -53,11 +55,12 @@ fun NavigationHost(controller: NavHostController, snackbarHostState: SnackbarHos
             composable(
                 route = Routes.AddWeight,
                 content = {
+                    val message = stringResource(R.string.add_weight_add_success_message)
                     AddWeightScreen(
                         onBack = controller::navigateUp,
                         showSnackbar = {
                             snackbarHostState.showSnackbar(
-                                message = "Erfolgreich hinzugefügt",
+                                message = message,
                                 withDismissAction = true
                             )
                         }
