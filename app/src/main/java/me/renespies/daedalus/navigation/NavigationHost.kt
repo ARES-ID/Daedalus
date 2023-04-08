@@ -17,6 +17,7 @@ import me.renespies.daedalus.home.HomeScreen
 import me.renespies.daedalus.weight.addweight.AddWeightScreen
 import me.renespies.daedalus.weight.weighthistory.WeightHistoryScreen
 
+@Suppress("LongMethod")
 @Composable
 fun NavigationHost(controller: NavHostController, snackbarHostState: SnackbarHostState) {
     NavHost(
