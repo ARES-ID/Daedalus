@@ -31,5 +31,5 @@ fun daedalusOutlinedTextFieldColors() = TextFieldDefaults.outlinedTextFieldColor
     focusedSupportingTextColor = DaedalusTheme.colors.text,
     focusedTrailingIconColor = DaedalusTheme.colors.primary,
     focusedBorderColor = DaedalusTheme.colors.primary,
-    focusedLabelColor = DaedalusTheme.colors.text,
+    focusedLabelColor = DaedalusTheme.colors.text
 )

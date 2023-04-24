@@ -20,7 +20,7 @@ abstract class WeightDatabase : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context,
                     WeightDatabase::class.java,
-                    "weight_database",
+                    "weight_database"
                 ).apply {
                     fallbackToDestructiveMigration()
                 }.build()

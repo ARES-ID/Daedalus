@@ -102,7 +102,7 @@ private fun WeightRow(weight: Weight, state: ArrowState) {
 @Composable
 private fun Avatar(
     state: ArrowState,
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier
 ) {
     Box(
         modifier = Modifier

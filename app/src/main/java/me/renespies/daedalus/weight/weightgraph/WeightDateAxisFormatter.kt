@@ -12,6 +12,8 @@ object WeightDateAxisFormatter : AxisValueFormatter<AxisPosition.Horizontal.Bott
         return if (weightEntries.isNotEmpty()) {
             val weight = weightEntries.elementAtOrNull(value.toInt())
             weight?.dateTime?.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT)) ?: ""
-        } else ""
+        } else {
+            ""
+        }
     }
 }

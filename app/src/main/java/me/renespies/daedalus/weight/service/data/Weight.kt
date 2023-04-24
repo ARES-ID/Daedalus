@@ -13,5 +13,5 @@ data class Weight(
     val id: Int = 0,
     val weight: Float,
     val note: String?,
-    val dateTime: ZonedDateTime = ZonedDateTime.now(),
+    val dateTime: ZonedDateTime = ZonedDateTime.now()
 )
