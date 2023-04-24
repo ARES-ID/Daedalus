@@ -60,7 +60,9 @@ fun Modifier.greenEngineeringMenuGestureDetector(vararg keys: Any?, onDetection:
         pointerInput(keys) {
             detectTapGestures(onDoubleTap = { onDetection() })
         }
-    } else this
+    } else {
+        this
+    }
 }
 
 @ExperimentalMaterial3Api
@@ -83,7 +85,7 @@ fun ToolbarContent(title: String, onBack: () -> Unit, content: @Composable () ->
                         content = {
                             Icon(
                                 imageVector = Icons.Outlined.ArrowBack,
-                                contentDescription = stringResource(R.string.extensions_content_description_toolbar_navigation_icon),
+                                contentDescription = stringResource(R.string.extensions_content_description_toolbar_navigation_icon)
                             )
                         }
                     )
@@ -94,6 +96,6 @@ fun ToolbarContent(title: String, onBack: () -> Unit, content: @Composable () ->
             Box(Modifier.padding(it)) {
                 content()
             }
-        },
+        }
     )
 }

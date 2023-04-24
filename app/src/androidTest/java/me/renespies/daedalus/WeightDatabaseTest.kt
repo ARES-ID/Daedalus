@@ -45,7 +45,9 @@ class WeightDatabaseTest {
                     shouldThrowExactly<SQLiteConstraintException> {
                         weightDao.insert(Weight(weight = weight, note = optionalNote))
                     }
-                } else weightDao.insert(Weight(weight = weight, note = optionalNote))
+                } else {
+                    weightDao.insert(Weight(weight = weight, note = optionalNote))
+                }
 
                 val weights = weightDao.weights()
                 weights.firstOrNull()?.firstOrNull()?.also {

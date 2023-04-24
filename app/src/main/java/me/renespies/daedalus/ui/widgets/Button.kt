@@ -24,7 +24,7 @@ fun DaedalusButton(
     type: ButtonType,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    enabled: Boolean = true,
+    enabled: Boolean = true
 ) {
     val background = when (type) {
         ButtonType.Filled -> DaedalusTheme.colors.primary

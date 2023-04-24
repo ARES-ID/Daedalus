@@ -35,7 +35,7 @@ import me.renespies.daedalus.weight.service.data.Weight
 fun AddWeightScreen(
     onBack: () -> Unit,
     showSnackbar: suspend (message: String) -> Unit,
-    viewModel: AddWeightViewModel = viewModel(factory = AddWeightViewModel.Factory),
+    viewModel: AddWeightViewModel = viewModel(factory = AddWeightViewModel.Factory)
 ) {
     ToolbarContent(title = stringResource(R.string.add_weight_toolbar_title), onBack = onBack) {
         Column(
@@ -99,7 +99,9 @@ fun AddWeightScreen(
                     } ?: run {
                         weightError.value = if (weight.value.isNullOrEmpty()) {
                             WeightError.Empty
-                        } else WeightError.Undefined
+                        } else {
+                            WeightError.Undefined
+                        }
                     }
                 }
             }
