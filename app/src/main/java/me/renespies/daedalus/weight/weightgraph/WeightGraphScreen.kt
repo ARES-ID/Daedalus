@@ -22,7 +22,7 @@ fun WeightGraphScreen(viewModel: WeightGraphViewModel = viewModel(factory = Weig
         weights.mapIndexed { index, weight ->
             WeightChartEntry(
                 x = index.toFloat(),
-                y = weight.weight.toFloat(),
+                y = weight.value.toFloat(),
                 dateTime = weight.dateTime
             )
         }

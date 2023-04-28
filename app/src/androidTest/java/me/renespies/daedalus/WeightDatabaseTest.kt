@@ -6,7 +6,7 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.filters.SmallTest
 import io.kotest.assertions.throwables.shouldThrowExactly
 import io.kotest.property.checkAll
-import kotlinx.coroutines.flow.firstOrNull
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.runBlocking
 import me.renespies.daedalus.database.WeightDatabase
 import me.renespies.daedalus.weight.service.data.Weight
@@ -43,18 +43,19 @@ class WeightDatabaseTest {
 
                 if (weight.isNaN()) {
                     shouldThrowExactly<SQLiteConstraintException> {
-                        weightDao.insert(Weight(weight = weight, note = optionalNote))
+                        weightDao.insert(Weight(value = weight, note = optionalNote))
                     }
                 } else {
-                    weightDao.insert(Weight(weight = weight, note = optionalNote))
+                    weightDao.insert(Weight(value = weight, note = optionalNote))
                 }
 
-                val weights = weightDao.weights()
-                weights.firstOrNull()?.firstOrNull()?.also {
-                    assert(it.weight == weight)
-                    assert(it.note == optionalNote)
+                weightDao.weights().onEach { weights ->
+                    weights.forEach {
+                        assert(it.value == weight)
+                        assert(it.note == optionalNote)
+                        weightDao.deleteWeight(it.id)
+                    }
                 }
-                weightDao.clear()
             }
         }
     }

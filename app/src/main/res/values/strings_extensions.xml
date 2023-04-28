@@ -2,4 +2,6 @@
 <resources>
     <string name="extensions_content_description_toolbar_navigation_icon">Zurücknavigieren</string>
     <string name="extensions_content_description_text_field_warning_icon">Achtung</string>
+    <string name="extensions_content_description_delete_action">Löschen-Symbol: Durch Drücken dieses Symbols wird der Inhalt gelöscht.</string>
+    <string name="extensions_content_description_list">Listen-Symbol</string>
 </resources>

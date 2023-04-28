@@ -23,7 +23,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewmodel.CreationExtras
 import me.renespies.daedalus.BuildConfig
+import me.renespies.daedalus.MainApplication
 import me.renespies.daedalus.R
 import me.renespies.daedalus.ui.theme.DaedalusTheme
 import me.renespies.daedalus.ui.theme.daedalusTopAppBarColors
@@ -37,7 +40,7 @@ fun ColumnScope.WeightedSpacer(weight: Float = 1f) = Spacer(modifier = Modifier.
 @Composable
 fun Divider() = Divider(
     thickness = Dp.Hairline,
-    color = MaterialTheme.colorScheme.primary.copy(alpha = .3f)
+    color = DaedalusTheme.colors.primary.copy(alpha = .3f)
 )
 
 inline fun <T> LazyListScope.tableItems(
@@ -98,4 +101,9 @@ fun ToolbarContent(title: String, onBack: () -> Unit, content: @Composable () ->
             }
         }
     )
+}
+
+@Throws(ClassCastException::class)
+fun CreationExtras.requireApplication(): MainApplication {
+    return get(ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY) as MainApplication
 }

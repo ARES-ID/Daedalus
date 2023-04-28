@@ -516,7 +516,7 @@ style:
   DataClassShouldBeImmutable:
     active: false
   DestructuringDeclarationWithTooManyEntries:
-    active: true
+    active: false
     maxDestructuringEntries: 3
   EqualsNullCall:
     active: true

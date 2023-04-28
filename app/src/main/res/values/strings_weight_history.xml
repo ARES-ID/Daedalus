@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="weight_history_toolbar_title">Verlauf</string>
+
+    <!-- Empty Screen -->
+    <string name="weight_history_empty_screen_title">Bereit zum Eintragen</string>
+    <string name="weight_history_empty_screen_description">Dies ist der Verlaufs-Bildschirm, auf dem du deine Gewichtseinträge über einen längeren Zeitraum hinweg verfolgen kannst. Fang an, dein Gewicht aufzuzeichnen, um diese Liste mit Daten zu füllen und deine Fortschritte zu verfolgen.</string>
+</resources>
