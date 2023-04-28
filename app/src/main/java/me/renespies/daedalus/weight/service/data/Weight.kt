@@ -11,7 +11,7 @@ import java.time.ZonedDateTime
 data class Weight(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
-    val weight: Float,
+    val value: Float,
     val note: String?,
     val dateTime: ZonedDateTime = ZonedDateTime.now()
 )

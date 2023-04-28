@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "ddb2e165c844a0028b2bcbab84fbf873",
+    "identityHash": "c714210dd5ed3f53626f4af557e36552",
     "entities": [
       {
         "tableName": "Weight",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `weight` REAL NOT NULL, `note` TEXT, `dateTime` TEXT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `value` REAL NOT NULL, `note` TEXT, `dateTime` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -15,8 +15,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "weight",
-            "columnName": "weight",
+            "fieldPath": "value",
+            "columnName": "value",
             "affinity": "REAL",
             "notNull": true
           },
@@ -34,10 +34,10 @@
           }
         ],
         "primaryKey": {
+          "autoGenerate": true,
           "columnNames": [
             "id"
-          ],
-          "autoGenerate": true
+          ]
         },
         "indices": [],
         "foreignKeys": []
@@ -46,7 +46,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ddb2e165c844a0028b2bcbab84fbf873')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c714210dd5ed3f53626f4af557e36552')"
     ]
   }
 }

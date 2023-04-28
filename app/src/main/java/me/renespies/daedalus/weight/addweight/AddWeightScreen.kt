@@ -89,7 +89,7 @@ fun AddWeightScreen(
                         coroutineScope.launch(Dispatchers.IO) {
                             viewModel.saveWeight(
                                 weight = Weight(
-                                    weight = it,
+                                    value = it,
                                     note = note.value
                                 )
                             )
