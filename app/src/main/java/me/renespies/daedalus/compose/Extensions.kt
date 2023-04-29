@@ -1,5 +1,6 @@
 package me.renespies.daedalus.compose
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.ColumnScope
@@ -38,11 +39,13 @@ fun RowScope.WeightedSpacer(weight: Float = 1f) = Spacer(modifier = Modifier.wei
 fun ColumnScope.WeightedSpacer(weight: Float = 1f) = Spacer(modifier = Modifier.weight(weight))
 
 @Composable
-fun Divider() = Divider(
+fun Divider(modifier: Modifier = Modifier) = Divider(
     thickness = Dp.Hairline,
-    color = DaedalusTheme.colors.primary.copy(alpha = .3f)
+    color = DaedalusTheme.colors.primary.copy(alpha = .3f),
+    modifier = modifier
 )
 
+@ExperimentalFoundationApi
 inline fun <T> LazyListScope.tableItems(
     items: List<T>,
     noinline key: ((item: T) -> Any)? = null,
@@ -53,9 +56,9 @@ inline fun <T> LazyListScope.tableItems(
     key = if (key != null) { index: Int -> key(items[index]) } else null,
     contentType = { index: Int -> contentType(items[index]) }
 ) {
-    me.renespies.daedalus.compose.Divider()
+    me.renespies.daedalus.compose.Divider(Modifier.animateItemPlacement())
     itemContent(items[it])
-    if (it >= items.lastIndex) me.renespies.daedalus.compose.Divider()
+    if (it >= items.lastIndex) me.renespies.daedalus.compose.Divider(Modifier.animateItemPlacement())
 }
 
 fun Modifier.greenEngineeringMenuGestureDetector(vararg keys: Any?, onDetection: () -> Unit): Modifier {

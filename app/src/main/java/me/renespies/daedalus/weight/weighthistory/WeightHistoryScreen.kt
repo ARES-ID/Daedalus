@@ -1,5 +1,6 @@
 package me.renespies.daedalus.weight.weighthistory
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -64,15 +65,22 @@ fun WeightHistoryScreen(onBack: () -> Unit) {
         val weights by viewModel.weights.collectAsState()
 
         if (weights.isNotEmpty()) {
-            Weights(weights, viewModel)
+            Weights(
+                weights = weights,
+                viewModel = viewModel
+            )
         } else {
             EmptyScreen()
         }
     }
 }
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
-private fun Weights(weights: List<Weight>, viewModel: WeightHistoryViewModel) {
+private fun Weights(
+    weights: List<Weight>,
+    viewModel: WeightHistoryViewModel
+) {
     LazyColumn(
         contentPadding = PaddingValues(vertical = Spacings.M),
         content = {
@@ -90,7 +98,12 @@ private fun Weights(weights: List<Weight>, viewModel: WeightHistoryViewModel) {
                         it.value < predecessor.value -> ArrowState.Positive
                         else -> ArrowState.Neutral
                     }
-                    WeightRow(weight = it, state, viewModel)
+                    WeightRow(
+                        weight = it,
+                        state = state,
+                        viewModel = viewModel,
+                        modifier = Modifier.animateItemPlacement()
+                    )
                 }
             )
         }
@@ -98,60 +111,70 @@ private fun Weights(weights: List<Weight>, viewModel: WeightHistoryViewModel) {
 }
 
 @Composable
-private fun WeightRow(weight: Weight, state: ArrowState, viewModel: WeightHistoryViewModel) {
-    ConstraintLayout(Modifier.fillMaxWidth()) {
-        val (avatar, title, date, deleteButton) = createRefs()
-        val locale = LocalConfiguration.current.locales[0]
-        val coroutineScope = rememberCoroutineScope()
+private fun WeightRow(
+    weight: Weight,
+    state: ArrowState,
+    viewModel: WeightHistoryViewModel,
+    modifier: Modifier = Modifier
+) {
+    ConstraintLayout(
+        modifier = Modifier
+            .fillMaxWidth()
+            .then(modifier),
+        content = {
+            val (avatar, title, date, deleteButton) = createRefs()
+            val locale = LocalConfiguration.current.locales[0]
+            val coroutineScope = rememberCoroutineScope()
 
-        Avatar(
-            state = state,
-            modifier = Modifier.constrainAs(avatar) {
-                top.linkTo(parent.top, margin = Spacings.M)
-                start.linkTo(parent.start, margin = Spacings.M)
-                bottom.linkTo(parent.bottom, margin = Spacings.M)
-            }
-        )
-        Text(
-            text = weight.value.asUserfacingString(locale),
-            style = MaterialTheme.typography.titleLarge,
-            modifier = Modifier.constrainAs(title) {
-                width = Dimension.fillToConstraints
-                top.linkTo(parent.top, margin = Spacings.M)
-                start.linkTo(avatar.end, margin = Spacings.M)
-                end.linkTo(deleteButton.start, margin = Spacings.M)
-            }
-        )
-        Text(
-            text = weight.dateTime.asUserfacingString(locale),
-            style = MaterialTheme.typography.titleSmall,
-            modifier = Modifier.constrainAs(date) {
-                width = Dimension.fillToConstraints
-                top.linkTo(title.bottom)
-                start.linkTo(avatar.end, margin = Spacings.M)
-                bottom.linkTo(parent.bottom, margin = Spacings.M)
-                end.linkTo(deleteButton.start, margin = Spacings.M)
-            }
-        )
-        IconButton(
-            onClick = {
-                coroutineScope.launch {
-                    viewModel.deleteWeight(weight)
+            Avatar(
+                state = state,
+                modifier = Modifier.constrainAs(avatar) {
+                    top.linkTo(parent.top, margin = Spacings.M)
+                    start.linkTo(parent.start, margin = Spacings.M)
+                    bottom.linkTo(parent.bottom, margin = Spacings.M)
                 }
-            },
-            modifier = Modifier.constrainAs(deleteButton) {
-                top.linkTo(parent.top, margin = Spacings.M)
-                end.linkTo(parent.end, margin = Spacings.M)
-                bottom.linkTo(parent.bottom, margin = Spacings.M)
-            },
-            content = {
-                Icon(
-                    imageVector = Icons.Outlined.Delete,
-                    contentDescription = stringResource(R.string.extensions_content_description_delete_action)
-                )
-            }
-        )
-    }
+            )
+            Text(
+                text = weight.value.asUserfacingString(locale),
+                style = MaterialTheme.typography.titleLarge,
+                modifier = Modifier.constrainAs(title) {
+                    width = Dimension.fillToConstraints
+                    top.linkTo(parent.top, margin = Spacings.M)
+                    start.linkTo(avatar.end, margin = Spacings.M)
+                    end.linkTo(deleteButton.start, margin = Spacings.M)
+                }
+            )
+            Text(
+                text = weight.dateTime.asUserfacingString(locale),
+                style = MaterialTheme.typography.titleSmall,
+                modifier = Modifier.constrainAs(date) {
+                    width = Dimension.fillToConstraints
+                    top.linkTo(title.bottom)
+                    start.linkTo(avatar.end, margin = Spacings.M)
+                    bottom.linkTo(parent.bottom, margin = Spacings.M)
+                    end.linkTo(deleteButton.start, margin = Spacings.M)
+                }
+            )
+            IconButton(
+                onClick = {
+                    coroutineScope.launch {
+                        viewModel.deleteWeight(weight)
+                    }
+                },
+                modifier = Modifier.constrainAs(deleteButton) {
+                    top.linkTo(parent.top, margin = Spacings.M)
+                    end.linkTo(parent.end, margin = Spacings.M)
+                    bottom.linkTo(parent.bottom, margin = Spacings.M)
+                },
+                content = {
+                    Icon(
+                        imageVector = Icons.Outlined.Delete,
+                        contentDescription = stringResource(R.string.extensions_content_description_delete_action)
+                    )
+                }
+            )
+        }
+    )
 }
 
 @Composable
