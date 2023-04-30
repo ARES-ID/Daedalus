@@ -1,3 +1,7 @@
+import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -14,7 +18,7 @@ android {
         applicationId = "com.rjspies.daedalus"
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.targetSdk.get().toInt()
-        versionCode = libs.versions.versionCode.get().toInt()
+        versionCode = generateVersionCode()
         versionName = libs.versions.versionName.get()
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         resourceConfigurations.addAll(arrayOf("en", "de"))
@@ -74,4 +78,11 @@ detekt {
 
 ksp {
     arg("room.schemaLocation", "$projectDir/schemas")
+}
+
+fun generateVersionCode(): Int {
+    val version = libs.versions.versionName.get().replace(".", "")
+    val formatter = DateTimeFormatter.ofPattern("yyMMdd").withZone(ZoneId.systemDefault())
+    val date = formatter.format(Instant.now())
+    return "$date$version".toInt()
 }
