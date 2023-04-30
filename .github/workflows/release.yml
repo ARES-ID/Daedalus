@@ -8,7 +8,8 @@ jobs:
         id: decode_keystore
         uses: timheuer/base64-to-file@v1
         with:
-          fileName: 'keystore/daedalus_release.jks'
+          fileName: 'daedalus_release.jks'
+          fileDir: './keystore/'
           encodedString: ${{ secrets.KEYSTORE }}
       - uses: actions/checkout@v2
 
