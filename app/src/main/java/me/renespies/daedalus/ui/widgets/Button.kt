@@ -2,10 +2,8 @@ package me.renespies.daedalus.ui.widgets
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -17,7 +15,6 @@ import androidx.compose.ui.unit.dp
 import me.renespies.daedalus.ui.theme.DaedalusTheme
 import me.renespies.daedalus.ui.theme.Spacings
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DaedalusButton(
     text: String,
@@ -41,6 +38,7 @@ fun DaedalusButton(
             width = 1.dp,
             color = DaedalusTheme.colors.primary
         )
+
         ButtonType.Filled,
         ButtonType.Transparent -> null
     }
@@ -55,7 +53,6 @@ fun DaedalusButton(
         border = borderStroke,
         content = {
             Box(
-                modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center,
                 content = {
                     Text(

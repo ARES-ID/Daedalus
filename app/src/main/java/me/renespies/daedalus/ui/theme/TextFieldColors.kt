@@ -1,13 +1,10 @@
 package me.renespies.daedalus.ui.theme
 
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.runtime.Composable
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun daedalusOutlinedTextFieldColors() = TextFieldDefaults.outlinedTextFieldColors(
-    textColor = DaedalusTheme.colors.text,
+fun daedalusOutlinedTextFieldColors() = OutlinedTextFieldDefaults.colors(
     cursorColor = DaedalusTheme.colors.text,
     errorBorderColor = DaedalusTheme.colors.negative,
     errorCursorColor = DaedalusTheme.colors.negative,
@@ -31,5 +28,8 @@ fun daedalusOutlinedTextFieldColors() = TextFieldDefaults.outlinedTextFieldColor
     focusedSupportingTextColor = DaedalusTheme.colors.text,
     focusedTrailingIconColor = DaedalusTheme.colors.primary,
     focusedBorderColor = DaedalusTheme.colors.primary,
-    focusedLabelColor = DaedalusTheme.colors.text
+    focusedLabelColor = DaedalusTheme.colors.text,
+    focusedTextColor = DaedalusTheme.colors.text,
+    unfocusedTextColor = DaedalusTheme.colors.text,
+    errorTextColor = DaedalusTheme.colors.text
 )

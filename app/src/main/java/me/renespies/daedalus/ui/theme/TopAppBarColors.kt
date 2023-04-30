@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 
 @ExperimentalMaterial3Api
 @Composable
-fun daedalusTopAppBarColors() = TopAppBarDefaults.smallTopAppBarColors(
+fun daedalusTopAppBarColors() = TopAppBarDefaults.topAppBarColors(
     containerColor = DaedalusTheme.colors.background,
     titleContentColor = DaedalusTheme.colors.text,
     navigationIconContentColor = DaedalusTheme.colors.text,

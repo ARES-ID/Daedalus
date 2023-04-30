@@ -7,4 +7,7 @@
     <string name="add_weight_note_text_field_label">Notiz</string>
     <string name="add_weight_add_button_text">Hinzufügen</string>
     <string name="add_weight_add_success_message">Erfolgreich hinzugefügt</string>
+    <string name="add_weight_date_picker_button">Datum setzen</string>
+    <string name="add_weight_choose_date_button">Datum anpassen</string>
+    <string name="add_weight_date_label">Datum:</string>
 </resources>

@@ -32,7 +32,7 @@ fun HomeScreen(toAddWeight: () -> Unit, toWeightHistory: () -> Unit) {
             .verticalSpacingM(),
         content = {
             Text(
-                text = stringResource(id = R.string.home_title),
+                text = stringResource(R.string.home_title),
                 style = MaterialTheme.typography.displaySmall,
                 modifier = Modifier
                     .fillMaxWidth()
@@ -46,7 +46,7 @@ fun HomeScreen(toAddWeight: () -> Unit, toWeightHistory: () -> Unit) {
             )
             WeightedSpacer()
             DaedalusButton(
-                text = stringResource(id = R.string.home_add_weight_button_text),
+                text = stringResource(R.string.home_add_weight_button_text),
                 type = ButtonType.Filled,
                 onClick = toAddWeight,
                 modifier = Modifier
@@ -55,7 +55,7 @@ fun HomeScreen(toAddWeight: () -> Unit, toWeightHistory: () -> Unit) {
                     .padding(top = Spacings.M)
             )
             DaedalusButton(
-                text = stringResource(id = R.string.home_weight_history_button_text),
+                text = stringResource(R.string.home_weight_history_button_text),
                 type = ButtonType.Outlined,
                 onClick = toWeightHistory,
                 modifier = Modifier
