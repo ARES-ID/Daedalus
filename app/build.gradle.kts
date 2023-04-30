@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "me.renespies.daedalus"
+    namespace = "com.rjspies.daedalus"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "me.renespies.daedalus"
+        applicationId = "com.rjspies.daedalus"
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = libs.versions.versionCode.get().toInt()
