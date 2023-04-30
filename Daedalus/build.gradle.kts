@@ -59,6 +59,23 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
+    signingConfigs {
+        create("release") {
+            val temporaryPath = "${System.getProperty("user.home")}/work/_temp/keystore"
+            val allFiles = File(temporaryPath).listFiles()
+
+            if (allFiles != null) {
+                val keystore = allFiles.first()
+                keystore.renameTo(File("keystore/daedalus_release.jks"))
+            }
+
+            storeFile = File("keystore/daedalus_release.jks")
+            storePassword = System.getenv("DAEDALUS_STORE_PASSWORD")
+            keyAlias = System.getenv("DAEDALUS_SIGNING_KEY")
+            keyPassword = System.getenv("DAEDALUS_SIGNING_KEY_PASSWORD")
+        }
+    }
 }
 
 dependencies {
