@@ -11,7 +11,7 @@ interface WeightDao {
     @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun insert(weight: Weight)
 
-    @Query("SELECT * FROM Weight")
+    @Query("SELECT * FROM Weight ORDER BY dateTime ASC")
     fun weights(): Flow<List<Weight>>
 
     @Query("DELETE FROM Weight WHERE id = :id")

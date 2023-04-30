@@ -52,6 +52,8 @@ import me.renespies.daedalus.ui.theme.DaedalusTheme
 import me.renespies.daedalus.ui.theme.Spacings
 import me.renespies.daedalus.weight.service.data.Weight
 import java.text.DecimalFormat
+import java.time.Instant
+import java.time.ZoneId
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
@@ -250,6 +252,12 @@ private fun Float.asUserfacingString(locale: Locale): String {
     return "${DecimalFormat.getInstance(locale).format(this)} kg"
 }
 
-private fun ZonedDateTime.asUserfacingString(locale: Locale): String {
-    return format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM).withLocale(locale))
+private fun ZonedDateTime.asUserfacingString(locale: Locale, style: FormatStyle = FormatStyle.MEDIUM): String {
+    return format(DateTimeFormatter.ofLocalizedDateTime(style).withLocale(locale))
+}
+
+fun Instant.asUserfacingString(locale: Locale, style: FormatStyle = FormatStyle.MEDIUM): String {
+    val zone = ZoneId.systemDefault()
+    val formatter = DateTimeFormatter.ofLocalizedDate(style)
+    return atZone(zone).toLocalDate().format(formatter.withLocale(locale))
 }
