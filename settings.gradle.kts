@@ -19,4 +19,4 @@ plugins {
 }
 
 rootProject.name = "Daedalus"
-include(":app")
+include(":Daedalus")
