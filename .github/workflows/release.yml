@@ -10,7 +10,7 @@ jobs:
         run: |
           TEMPORARY_PATH="${RUNNER_TEMP}"/keystore
           mkdir "${TEMPORARY_PATH}"
-          echo $ENCODED_STRING | base64 -di > "${TEMPORARY_PATH}"/daedalus_release.jks
+          echo $ENCODED_STRING | base64 -d -i > "${TEMPORARY_PATH}"/daedalus_release.jks
       - uses: actions/checkout@v2
 
       - name: Java 17
