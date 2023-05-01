@@ -31,10 +31,10 @@ android {
 
             if (allFiles != null) {
                 val keystore = allFiles.first()
-                keystore.renameTo(File("keystore/daedalus_release.jks"))
+                keystore.renameTo(file("keystore/daedalus_release.jks"))
             }
 
-            storeFile = File("keystore/daedalus_release.jks")
+            storeFile = file("keystore/daedalus_release.jks")
             storePassword = System.getenv("DAEDALUS_STORE_PASSWORD")
             keyAlias = System.getenv("DAEDALUS_SIGNING_KEY")
             keyPassword = System.getenv("DAEDALUS_SIGNING_KEY_PASSWORD")
