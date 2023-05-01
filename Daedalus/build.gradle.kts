@@ -28,16 +28,16 @@ android {
         create("release") {
             val temporaryPath = "${System.getProperty("user.home")}/work/_temp/keystore/"
             val allFiles = File(temporaryPath).listFiles()
-            logger.error(projectDir.absolutePath)
+            allFiles?.forEach { logger.error(it.name) }
             logger.error("allFiles = ${allFiles?.firstOrNull()?.absolutePath}")
             logger.error("keystore = ${File("$projectDir/keystore/daedalus_release.jks")}")
             val renamed = allFiles?.firstOrNull()?.copyTo(
-                target = File("$projectDir/keystore/daedalus_release.jks"),
+                target = file("keystore/daedalus_release.jks"),
                 overwrite = true
             )
             logger.error("renamed = $renamed")
 
-            storeFile = File("$projectDir/keystore/daedalus_release.jks")
+            storeFile = file("keystore/daedalus_release.jks")
             storePassword = System.getenv("DAEDALUS_STORE_PASSWORD")
             keyAlias = System.getenv("DAEDALUS_SIGNING_KEY")
             keyPassword = System.getenv("DAEDALUS_SIGNING_KEY_PASSWORD")
