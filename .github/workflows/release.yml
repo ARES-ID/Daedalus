@@ -26,6 +26,7 @@ jobs:
           DAEDALUS_SIGNING_KEY_PASSWORD: ${{ secrets.DAEDALUS_SIGNING_KEY_PASSWORD }}
 
       - name: Report
+        if: always()
         run: ./gradlew signingReport
 
       - name: Upload
