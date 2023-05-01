@@ -1,20 +1,17 @@
 name: Development
 run-name: Development
-on: [ pull_request ]
+on: workflow_dispatch
 jobs:
   development:
     runs-on: macos-latest
     steps:
-      - name: Check out repository code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Java 17
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v3
         with:
           java-version: '17'
-
-      - name: Check out repository code
-        uses: actions/checkout@v3
 
       - name: Detekt
         run: ./gradlew detekt
