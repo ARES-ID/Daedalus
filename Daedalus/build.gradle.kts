@@ -24,12 +24,30 @@ android {
         resourceConfigurations.addAll(arrayOf("en", "de"))
     }
 
+    signingConfigs {
+        create("release") {
+            val temporaryPath = "${System.getProperty("user.home")}/work/_temp/keystore"
+            val allFiles = File(temporaryPath).listFiles()
+
+            if (allFiles != null) {
+                val keystore = allFiles.first()
+                keystore.renameTo(File("keystore/daedalus_release.jks"))
+            }
+
+            storeFile = File("keystore/daedalus_release.jks")
+            storePassword = System.getenv("DAEDALUS_STORE_PASSWORD")
+            keyAlias = System.getenv("DAEDALUS_SIGNING_KEY")
+            keyPassword = System.getenv("DAEDALUS_SIGNING_KEY_PASSWORD")
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             ndk.debugSymbolLevel = "FULL"
+            signingConfig = signingConfigs.getByName("release")
         }
 
         debug {
@@ -57,23 +75,6 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
-
-    signingConfigs {
-        create("release") {
-            val temporaryPath = "${System.getProperty("user.home")}/work/_temp/keystore"
-            val allFiles = File(temporaryPath).listFiles()
-
-            if (allFiles != null) {
-                val keystore = allFiles.first()
-                keystore.renameTo(File("keystore/daedalus_release.jks"))
-            }
-
-            storeFile = File("keystore/daedalus_release.jks")
-            storePassword = System.getenv("DAEDALUS_STORE_PASSWORD")
-            keyAlias = System.getenv("DAEDALUS_SIGNING_KEY")
-            keyPassword = System.getenv("DAEDALUS_SIGNING_KEY_PASSWORD")
         }
     }
 }
