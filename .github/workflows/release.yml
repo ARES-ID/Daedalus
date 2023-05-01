@@ -11,10 +11,12 @@ jobs:
           TEMPORARY_PATH="${RUNNER_TEMP}"/keystore
           mkdir "${TEMPORARY_PATH}"
           echo $ENCODED_STRING | base64 --decode > "${TEMPORARY_PATH}"/daedalus_release.jks
-      - uses: actions/checkout@v2
+
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       - name: Java 17
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v3
         with:
           java-version: '17'
 
@@ -30,7 +32,7 @@ jobs:
         run: ./gradlew signingReport
 
       - name: Upload
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: Build Artifacts
           path: Daedalus/build/outputs
