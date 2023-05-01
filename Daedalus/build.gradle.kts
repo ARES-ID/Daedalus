@@ -26,13 +26,10 @@ android {
 
     signingConfigs {
         create("release") {
-            val temporaryPath = "${System.getProperty("user.home")}/work/_temp/keystore"
+            val temporaryPath = "${System.getProperty("user.home")}/work/_temp/keystore/"
             val allFiles = File(temporaryPath).listFiles()
-
-            if (allFiles != null) {
-                val keystore = allFiles.first()
-                keystore.renameTo(file("keystore/daedalus_release.jks"))
-            }
+            logger.error("allFiles = $allFiles")
+            allFiles?.firstOrNull()?.renameTo(file("keystore/daedalus_release.jks"))
 
             storeFile = file("keystore/daedalus_release.jks")
             storePassword = System.getenv("DAEDALUS_STORE_PASSWORD")
