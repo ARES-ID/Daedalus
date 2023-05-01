@@ -30,7 +30,8 @@ android {
             val allFiles = File(temporaryPath).listFiles()
             logger.error("allFiles = ${allFiles?.firstOrNull()?.absolutePath}")
             logger.error("keystore = ${file("keystore/daedalus_release.jks")}")
-            allFiles?.firstOrNull()?.renameTo(file("keystore/daedalus_release.jks"))
+            val renamed = allFiles?.firstOrNull()?.renameTo(file("keystore/daedalus_release.jks"))
+            logger.error("renamed = $renamed")
 
             storeFile = file("keystore/daedalus_release.jks")
             storePassword = System.getenv("DAEDALUS_STORE_PASSWORD")
