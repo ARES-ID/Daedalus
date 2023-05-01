@@ -28,7 +28,8 @@ android {
         create("release") {
             val temporaryPath = "${System.getProperty("user.home")}/work/_temp/keystore/"
             val allFiles = File(temporaryPath).listFiles()
-            logger.error("allFiles = $allFiles")
+            logger.error("allFiles = ${allFiles?.firstOrNull()?.absolutePath}")
+            logger.error("keystore = ${file("keystore/daedalus_release.jks")}")
             allFiles?.firstOrNull()?.renameTo(file("keystore/daedalus_release.jks"))
 
             storeFile = file("keystore/daedalus_release.jks")
