@@ -25,6 +25,9 @@ jobs:
           DAEDALUS_STORE_PASSWORD: ${{ secrets.DAEDALUS_STORE_PASSWORD }}
           DAEDALUS_SIGNING_KEY_PASSWORD: ${{ secrets.DAEDALUS_SIGNING_KEY_PASSWORD }}
 
+      - name: Report
+        run: ./gradlew signingReport
+
       - name: Upload
         uses: actions/upload-artifact@v2
         with:
