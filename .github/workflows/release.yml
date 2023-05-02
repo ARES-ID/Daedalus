@@ -13,6 +13,7 @@ jobs:
           > base64.txt cat <<< $ENCODED_STRING;
           base64 --decode --input base64.txt --output daedalus_release.jks
           ls -lhS
+          cat base64.txt
         env:
           ENCODED_STRING: ${{ secrets.KEYSTORE }}
 
