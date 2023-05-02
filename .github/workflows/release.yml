@@ -10,7 +10,6 @@ jobs:
         with:
           fileName: 'daedalus_keystore.jks'
           encodedString: ${{ secrets.KEYSTORE }}
-        run: ls -lhS
 
       - name: Checkout repository
         uses: actions/checkout@v3
