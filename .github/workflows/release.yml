@@ -8,7 +8,10 @@ jobs:
         run: |
           TEMPORARY_PATH="${RUNNER_TEMP}"/keystore;
           mkdir "${TEMPORARY_PATH}";
-          echo -n $ENCODED_STRING | base64 --decode > "${TEMPORARY_PATH}"/daedalus_release.jks;
+          cd "${TEMPORARY_PATH}";
+          touch base64.txt;
+          > base64.txt cat <<< $ENCODED_STRING;
+          base64 --decode --input base64.txt --output daedalus_release.jks
         env:
           ENCODED_STRING: ${{ secrets.KEYSTORE }}
 
