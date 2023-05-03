@@ -1,6 +1,6 @@
 name: Development
 run-name: Development
-on: workflow_dispatch
+on: pull_request
 jobs:
   development:
     runs-on: macos-latest
