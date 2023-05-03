@@ -12,7 +12,7 @@ jobs:
         uses: timheuer/base64-to-file@v1
         with:
           fileName: 'release.keystore'
-          fileDir: '"${GITHUB_WORKSPACE}"/Daedalus/keystore'
+          fileDir: '"${{ github.workspace }}"/Daedalus/keystore'
           encodedString: ${{ secrets.KEYSTORE }}
 
       - name: Java 17
