@@ -9,7 +9,7 @@ jobs:
 
       - name: Decode keystore
         run: |
-          TEMPORARY_PATH="${RUNNER_TMP}"/keystore
+          TEMPORARY_PATH="${RUNNER_TEMP}"/keystore
           mkdir "${TEMPORARY_PATH}"
           cd "${TEMPORARY_PATH}"
           echo -n {{ secrets.KEYSTORE }} | base64 --decode --output release.keystore
