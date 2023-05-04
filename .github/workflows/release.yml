@@ -31,7 +31,7 @@ jobs:
       - name: Upload release to Play Console
         uses: r0adkll/upload-google-play@v1
         with:
-          serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT }}
+          serviceAccountJsonPlainText: ${{ secrets.PUBLISHER_SERVICE }}
           packageName: com.rjspies.daedalus
           releaseFiles: Daedalus/build/outputs/bundle/release/Daedalus-release.aab
           track: internal
