@@ -61,6 +61,7 @@ versionCode = "200"
 versionName = "1.0.0"
 room = "2.5.1"
 kotlinCompiler = "2.0"
+java = "17"
 
 # Raise these two together
 kotlin = "1.8.20"
