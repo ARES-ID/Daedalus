@@ -38,7 +38,7 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 
 [versions]
 
-androidGradlePlugin = "8.0.0"
+androidGradlePlugin = "8.0.1"
 compileSdk = "33"
 compose = "1.4.2"
 composeCompiler = "1.4.6"
