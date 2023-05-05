@@ -2,13 +2,27 @@
 
 [bundles]
 
-androidTest = [
+ksp = [
+    "androidx-room-compiler",
+]
+
+debugImplementation = [
+    "debug-androidx-compose-uiTestManifest",
+    "debug-androidx-compose-uiTooling",
+]
+
+androidTestImplementation = [
     "test-androidx-compose-uiTestJunit4",
     "test-androidx-espresso",
     "test-androidx-junit",
-    "test-kotest-property"
+    "test-kotest-property",
 ]
-androidx = [
+
+testImplementation = [
+    "test-junit",
+]
+
+implementation = [
     "androidx-activityCompose",
     "androidx-compose-ui",
     "androidx-compose-uiToolingPreview",
@@ -19,11 +33,10 @@ androidx = [
     "androidx-room-ktx",
     "androidx-compose-material3",
     "androidx-constraintLayout",
-    "androidx-materialIconsExtended"
-]
-debug = [
-    "debug-androidx-compose-uiTestManifest",
-    "debug-androidx-compose-uiTooling",
+    "androidx-materialIconsExtended",
+    "timber",
+    "vico-compose",
+    "accompanist-systemUiController",
 ]
 
 [plugins]
@@ -40,7 +53,7 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 
 androidGradlePlugin = "8.0.1"
 compileSdk = "33"
-compose = "1.4.2"
+compose = "1.4.3"
 composeCompiler = "1.4.6"
 minSdk = "26"
 targetSdk = "33"

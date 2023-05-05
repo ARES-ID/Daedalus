@@ -72,14 +72,11 @@ android {
 }
 
 dependencies {
-    implementation(libs.bundles.androidx)
-    implementation(libs.timber)
-    implementation(libs.vico.compose)
-    implementation(libs.accompanist.systemUiController)
-    testImplementation(libs.test.junit)
-    androidTestImplementation(libs.bundles.androidTest)
-    debugImplementation(libs.bundles.debug)
-    ksp(libs.androidx.room.compiler)
+    implementation(libs.bundles.implementation)
+    testImplementation(libs.bundles.testImplementation)
+    androidTestImplementation(libs.bundles.androidTestImplementation)
+    debugImplementation(libs.bundles.debugImplementation)
+    ksp(libs.bundles.ksp)
 }
 
 detekt {
