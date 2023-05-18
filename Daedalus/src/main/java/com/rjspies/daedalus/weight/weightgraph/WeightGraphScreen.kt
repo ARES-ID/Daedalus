@@ -1,9 +1,6 @@
 package com.rjspies.daedalus.weight.weightgraph
 
 import android.graphics.Typeface
-import androidx.compose.foundation.layout.Column
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -20,7 +17,6 @@ import com.patrykandpatrick.vico.compose.chart.line.lineChart
 import com.patrykandpatrick.vico.core.chart.values.AxisValuesOverrider
 import com.patrykandpatrick.vico.core.entry.ChartEntryModelProducer
 import com.rjspies.daedalus.R
-import com.rjspies.daedalus.compose.VerticalSpacerM
 import com.rjspies.daedalus.weight.weightgraph.ui.rememberMarker
 
 private const val YAxisValuePadding = 1.01f
@@ -44,24 +40,15 @@ fun WeightGraphScreen(viewModel: WeightGraphViewModel = viewModel(factory = Weig
     val typeface = remember { ResourcesCompat.getFont(context, R.font.poppins_regular) ?: Typeface.MONOSPACE }
     val axisLabel = axisLabelComponent(typeface = typeface)
 
-    Column {
-        weights.forEach {
-            Text(
-                text = it.value.toString(),
-                style = MaterialTheme.typography.bodySmall
-            )
-            VerticalSpacerM()
-        }
-        Chart(
-            chart = lineChart(axisValuesOverrider = valuesOverrider),
-            chartModelProducer = lineProducer,
-            startAxis = startAxis(label = axisLabel),
-            bottomAxis = bottomAxis(
-                valueFormatter = axisFormatter,
-                label = axisLabel
-            ),
-            marker = rememberMarker(),
-            isZoomEnabled = false
-        )
-    }
+    Chart(
+        chart = lineChart(axisValuesOverrider = valuesOverrider),
+        chartModelProducer = lineProducer,
+        startAxis = startAxis(label = axisLabel),
+        bottomAxis = bottomAxis(
+            valueFormatter = axisFormatter,
+            label = axisLabel
+        ),
+        marker = rememberMarker(),
+        isZoomEnabled = false
+    )
 }
