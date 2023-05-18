@@ -33,7 +33,7 @@ fun NavigationHost(controller: NavHostController, snackbarHostState: SnackbarHos
         builder = {
             composable(
                 route = Routes.GreenEngineeringMenu,
-                content = {
+                content = { _ ->
                     GreenEngineeringMenuScreen(
                         onBack = controller::navigateUp,
                         navigateToItem = { controller.navigate(it) }
