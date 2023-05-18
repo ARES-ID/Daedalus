@@ -8,7 +8,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.core.content.res.ResourcesCompat
 import com.patrykandpatrick.vico.compose.component.lineComponent
 import com.patrykandpatrick.vico.compose.component.overlayingComponent
 import com.patrykandpatrick.vico.compose.component.shapeComponent
@@ -25,10 +27,13 @@ import com.patrykandpatrick.vico.core.component.shape.cornered.MarkerCorneredSha
 import com.patrykandpatrick.vico.core.context.MeasureContext
 import com.patrykandpatrick.vico.core.extension.copyColor
 import com.patrykandpatrick.vico.core.marker.Marker
+import com.rjspies.daedalus.R
 
 @Composable
 internal fun rememberMarker(): Marker {
     val labelBackgroundColor = MaterialTheme.colorScheme.surface
+    val context = LocalContext.current
+    val typeface = remember { ResourcesCompat.getFont(context, R.font.poppins_regular) ?: Typeface.MONOSPACE }
     val labelBackground = remember(labelBackgroundColor) {
         ShapeComponent(labelBackgroundShape, labelBackgroundColor.toArgb())
     }
@@ -36,7 +41,7 @@ internal fun rememberMarker(): Marker {
         background = labelBackground,
         lineCount = LabelLineCount,
         padding = labelPadding,
-        typeface = Typeface.MONOSPACE
+        typeface = typeface
     )
     val indicatorInnerComponent = shapeComponent(Shapes.pillShape, MaterialTheme.colorScheme.surface)
     val indicatorCenterComponent = shapeComponent(Shapes.pillShape, Color.White)
