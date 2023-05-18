@@ -23,7 +23,7 @@ fun DaedalusOutlinedTextField(
     maxLines: Int = Int.MAX_VALUE
 ) {
     OutlinedTextField(
-        value = value ?: "",
+        value = value.orEmpty(),
         onValueChange = onValueChange,
         modifier = modifier,
         enabled = enabled,

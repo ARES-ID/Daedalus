@@ -168,6 +168,7 @@ private fun AddButton(
         type = ButtonType.Filled,
         onClick = {
             weight?.toFloatOrNull()?.let {
+                @Suppress("InjectDispatcher")
                 coroutineScope.launch(Dispatchers.IO) {
                     viewModel.saveWeight(
                         weight = Weight(

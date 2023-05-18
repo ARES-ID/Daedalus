@@ -15,16 +15,16 @@ jobs:
           java-version: '17'
 
       - name: Detekt
-        run: ./gradlew detekt
+        run: ./gradlew detektRelease
 
       - name: Ktlint
-        run: ./gradlew ktlintCheck
+        run: ./gradlew ktlintReleaseSourceSetCheck
 
       - name: Lint
-        run: ./gradlew lintAnalyzeDebug
+        run: ./gradlew lintAnalyzeRelease
 
       - name: Assemble
-        run: ./gradlew assembleDebug
+        run: ./gradlew assembleRelease
 
       - name: Connected tests
         uses: reactivecircus/android-emulator-runner@v2
@@ -33,4 +33,4 @@ jobs:
           force-avd-creation: false
           emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: true
-          script: ./gradlew connectedCheck
+          script: ./gradlew connectedAndroidTest
