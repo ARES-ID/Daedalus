@@ -112,6 +112,7 @@ private fun Weights(
     )
 }
 
+@Suppress("LongMethod")
 @Composable
 private fun WeightRow(
     weight: Weight,
@@ -155,7 +156,7 @@ private fun WeightRow(
                     top.linkTo(title.bottom)
                     start.linkTo(avatar.end, margin = Spacings.M)
                     end.linkTo(deleteButton.start, margin = Spacings.M)
-                    
+
                     if (note == null) {
                         bottom.linkTo(parent.bottom, margin = Spacings.M)
                     }
