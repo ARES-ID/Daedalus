@@ -124,9 +124,10 @@ private fun WeightRow(
             .fillMaxWidth()
             .then(modifier),
         content = {
-            val (avatar, title, date, deleteButton) = createRefs()
+            val (avatar, title, date, noteReference, deleteButton) = createRefs()
             val locale = LocalConfiguration.current.locales[0]
             val coroutineScope = rememberCoroutineScope()
+            val note = weight.note
 
             Avatar(
                 state = state,
@@ -153,10 +154,28 @@ private fun WeightRow(
                     width = Dimension.fillToConstraints
                     top.linkTo(title.bottom)
                     start.linkTo(avatar.end, margin = Spacings.M)
-                    bottom.linkTo(parent.bottom, margin = Spacings.M)
                     end.linkTo(deleteButton.start, margin = Spacings.M)
+                    
+                    if (note == null) {
+                        bottom.linkTo(parent.bottom, margin = Spacings.M)
+                    }
                 }
             )
+
+            if (note != null) {
+                Text(
+                    text = stringResource(R.string.weight_history_item_note, note),
+                    style = MaterialTheme.typography.bodySmall,
+                    modifier = Modifier.constrainAs(noteReference) {
+                        width = Dimension.fillToConstraints
+                        top.linkTo(date.bottom)
+                        start.linkTo(avatar.end, margin = Spacings.M)
+                        bottom.linkTo(parent.bottom, margin = Spacings.M)
+                        end.linkTo(deleteButton.start, margin = Spacings.M)
+                    }
+                )
+            }
+
             IconButton(
                 onClick = {
                     coroutineScope.launch {
