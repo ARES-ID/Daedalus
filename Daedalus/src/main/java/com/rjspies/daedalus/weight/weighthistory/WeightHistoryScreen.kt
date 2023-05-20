@@ -15,11 +15,11 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.ArrowDownward
-import androidx.compose.material.icons.outlined.ArrowUpward
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.FormatListBulleted
-import androidx.compose.material.icons.outlined.Remove
+import androidx.compose.material.icons.outlined.TrendingDown
+import androidx.compose.material.icons.outlined.TrendingFlat
+import androidx.compose.material.icons.outlined.TrendingUp
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -34,6 +34,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -215,15 +216,16 @@ private fun Avatar(
                 ArrowState.Positive -> DaedalusTheme.colors.positive
                 ArrowState.Negative -> DaedalusTheme.colors.negative
             }
-            val icon = when (state) {
-                ArrowState.Neutral -> Icons.Outlined.Remove
-                ArrowState.Positive -> Icons.Outlined.ArrowDownward
-                ArrowState.Negative -> Icons.Outlined.ArrowUpward
+
+            val contentDescription = when (state) {
+                ArrowState.Neutral -> stringResource(R.string.extensions_content_description_trending_flat)
+                ArrowState.Positive -> stringResource(R.string.extensions_content_description_trending_down)
+                ArrowState.Negative -> stringResource(R.string.extensions_content_description_trending_up)
             }
 
             Icon(
-                imageVector = icon,
-                contentDescription = null,
+                imageVector = state.icon,
+                contentDescription = contentDescription,
                 modifier = Modifier.padding(Spacings.S),
                 tint = color
             )
@@ -262,10 +264,10 @@ private fun EmptyScreen() {
     )
 }
 
-private enum class ArrowState {
-    Neutral,
-    Positive,
-    Negative
+private sealed class ArrowState(val icon: ImageVector) {
+    object Neutral : ArrowState(Icons.Outlined.TrendingFlat)
+    object Negative : ArrowState(Icons.Outlined.TrendingUp)
+    object Positive : ArrowState(Icons.Outlined.TrendingDown)
 }
 
 private fun Float.asUserfacingString(locale: Locale): String {
