@@ -1,7 +1,7 @@
 name: Android connected tests
 on: pull_request
 jobs:
-  development:
+  connected_tests:
     runs-on: macos-latest
     steps:
       - name: Checkout repository

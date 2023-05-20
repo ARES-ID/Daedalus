@@ -1,7 +1,7 @@
 name: Build
 on: pull_request
 jobs:
-  development:
+  build:
     runs-on: macos-latest
     steps:
       - name: Checkout repository
