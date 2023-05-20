@@ -173,7 +173,7 @@ private fun AddButton(
                     viewModel.saveWeight(
                         weight = Weight(
                             value = it,
-                            note = note,
+                            note = note?.takeIf { it.isNotBlank() },
                             dateTime = ZonedDateTime.ofInstant(date, ZoneId.systemDefault())
                         )
                     )

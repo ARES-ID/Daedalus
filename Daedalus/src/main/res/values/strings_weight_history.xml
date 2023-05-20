@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="weight_history_toolbar_title">Verlauf</string>
+    <string name="weight_history_item_note">Notiz: %1$s</string>
 
     <!-- Empty Screen -->
     <string name="weight_history_empty_screen_title">Bereit zum Eintragen</string>
