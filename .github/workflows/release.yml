@@ -22,7 +22,9 @@ jobs:
           java-version: '17'
 
       - name: Build release
-        run: ./gradlew Daedalus:bundleRelease
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: Daedalus:bundleRelease
         env:
           DAEDALUS_SIGNING_KEY: ${{ secrets.DAEDALUS_SIGNING_KEY }}
           DAEDALUS_STORE_PASSWORD: ${{ secrets.DAEDALUS_STORE_PASSWORD }}
