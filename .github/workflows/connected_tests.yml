@@ -1,8 +1,7 @@
-name: Development
-run-name: Development
+name: Android connected tests
 on: pull_request
 jobs:
-  development:
+  connected_tests:
     runs-on: macos-latest
     steps:
       - name: Checkout repository
@@ -16,21 +15,6 @@ jobs:
 
       - name: Validate gradle wrapper
         uses: gradle/wrapper-validation-action@v1
-
-      - name: Detekt + KtLint
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: detektRelease ktlintReleaseSourceSetCheck
-
-      - name: Lint
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: lintAnalyzeRelease
-
-      - name: Compile
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: compileReleaseSources
 
       - name: Connected tests
         uses: reactivecircus/android-emulator-runner@v2
