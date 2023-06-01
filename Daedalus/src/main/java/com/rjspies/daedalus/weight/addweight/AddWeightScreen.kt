@@ -162,14 +162,14 @@ private fun AddButton(
 ) {
     val coroutineScope = rememberCoroutineScope()
     val successMessage = stringResource(R.string.add_weight_add_success_message)
+    val context = Dispatchers.IO
 
     DaedalusButton(
         text = stringResource(R.string.add_weight_add_button_text),
         type = ButtonType.Filled,
         onClick = {
             weight?.toFloatOrNull()?.let {
-                @Suppress("InjectDispatcher")
-                coroutineScope.launch(Dispatchers.IO) {
+                coroutineScope.launch(context) {
                     viewModel.saveWeight(
                         weight = Weight(
                             value = it,

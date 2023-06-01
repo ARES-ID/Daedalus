@@ -5,23 +5,19 @@
 ksp = [
     "androidx-room-compiler",
 ]
-
 debugImplementation = [
     "debug-androidx-compose-uiTestManifest",
     "debug-androidx-compose-uiTooling",
 ]
-
 androidTestImplementation = [
     "test-androidx-compose-uiTestJunit4",
     "test-androidx-espresso",
     "test-androidx-junit",
     "test-kotest-property",
 ]
-
 testImplementation = [
     "test-junit",
 ]
-
 implementation = [
     "androidx-activityCompose",
     "androidx-compose-ui",
@@ -43,7 +39,7 @@ implementation = [
 
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 benManes-versions = "com.github.ben-manes.versions:0.46.0"
-detekt = "io.gitlab.arturbosch.detekt:1.22.0"
+detekt = "io.gitlab.arturbosch.detekt:1.23.0"
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ktlint = "org.jlleitschuh.gradle.ktlint:11.3.2"
 littlerobots = "nl.littlerobots.version-catalog-update:0.8.0"
@@ -51,25 +47,23 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 
 [versions]
 
-androidGradlePlugin = "8.0.1"
+androidGradlePlugin = "8.0.2"
 compileSdk = "33"
 compose = "1.4.3"
-composeCompiler = "1.4.6"
+composeCompiler = "1.4.7"
 minSdk = "26"
 targetSdk = "33"
-versionCode = "200"
 versionName = "1.0.0"
 room = "2.5.1"
-kotlinCompiler = "2.0"
 java = "17"
 
 # Raise these two together
-kotlin = "1.8.20"
-ksp = "1.8.20-1.0.11"
+kotlin = "1.8.21"
+ksp = "1.8.21-1.0.11"
 
 [libraries]
 
-androidx-activityCompose = "androidx.activity:activity-compose:1.7.1"
+androidx-activityCompose = "androidx.activity:activity-compose:1.7.2"
 androidx-compose-material3 = "androidx.compose.material3:material3:1.1.0"
 androidx-compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 androidx-compose-uiToolingPreview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
@@ -94,4 +88,4 @@ test-androidx-compose-uiTestJunit4 = { module = "androidx.compose.ui:ui-test-jun
 test-androidx-espresso = "androidx.test.espresso:espresso-core:3.5.1"
 test-androidx-junit = "androidx.test.ext:junit:1.1.5"
 test-junit = "junit:junit:4.13.2"
-test-kotest-property = "io.kotest:kotest-property:5.6.1"
+test-kotest-property = "io.kotest:kotest-property:5.6.2"
