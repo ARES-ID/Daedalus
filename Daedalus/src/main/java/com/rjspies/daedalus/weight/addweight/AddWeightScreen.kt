@@ -37,6 +37,7 @@ import com.rjspies.daedalus.ui.widgets.DaedalusButton
 import com.rjspies.daedalus.ui.widgets.DaedalusOutlinedTextField
 import com.rjspies.daedalus.weight.service.data.Weight
 import com.rjspies.daedalus.weight.weighthistory.asUserfacingString
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.time.Instant
@@ -157,12 +158,12 @@ private fun AddButton(
     note: String?,
     date: Instant,
     viewModel: AddWeightViewModel,
+    context: CoroutineDispatcher = Dispatchers.IO,
     showSnackbar: suspend (message: String) -> Unit,
     onError: (WeightError) -> Unit
 ) {
     val coroutineScope = rememberCoroutineScope()
     val successMessage = stringResource(R.string.add_weight_add_success_message)
-    val context = Dispatchers.IO
 
     DaedalusButton(
         text = stringResource(R.string.add_weight_add_button_text),
