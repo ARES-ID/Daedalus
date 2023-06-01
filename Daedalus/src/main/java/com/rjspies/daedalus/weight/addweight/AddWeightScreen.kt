@@ -164,6 +164,7 @@ private fun AddButton(
 ) {
     val coroutineScope = rememberCoroutineScope()
     val successMessage = stringResource(R.string.add_weight_add_success_message)
+    val context = Dispatchers.IO
 
     DaedalusButton(
         text = stringResource(R.string.add_weight_add_button_text),
