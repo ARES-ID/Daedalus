@@ -42,7 +42,7 @@ fun ColumnScope.WeightedSpacer(weight: Float = 1f) = Spacer(modifier = Modifier.
 fun Divider(modifier: Modifier = Modifier) = Divider(
     thickness = Dp.Hairline,
     color = DaedalusTheme.colors.primary.copy(alpha = .3f),
-    modifier = modifier
+    modifier = modifier,
 )
 
 @ExperimentalFoundationApi
@@ -50,11 +50,11 @@ inline fun <T> LazyListScope.tableItems(
     items: List<T>,
     noinline key: ((item: T) -> Any)? = null,
     noinline contentType: (item: T) -> Any? = { null },
-    crossinline itemContent: @Composable LazyItemScope.(item: T) -> Unit
+    crossinline itemContent: @Composable LazyItemScope.(item: T) -> Unit,
 ) = items(
     count = items.size,
     key = if (key != null) { index: Int -> key(items[index]) } else null,
-    contentType = { index: Int -> contentType(items[index]) }
+    contentType = { index: Int -> contentType(items[index]) },
 ) {
     com.rjspies.daedalus.compose.Divider(Modifier.animateItemPlacement())
     itemContent(items[it])
@@ -82,7 +82,7 @@ fun ToolbarContent(title: String, onBack: () -> Unit, content: @Composable () ->
                 title = {
                     Text(
                         text = title,
-                        style = MaterialTheme.typography.titleMedium
+                        style = MaterialTheme.typography.titleMedium,
                     )
                 },
                 navigationIcon = {
@@ -91,18 +91,18 @@ fun ToolbarContent(title: String, onBack: () -> Unit, content: @Composable () ->
                         content = {
                             Icon(
                                 imageVector = Icons.Outlined.ArrowBack,
-                                contentDescription = stringResource(R.string.extensions_content_description_toolbar_navigation_icon)
+                                contentDescription = stringResource(R.string.extensions_content_description_toolbar_navigation_icon),
                             )
-                        }
+                        },
                     )
-                }
+                },
             )
         },
         content = {
             Box(Modifier.padding(it)) {
                 content()
             }
-        }
+        },
     )
 }
 

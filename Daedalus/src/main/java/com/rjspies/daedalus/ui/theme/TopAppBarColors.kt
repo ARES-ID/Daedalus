@@ -10,5 +10,5 @@ fun daedalusTopAppBarColors() = TopAppBarDefaults.topAppBarColors(
     containerColor = DaedalusTheme.colors.background,
     titleContentColor = DaedalusTheme.colors.text,
     navigationIconContentColor = DaedalusTheme.colors.text,
-    actionIconContentColor = DaedalusTheme.colors.text
+    actionIconContentColor = DaedalusTheme.colors.text,
 )

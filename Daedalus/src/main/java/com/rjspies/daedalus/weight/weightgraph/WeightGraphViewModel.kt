@@ -15,7 +15,7 @@ class WeightGraphViewModel private constructor(private val weightService: Weight
     val weights: StateFlow<List<Weight>> = weightService.weights().stateIn(
         scope = viewModelScope,
         started = SharingStarted.WhileSubscribed(),
-        initialValue = emptyList()
+        initialValue = emptyList(),
     )
 
     companion object {

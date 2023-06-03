@@ -31,7 +31,7 @@ fun ButtonGalleryScreen(onBack: () -> Unit) {
                     onClick = {},
                     modifier = Modifier
                         .fillMaxWidth()
-                        .horizontalSpacingM()
+                        .horizontalSpacingM(),
                 )
                 VerticalSpacerM()
                 DaedalusButton(
@@ -40,7 +40,7 @@ fun ButtonGalleryScreen(onBack: () -> Unit) {
                     onClick = {},
                     modifier = Modifier
                         .fillMaxWidth()
-                        .horizontalSpacingM()
+                        .horizontalSpacingM(),
                 )
                 VerticalSpacerM()
                 DaedalusButton(
@@ -49,9 +49,9 @@ fun ButtonGalleryScreen(onBack: () -> Unit) {
                     onClick = {},
                     modifier = Modifier
                         .fillMaxWidth()
-                        .horizontalSpacingM()
+                        .horizontalSpacingM(),
                 )
-            }
+            },
         )
     }
 }

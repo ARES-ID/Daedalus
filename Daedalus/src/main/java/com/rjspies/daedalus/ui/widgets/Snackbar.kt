@@ -13,6 +13,6 @@ fun DaedalusSnackbar(data: SnackbarData) {
         contentColor = DaedalusTheme.colors.onSecondary,
         actionColor = DaedalusTheme.colors.onSecondary,
         dismissActionContentColor = DaedalusTheme.colors.onSecondary,
-        actionContentColor = DaedalusTheme.colors.onSecondary
+        actionContentColor = DaedalusTheme.colors.onSecondary,
     )
 }

@@ -41,7 +41,7 @@ internal fun rememberMarker(): Marker {
         background = labelBackground,
         lineCount = LabelLineCount,
         padding = labelPadding,
-        typeface = typeface
+        typeface = typeface,
     )
     val indicatorInnerComponent = shapeComponent(Shapes.pillShape, MaterialTheme.colorScheme.surface)
     val indicatorCenterComponent = shapeComponent(Shapes.pillShape, Color.White)
@@ -51,14 +51,14 @@ internal fun rememberMarker(): Marker {
         inner = overlayingComponent(
             outer = indicatorCenterComponent,
             inner = indicatorInnerComponent,
-            innerPaddingAll = indicatorInnerAndCenterComponentPaddingValue
+            innerPaddingAll = indicatorInnerAndCenterComponentPaddingValue,
         ),
-        innerPaddingAll = indicatorCenterAndOuterComponentPaddingValue
+        innerPaddingAll = indicatorCenterAndOuterComponentPaddingValue,
     )
     val guideline = lineComponent(
         MaterialTheme.colorScheme.onSurface.copy(GuidelineAlpha),
         guidelineThickness,
-        guidelineShape
+        guidelineShape,
     )
     return remember(label, indicator, guideline) {
         object : MarkerComponent(label, indicator, guideline) {

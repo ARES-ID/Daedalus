@@ -25,5 +25,5 @@ fun daedalusDatePickerDialogColors() = DatePickerDefaults.colors(
     todayContentColor = DaedalusTheme.colors.text,
     todayDateBorderColor = DaedalusTheme.colors.primary,
     dayInSelectionRangeContentColor = DaedalusTheme.colors.onPrimary,
-    dayInSelectionRangeContainerColor = DaedalusTheme.colors.primary
+    dayInSelectionRangeContainerColor = DaedalusTheme.colors.primary,
 )

@@ -5,5 +5,5 @@ import com.rjspies.daedalus.navigation.Routes
 
 enum class GreenEngineeringMenuItems(val route: Route) {
     Typography(Routes.Typography),
-    Button(Routes.Button)
+    Button(Routes.Button),
 }

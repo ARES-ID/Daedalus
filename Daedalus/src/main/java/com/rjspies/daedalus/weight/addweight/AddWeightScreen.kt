@@ -37,20 +37,20 @@ import com.rjspies.daedalus.ui.widgets.DaedalusButton
 import com.rjspies.daedalus.ui.widgets.DaedalusOutlinedTextField
 import com.rjspies.daedalus.weight.service.data.Weight
 import com.rjspies.daedalus.weight.weighthistory.asUserfacingString
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import java.time.Instant
 import java.time.ZoneId
 import java.time.ZonedDateTime
 import java.time.format.FormatStyle
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @Suppress("LongMethod")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AddWeightScreen(
     onBack: () -> Unit,
-    showSnackbar: suspend (message: String) -> Unit
+    showSnackbar: suspend (message: String) -> Unit,
 ) {
     ToolbarContent(title = stringResource(R.string.add_weight_toolbar_title), onBack = onBack) {
         Column(
@@ -79,7 +79,7 @@ fun AddWeightScreen(
                                 selectedDate.value = Instant.ofEpochMilli(it)
                             }
                             showDialog.value = false
-                        }
+                        },
                     )
                 }
 
@@ -96,10 +96,10 @@ fun AddWeightScreen(
                     singleLine = true,
                     keyboardOptions = KeyboardOptions(
                         keyboardType = KeyboardType.Decimal,
-                        imeAction = ImeAction.Next
+                        imeAction = ImeAction.Next,
                     ),
                     supportingText = weightSupportingText,
-                    isError = weightError.value != null
+                    isError = weightError.value != null,
                 )
                 VerticalSpacerM()
                 DaedalusOutlinedTextField(
@@ -109,7 +109,7 @@ fun AddWeightScreen(
                         .fillMaxWidth()
                         .horizontalSpacingM(),
                     label = stringResource(R.string.add_weight_note_text_field_label),
-                    keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done)
+                    keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
                 )
                 VerticalSpacerM()
                 Row(
@@ -120,14 +120,14 @@ fun AddWeightScreen(
                         val locale = LocalConfiguration.current.locales[0]
                         Text(
                             text = stringResource(R.string.add_weight_date_label),
-                            style = MaterialTheme.typography.bodySmall
+                            style = MaterialTheme.typography.bodySmall,
                         )
                         WeightedSpacer()
                         Text(
                             text = selectedDate.value.asUserfacingString(locale, FormatStyle.SHORT),
-                            style = MaterialTheme.typography.bodySmall
+                            style = MaterialTheme.typography.bodySmall,
                         )
-                    }
+                    },
                 )
                 WeightedSpacer()
                 AddButton(
@@ -136,7 +136,7 @@ fun AddWeightScreen(
                     date = selectedDate.value,
                     viewModel = viewModel,
                     showSnackbar = showSnackbar,
-                    onError = { weightError.value = it }
+                    onError = { weightError.value = it },
                 )
                 VerticalSpacerXS()
                 DaedalusButton(
@@ -145,9 +145,9 @@ fun AddWeightScreen(
                     onClick = { showDialog.value = true },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .horizontalSpacingM()
+                        .horizontalSpacingM(),
                 )
-            }
+            },
         )
     }
 }
@@ -160,7 +160,7 @@ private fun AddButton(
     viewModel: AddWeightViewModel,
     context: CoroutineDispatcher = Dispatchers.IO,
     showSnackbar: suspend (message: String) -> Unit,
-    onError: (WeightError) -> Unit
+    onError: (WeightError) -> Unit,
 ) {
     val coroutineScope = rememberCoroutineScope()
     val successMessage = stringResource(R.string.add_weight_add_success_message)
@@ -175,8 +175,8 @@ private fun AddButton(
                         weight = Weight(
                             value = it,
                             note = note?.takeIf { it.isNotBlank() },
-                            dateTime = ZonedDateTime.ofInstant(date, ZoneId.systemDefault())
-                        )
+                            dateTime = ZonedDateTime.ofInstant(date, ZoneId.systemDefault()),
+                        ),
                     )
 
                     showSnackbar(successMessage)
@@ -191,7 +191,7 @@ private fun AddButton(
         },
         modifier = Modifier
             .fillMaxWidth()
-            .horizontalSpacingM()
+            .horizontalSpacingM(),
     )
 }
 
@@ -206,21 +206,21 @@ private fun DatePicker(onDismiss: () -> Unit, onConfirm: (Long?) -> Unit) {
             DaedalusButton(
                 text = stringResource(R.string.add_weight_date_picker_button),
                 type = ButtonType.Filled,
-                onClick = { onConfirm(datePickerState.selectedDateMillis) }
+                onClick = { onConfirm(datePickerState.selectedDateMillis) },
             )
         },
         modifier = Modifier.horizontalSpacingM(),
         colors = daedalusDatePickerDialogColors(),
         properties = DialogProperties(
             usePlatformDefaultWidth = false,
-            decorFitsSystemWindows = false
+            decorFitsSystemWindows = false,
         ),
         content = {
             DatePicker(
                 state = datePickerState,
-                colors = daedalusDatePickerDialogColors()
+                colors = daedalusDatePickerDialogColors(),
             )
-        }
+        },
     )
 }
 

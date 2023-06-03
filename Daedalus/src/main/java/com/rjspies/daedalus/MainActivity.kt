@@ -33,10 +33,10 @@ class MainActivity : ComponentActivity() {
                     snackbarHost = {
                         SnackbarHost(
                             hostState = snackbarHostState,
-                            snackbar = { DaedalusSnackbar(it) }
+                            snackbar = { DaedalusSnackbar(it) },
                         )
                     },
-                    content = { NavigationHost(navigationController, snackbarHostState) }
+                    content = { NavigationHost(navigationController, snackbarHostState) },
                 )
             }
         }
