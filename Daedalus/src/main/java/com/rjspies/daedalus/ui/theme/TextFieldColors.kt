@@ -31,5 +31,5 @@ fun daedalusOutlinedTextFieldColors() = OutlinedTextFieldDefaults.colors(
     focusedLabelColor = DaedalusTheme.colors.text,
     focusedTextColor = DaedalusTheme.colors.text,
     unfocusedTextColor = DaedalusTheme.colors.text,
-    errorTextColor = DaedalusTheme.colors.text
+    errorTextColor = DaedalusTheme.colors.text,
 )

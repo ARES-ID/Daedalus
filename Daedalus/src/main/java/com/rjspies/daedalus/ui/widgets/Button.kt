@@ -21,26 +21,29 @@ fun DaedalusButton(
     type: ButtonType,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    enabled: Boolean = true
+    enabled: Boolean = true,
 ) {
     val background = when (type) {
         ButtonType.Filled -> DaedalusTheme.colors.primary
         ButtonType.Outlined,
-        ButtonType.Transparent -> Color.Transparent
+        ButtonType.Transparent,
+        -> Color.Transparent
     }
     val contentColor = when (type) {
         ButtonType.Filled -> DaedalusTheme.colors.onPrimary
         ButtonType.Outlined,
-        ButtonType.Transparent -> DaedalusTheme.colors.text
+        ButtonType.Transparent,
+        -> DaedalusTheme.colors.text
     }
     val borderStroke = when (type) {
         ButtonType.Outlined -> BorderStroke(
             width = 1.dp,
-            color = DaedalusTheme.colors.primary
+            color = DaedalusTheme.colors.primary,
         )
 
         ButtonType.Filled,
-        ButtonType.Transparent -> null
+        ButtonType.Transparent,
+        -> null
     }
 
     Surface(
@@ -58,16 +61,16 @@ fun DaedalusButton(
                     Text(
                         text = text,
                         modifier = Modifier.padding(Spacings.S),
-                        style = MaterialTheme.typography.labelLarge
+                        style = MaterialTheme.typography.labelLarge,
                     )
-                }
+                },
             )
-        }
+        },
     )
 }
 
 enum class ButtonType {
     Filled,
     Outlined,
-    Transparent
+    Transparent,
 }

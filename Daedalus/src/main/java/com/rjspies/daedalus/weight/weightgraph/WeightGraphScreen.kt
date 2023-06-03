@@ -29,7 +29,7 @@ fun WeightGraphScreen(viewModel: WeightGraphViewModel = viewModel(factory = Weig
             WeightChartEntry(
                 x = index.toFloat(),
                 y = weight.value,
-                dateTime = weight.dateTime
+                dateTime = weight.dateTime,
             )
         }
     }
@@ -46,9 +46,9 @@ fun WeightGraphScreen(viewModel: WeightGraphViewModel = viewModel(factory = Weig
         startAxis = startAxis(label = axisLabel),
         bottomAxis = bottomAxis(
             valueFormatter = axisFormatter,
-            label = axisLabel
+            label = axisLabel,
         ),
         marker = rememberMarker(),
-        isZoomEnabled = false
+        isZoomEnabled = false,
     )
 }

@@ -30,11 +30,11 @@ fun DaedalusTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composab
                 LocalContentColor provides colors.text,
                 LocalTextSelectionColors provides TextSelectionColors(
                     handleColor = colors.primary,
-                    backgroundColor = colors.text.copy(alpha = .2f)
+                    backgroundColor = colors.text.copy(alpha = .2f),
                 ),
-                content = content
+                content = content,
             )
-        }
+        },
     )
 }
 

@@ -37,9 +37,9 @@ fun GreenEngineeringMenuScreen(onBack: () -> Unit, navigateToItem: (Route) -> Un
                 items(
                     items = GreenEngineeringMenuItems.values(),
                     key = { it.name },
-                    itemContent = { GreenEngineeringMenuEntry(it, navigateToItem) }
+                    itemContent = { GreenEngineeringMenuEntry(it, navigateToItem) },
                 )
-            }
+            },
         )
     }
 }
@@ -47,19 +47,19 @@ fun GreenEngineeringMenuScreen(onBack: () -> Unit, navigateToItem: (Route) -> Un
 @Composable
 fun GreenEngineeringMenuEntry(
     item: GreenEngineeringMenuItems,
-    onNavigation: (Route) -> Unit
+    onNavigation: (Route) -> Unit,
 ) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .clickable {
                 onNavigation(item.route)
-            }
+            },
     ) {
         Text(
             text = item.name,
             modifier = Modifier.padding(Spacings.M),
-            style = MaterialTheme.typography.bodyLarge
+            style = MaterialTheme.typography.bodyLarge,
         )
     }
 }

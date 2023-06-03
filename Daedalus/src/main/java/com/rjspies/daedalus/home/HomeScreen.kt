@@ -36,13 +36,13 @@ fun HomeScreen(toAddWeight: () -> Unit, toWeightHistory: () -> Unit) {
                 style = MaterialTheme.typography.displaySmall,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .horizontalSpacingM()
+                    .horizontalSpacingM(),
             )
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .horizontalSpacingM(),
-                content = { WeightGraphScreen() }
+                content = { WeightGraphScreen() },
             )
             WeightedSpacer()
             DaedalusButton(
@@ -52,7 +52,7 @@ fun HomeScreen(toAddWeight: () -> Unit, toWeightHistory: () -> Unit) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .horizontalSpacingM()
-                    .padding(top = Spacings.M)
+                    .padding(top = Spacings.M),
             )
             DaedalusButton(
                 text = stringResource(R.string.home_weight_history_button_text),
@@ -61,8 +61,8 @@ fun HomeScreen(toAddWeight: () -> Unit, toWeightHistory: () -> Unit) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .horizontalSpacingM()
-                    .padding(top = Spacings.XS)
+                    .padding(top = Spacings.XS),
             )
-        }
+        },
     )
 }

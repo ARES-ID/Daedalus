@@ -20,7 +20,7 @@ class TypographyTest {
             lineHeight = 64.sp,
             fontSize = 57.sp,
             letterSpacing = 0.sp,
-            fontWeight = FontWeight(400)
+            fontWeight = FontWeight(400),
         )
     }
 
@@ -30,7 +30,7 @@ class TypographyTest {
             lineHeight = 52.sp,
             fontSize = 45.sp,
             letterSpacing = 0.sp,
-            fontWeight = FontWeight(400)
+            fontWeight = FontWeight(400),
         )
     }
 
@@ -40,7 +40,7 @@ class TypographyTest {
             lineHeight = 44.sp,
             fontSize = 36.sp,
             letterSpacing = 0.sp,
-            fontWeight = FontWeight(400)
+            fontWeight = FontWeight(400),
         )
     }
 
@@ -50,7 +50,7 @@ class TypographyTest {
             lineHeight = 40.sp,
             fontSize = 32.sp,
             letterSpacing = 0.sp,
-            fontWeight = FontWeight(400)
+            fontWeight = FontWeight(400),
         )
     }
 
@@ -60,7 +60,7 @@ class TypographyTest {
             lineHeight = 36.sp,
             fontSize = 28.sp,
             letterSpacing = 0.sp,
-            fontWeight = FontWeight(400)
+            fontWeight = FontWeight(400),
         )
     }
 
@@ -70,7 +70,7 @@ class TypographyTest {
             lineHeight = 32.sp,
             fontSize = 24.sp,
             letterSpacing = 0.sp,
-            fontWeight = FontWeight(400)
+            fontWeight = FontWeight(400),
         )
     }
 
@@ -80,7 +80,7 @@ class TypographyTest {
             lineHeight = 28.sp,
             fontSize = 22.sp,
             letterSpacing = 0.sp,
-            fontWeight = FontWeight(400)
+            fontWeight = FontWeight(400),
         )
     }
 
@@ -90,7 +90,7 @@ class TypographyTest {
             lineHeight = 24.sp,
             fontSize = 16.sp,
             letterSpacing = 0.15.sp,
-            fontWeight = FontWeight(500)
+            fontWeight = FontWeight(500),
         )
     }
 
@@ -100,7 +100,7 @@ class TypographyTest {
             lineHeight = 20.sp,
             fontSize = 14.sp,
             letterSpacing = 0.1.sp,
-            fontWeight = FontWeight(500)
+            fontWeight = FontWeight(500),
         )
     }
 
@@ -110,7 +110,7 @@ class TypographyTest {
             lineHeight = 20.sp,
             fontSize = 14.sp,
             letterSpacing = 0.1.sp,
-            fontWeight = FontWeight(500)
+            fontWeight = FontWeight(500),
         )
     }
 
@@ -120,7 +120,7 @@ class TypographyTest {
             lineHeight = 16.sp,
             fontSize = 12.sp,
             letterSpacing = 0.5.sp,
-            fontWeight = FontWeight(500)
+            fontWeight = FontWeight(500),
         )
     }
 
@@ -130,7 +130,7 @@ class TypographyTest {
             lineHeight = 16.sp,
             fontSize = 11.sp,
             letterSpacing = 0.5.sp,
-            fontWeight = FontWeight(500)
+            fontWeight = FontWeight(500),
         )
     }
 
@@ -140,7 +140,7 @@ class TypographyTest {
             lineHeight = 24.sp,
             fontSize = 16.sp,
             letterSpacing = 0.5.sp,
-            fontWeight = FontWeight(400)
+            fontWeight = FontWeight(400),
         )
     }
 
@@ -150,7 +150,7 @@ class TypographyTest {
             lineHeight = 20.sp,
             fontSize = 14.sp,
             letterSpacing = 0.25.sp,
-            fontWeight = FontWeight(400)
+            fontWeight = FontWeight(400),
         )
     }
 
@@ -160,7 +160,7 @@ class TypographyTest {
             lineHeight = 16.sp,
             fontSize = 12.sp,
             letterSpacing = 0.4.sp,
-            fontWeight = FontWeight(400)
+            fontWeight = FontWeight(400),
         )
     }
 

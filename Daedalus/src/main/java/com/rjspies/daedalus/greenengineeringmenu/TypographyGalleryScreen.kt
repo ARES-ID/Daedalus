@@ -42,7 +42,7 @@ fun TypographyGalleryScreen(onBack: () -> Unit) {
                 LabelTexts()
                 VerticalSpacerM()
                 BodyTexts()
-            }
+            },
         )
     }
 }
@@ -54,7 +54,7 @@ private fun DisplayTexts() {
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-        style = MaterialTheme.typography.displayLarge
+        style = MaterialTheme.typography.displayLarge,
     )
     VerticalSpacerM()
     Text(
@@ -62,7 +62,7 @@ private fun DisplayTexts() {
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-        style = MaterialTheme.typography.displayMedium
+        style = MaterialTheme.typography.displayMedium,
     )
     VerticalSpacerM()
     Text(
@@ -70,7 +70,7 @@ private fun DisplayTexts() {
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-        style = MaterialTheme.typography.displaySmall
+        style = MaterialTheme.typography.displaySmall,
     )
 }
 
@@ -81,7 +81,7 @@ private fun HeadlineTexts() {
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-        style = MaterialTheme.typography.headlineLarge
+        style = MaterialTheme.typography.headlineLarge,
     )
     VerticalSpacerM()
     Text(
@@ -89,7 +89,7 @@ private fun HeadlineTexts() {
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-        style = MaterialTheme.typography.headlineMedium
+        style = MaterialTheme.typography.headlineMedium,
     )
     VerticalSpacerM()
     Text(
@@ -97,7 +97,7 @@ private fun HeadlineTexts() {
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-        style = MaterialTheme.typography.headlineSmall
+        style = MaterialTheme.typography.headlineSmall,
     )
 }
 
@@ -108,7 +108,7 @@ private fun TitleTexts() {
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-        style = MaterialTheme.typography.titleLarge
+        style = MaterialTheme.typography.titleLarge,
     )
     VerticalSpacerM()
     Text(
@@ -116,7 +116,7 @@ private fun TitleTexts() {
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-        style = MaterialTheme.typography.titleMedium
+        style = MaterialTheme.typography.titleMedium,
     )
     VerticalSpacerM()
     Text(
@@ -124,7 +124,7 @@ private fun TitleTexts() {
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-        style = MaterialTheme.typography.titleSmall
+        style = MaterialTheme.typography.titleSmall,
     )
 }
 
@@ -135,7 +135,7 @@ private fun LabelTexts() {
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-        style = MaterialTheme.typography.labelLarge
+        style = MaterialTheme.typography.labelLarge,
     )
     VerticalSpacerM()
     Text(
@@ -143,7 +143,7 @@ private fun LabelTexts() {
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-        style = MaterialTheme.typography.labelMedium
+        style = MaterialTheme.typography.labelMedium,
     )
     VerticalSpacerM()
     Text(
@@ -151,7 +151,7 @@ private fun LabelTexts() {
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-        style = MaterialTheme.typography.labelSmall
+        style = MaterialTheme.typography.labelSmall,
     )
 }
 
@@ -162,7 +162,7 @@ private fun BodyTexts() {
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-        style = MaterialTheme.typography.bodyLarge
+        style = MaterialTheme.typography.bodyLarge,
     )
     VerticalSpacerM()
     Text(
@@ -170,7 +170,7 @@ private fun BodyTexts() {
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-        style = MaterialTheme.typography.bodyMedium
+        style = MaterialTheme.typography.bodyMedium,
     )
     VerticalSpacerM()
     Text(
@@ -178,7 +178,7 @@ private fun BodyTexts() {
         modifier = Modifier
             .horizontalSpacingM()
             .typographyBorder(),
-        style = MaterialTheme.typography.bodySmall
+        style = MaterialTheme.typography.bodySmall,
     )
 }
 
@@ -186,7 +186,7 @@ private fun Modifier.typographyBorder() = composed {
     border(
         border = BorderStroke(
             width = Dp.Hairline,
-            color = DaedalusTheme.colors.text
-        )
+            color = DaedalusTheme.colors.text,
+        ),
     )
 }

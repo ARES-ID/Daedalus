@@ -36,22 +36,22 @@ fun NavigationHost(controller: NavHostController, snackbarHostState: SnackbarHos
                 content = { _ ->
                     GreenEngineeringMenuScreen(
                         onBack = controller::navigateUp,
-                        navigateToItem = { controller.navigate(it) }
+                        navigateToItem = { controller.navigate(it) },
                     )
-                }
+                },
             )
             composable(
                 route = Routes.Home,
                 content = {
                     HomeScreen(
                         toAddWeight = { controller.navigate(Routes.AddWeight) },
-                        toWeightHistory = { controller.navigate(Routes.WeightHistory) }
+                        toWeightHistory = { controller.navigate(Routes.WeightHistory) },
                     )
-                }
+                },
             )
             composable(
                 route = Routes.Typography,
-                content = { TypographyGalleryScreen(controller::navigateUp) }
+                content = { TypographyGalleryScreen(controller::navigateUp) },
             )
             composable(
                 route = Routes.AddWeight,
@@ -62,20 +62,20 @@ fun NavigationHost(controller: NavHostController, snackbarHostState: SnackbarHos
                         showSnackbar = {
                             snackbarHostState.showSnackbar(
                                 message = message,
-                                withDismissAction = true
+                                withDismissAction = true,
                             )
-                        }
+                        },
                     )
-                }
+                },
             )
             composable(
                 route = Routes.WeightHistory,
-                content = { WeightHistoryScreen(controller::navigateUp) }
+                content = { WeightHistoryScreen(controller::navigateUp) },
             )
             composable(
                 route = Routes.Button,
-                content = { ButtonGalleryScreen(controller::navigateUp) }
+                content = { ButtonGalleryScreen(controller::navigateUp) },
             )
-        }
+        },
     )
 }
