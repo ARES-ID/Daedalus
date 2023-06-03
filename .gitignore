@@ -9,3 +9,4 @@
 local.properties
 libs.versions.updates.toml
 /.google-cloud
+/.idea
