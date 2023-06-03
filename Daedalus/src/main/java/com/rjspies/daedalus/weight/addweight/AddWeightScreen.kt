@@ -169,7 +169,7 @@ private fun AddButton(
         text = stringResource(R.string.add_weight_add_button_text),
         type = ButtonType.Filled,
         onClick = {
-            weight?.toFloatOrNull()?.let {
+            weight?.parseToFloat()?.let {
                 coroutineScope.launch(context) {
                     viewModel.saveWeight(
                         weight = Weight(
@@ -225,6 +225,7 @@ private fun DatePicker(onDismiss: () -> Unit, onConfirm: (Long?) -> Unit) {
 }
 
 private fun String.filtered(): String = filter { it.isDigit() || it == '.' || it == ',' }
+private fun String?.parseToFloat(): Float? = this?.replace(",", ".")?.toFloatOrNull()
 
 private sealed class WeightError {
     object Empty : WeightError()
