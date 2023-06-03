@@ -48,7 +48,6 @@ import com.rjspies.daedalus.compose.VerticalSpacerM
 import com.rjspies.daedalus.compose.horizontalSpacingM
 import com.rjspies.daedalus.compose.tableItems
 import com.rjspies.daedalus.compose.verticalSpacingM
-import com.rjspies.daedalus.ui.theme.DaedalusTheme
 import com.rjspies.daedalus.ui.theme.Spacings
 import com.rjspies.daedalus.weight.service.data.Weight
 import kotlinx.coroutines.launch
@@ -211,12 +210,6 @@ private fun Avatar(
             .background(Color.Gray.copy(alpha = .3f))
             .then(modifier),
         content = {
-            val color = when (state) {
-                ArrowState.Neutral -> DaedalusTheme.colors.text
-                ArrowState.Positive -> DaedalusTheme.colors.positive
-                ArrowState.Negative -> DaedalusTheme.colors.negative
-            }
-
             val contentDescription = when (state) {
                 ArrowState.Neutral -> stringResource(R.string.extensions_content_description_trending_flat)
                 ArrowState.Positive -> stringResource(R.string.extensions_content_description_trending_down)
@@ -227,7 +220,6 @@ private fun Avatar(
                 imageVector = state.icon,
                 contentDescription = contentDescription,
                 modifier = Modifier.padding(Spacings.S),
-                tint = color
             )
         }
     )
