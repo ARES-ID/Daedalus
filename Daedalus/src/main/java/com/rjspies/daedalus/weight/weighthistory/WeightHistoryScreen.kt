@@ -20,6 +20,7 @@ import androidx.compose.material.icons.outlined.FormatListBulleted
 import androidx.compose.material.icons.outlined.TrendingDown
 import androidx.compose.material.icons.outlined.TrendingFlat
 import androidx.compose.material.icons.outlined.TrendingUp
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -28,8 +29,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -48,8 +51,9 @@ import com.rjspies.daedalus.compose.VerticalSpacerM
 import com.rjspies.daedalus.compose.horizontalSpacingM
 import com.rjspies.daedalus.compose.tableItems
 import com.rjspies.daedalus.compose.verticalSpacingM
-import com.rjspies.daedalus.ui.theme.DaedalusTheme
 import com.rjspies.daedalus.ui.theme.Spacings
+import com.rjspies.daedalus.ui.widgets.ButtonType
+import com.rjspies.daedalus.ui.widgets.DaedalusButton
 import com.rjspies.daedalus.weight.service.data.Weight
 import kotlinx.coroutines.launch
 import java.text.DecimalFormat
@@ -70,7 +74,7 @@ fun WeightHistoryScreen(onBack: () -> Unit) {
         if (weights.isNotEmpty()) {
             Weights(
                 weights = weights,
-                viewModel = viewModel,
+                viewModel = viewModel
             )
         } else {
             EmptyScreen()
@@ -82,7 +86,7 @@ fun WeightHistoryScreen(onBack: () -> Unit) {
 @Composable
 private fun Weights(
     weights: List<Weight>,
-    viewModel: WeightHistoryViewModel,
+    viewModel: WeightHistoryViewModel
 ) {
     LazyColumn(
         contentPadding = PaddingValues(vertical = Spacings.M),
@@ -105,11 +109,11 @@ private fun Weights(
                         weight = it,
                         state = state,
                         viewModel = viewModel,
-                        modifier = Modifier.animateItemPlacement(),
+                        modifier = Modifier.animateItemPlacement()
                     )
-                },
+                }
             )
-        },
+        }
     )
 }
 
@@ -119,7 +123,7 @@ private fun WeightRow(
     weight: Weight,
     state: ArrowState,
     viewModel: WeightHistoryViewModel,
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier
 ) {
     ConstraintLayout(
         modifier = Modifier
@@ -130,6 +134,36 @@ private fun WeightRow(
             val locale = LocalConfiguration.current.locales[0]
             val coroutineScope = rememberCoroutineScope()
             val note = weight.note
+            val showDeletePrompt = rememberSaveable { mutableStateOf(false) }
+
+            if (showDeletePrompt.value) {
+                AlertDialog(
+                    onDismissRequest = { showDeletePrompt.value = false },
+                    title = {
+                        Text(stringResource(R.string.weight_history_dialog_delete_item_title))
+                    },
+                    text = {
+                        Text(
+                            text = stringResource(R.string.weight_history_dialog_delete_item_message),
+                            style = MaterialTheme.typography.bodySmall
+                        )
+                    },
+                    confirmButton = {
+                        DaedalusButton(
+                            text = stringResource(R.string.weight_history_dialog_delete_item_button),
+                            type = ButtonType.Filled,
+                            onClick = {
+                                coroutineScope.launch {
+                                    viewModel.deleteWeight(weight)
+                                }
+                            }
+                        )
+                    },
+                    titleContentColor = DaedalusTheme.colors.text,
+                    textContentColor = DaedalusTheme.colors.text,
+                    containerColor = DaedalusTheme.colors.background,
+                )
+            }
 
             Avatar(
                 state = state,
@@ -137,7 +171,7 @@ private fun WeightRow(
                     top.linkTo(parent.top, margin = Spacings.M)
                     start.linkTo(parent.start, margin = Spacings.M)
                     bottom.linkTo(parent.bottom, margin = Spacings.M)
-                },
+                }
             )
             Text(
                 text = weight.value.asUserfacingString(locale),
@@ -147,7 +181,7 @@ private fun WeightRow(
                     top.linkTo(parent.top, margin = Spacings.M)
                     start.linkTo(avatar.end, margin = Spacings.M)
                     end.linkTo(deleteButton.start, margin = Spacings.M)
-                },
+                }
             )
             Text(
                 text = weight.dateTime.asUserfacingString(locale),
@@ -161,7 +195,7 @@ private fun WeightRow(
                     if (note == null) {
                         bottom.linkTo(parent.bottom, margin = Spacings.M)
                     }
-                },
+                }
             )
 
             if (note != null) {
@@ -174,15 +208,13 @@ private fun WeightRow(
                         start.linkTo(avatar.end, margin = Spacings.M)
                         bottom.linkTo(parent.bottom, margin = Spacings.M)
                         end.linkTo(deleteButton.start, margin = Spacings.M)
-                    },
+                    }
                 )
             }
 
             IconButton(
                 onClick = {
-                    coroutineScope.launch {
-                        viewModel.deleteWeight(weight)
-                    }
+                    showDeletePrompt.value = true
                 },
                 modifier = Modifier.constrainAs(deleteButton) {
                     top.linkTo(parent.top, margin = Spacings.M)
@@ -192,18 +224,18 @@ private fun WeightRow(
                 content = {
                     Icon(
                         imageVector = Icons.Outlined.Delete,
-                        contentDescription = stringResource(R.string.extensions_content_description_delete_action),
+                        contentDescription = stringResource(R.string.extensions_content_description_delete_action)
                     )
-                },
+                }
             )
-        },
+        }
     )
 }
 
 @Composable
 private fun Avatar(
     state: ArrowState,
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier
 ) {
     Box(
         modifier = Modifier
@@ -211,12 +243,6 @@ private fun Avatar(
             .background(Color.Gray.copy(alpha = .3f))
             .then(modifier),
         content = {
-            val color = when (state) {
-                ArrowState.Neutral -> DaedalusTheme.colors.text
-                ArrowState.Positive -> DaedalusTheme.colors.positive
-                ArrowState.Negative -> DaedalusTheme.colors.negative
-            }
-
             val contentDescription = when (state) {
                 ArrowState.Neutral -> stringResource(R.string.extensions_content_description_trending_flat)
                 ArrowState.Positive -> stringResource(R.string.extensions_content_description_trending_down)
@@ -227,9 +253,8 @@ private fun Avatar(
                 imageVector = state.icon,
                 contentDescription = contentDescription,
                 modifier = Modifier.padding(Spacings.S),
-                tint = color,
             )
-        },
+        }
     )
 }
 
@@ -247,20 +272,20 @@ private fun EmptyScreen() {
             Icon(
                 imageVector = Icons.Outlined.FormatListBulleted,
                 contentDescription = stringResource(R.string.extensions_content_description_list),
-                modifier = Modifier.size(48.dp),
+                modifier = Modifier.size(48.dp)
             )
             VerticalSpacerM()
             Text(
                 text = stringResource(R.string.weight_history_empty_screen_title),
                 style = MaterialTheme.typography.headlineSmall,
-                textAlign = TextAlign.Center,
+                textAlign = TextAlign.Center
             )
             Text(
                 text = stringResource(R.string.weight_history_empty_screen_description),
                 style = MaterialTheme.typography.bodyMedium,
-                textAlign = TextAlign.Center,
+                textAlign = TextAlign.Center
             )
-        },
+        }
     )
 }
 
