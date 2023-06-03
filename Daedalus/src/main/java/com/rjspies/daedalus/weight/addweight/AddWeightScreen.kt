@@ -37,13 +37,13 @@ import com.rjspies.daedalus.ui.widgets.DaedalusButton
 import com.rjspies.daedalus.ui.widgets.DaedalusOutlinedTextField
 import com.rjspies.daedalus.weight.service.data.Weight
 import com.rjspies.daedalus.weight.weighthistory.asUserfacingString
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import java.time.Instant
 import java.time.ZoneId
 import java.time.ZonedDateTime
 import java.time.format.FormatStyle
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @Suppress("LongMethod")
 @OptIn(ExperimentalMaterial3Api::class)

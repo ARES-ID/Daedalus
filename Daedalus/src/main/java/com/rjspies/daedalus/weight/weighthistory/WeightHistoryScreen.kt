@@ -55,7 +55,6 @@ import com.rjspies.daedalus.ui.theme.Spacings
 import com.rjspies.daedalus.ui.widgets.ButtonType
 import com.rjspies.daedalus.ui.widgets.DaedalusButton
 import com.rjspies.daedalus.weight.service.data.Weight
-import kotlinx.coroutines.launch
 import java.text.DecimalFormat
 import java.time.Instant
 import java.time.ZoneId
@@ -63,6 +62,7 @@ import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.util.Locale
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -74,7 +74,7 @@ fun WeightHistoryScreen(onBack: () -> Unit) {
         if (weights.isNotEmpty()) {
             Weights(
                 weights = weights,
-                viewModel = viewModel
+                viewModel = viewModel,
             )
         } else {
             EmptyScreen()
@@ -86,7 +86,7 @@ fun WeightHistoryScreen(onBack: () -> Unit) {
 @Composable
 private fun Weights(
     weights: List<Weight>,
-    viewModel: WeightHistoryViewModel
+    viewModel: WeightHistoryViewModel,
 ) {
     LazyColumn(
         contentPadding = PaddingValues(vertical = Spacings.M),
@@ -109,11 +109,11 @@ private fun Weights(
                         weight = it,
                         state = state,
                         viewModel = viewModel,
-                        modifier = Modifier.animateItemPlacement()
+                        modifier = Modifier.animateItemPlacement(),
                     )
-                }
+                },
             )
-        }
+        },
     )
 }
 
@@ -123,7 +123,7 @@ private fun WeightRow(
     weight: Weight,
     state: ArrowState,
     viewModel: WeightHistoryViewModel,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     ConstraintLayout(
         modifier = Modifier
@@ -145,7 +145,7 @@ private fun WeightRow(
                     text = {
                         Text(
                             text = stringResource(R.string.weight_history_dialog_delete_item_message),
-                            style = MaterialTheme.typography.bodySmall
+                            style = MaterialTheme.typography.bodySmall,
                         )
                     },
                     confirmButton = {
@@ -156,7 +156,7 @@ private fun WeightRow(
                                 coroutineScope.launch {
                                     viewModel.deleteWeight(weight)
                                 }
-                            }
+                            },
                         )
                     },
                     titleContentColor = DaedalusTheme.colors.text,
@@ -171,7 +171,7 @@ private fun WeightRow(
                     top.linkTo(parent.top, margin = Spacings.M)
                     start.linkTo(parent.start, margin = Spacings.M)
                     bottom.linkTo(parent.bottom, margin = Spacings.M)
-                }
+                },
             )
             Text(
                 text = weight.value.asUserfacingString(locale),
@@ -181,7 +181,7 @@ private fun WeightRow(
                     top.linkTo(parent.top, margin = Spacings.M)
                     start.linkTo(avatar.end, margin = Spacings.M)
                     end.linkTo(deleteButton.start, margin = Spacings.M)
-                }
+                },
             )
             Text(
                 text = weight.dateTime.asUserfacingString(locale),
@@ -195,7 +195,7 @@ private fun WeightRow(
                     if (note == null) {
                         bottom.linkTo(parent.bottom, margin = Spacings.M)
                     }
-                }
+                },
             )
 
             if (note != null) {
@@ -208,7 +208,7 @@ private fun WeightRow(
                         start.linkTo(avatar.end, margin = Spacings.M)
                         bottom.linkTo(parent.bottom, margin = Spacings.M)
                         end.linkTo(deleteButton.start, margin = Spacings.M)
-                    }
+                    },
                 )
             }
 
@@ -224,18 +224,18 @@ private fun WeightRow(
                 content = {
                     Icon(
                         imageVector = Icons.Outlined.Delete,
-                        contentDescription = stringResource(R.string.extensions_content_description_delete_action)
+                        contentDescription = stringResource(R.string.extensions_content_description_delete_action),
                     )
-                }
+                },
             )
-        }
+        },
     )
 }
 
 @Composable
 private fun Avatar(
     state: ArrowState,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Box(
         modifier = Modifier
@@ -254,7 +254,7 @@ private fun Avatar(
                 contentDescription = contentDescription,
                 modifier = Modifier.padding(Spacings.S),
             )
-        }
+        },
     )
 }
 
@@ -272,20 +272,20 @@ private fun EmptyScreen() {
             Icon(
                 imageVector = Icons.Outlined.FormatListBulleted,
                 contentDescription = stringResource(R.string.extensions_content_description_list),
-                modifier = Modifier.size(48.dp)
+                modifier = Modifier.size(48.dp),
             )
             VerticalSpacerM()
             Text(
                 text = stringResource(R.string.weight_history_empty_screen_title),
                 style = MaterialTheme.typography.headlineSmall,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
             )
             Text(
                 text = stringResource(R.string.weight_history_empty_screen_description),
                 style = MaterialTheme.typography.bodyMedium,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
             )
-        }
+        },
     )
 }
 
