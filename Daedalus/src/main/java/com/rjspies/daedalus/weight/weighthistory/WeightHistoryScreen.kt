@@ -20,6 +20,7 @@ import androidx.compose.material.icons.outlined.FormatListBulleted
 import androidx.compose.material.icons.outlined.TrendingDown
 import androidx.compose.material.icons.outlined.TrendingFlat
 import androidx.compose.material.icons.outlined.TrendingUp
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -28,8 +29,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -50,6 +53,8 @@ import com.rjspies.daedalus.compose.tableItems
 import com.rjspies.daedalus.compose.verticalSpacingM
 import com.rjspies.daedalus.ui.theme.DaedalusTheme
 import com.rjspies.daedalus.ui.theme.Spacings
+import com.rjspies.daedalus.ui.widgets.ButtonType
+import com.rjspies.daedalus.ui.widgets.DaedalusButton
 import com.rjspies.daedalus.weight.service.data.Weight
 import kotlinx.coroutines.launch
 import java.text.DecimalFormat
@@ -130,6 +135,36 @@ private fun WeightRow(
             val locale = LocalConfiguration.current.locales[0]
             val coroutineScope = rememberCoroutineScope()
             val note = weight.note
+            val showDeletePrompt = rememberSaveable { mutableStateOf(false) }
+
+            if (showDeletePrompt.value) {
+                AlertDialog(
+                    onDismissRequest = { showDeletePrompt.value = false },
+                    title = {
+                        Text(stringResource(R.string.weight_history_dialog_delete_item_title))
+                    },
+                    text = {
+                        Text(
+                            text = stringResource(R.string.weight_history_dialog_delete_item_message),
+                            style = MaterialTheme.typography.bodySmall
+                        )
+                    },
+                    confirmButton = {
+                        DaedalusButton(
+                            text = stringResource(R.string.weight_history_dialog_delete_item_button),
+                            type = ButtonType.Filled,
+                            onClick = {
+                                coroutineScope.launch {
+                                    viewModel.deleteWeight(weight)
+                                }
+                            }
+                        )
+                    },
+                    titleContentColor = DaedalusTheme.colors.text,
+                    textContentColor = DaedalusTheme.colors.text,
+                    containerColor = DaedalusTheme.colors.background,
+                )
+            }
 
             Avatar(
                 state = state,
@@ -180,9 +215,7 @@ private fun WeightRow(
 
             IconButton(
                 onClick = {
-                    coroutineScope.launch {
-                        viewModel.deleteWeight(weight)
-                    }
+                    showDeletePrompt.value = true
                 },
                 modifier = Modifier.constrainAs(deleteButton) {
                     top.linkTo(parent.top, margin = Spacings.M)
