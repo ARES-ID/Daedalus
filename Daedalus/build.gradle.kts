@@ -74,7 +74,7 @@ android {
 kotlin {
     jvmToolchain {
         languageVersion.set(JavaLanguageVersion.of(libs.versions.java.get()))
-        vendor.set(JvmVendorSpec.SAP)
+        vendor.set(JvmVendorSpec.AZUL)
     }
 }
 
