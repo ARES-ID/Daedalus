@@ -71,6 +71,13 @@ android {
     }
 }
 
+kotlin {
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(libs.versions.java.get()))
+        vendor.set(JvmVendorSpec.AZUL)
+    }
+}
+
 dependencies {
     implementation(libs.bundles.implementation)
     testImplementation(libs.bundles.testImplementation)
