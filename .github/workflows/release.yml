@@ -15,6 +15,12 @@ jobs:
           fileDir: '${{ github.workspace }}/Daedalus/keystore'
           encodedString: ${{ secrets.KEYSTORE }}
 
+      - name: Java 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'sap'
+          java-version: '17'
+
       - name: Build release
         uses: gradle/gradle-build-action@v2
         with:
