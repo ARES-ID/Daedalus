@@ -56,7 +56,6 @@ import com.rjspies.daedalus.ui.theme.Spacings
 import com.rjspies.daedalus.ui.widgets.ButtonType
 import com.rjspies.daedalus.ui.widgets.DaedalusButton
 import com.rjspies.daedalus.weight.service.data.Weight
-import kotlinx.coroutines.launch
 import java.text.DecimalFormat
 import java.time.Instant
 import java.time.ZoneId
@@ -64,6 +63,7 @@ import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.util.Locale
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

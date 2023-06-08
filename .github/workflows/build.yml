@@ -19,12 +19,12 @@ jobs:
       - name: Detekt + KtLint
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: detektRelease ktlintReleaseSourceSetCheck
+          arguments: detektRelease ktlintCheck
 
       - name: Lint
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: lintAnalyzeRelease
+          arguments: lintRelease
 
       - name: Compile
         uses: gradle/gradle-build-action@v2
