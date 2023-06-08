@@ -26,8 +26,8 @@ fun NavigationHost(controller: NavHostController, snackbarHostState: SnackbarHos
         modifier = Modifier
             .fillMaxSize()
             .greenEngineeringMenuGestureDetector("navigationHost") {
-                if (controller.backQueue.none { it.destination.route == Routes.GreenEngineeringMenu }) {
-                    controller.navigate(Routes.GreenEngineeringMenu)
+                controller.navigate(Routes.GreenEngineeringMenu) {
+                    launchSingleTop = true
                 }
             },
         builder = {
