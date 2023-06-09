@@ -5,7 +5,6 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.core.content.res.ResourcesCompat
@@ -33,9 +32,7 @@ internal fun rememberMarker(): Marker {
 
     val labelBackground = shapeComponent(
         shape = MarkerCorneredShape(Corner.FullyRounded),
-        color = DaedalusTheme.colors.background,
-        strokeWidth = 1.dp,
-        strokeColor = DaedalusTheme.colors.primary,
+        color = DaedalusTheme.colors.primary,
     )
 
     val label = textComponent(
@@ -43,11 +40,11 @@ internal fun rememberMarker(): Marker {
         lineCount = LabelLineCount,
         padding = LabelPadding,
         typeface = typeface,
-        color = Color.Magenta,
+        color = DaedalusTheme.colors.onPrimary,
     )
 
     val guideline = lineComponent(
-        DaedalusTheme.colors.text.copy(GuidelineAlpha),
+        DaedalusTheme.colors.primary,
         GuidelineThickness,
         GuidelineShape,
     )
@@ -55,6 +52,7 @@ internal fun rememberMarker(): Marker {
     return remember(label, indicator, guideline) {
         object : MarkerComponent(label, indicator, guideline) {
             init {
+                labelFormatter = DaedalusMarkerLabelFormatter
                 indicatorSizeDp = IndicatorSizeDp
             }
 
@@ -69,7 +67,6 @@ internal fun rememberMarker(): Marker {
 private const val LabelBackgroundShadowRadius = 4f
 private const val LabelBackgroundShadowDy = 2f
 private const val LabelLineCount = 1
-private const val GuidelineAlpha = .2f
 private const val IndicatorSizeDp = 12f
 private const val GuidelineDashLengthDp = 8f
 private const val GuidelineGapLengthDp = 4f
