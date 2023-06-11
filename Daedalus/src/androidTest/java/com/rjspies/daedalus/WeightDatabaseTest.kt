@@ -9,12 +9,12 @@ import com.rjspies.daedalus.weight.service.data.Weight
 import com.rjspies.daedalus.weight.service.data.WeightDao
 import io.kotest.assertions.throwables.shouldThrowExactly
 import io.kotest.property.checkAll
-import java.io.IOException
-import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
+import java.io.IOException
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.runBlocking
 
 class WeightDatabaseTest {
     private lateinit var weightDao: WeightDao
