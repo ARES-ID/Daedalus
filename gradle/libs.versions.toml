@@ -37,11 +37,9 @@ implementation = [
 [plugins]
 
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
-benManes-versions = "com.github.ben-manes.versions:0.46.0"
 detekt = "io.gitlab.arturbosch.detekt:1.23.0"
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-ktlint = "org.jlleitschuh.gradle.ktlint:11.3.2"
-littlerobots = "nl.littlerobots.version-catalog-update:0.8.0"
+ktlint = "org.jlleitschuh.gradle.ktlint:11.4.2"
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 
 [versions]
@@ -53,7 +51,7 @@ composeCompiler = "1.4.7"
 minSdk = "26"
 targetSdk = "33"
 versionName = "1.0.0"
-room = "2.5.1"
+room = "2.5.2"
 java = "17"
 
 # Raise these two together
@@ -63,7 +61,7 @@ ksp = "1.8.21-1.0.11"
 [libraries]
 
 androidx-activityCompose = "androidx.activity:activity-compose:1.7.2"
-androidx-compose-material3 = "androidx.compose.material3:material3:1.1.0"
+androidx-compose-material3 = "androidx.compose.material3:material3:1.1.1"
 androidx-compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 androidx-compose-navigation = "androidx.navigation:navigation-compose:2.6.0"
 androidx-coreKtx = "androidx.core:core-ktx:1.10.1"
