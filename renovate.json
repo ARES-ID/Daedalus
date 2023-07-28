@@ -1,6 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base"
-  ]
+  "extends": ["config:base"],
+  "reviewers": ["required:rjspies"],
+  "prHourlyLimit": 1,
+  "branchPrefix": "Renovate/",
+  "prCreation": "status-success",
+  "prConcurrentLimit": 3
 }
