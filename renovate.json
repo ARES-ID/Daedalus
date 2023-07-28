@@ -6,5 +6,7 @@
   "branchPrefix": "Renovate/",
   "prCreation": "status-success",
   "prConcurrentLimit": 3,
-  "assignees": ["renovate"]
+  "assignees": ["renovate"],
+  "rebaseWhen": "behind-base-branch",
+  "commitMessagePrefix": "Renovate: "
 }
