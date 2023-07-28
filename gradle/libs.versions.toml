@@ -56,7 +56,7 @@ java = "17"
 
 # Raise these two together
 kotlin = "1.8.21"
-ksp = "1.8.21-1.0.11"
+ksp = "1.9.0-1.0.12"
 
 [libraries]
 
