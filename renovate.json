@@ -8,5 +8,6 @@
   "prConcurrentLimit": 3,
   "assignees": ["renovate"],
   "rebaseWhen": "behind-base-branch",
-  "commitMessagePrefix": "Renovate: "
+  "commitMessagePrefix": "Renovate: ",
+  "dependencyDashboard": true
 }
