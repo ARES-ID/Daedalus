@@ -12,8 +12,8 @@ import com.patrykandpatrick.vico.compose.component.lineComponent
 import com.patrykandpatrick.vico.compose.component.shapeComponent
 import com.patrykandpatrick.vico.compose.component.textComponent
 import com.patrykandpatrick.vico.compose.dimensions.dimensionsOf
+import com.patrykandpatrick.vico.core.chart.dimensions.HorizontalDimensions
 import com.patrykandpatrick.vico.core.chart.insets.Insets
-import com.patrykandpatrick.vico.core.chart.segment.SegmentProperties
 import com.patrykandpatrick.vico.core.component.marker.MarkerComponent
 import com.patrykandpatrick.vico.core.component.shape.DashedShape
 import com.patrykandpatrick.vico.core.component.shape.Shapes
@@ -57,7 +57,7 @@ internal fun rememberMarker(): Marker {
             }
 
             @RequiresApi(Build.VERSION_CODES.Q)
-            override fun getInsets(context: MeasureContext, outInsets: Insets, segmentProperties: SegmentProperties) = with(context) {
+            override fun getInsets(context: MeasureContext, outInsets: Insets, horizontalDimensions: HorizontalDimensions) = with(context) {
                 outInsets.top = label.getHeight(context) + LabelBackgroundShape.tickSizeDp.pixels + LabelBackgroundShadowRadius.pixels * ShadowRadiusMultiplier - LabelBackgroundShadowDy.pixels
             }
         }
