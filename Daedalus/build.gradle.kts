@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.ktlint)
+    alias(libs.plugins.kotlinter)
     alias(libs.plugins.detekt)
     alias(libs.plugins.ksp)
 }

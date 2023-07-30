@@ -1,7 +1,7 @@
-name: Android connected tests
+name: Build
 on: pull_request
 jobs:
-  connected_tests:
+  build:
     runs-on: macos-latest
     steps:
       - name: Checkout repository
@@ -15,6 +15,26 @@ jobs:
 
       - name: Validate gradle wrapper
         uses: gradle/wrapper-validation-action@v1
+
+      - name: Detekt
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: detektRelease
+
+      - name: Kotlinter
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: lintKotlinRelease lintKotlinAndroidTestRelease
+
+      - name: Lint
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: lintRelease
+
+      - name: Assemble
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: assembleRelease
 
       - name: Connected tests
         uses: reactivecircus/android-emulator-runner@v2
