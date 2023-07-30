@@ -1,7 +1,6 @@
-name: Build
 on: pull_request
 jobs:
-  build:
+  pull_request:
     runs-on: macos-latest
     steps:
       - name: Checkout repository
@@ -30,6 +29,14 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           arguments: lintRelease
+
+      - name: Decode keystore
+        id: decode_keystore
+        uses: timheuer/base64-to-file@v1
+        with:
+          fileName: 'release.keystore'
+          fileDir: '${{ github.workspace }}/Daedalus/keystore'
+          encodedString: ${{ secrets.KEYSTORE }}
 
       - name: Assemble
         uses: gradle/gradle-build-action@v2
