@@ -3,7 +3,7 @@
   "extends": ["config:base"],
   "reviewers": ["required:rjspies"],
   "branchPrefix": "Renovate/",
-  "prConcurrentLimit": 1,
+  "prConcurrentLimit": 0,
   "assignees": ["renovate"],
   "rebaseWhen": "behind-base-branch",
   "commitMessagePrefix": "Renovate: ",
