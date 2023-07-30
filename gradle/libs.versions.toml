@@ -37,7 +37,7 @@ implementation = [
 [plugins]
 
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
-detekt = "io.gitlab.arturbosch.detekt:1.23.0"
+detekt = "io.gitlab.arturbosch.detekt:1.23.1"
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ktlint = "org.jlleitschuh.gradle.ktlint:11.4.2"
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
