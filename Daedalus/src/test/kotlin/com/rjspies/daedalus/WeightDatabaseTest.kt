@@ -2,8 +2,6 @@ package com.rjspies.daedalus
 
 import android.database.sqlite.SQLiteConstraintException
 import androidx.room.Room
-import androidx.test.core.app.ApplicationProvider
-import androidx.test.filters.SmallTest
 import com.rjspies.daedalus.database.WeightDatabase
 import com.rjspies.daedalus.weight.service.data.Weight
 import com.rjspies.daedalus.weight.service.data.WeightDao
@@ -12,17 +10,21 @@ import io.kotest.property.checkAll
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.RuntimeEnvironment
 import java.io.IOException
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.runBlocking
 
+@RunWith(RobolectricTestRunner::class)
 class WeightDatabaseTest {
     private lateinit var weightDao: WeightDao
     private lateinit var database: WeightDatabase
 
     @Before
     fun createDatabase() {
-        val context = ApplicationProvider.getApplicationContext<android.content.Context>()
+        val context = RuntimeEnvironment.getApplication().applicationContext
         database = Room.inMemoryDatabaseBuilder(context, WeightDatabase::class.java).build()
         weightDao = database.weightDao()
     }
@@ -34,7 +36,6 @@ class WeightDatabaseTest {
     }
 
     @Test
-    @SmallTest
     @Throws(Exception::class)
     fun readWriteWeight() {
         runBlocking {

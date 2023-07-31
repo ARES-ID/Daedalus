@@ -69,6 +69,12 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
 }
 
 kotlin {
@@ -81,8 +87,6 @@ kotlin {
 dependencies {
     implementation(libs.bundles.implementation)
     testImplementation(libs.bundles.testImplementation)
-    androidTestImplementation(libs.bundles.androidTestImplementation)
-    debugImplementation(libs.bundles.debugImplementation)
     ksp(libs.bundles.ksp)
 }
 

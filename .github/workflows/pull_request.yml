@@ -31,6 +31,11 @@ jobs:
         with:
           arguments: lintRelease
 
+      - name: Unit tests
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: testReleaseUnitTest
+
       - name: Decode keystore
         id: decode_keystore
         uses: timheuer/base64-to-file@v1
@@ -47,12 +52,3 @@ jobs:
           DAEDALUS_SIGNING_KEY: ${{ secrets.DAEDALUS_SIGNING_KEY }}
           DAEDALUS_STORE_PASSWORD: ${{ secrets.DAEDALUS_STORE_PASSWORD }}
           DAEDALUS_SIGNING_KEY_PASSWORD: ${{ secrets.DAEDALUS_SIGNING_KEY_PASSWORD }}
-
-      - name: Connected tests
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 29
-          force-avd-creation: false
-          emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
-          disable-animations: true
-          script: ./gradlew connectedAndroidTest
