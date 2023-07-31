@@ -42,6 +42,10 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           arguments: assembleRelease
+        env:
+          DAEDALUS_SIGNING_KEY: ${{ secrets.DAEDALUS_SIGNING_KEY }}
+          DAEDALUS_STORE_PASSWORD: ${{ secrets.DAEDALUS_STORE_PASSWORD }}
+          DAEDALUS_SIGNING_KEY_PASSWORD: ${{ secrets.DAEDALUS_SIGNING_KEY_PASSWORD }}
 
       - name: Connected tests
         uses: reactivecircus/android-emulator-runner@v2
