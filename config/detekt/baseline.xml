@@ -1,9 +1,0 @@
-<?xml version="1.0" ?>
-<SmellBaseline>
-    <ManuallySuppressedIssues></ManuallySuppressedIssues>
-    <CurrentIssues>
-        <ID>MaxLineLength:Extensions.kt$contentDescription = stringResource(R.string.extensions_content_description_toolbar_navigation_icon)</ID>
-        <ID>MaxLineLength:Marker.kt$&lt;no name provided&gt;$outInsets.top = label.getHeight(context) + labelBackgroundShape.tickSizeDp.pixels + LabelBackgroundShadowRadius.pixels * ShadowRadiusMultiplier - LabelBackgroundShadowDy.pixels</ID>
-        <ID>MaxLineLength:Marker.kt$&lt;no name provided&gt;$override</ID>
-    </CurrentIssues>
-</SmellBaseline>
