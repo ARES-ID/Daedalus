@@ -5,18 +5,10 @@
 ksp = [
     "androidx-room-compiler",
 ]
-debugImplementation = [
-    "debug-androidx-compose-uiTestManifest",
-    "debug-androidx-compose-uiTooling",
-]
-androidTestImplementation = [
-    "test-androidx-compose-uiTestJunit4",
-    "test-androidx-espresso",
-    "test-androidx-junit",
-    "test-kotest-property",
-]
 testImplementation = [
     "test-junit",
+    "test-roboelectric",
+    "test-kotest-property",
 ]
 implementation = [
     "androidx-activityCompose",
@@ -75,13 +67,7 @@ timber = "com.jakewharton.timber:timber:5.0.1"
 vico-compose = "com.patrykandpatrick.vico:compose-m3:1.8.0"
 accompanist-systemUiController = "com.google.accompanist:accompanist-systemuicontroller:0.30.1"
 
-# Debug libraries
-debug-androidx-compose-uiTestManifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose" }
-debug-androidx-compose-uiTooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
-
 # Test libraries
-test-androidx-compose-uiTestJunit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "compose" }
-test-androidx-espresso = "androidx.test.espresso:espresso-core:3.5.1"
-test-androidx-junit = "androidx.test.ext:junit:1.1.5"
 test-junit = "junit:junit:4.13.2"
 test-kotest-property = "io.kotest:kotest-property:5.6.2"
+test-roboelectric = "org.robolectric:robolectric:4.10.3"
