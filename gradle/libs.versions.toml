@@ -47,7 +47,7 @@ room = "2.5.2"
 java = "17"
 
 # Raise these two together
-kotlin = "1.9.0"
+kotlin = "1.9.10"
 ksp = "1.9.0-1.0.13"
 
 [libraries]
