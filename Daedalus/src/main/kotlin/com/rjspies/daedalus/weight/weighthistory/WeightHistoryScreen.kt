@@ -44,7 +44,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.rjspies.daedalus.R
 import com.rjspies.daedalus.compose.ToolbarContent
 import com.rjspies.daedalus.compose.VerticalSpacerM
@@ -56,6 +55,7 @@ import com.rjspies.daedalus.ui.theme.Spacings
 import com.rjspies.daedalus.ui.widgets.ButtonType
 import com.rjspies.daedalus.ui.widgets.DaedalusButton
 import com.rjspies.daedalus.weight.service.data.Weight
+import org.koin.androidx.compose.koinViewModel
 import java.text.DecimalFormat
 import java.time.Instant
 import java.time.ZoneId
@@ -69,7 +69,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun WeightHistoryScreen(onBack: () -> Unit) {
     ToolbarContent(title = stringResource(R.string.weight_history_toolbar_title), onBack = onBack) {
-        val viewModel: WeightHistoryViewModel = viewModel(factory = WeightHistoryViewModel.Factory)
+        val viewModel: WeightHistoryViewModel = koinViewModel()
         val weights by viewModel.weights.collectAsState()
 
         if (weights.isNotEmpty()) {
