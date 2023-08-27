@@ -10,8 +10,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.patrykandpatrick.vico.compose.axis.axisLabelComponent
-import com.patrykandpatrick.vico.compose.axis.horizontal.bottomAxis
-import com.patrykandpatrick.vico.compose.axis.vertical.startAxis
+import com.patrykandpatrick.vico.compose.axis.horizontal.rememberBottomAxis
+import com.patrykandpatrick.vico.compose.axis.vertical.rememberStartAxis
 import com.patrykandpatrick.vico.compose.chart.Chart
 import com.patrykandpatrick.vico.compose.chart.line.lineChart
 import com.patrykandpatrick.vico.core.chart.values.AxisValuesOverrider
@@ -43,8 +43,8 @@ fun WeightGraphScreen(viewModel: WeightGraphViewModel = viewModel(factory = Weig
     Chart(
         chart = lineChart(axisValuesOverrider = valuesOverrider),
         chartModelProducer = lineProducer,
-        startAxis = startAxis(label = axisLabel),
-        bottomAxis = bottomAxis(
+        startAxis = rememberStartAxis(label = axisLabel),
+        bottomAxis = rememberBottomAxis(
             valueFormatter = axisFormatter,
             label = axisLabel,
         ),
