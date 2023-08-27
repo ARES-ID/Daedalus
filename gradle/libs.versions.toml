@@ -4,6 +4,7 @@
 
 ksp = [
     "androidx-room-compiler",
+    "koin-ksp-compiler",
 ]
 testImplementation = [
     "test-junit",
@@ -24,6 +25,8 @@ implementation = [
     "timber",
     "vico-compose",
     "accompanist-systemUiController",
+    "koin-android",
+    "koin-annotations",
 ]
 
 [plugins]
@@ -66,6 +69,9 @@ androidx-materialIconsExtended = { module = "androidx.compose.material:material-
 timber = "com.jakewharton.timber:timber:5.0.1"
 vico-compose = "com.patrykandpatrick.vico:compose-m3:1.11.0"
 accompanist-systemUiController = "com.google.accompanist:accompanist-systemuicontroller:0.32.0"
+koin-android = "io.insert-koin:koin-android:3.4.3"
+koin-annotations = "io.insert-koin:koin-annotations:1.2.2"
+koin-ksp-compiler = "io.insert-koin:koin-ksp-compiler:1.2.2"
 
 # Test libraries
 test-junit = "junit:junit:4.13.2"
