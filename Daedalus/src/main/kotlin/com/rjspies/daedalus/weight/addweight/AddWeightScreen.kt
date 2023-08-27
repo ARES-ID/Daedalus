@@ -23,7 +23,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.window.DialogProperties
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.rjspies.daedalus.R
 import com.rjspies.daedalus.compose.ToolbarContent
 import com.rjspies.daedalus.compose.VerticalSpacerM
@@ -37,6 +36,7 @@ import com.rjspies.daedalus.ui.widgets.DaedalusButton
 import com.rjspies.daedalus.ui.widgets.DaedalusOutlinedTextField
 import com.rjspies.daedalus.weight.service.data.Weight
 import com.rjspies.daedalus.weight.weighthistory.asUserfacingString
+import org.koin.androidx.compose.koinViewModel
 import java.time.Instant
 import java.time.ZoneId
 import java.time.ZonedDateTime
@@ -59,7 +59,7 @@ fun AddWeightScreen(
                 .verticalScroll(rememberScrollState())
                 .verticalSpacingM(),
             content = {
-                val viewModel = viewModel<AddWeightViewModel>(factory = AddWeightViewModel.Factory)
+                val viewModel: AddWeightViewModel = koinViewModel()
                 val weight = rememberSaveable { mutableStateOf<String?>(null) }
                 val weightError = rememberSaveable { mutableStateOf<WeightError?>(null) }
                 val note = rememberSaveable { mutableStateOf<String?>(null) }

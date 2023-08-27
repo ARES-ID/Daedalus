@@ -4,11 +4,13 @@
 
 ksp = [
     "androidx-room-compiler",
+    "koin-ksp-compiler",
 ]
 testImplementation = [
     "test-junit",
     "test-roboelectric",
     "test-kotest-property",
+    "koin-test-junit4",
 ]
 implementation = [
     "androidx-activityCompose",
@@ -24,6 +26,8 @@ implementation = [
     "timber",
     "vico-compose",
     "accompanist-systemUiController",
+    "koin-androidx-compose",
+    "koin-annotations",
 ]
 
 [plugins]
@@ -45,6 +49,8 @@ targetSdk = "33"
 versionName = "1.0.0"
 room = "2.5.2"
 java = "17"
+koin = "3.4.3"
+koin-annotations = "1.2.2"
 
 # Raise these two together
 kotlin = "1.9.0"
@@ -66,6 +72,10 @@ androidx-materialIconsExtended = { module = "androidx.compose.material:material-
 timber = "com.jakewharton.timber:timber:5.0.1"
 vico-compose = "com.patrykandpatrick.vico:compose-m3:1.11.0"
 accompanist-systemUiController = "com.google.accompanist:accompanist-systemuicontroller:0.32.0"
+koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
+koin-test-junit4 = { module = "io.insert-koin:koin-test-junit4", version.ref = "koin" }
+koin-annotations = { module = "io.insert-koin:koin-annotations", version.ref = "koin-annotations" }
+koin-ksp-compiler = { module = "io.insert-koin:koin-ksp-compiler", version.ref = "koin-annotations" }
 
 # Test libraries
 test-junit = "junit:junit:4.13.2"

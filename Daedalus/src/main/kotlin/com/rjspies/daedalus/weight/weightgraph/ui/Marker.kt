@@ -37,7 +37,7 @@ internal fun rememberMarker(): Marker {
 
     val label = textComponent(
         background = labelBackground,
-        lineCount = LabelLineCount,
+        lineCount = LABEL_LINE_COUNT,
         padding = LabelPadding,
         typeface = typeface,
         color = DaedalusTheme.colors.onPrimary,
@@ -53,26 +53,26 @@ internal fun rememberMarker(): Marker {
         object : MarkerComponent(label, indicator, guideline) {
             init {
                 labelFormatter = DaedalusMarkerLabelFormatter
-                indicatorSizeDp = IndicatorSizeDp
+                indicatorSizeDp = INDICATOR_SIZE_DP
             }
 
             @RequiresApi(Build.VERSION_CODES.Q)
             override fun getInsets(context: MeasureContext, outInsets: Insets, horizontalDimensions: HorizontalDimensions) = with(context) {
-                outInsets.top = label.getHeight(context) + LabelBackgroundShape.tickSizeDp.pixels + LabelBackgroundShadowRadius.pixels * ShadowRadiusMultiplier - LabelBackgroundShadowDy.pixels
+                outInsets.top = label.getHeight(context) + LabelBackgroundShape.tickSizeDp.pixels + LABEL_BACKGROUND_SHADOW_RADIUS.pixels * SHADOW_RADIUS_MULTIPLIER - LABEL_BACKGROUND_SHADOW_DY.pixels
             }
         }
     }
 }
 
-private const val LabelBackgroundShadowRadius = 4f
-private const val LabelBackgroundShadowDy = 2f
-private const val LabelLineCount = 1
-private const val IndicatorSizeDp = 12f
-private const val GuidelineDashLengthDp = 8f
-private const val GuidelineGapLengthDp = 4f
-private const val ShadowRadiusMultiplier = 1.3f
+private const val LABEL_BACKGROUND_SHADOW_RADIUS = 4f
+private const val LABEL_BACKGROUND_SHADOW_DY = 2f
+private const val LABEL_LINE_COUNT = 1
+private const val INDICATOR_SIZE_DP = 12f
+private const val GUIDELINE_DASH_LENGTH_DP = 8f
+private const val GUIDELINE_GAP_LENGTH_DP = 4f
+private const val SHADOW_RADIUS_MULTIPLIER = 1.3f
 
 private val LabelBackgroundShape = MarkerCorneredShape(Corner.FullyRounded)
 private val LabelPadding = dimensionsOf(8.dp, 4.dp)
 private val GuidelineThickness = 2.dp
-private val GuidelineShape = DashedShape(Shapes.pillShape, GuidelineDashLengthDp, GuidelineGapLengthDp)
+private val GuidelineShape = DashedShape(Shapes.pillShape, GUIDELINE_DASH_LENGTH_DP, GUIDELINE_GAP_LENGTH_DP)
