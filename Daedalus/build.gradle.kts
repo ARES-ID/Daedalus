@@ -50,11 +50,6 @@ android {
         }
     }
 
-    compileOptions {
-        sourceCompatibility = JavaVersion.toVersion(libs.versions.java.get().toInt())
-        targetCompatibility = JavaVersion.toVersion(libs.versions.java.get().toInt())
-    }
-
     buildFeatures {
         compose = true
         buildConfig = true
@@ -95,7 +90,7 @@ dependencies {
 }
 
 detekt {
-    baseline = file("${rootDir.path}/config/detekt/baseline.xml")
+    baseline = file("$rootDir/config/detekt/baseline.xml")
 }
 
 ksp {
