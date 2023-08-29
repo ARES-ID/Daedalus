@@ -1,8 +1,12 @@
 name: Build Release App Bundle
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    branches: main
 jobs:
   release:
     runs-on: macos-latest
+    if: github.event.pull_request.draft == false # Do not run anything on a draft PR
+    timeout-minutes: 15
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
