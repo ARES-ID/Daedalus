@@ -4,6 +4,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
@@ -30,6 +32,7 @@ import com.rjspies.daedalus.compose.VerticalSpacerXS
 import com.rjspies.daedalus.compose.WeightedSpacer
 import com.rjspies.daedalus.compose.horizontalSpacingM
 import com.rjspies.daedalus.compose.verticalSpacingM
+import com.rjspies.daedalus.ui.theme.Spacings
 import com.rjspies.daedalus.ui.theme.daedalusDatePickerDialogColors
 import com.rjspies.daedalus.ui.widgets.ButtonType
 import com.rjspies.daedalus.ui.widgets.DaedalusButton
@@ -130,23 +133,29 @@ fun AddWeightScreen(
                     },
                 )
                 WeightedSpacer()
-                AddButton(
-                    weight = weight.value,
-                    note = note.value,
-                    date = selectedDate.value,
-                    viewModel = viewModel,
-                    showSnackbar = showSnackbar,
-                    onError = { weightError.value = it },
-                )
-                VerticalSpacerXS()
-                DaedalusButton(
-                    text = stringResource(R.string.add_weight_choose_date_button),
-                    type = ButtonType.Outlined,
-                    onClick = { showDialog.value = true },
+                Column(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .horizontalSpacingM(),
-                )
+                        .padding(top = Spacings.M)
+                        .imePadding(),
+                ) {
+                    AddButton(
+                        weight = weight.value,
+                        note = note.value,
+                        date = selectedDate.value,
+                        viewModel = viewModel,
+                        showSnackbar = showSnackbar,
+                        onError = { weightError.value = it },
+                    )
+                    VerticalSpacerXS()
+                    DaedalusButton(
+                        text = stringResource(R.string.add_weight_choose_date_button),
+                        type = ButtonType.Outlined,
+                        onClick = { showDialog.value = true },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .horizontalSpacingM(),
+                    )
+                }
             },
         )
     }
