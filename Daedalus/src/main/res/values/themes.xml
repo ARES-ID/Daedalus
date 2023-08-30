@@ -4,4 +4,9 @@
     <style name="Theme.Daedalus" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:navigationBarColor">@android:color/transparent</item>
     </style>
+
+    <style name="Theme.Daedalus.Splashscreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenAnimatedIcon">@drawable/animated_splashscreen_icon</item>
+        <item name="windowSplashScreenBackground">#191C1A</item>
+    </style>
 </resources>

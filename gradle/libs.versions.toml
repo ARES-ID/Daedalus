@@ -28,6 +28,7 @@ implementation = [
     "accompanist-systemUiController",
     "koin-androidx-compose",
     "koin-annotations",
+    "core-splashscreen",
 ]
 
 [plugins]
@@ -77,6 +78,7 @@ koin-androidx-compose = "io.insert-koin:koin-androidx-compose:3.4.6"
 koin-test-junit4 = "io.insert-koin:koin-test-junit4:3.4.3"
 koin-annotations = { module = "io.insert-koin:koin-annotations", version.ref = "koin-annotations" }
 koin-ksp-compiler = { module = "io.insert-koin:koin-ksp-compiler", version.ref = "koin-annotations" }
+core-splashscreen = "androidx.core:core-splashscreen:1.0.1"
 
 # Test libraries
 test-junit = "junit:junit:4.13.2"
