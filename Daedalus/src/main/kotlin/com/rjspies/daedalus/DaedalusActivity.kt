@@ -16,11 +16,12 @@ import com.rjspies.daedalus.navigation.NavigationHost
 import com.rjspies.daedalus.ui.theme.DaedalusTheme
 import com.rjspies.daedalus.ui.widgets.DaedalusSnackbar
 
-class MainActivity : ComponentActivity() {
+class DaedalusActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window, false)
+        setTheme(R.style.Theme_Daedalus)
+        super.onCreate(savedInstanceState)
         setContent {
             DaedalusTheme {
                 val navigationController = rememberNavController()

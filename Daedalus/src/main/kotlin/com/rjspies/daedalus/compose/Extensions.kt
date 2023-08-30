@@ -24,10 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewmodel.CreationExtras
 import com.rjspies.daedalus.BuildConfig
-import com.rjspies.daedalus.MainApplication
 import com.rjspies.daedalus.R
 import com.rjspies.daedalus.ui.theme.DaedalusTheme
 import com.rjspies.daedalus.ui.theme.daedalusTopAppBarColors
@@ -104,9 +101,4 @@ fun ToolbarContent(title: String, onBack: () -> Unit, content: @Composable () ->
             }
         },
     )
-}
-
-@Throws(ClassCastException::class)
-fun CreationExtras.requireApplication(): MainApplication {
-    return get(ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY) as MainApplication
 }
