@@ -4,6 +4,7 @@
     <string name="extensions_content_description_text_field_warning_icon">Achtung</string>
     <string name="extensions_content_description_delete_action">Löschen-Symbol: Durch Drücken dieses Symbols wird der Inhalt gelöscht.</string>
     <string name="extensions_content_description_list">Listen-Symbol</string>
+    <string name="extensions_content_description_chart">Graphen-Symbol</string>
     <string name="extensions_content_description_trending_flat">Trend gleichbleibend</string>
     <string name="extensions_content_description_trending_up">Aufwärtstrend</string>
     <string name="extensions_content_description_trending_down">Abwärtstrend</string>

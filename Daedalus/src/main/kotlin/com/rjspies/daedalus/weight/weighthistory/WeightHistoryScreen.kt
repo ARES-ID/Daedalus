@@ -2,14 +2,11 @@ package com.rjspies.daedalus.weight.weighthistory
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -33,20 +30,16 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import com.rjspies.daedalus.R
 import com.rjspies.daedalus.compose.ToolbarContent
-import com.rjspies.daedalus.compose.VerticalSpacerM
 import com.rjspies.daedalus.compose.horizontalSpacingM
 import com.rjspies.daedalus.compose.tableItems
 import com.rjspies.daedalus.compose.verticalSpacingM
@@ -54,6 +47,7 @@ import com.rjspies.daedalus.ui.theme.DaedalusTheme
 import com.rjspies.daedalus.ui.theme.Spacings
 import com.rjspies.daedalus.ui.widgets.ButtonType
 import com.rjspies.daedalus.ui.widgets.DaedalusButton
+import com.rjspies.daedalus.ui.widgets.EmptyScreen
 import com.rjspies.daedalus.weight.service.data.Weight
 import org.koin.androidx.compose.koinViewModel
 import java.text.DecimalFormat
@@ -78,7 +72,17 @@ fun WeightHistoryScreen(onBack: () -> Unit) {
                 viewModel = viewModel,
             )
         } else {
-            EmptyScreen()
+            EmptyScreen(
+                icon = Icons.Outlined.FormatListBulleted,
+                contentDescription = stringResource(R.string.extensions_content_description_list),
+                title = stringResource(R.string.weight_history_empty_screen_title),
+                subtitle = stringResource(R.string.weight_history_empty_screen_subtitle),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .verticalScroll(rememberScrollState())
+                    .verticalSpacingM()
+                    .horizontalSpacingM(),
+            )
         }
     }
 }
@@ -254,37 +258,6 @@ private fun Avatar(
                 imageVector = state.icon,
                 contentDescription = contentDescription,
                 modifier = Modifier.padding(Spacings.S),
-            )
-        },
-    )
-}
-
-@Composable
-private fun EmptyScreen() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .verticalScroll(rememberScrollState())
-            .verticalSpacingM()
-            .horizontalSpacingM(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-        content = {
-            Icon(
-                imageVector = Icons.Outlined.FormatListBulleted,
-                contentDescription = stringResource(R.string.extensions_content_description_list),
-                modifier = Modifier.size(48.dp),
-            )
-            VerticalSpacerM()
-            Text(
-                text = stringResource(R.string.weight_history_empty_screen_title),
-                style = MaterialTheme.typography.headlineSmall,
-                textAlign = TextAlign.Center,
-            )
-            Text(
-                text = stringResource(R.string.weight_history_empty_screen_description),
-                style = MaterialTheme.typography.bodyMedium,
-                textAlign = TextAlign.Center,
             )
         },
     )
