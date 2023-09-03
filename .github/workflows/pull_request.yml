@@ -23,22 +23,22 @@ jobs:
       - name: Detekt
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: detektRelease
+          arguments: detektMain
 
       - name: Kotlinter
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: lintKotlinRelease lintKotlinAndroidTestRelease
+          arguments: lintKotlin
 
       - name: Lint
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: lintRelease
+          arguments: lint
 
-      - name: Unit tests
+      - name: Tests
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: testReleaseUnitTest
+          arguments: check
 
       - name: Decode keystore
         id: decode_keystore
@@ -51,7 +51,7 @@ jobs:
       - name: Assemble
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: assembleRelease
+          arguments: assemble
         env:
           DAEDALUS_SIGNING_KEY: ${{ secrets.DAEDALUS_SIGNING_KEY }}
           DAEDALUS_STORE_PASSWORD: ${{ secrets.DAEDALUS_STORE_PASSWORD }}
