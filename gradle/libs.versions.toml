@@ -82,5 +82,5 @@ core-splashscreen = "androidx.core:core-splashscreen:1.0.1"
 
 # Test libraries
 test-junit = "junit:junit:4.13.2"
-test-kotest-property = "io.kotest:kotest-property:5.7.0"
+test-kotest-property = "io.kotest:kotest-property:5.7.1"
 test-roboelectric = "org.robolectric:robolectric:4.10.3"
