@@ -44,7 +44,7 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 androidGradlePlugin = "8.1.1"
 compileSdk = "34"
 compose = "1.5.0"
-composeCompiler = "1.5.1"
+composeCompiler = "1.5.3"
 minSdk = "26"
 targetSdk = "33"
 versionName = "1.0.0"
@@ -55,8 +55,8 @@ koin-test = "3.4.3"
 koin-annotations = "1.2.2"
 
 # Raise these two together
-kotlin = "1.9.0"
-ksp = "1.9.0-1.0.13"
+kotlin = "1.9.10"
+ksp = "1.9.10-1.0.13"
 
 [libraries]
 
