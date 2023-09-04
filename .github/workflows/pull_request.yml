@@ -9,7 +9,7 @@ jobs:
     if: github.event.pull_request.draft == false # Do not run anything on a draft PR
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Java 17
         uses: actions/setup-java@v3
