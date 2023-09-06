@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.kotlinter)
     alias(libs.plugins.detekt)
     alias(libs.plugins.ksp)
+    id("kotlin-parcelize")
 }
 
 android {
