@@ -1,5 +1,6 @@
 package com.rjspies.daedalus.weight.addweight
 
+import android.os.Parcelable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -16,7 +17,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
@@ -47,6 +48,7 @@ import java.time.format.FormatStyle
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.parcelize.Parcelize
 
 @Suppress("LongMethod")
 @OptIn(ExperimentalMaterial3Api::class)
@@ -63,25 +65,24 @@ fun AddWeightScreen(
                 .verticalSpacingM(),
             content = {
                 val viewModel: AddWeightViewModel = koinViewModel()
-                val weight = rememberSaveable { mutableStateOf<String?>(null) }
-                val weightError = rememberSaveable { mutableStateOf<WeightError?>(null) }
-                val note = rememberSaveable { mutableStateOf<String?>(null) }
-                val showDialog = rememberSaveable { mutableStateOf(false) }
-                val selectedDate = rememberSaveable { mutableStateOf(Instant.now()) }
+                val weightError = viewModel.weightError.collectAsState()
+                val weight = viewModel.weight.collectAsState()
+                val note = viewModel.note.collectAsState()
+                val showDialog = viewModel.shouldShowBanner.collectAsState()
+                val selectedDate = viewModel.selectedDate.collectAsState()
                 val weightSupportingText = when (weightError.value) {
-                    is WeightError.Empty -> stringResource(R.string.add_weight_weight_text_field_supporting_message)
                     is WeightError.Undefined -> stringResource(R.string.add_weight_weight_text_field_error_message)
                     else -> stringResource(R.string.add_weight_weight_text_field_supporting_message)
                 }
 
                 if (showDialog.value) {
                     DatePicker(
-                        onDismiss = { showDialog.value = false },
+                        onDismiss = { viewModel.setShouldShowBanner(false) },
                         onConfirm = { selectedTimestamp ->
                             selectedTimestamp?.let {
-                                selectedDate.value = Instant.ofEpochMilli(it)
+                                viewModel.setSelectedDate(Instant.ofEpochMilli(it))
                             }
-                            showDialog.value = false
+                            viewModel.setShouldShowBanner(false)
                         },
                     )
                 }
@@ -89,8 +90,8 @@ fun AddWeightScreen(
                 DaedalusOutlinedTextField(
                     value = weight.value,
                     onValueChange = {
-                        if (weightError.value != null) weightError.value = null
-                        weight.value = it.filtered()
+                        viewModel.resetWeightError()
+                        viewModel.setWeight(it.filtered())
                     },
                     modifier = Modifier
                         .fillMaxWidth()
@@ -102,12 +103,12 @@ fun AddWeightScreen(
                         imeAction = ImeAction.Next,
                     ),
                     supportingText = weightSupportingText,
-                    isError = weightError.value != null,
+                    isError = weightError.value != WeightError.None,
                 )
                 VerticalSpacerM()
                 DaedalusOutlinedTextField(
                     value = note.value,
-                    onValueChange = { note.value = it },
+                    onValueChange = viewModel::setNote,
                     modifier = Modifier
                         .fillMaxWidth()
                         .horizontalSpacingM(),
@@ -144,13 +145,13 @@ fun AddWeightScreen(
                         date = selectedDate.value,
                         viewModel = viewModel,
                         showSnackbar = showSnackbar,
-                        onError = { weightError.value = it },
+                        onError = { viewModel.setWeightError(it) },
                     )
                     VerticalSpacerXS()
                     DaedalusButton(
                         text = stringResource(R.string.add_weight_choose_date_button),
                         type = ButtonType.Outlined,
-                        onClick = { showDialog.value = true },
+                        onClick = { viewModel.setShouldShowBanner(true) },
                         modifier = Modifier
                             .fillMaxWidth()
                             .horizontalSpacingM(),
@@ -236,7 +237,14 @@ private fun DatePicker(onDismiss: () -> Unit, onConfirm: (Long?) -> Unit) {
 private fun String.filtered(): String = filter { it.isDigit() || it == '.' || it == ',' }
 private fun String?.parseToFloat(): Float? = this?.replace(",", ".")?.toFloatOrNull()
 
-private sealed class WeightError {
-    object Empty : WeightError()
-    object Undefined : WeightError()
+@Parcelize
+sealed class WeightError : Parcelable {
+    @Parcelize
+    data object None : WeightError()
+
+    @Parcelize
+    data object Empty : WeightError()
+
+    @Parcelize
+    data object Undefined : WeightError()
 }
