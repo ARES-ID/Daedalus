@@ -10,7 +10,7 @@ testImplementation = [
     "test-junit",
     "test-roboelectric",
     "test-kotest-property",
-    "koin-test-junit4",
+    "test-koin-junit4",
 ]
 implementation = [
     "androidx-activityCompose",
@@ -47,7 +47,8 @@ compose = "1.5.1"
 composeCompiler = "1.5.3"
 minSdk = "26"
 targetSdk = "33"
-versionName = "1.0.0"
+versionName = "1.0"
+versionCodeOffset = "200000"
 room = "2.5.2"
 java = "17"
 koin = "3.4.6"
@@ -75,7 +76,6 @@ timber = "com.jakewharton.timber:timber:5.0.1"
 vico-compose = "com.patrykandpatrick.vico:compose-m3:1.11.3"
 accompanist-systemUiController = "com.google.accompanist:accompanist-systemuicontroller:0.32.0"
 koin-androidx-compose = "io.insert-koin:koin-androidx-compose:3.4.6"
-koin-test-junit4 = "io.insert-koin:koin-test-junit4:3.4.3"
 koin-annotations = { module = "io.insert-koin:koin-annotations", version.ref = "koin-annotations" }
 koin-ksp-compiler = { module = "io.insert-koin:koin-ksp-compiler", version.ref = "koin-annotations" }
 core-splashscreen = "androidx.core:core-splashscreen:1.0.1"
@@ -84,3 +84,4 @@ core-splashscreen = "androidx.core:core-splashscreen:1.0.1"
 test-junit = "junit:junit:4.13.2"
 test-kotest-property = "io.kotest:kotest-property:5.7.2"
 test-roboelectric = "org.robolectric:robolectric:4.10.3"
+test-koin-junit4 = "io.insert-koin:koin-test-junit4:3.4.3"

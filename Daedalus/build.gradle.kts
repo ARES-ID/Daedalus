@@ -1,6 +1,4 @@
-import java.time.Instant
-import java.time.ZoneId
-import java.time.format.DateTimeFormatter
+import java.io.ByteArrayOutputStream
 
 plugins {
     alias(libs.plugins.android.application)
@@ -19,7 +17,7 @@ android {
         applicationId = "com.rjspies.daedalus"
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.targetSdk.get().toInt()
-        versionCode = generateVersionCode()
+        versionCode = generateVersionCode() + libs.versions.versionCodeOffset.get().toInt()
         versionName = libs.versions.versionName.get()
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         resourceConfigurations.addAll(arrayOf("en", "de"))
@@ -99,8 +97,10 @@ ksp {
 }
 
 fun generateVersionCode(): Int {
-    val version = libs.versions.versionName.get().replace(".", "")
-    val formatter = DateTimeFormatter.ofPattern("yyMMdd").withZone(ZoneId.systemDefault())
-    val date = formatter.format(Instant.now())
-    return "$date$version".toInt()
+    val standardOutput = ByteArrayOutputStream()
+    rootProject.exec {
+        commandLine("git", "rev-list", "--count", "HEAD")
+        this.standardOutput = standardOutput
+    }
+    return standardOutput.toString().trim().toInt()
 }
