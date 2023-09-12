@@ -17,7 +17,7 @@ android {
         applicationId = "com.rjspies.daedalus"
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.targetSdk.get().toInt()
-        versionCode = generateVersionCode() + libs.versions.versionCodeOffset.get().toInt()
+        versionCode = generateVersionCode()
         versionName = libs.versions.versionName.get()
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         resourceConfigurations.addAll(arrayOf("en", "de"))
@@ -103,6 +103,8 @@ fun generateVersionCode(): Int {
         this.standardOutput = standardOutput
     }
     val commitCount = standardOutput.toString().trim().toInt()
-    logger.quiet("Commit count = $commitCount")
-    return commitCount
+    val offset = libs.versions.versionCodeOffset.get().toInt()
+    val versionCode = commitCount + offset
+    logger.quiet("Generating version code = $versionCode")
+    return versionCode
 }
