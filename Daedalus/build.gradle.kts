@@ -103,6 +103,6 @@ fun generateVersionCode(): Int {
         this.standardOutput = standardOutput
     }
     val commitCount = standardOutput.toString().trim().toInt()
-    logger.info("Commit count = $commitCount")
+    logger.quiet("Commit count = $commitCount")
     return commitCount
 }
