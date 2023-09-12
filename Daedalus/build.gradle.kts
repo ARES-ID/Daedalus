@@ -102,5 +102,7 @@ fun generateVersionCode(): Int {
         commandLine("git", "rev-list", "--count", "HEAD")
         this.standardOutput = standardOutput
     }
-    return standardOutput.toString().trim().toInt()
+    val count = standardOutput.toString().trim().toInt()
+    println(count)
+    return count
 }
