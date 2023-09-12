@@ -102,5 +102,7 @@ fun generateVersionCode(): Int {
         commandLine("git", "rev-list", "--count", "HEAD")
         this.standardOutput = standardOutput
     }
-    return standardOutput.toString().trim().toInt()
+    val commitCount = standardOutput.toString().trim().toInt()
+    logger.info("Commit count = $commitCount")
+    return commitCount
 }
