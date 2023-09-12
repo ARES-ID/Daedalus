@@ -99,7 +99,7 @@ ksp {
 fun generateVersionCode(): Int {
     val standardOutput = ByteArrayOutputStream()
     rootProject.exec {
-        commandLine("git", "rev-list", "--count", "master")
+        commandLine("git", "rev-list", "--count", "HEAD")
         this.standardOutput = standardOutput
     }
     val commitCount = standardOutput.toString().trim().toInt()
