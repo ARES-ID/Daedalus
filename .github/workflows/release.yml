@@ -51,4 +51,4 @@ jobs:
       - name: Create release tag
         uses: rickstaa/action-create-tag@v1
         with:
-          tag: Release/${{ steps.date.outputs.builddate }}
+          tag: "Release/${{ steps.date.outputs.builddate }}"
