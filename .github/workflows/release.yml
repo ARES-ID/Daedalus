@@ -45,9 +45,10 @@ jobs:
           mappingFile: Daedalus/build/outputs/mapping/release/mapping.txt
 
       - name: Get current date
-        run: echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
+        run: echo "builddate=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_OUTPUT
+        id: date
 
       - name: Create release tag
         uses: rickstaa/action-create-tag@v1
         with:
-          tag: "Release/$NOW"
+          tag: Release/${{ steps.date.outputs.builddate }}
