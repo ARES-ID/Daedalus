@@ -1,18 +1,19 @@
 version: 2.1
 
 orbs:
-  gradle: circleci/gradle@3.0.0
+  node: circleci/node@x.y
 
 jobs:
-  linters:
+  install-node-example:
     docker:
       - image: cimg/base:stable
     steps:
       - checkout
-      - gradle/run:
-          command: lintKotlin
-
+      - node/install:
+          install-yarn: true
+          node-version: '16.13'
+      - run: node --version
 workflows:
-  say-hello-workflow:
+  test_my_app:
     jobs:
-      - linters
+      - install-node-example
