@@ -46,7 +46,7 @@ jobs:
       - android/save-gradle-cache
 
 workflows:
-  linting:
+  build:
     jobs:
       - linters
       - tests
