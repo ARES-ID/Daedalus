@@ -6,7 +6,8 @@ orbs:
 jobs:
   linters:
     executor:
-      name: android/android-machine
+      name: android/android-docker
+      tag: 2023.09.1
     steps:
       - checkout
       - android/restore-gradle-cache
@@ -29,12 +30,12 @@ jobs:
       - checkout
       - android/restore-gradle-cache
       - android/run-tests:
-          name: "Check"
           test-command: ./gradlew check
       - android/save-gradle-cache
   assemble:
     executor:
-      name: android/android-machine
+      name: android/android-docker
+      tag: 2023.09.1
     steps:
       - checkout
       - android/restore-gradle-cache
@@ -45,10 +46,8 @@ jobs:
       - android/save-gradle-cache
 
 workflows:
-  build:
+  linting:
     jobs:
       - linters
-      - assemble
-  tests:
-    jobs:
       - tests
+      - assemble
