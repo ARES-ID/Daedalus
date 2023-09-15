@@ -10,7 +10,6 @@ jobs:
     steps:
       - checkout
       - gradle/test:
-          name: "Kotlinter"
           run: "lintKotlin"
 
 workflows:
