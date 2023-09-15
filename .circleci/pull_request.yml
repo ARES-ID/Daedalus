@@ -1,0 +1,19 @@
+version: 2.1
+
+orbs:
+  gradle: circleci/gradle@3.0.0
+
+jobs:
+  linters:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - gradle/test:
+          name: "Kotlinter"
+          run: "lintKotlin"
+
+workflows:
+  say-hello-workflow:
+    jobs:
+      - linters
