@@ -9,7 +9,7 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
-      - gradle/test:
+      - gradle:
           command: lintKotlin
 
 workflows:
