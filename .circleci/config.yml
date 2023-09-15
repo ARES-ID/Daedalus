@@ -4,7 +4,24 @@ orbs:
   android: circleci/android@2.3.0
 
 jobs:
-  unit-test:
+  linters:
+    executor:
+      name: android/android-machine
+    steps:
+      - checkout
+      - android/restore-gradle-cache
+      - android/restore-build-cache
+      - run:
+          name: "Kotlinter"
+          command: ./gradlew lintKotlin
+      - run:
+          name: "Detekt"
+          command: ./gradlew detektMain
+      - run:
+          name: "Lint"
+          command: ./gradlew lint
+      - android/save-gradle-cache
+  tests:
     executor:
       name: android/android-docker
       tag: 2023.09.1
@@ -12,10 +29,26 @@ jobs:
       - checkout
       - android/restore-gradle-cache
       - android/run-tests:
-          test-command: ./gradlew testDebug
+          name: "Check"
+          test-command: ./gradlew check
+      - android/save-gradle-cache
+  assemble:
+    executor:
+      name: android/android-machine
+    steps:
+      - checkout
+      - android/restore-gradle-cache
+      - android/restore-build-cache
+      - run:
+          name: "Assemble"
+          command: ./gradlew assembleDebug
       - android/save-gradle-cache
 
 workflows:
-  test-and-build:
+  build:
     jobs:
-      - unit-test
+      - linters
+      - assemble
+  tests:
+    jobs:
+      - tests
