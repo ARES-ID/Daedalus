@@ -10,7 +10,7 @@ jobs:
     steps:
       - checkout
       - gradle/test:
-          command: "lintKotlin"
+          command: lintKotlin
 
 workflows:
   say-hello-workflow:
