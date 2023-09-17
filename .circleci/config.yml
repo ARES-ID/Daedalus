@@ -16,8 +16,8 @@ jobs:
       tag: 2023.09.1
     steps:
       - checkout
-      - android/restore-gradle-cache
-      - android/restore-build-cache
+#      - android/restore-gradle-cache
+#      - android/restore-build-cache
 #      - run:
 #          name: "Kotlinter"
 #          command: ./gradlew lintKotlin --no-daemon --max-workers=2
@@ -29,13 +29,15 @@ jobs:
 #          command: ./gradlew lint --no-daemon --max-workers=2
 #      - android/run-tests:
 #          test-command: ./gradlew test --no-daemon --max-workers=2
+      - run:
+          command: ls -la .
       - android/decode-keystore:
-          keystore-location: Daedalus/keystore/release.keystore
+          keystore-location: Daedalus/Daedalus/keystore/release.keystore
       - run:
           name: "Assemble"
           command: ./gradlew assemble --no-daemon --max-workers=2
-      - android/save-gradle-cache
-      - android/save-build-cache
+#      - android/save-gradle-cache
+#      - android/save-build-cache
 
 workflows:
   pull_request:
