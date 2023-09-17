@@ -5,6 +5,9 @@ orbs:
 
 jobs:
   linting_unit-tests_build:
+    environment:
+      _JAVA_OPTIONS: -Xmx3g
+      GRADLE_OPTS: -Dkotlin.compiler.execution.strategy=in-process
     executor:
       name: android/android-docker
       tag: 2023.09.1
@@ -14,18 +17,18 @@ jobs:
       - android/restore-build-cache
       - run:
           name: "Kotlinter"
-          command: ./gradlew lintKotlin
+          command: ./gradlew lintKotlin --no-daemon --max-workers=2
       - run:
           name: "Detekt"
-          command: ./gradlew detektMain
+          command: ./gradlew detektMain --no-daemon --max-workers=2
       - run:
           name: "Lint"
-          command: ./gradlew lint
+          command: ./gradlew lint --no-daemon --max-workers=2
       - android/run-tests:
-          test-command: ./gradlew test
+          test-command: ./gradlew test --no-daemon --max-workers=2
       - run:
           name: "Assemble"
-          command: ./gradlew assemble
+          command: ./gradlew assemble --no-daemon --max-workers=2
       - android/save-gradle-cache
       - android/save-build-cache
 
