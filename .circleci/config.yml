@@ -30,7 +30,7 @@ jobs:
       - android/run-tests:
           test-command: ./gradlew test --no-daemon --max-workers=2
       - android/decode-keystore:
-          keystore-location: Daedalus/Daedalus/keystore
+          keystore-location: Daedalus/keystore
       - run:
           name: "Assemble"
           command: ./gradlew assemble --no-daemon --max-workers=2
