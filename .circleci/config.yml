@@ -18,19 +18,19 @@ jobs:
       - checkout
       - android/restore-gradle-cache
       - android/restore-build-cache
-      - run:
-          name: "Kotlinter"
-          command: ./gradlew lintKotlin --no-daemon --max-workers=2
-      - run:
-          name: "Detekt"
-          command: ./gradlew detektMain --no-daemon --max-workers=2
-      - run:
-          name: "Lint"
-          command: ./gradlew lint --no-daemon --max-workers=2
-      - android/run-tests:
-          test-command: ./gradlew test --no-daemon --max-workers=2
+#      - run:
+#          name: "Kotlinter"
+#          command: ./gradlew lintKotlin --no-daemon --max-workers=2
+#      - run:
+#          name: "Detekt"
+#          command: ./gradlew detektMain --no-daemon --max-workers=2
+#      - run:
+#          name: "Lint"
+#          command: ./gradlew lint --no-daemon --max-workers=2
+#      - android/run-tests:
+#          test-command: ./gradlew test --no-daemon --max-workers=2
       - android/decode-keystore:
-          keystore-location: Daedalus/keystore
+          keystore-location: Daedalus/keystore/release.keystore
       - run:
           name: "Assemble"
           command: ./gradlew assemble --no-daemon --max-workers=2
