@@ -29,6 +29,8 @@ jobs:
           command: ./gradlew lint --no-daemon --max-workers=2
       - android/run-tests:
           test-command: ./gradlew test --no-daemon --max-workers=2
+      - android/decode-keystore:
+          keystore-location: Daedalus/Daedalus/keystore
       - run:
           name: "Assemble"
           command: ./gradlew assemble --no-daemon --max-workers=2
