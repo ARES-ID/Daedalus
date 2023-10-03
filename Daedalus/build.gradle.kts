@@ -105,6 +105,12 @@ fun generateVersionCode(): Int {
     val commitCount = standardOutput.toString().trim().toInt()
     val offset = libs.versions.versionCodeOffset.get().toInt()
     val versionCode = commitCount + offset
-    logger.quiet("Generating version code = $versionCode")
+    logger.debug("Generating version code = $versionCode")
     return versionCode
+}
+
+tasks.create("version") {
+    doLast {
+        println(libs.versions.versionName.get())
+    }
 }

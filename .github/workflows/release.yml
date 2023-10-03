@@ -48,7 +48,11 @@ jobs:
         run: echo "builddate=$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_OUTPUT
         id: date
 
+      - name: Get current version
+        run: echo "version=$(./gradlew version -q)" >> $GITHUB_OUTPUT
+        id: version
+
       - name: Create release tag
         uses: rickstaa/action-create-tag@v1
         with:
-          tag: Release/${{ steps.date.outputs.builddate }}
+          tag: Release/V${{ steps.version.outputs.version }}_${{ steps.date.outputs.builddate }}
