@@ -40,7 +40,7 @@ jobs:
           serviceAccountJsonPlainText: ${{ secrets.PUBLISHER_SERVICE }}
           packageName: com.rjspies.daedalus
           releaseFiles: Daedalus/build/outputs/bundle/release/Daedalus-release.aab
-          track: internal
+          track: alpha
           status: draft
           mappingFile: Daedalus/build/outputs/mapping/release/mapping.txt
 
