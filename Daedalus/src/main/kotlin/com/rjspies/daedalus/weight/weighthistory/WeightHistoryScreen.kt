@@ -273,11 +273,17 @@ private fun Float.asUserfacingString(locale: Locale): String {
     return "${DecimalFormat.getInstance(locale).format(this)} kg"
 }
 
-private fun ZonedDateTime.asUserfacingString(locale: Locale, style: FormatStyle = FormatStyle.MEDIUM): String {
+private fun ZonedDateTime.asUserfacingString(
+    locale: Locale,
+    style: FormatStyle = FormatStyle.MEDIUM,
+): String {
     return format(DateTimeFormatter.ofLocalizedDateTime(style).withLocale(locale))
 }
 
-fun Instant.asUserfacingString(locale: Locale, style: FormatStyle = FormatStyle.MEDIUM): String {
+fun Instant.asUserfacingString(
+    locale: Locale,
+    style: FormatStyle = FormatStyle.MEDIUM,
+): String {
     val zone = ZoneId.systemDefault()
     val formatter = DateTimeFormatter.ofLocalizedDate(style)
     return atZone(zone).toLocalDate().format(formatter.withLocale(locale))

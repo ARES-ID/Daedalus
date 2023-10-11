@@ -19,7 +19,10 @@ import com.rjspies.daedalus.weight.weighthistory.WeightHistoryScreen
 
 @Suppress("LongMethod")
 @Composable
-fun NavigationHost(controller: NavHostController, snackbarHostState: SnackbarHostState) {
+fun NavigationHost(
+    controller: NavHostController,
+    snackbarHostState: SnackbarHostState,
+) {
     NavHost(
         navController = controller,
         startDestination = Routes.Home,

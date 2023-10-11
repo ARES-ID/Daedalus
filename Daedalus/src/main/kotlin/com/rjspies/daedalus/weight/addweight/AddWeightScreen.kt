@@ -207,7 +207,10 @@ private fun AddButton(
 
 @ExperimentalMaterial3Api
 @Composable
-private fun DatePicker(onDismiss: () -> Unit, onConfirm: (Long?) -> Unit) {
+private fun DatePicker(
+    onDismiss: () -> Unit,
+    onConfirm: (Long?) -> Unit,
+) {
     val today = rememberSaveable { Instant.now().toEpochMilli() }
     val datePickerState = rememberDatePickerState(initialSelectedDateMillis = today)
     DatePickerDialog(

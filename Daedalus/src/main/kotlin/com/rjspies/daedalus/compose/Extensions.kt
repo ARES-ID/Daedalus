@@ -11,7 +11,6 @@ import androidx.compose.foundation.lazy.LazyItemScope
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ArrowBack
-import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -28,6 +27,7 @@ import com.rjspies.daedalus.BuildConfig
 import com.rjspies.daedalus.R
 import com.rjspies.daedalus.ui.theme.DaedalusTheme
 import com.rjspies.daedalus.ui.theme.daedalusTopAppBarColors
+import androidx.compose.material3.Divider as M3Divider
 
 @Composable
 fun RowScope.WeightedSpacer(weight: Float = 1f) = Spacer(modifier = Modifier.weight(weight))
@@ -36,11 +36,13 @@ fun RowScope.WeightedSpacer(weight: Float = 1f) = Spacer(modifier = Modifier.wei
 fun ColumnScope.WeightedSpacer(weight: Float = 1f) = Spacer(modifier = Modifier.weight(weight))
 
 @Composable
-fun Divider(modifier: Modifier = Modifier) = Divider(
-    thickness = Dp.Hairline,
-    color = DaedalusTheme.colors.primary.copy(alpha = .3f),
-    modifier = modifier,
-)
+fun Divider(modifier: Modifier = Modifier) {
+    M3Divider(
+        thickness = Dp.Hairline,
+        color = DaedalusTheme.colors.primary.copy(alpha = .3f),
+        modifier = modifier,
+    )
+}
 
 @ExperimentalFoundationApi
 inline fun <T> LazyListScope.tableItems(
@@ -53,12 +55,15 @@ inline fun <T> LazyListScope.tableItems(
     key = if (key != null) { index: Int -> key(items[index]) } else null,
     contentType = { index: Int -> contentType(items[index]) },
 ) {
-    com.rjspies.daedalus.compose.Divider(Modifier.animateItemPlacement())
+    Divider(Modifier.animateItemPlacement())
     itemContent(items[it])
-    if (it >= items.lastIndex) com.rjspies.daedalus.compose.Divider(Modifier.animateItemPlacement())
+    if (it >= items.lastIndex) Divider(Modifier.animateItemPlacement())
 }
 
-fun Modifier.greenEngineeringMenuGestureDetector(vararg keys: Any?, onDetection: () -> Unit): Modifier {
+fun Modifier.greenEngineeringMenuGestureDetector(
+    vararg keys: Any?,
+    onDetection: () -> Unit,
+): Modifier {
     return if (BuildConfig.DEBUG) {
         pointerInput(keys) {
             detectTapGestures(onDoubleTap = { onDetection() })
@@ -70,7 +75,11 @@ fun Modifier.greenEngineeringMenuGestureDetector(vararg keys: Any?, onDetection:
 
 @ExperimentalMaterial3Api
 @Composable
-fun ToolbarContent(title: String, onBack: () -> Unit, content: @Composable () -> Unit) {
+fun ToolbarContent(
+    title: String,
+    onBack: () -> Unit,
+    content: @Composable () -> Unit,
+) {
     Scaffold(
         containerColor = DaedalusTheme.colors.background,
         topBar = {

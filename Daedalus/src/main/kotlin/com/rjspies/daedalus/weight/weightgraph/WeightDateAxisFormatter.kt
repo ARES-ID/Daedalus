@@ -7,7 +7,10 @@ import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 
 object WeightDateAxisFormatter : AxisValueFormatter<AxisPosition.Horizontal.Bottom> {
-    override fun formatValue(value: Float, chartValues: ChartValues): CharSequence {
+    override fun formatValue(
+        value: Float,
+        chartValues: ChartValues,
+    ): CharSequence {
         val weightEntries = chartValues.chartEntryModel.entries.filterIsInstance<List<WeightChartEntry>>().flatten()
         return if (weightEntries.isNotEmpty()) {
             val weight = weightEntries.elementAtOrNull(value.toInt())
