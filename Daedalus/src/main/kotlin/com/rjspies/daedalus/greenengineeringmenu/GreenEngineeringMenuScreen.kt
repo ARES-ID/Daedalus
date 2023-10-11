@@ -24,7 +24,10 @@ import com.rjspies.daedalus.ui.theme.Spacings
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun GreenEngineeringMenuScreen(onBack: () -> Unit, navigateToItem: (Route) -> Unit) {
+fun GreenEngineeringMenuScreen(
+    onBack: () -> Unit,
+    navigateToItem: (Route) -> Unit,
+) {
     ToolbarContent(title = stringResource(R.string.green_engineering_menu_toolbar_title), onBack = onBack) {
         LazyColumn(
             modifier = Modifier

@@ -13,7 +13,10 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
-fun DaedalusTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
+fun DaedalusTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable () -> Unit,
+) {
     val colors = if (darkTheme) {
         DaedalusDarkColors
     } else {

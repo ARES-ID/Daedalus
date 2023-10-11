@@ -23,7 +23,10 @@ import com.rjspies.daedalus.ui.widgets.DaedalusButton
 import com.rjspies.daedalus.weight.weightgraph.WeightGraphScreen
 
 @Composable
-fun HomeScreen(toAddWeight: () -> Unit, toWeightHistory: () -> Unit) {
+fun HomeScreen(
+    toAddWeight: () -> Unit,
+    toWeightHistory: () -> Unit,
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()

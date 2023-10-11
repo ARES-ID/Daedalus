@@ -182,11 +182,13 @@ private fun BodyTexts() {
     )
 }
 
-private fun Modifier.typographyBorder() = composed {
-    border(
-        border = BorderStroke(
-            width = Dp.Hairline,
-            color = DaedalusTheme.colors.text,
-        ),
-    )
+private fun Modifier.typographyBorder(): Modifier {
+    return composed {
+        border(
+            border = BorderStroke(
+                width = Dp.Hairline,
+                color = DaedalusTheme.colors.text,
+            ),
+        )
+    }
 }
