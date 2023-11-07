@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git 'git@github.com:rjspies/Daedalus.git'
+        git 'https://github.com/rjspies/Daedalus.git'
       }
     }
 
