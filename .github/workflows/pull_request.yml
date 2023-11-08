@@ -13,12 +13,12 @@ jobs:
       - name: detekt
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: detektMain
+          arguments: detektRelease
 
       - name: kotlinter
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: lintKotlin
+          arguments: lintKotlinRelease
 
   lint-and-tests:
     runs-on: self-hosted
@@ -29,14 +29,14 @@ jobs:
       - name: lint
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: lint
+          arguments: lintAnalyzeRelease
 
       - name: tests
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: check
+          arguments: testReleaseUnitTest
 
-  arschsemmel:
+  assemble:
     runs-on: self-hosted
     steps:
       - name: Checkout repository
@@ -53,7 +53,7 @@ jobs:
       - name: Assemble
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: assemble
+          arguments: assembleRelease
         env:
           DAEDALUS_SIGNING_KEY: ${{ secrets.DAEDALUS_SIGNING_KEY }}
           DAEDALUS_STORE_PASSWORD: ${{ secrets.DAEDALUS_STORE_PASSWORD }}
