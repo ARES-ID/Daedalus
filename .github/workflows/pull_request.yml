@@ -4,7 +4,7 @@ on:
     branches: main
     types: [ synchronize, opened, reopened, ready_for_review ]
 jobs:
-  detekt+kotlinter:
+  detekt-and-kotlinter:
     runs-on: self-hosted
     steps:
       - name: Checkout repository
@@ -20,7 +20,7 @@ jobs:
         with:
           arguments: lintKotlin
 
-  lint+tests:
+  lint-and-tests:
     runs-on: self-hosted
     steps:
       - name: Checkout repository
