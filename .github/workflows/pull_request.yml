@@ -13,7 +13,7 @@ jobs:
   detekt:
     runs-on: self-hosted
     needs: checkout
-    step:
+    steps:
       - name: Detekt
         uses: gradle/gradle-build-action@v2
         with:
@@ -22,7 +22,7 @@ jobs:
   kotlinter:
     runs-on: self-hosted
     needs: checkout
-    step:
+    steps:
       - name: kotlinter
         uses: gradle/gradle-build-action@v2
         with:
@@ -31,7 +31,7 @@ jobs:
   lint:
     runs-on: self-hosted
     needs: checkout
-    step:
+    steps:
       - name: lint
         uses: gradle/gradle-build-action@v2
         with:
@@ -40,7 +40,7 @@ jobs:
   tests:
     runs-on: self-hosted
     needs: checkout
-    step:
+    steps:
       - name: tests
         uses: gradle/gradle-build-action@v2
         with:
@@ -49,7 +49,7 @@ jobs:
   assemble:
     runs-on: self-hosted
     needs: checkout
-    step:
+    steps:
       - name: Decode keystore
         id: decode_keystore
         uses: timheuer/base64-to-file@v1
