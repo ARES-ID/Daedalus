@@ -4,16 +4,12 @@ on:
     branches: main
     types: [ synchronize, opened, reopened, ready_for_review ]
 jobs:
-  checkout:
+  detekt:
     runs-on: self-hosted
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-  detekt:
-    runs-on: self-hosted
-    needs: checkout
-    steps:
       - name: Detekt
         uses: gradle/gradle-build-action@v2
         with:
@@ -21,8 +17,10 @@ jobs:
 
   kotlinter:
     runs-on: self-hosted
-    needs: checkout
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: kotlinter
         uses: gradle/gradle-build-action@v2
         with:
@@ -30,8 +28,10 @@ jobs:
 
   lint:
     runs-on: self-hosted
-    needs: checkout
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: lint
         uses: gradle/gradle-build-action@v2
         with:
@@ -39,8 +39,10 @@ jobs:
 
   tests:
     runs-on: self-hosted
-    needs: checkout
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: tests
         uses: gradle/gradle-build-action@v2
         with:
@@ -48,8 +50,10 @@ jobs:
 
   assemble:
     runs-on: self-hosted
-    needs: checkout
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
       - name: Decode keystore
         id: decode_keystore
         uses: timheuer/base64-to-file@v1
