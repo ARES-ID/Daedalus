@@ -34,6 +34,7 @@ implementation = [
 [plugins]
 
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
 detekt = "io.gitlab.arturbosch.detekt:1.23.3"
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinter = "org.jmailen.kotlinter:4.0.0"

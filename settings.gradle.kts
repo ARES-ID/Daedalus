@@ -19,3 +19,4 @@ plugins {
 
 rootProject.name = "Daedalus"
 include(":Daedalus")
+include(":ui")
