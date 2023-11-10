@@ -96,18 +96,7 @@ ksp {
     arg("room.schemaLocation", "$projectDir/schemas")
 }
 
-fun generateVersionCode(): Int {
-    val standardOutput = ByteArrayOutputStream()
-    rootProject.exec {
-        commandLine("git", "rev-list", "--count", "HEAD")
-        this.standardOutput = standardOutput
-    }
-    val commitCount = standardOutput.toString().trim().toInt()
-    val offset = libs.versions.versionCodeOffset.get().toInt()
-    val versionCode = commitCount + offset
-    logger.debug("Generating version code = $versionCode")
-    return versionCode
-}
+
 
 tasks.create("version") {
     doLast {
