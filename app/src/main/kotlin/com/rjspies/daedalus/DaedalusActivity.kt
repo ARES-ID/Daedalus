@@ -22,6 +22,9 @@ import com.rjspies.daedalus.navigation.NavigationHost
 import com.rjspies.daedalus.ui.theme.DaedalusTheme
 import com.rjspies.daedalus.ui.widgets.DaedalusSnackbar
 
+private const val SPLASHSCREEN_EXIT_ANIMATION_START = 0f
+private const val SPLASHSCREEN_EXIT_ANIMATION_DURATION = 200L
+
 class DaedalusActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,11 +60,11 @@ class DaedalusActivity : ComponentActivity() {
             val slideDownAnimation = ObjectAnimator.ofFloat(
                 /* target = */ view,
                 /* property = */ View.TRANSLATION_Y,
-                /* ...values = */ 0f,
+                /* ...values = */ SPLASHSCREEN_EXIT_ANIMATION_START,
                 view.height.toFloat(),
             )
             slideDownAnimation.interpolator = LinearInterpolator()
-            slideDownAnimation.duration = 200L
+            slideDownAnimation.duration = SPLASHSCREEN_EXIT_ANIMATION_DURATION
             slideDownAnimation.doOnEnd { view.remove() }
             slideDownAnimation.start()
         }
