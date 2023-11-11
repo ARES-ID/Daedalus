@@ -85,7 +85,8 @@ kotlin {
 dependencies {
     implementation(libs.bundles.implementation)
     testImplementation(libs.bundles.testImplementation)
-    ksp(libs.bundles.ksp)
+    ksp(libs.roomCompiler)
+    ksp(libs.koinCompiler)
 }
 
 detekt {
