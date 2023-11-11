@@ -1,3 +1,5 @@
+import java.io.ByteArrayOutputStream
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -6,8 +8,6 @@ plugins {
     alias(libs.plugins.ksp)
     id("kotlin-parcelize")
 }
-
-apply(from = "util.gradle.kts")
 
 android {
     namespace = "com.rjspies.daedalus"
@@ -70,6 +70,7 @@ android {
         }
     }
 }
+
 kotlin {
     jvmToolchain {
         languageVersion.set(JavaLanguageVersion.of(libs.versions.java.get()))
@@ -80,12 +81,31 @@ kotlin {
         allWarningsAsErrors.set(true)
     }
 }
+
+dependencies {
+    implementation(libs.bundles.implementation)
+    testImplementation(libs.bundles.testImplementation)
+    ksp(libs.bundles.ksp)
+}
+
 detekt {
     baseline = file("$rootDir/config/detekt/baseline.xml")
 }
 
 ksp {
     arg("room.schemaLocation", "$projectDir/schemas")
+}
+
+fun generateVersionCode(): Int {
+    val standardOutput = ByteArrayOutputStream()
+    project.exec {
+        commandLine("git", "rev-list", "--count", "HEAD")
+        this.standardOutput = standardOutput
+    }
+    val commitCount = standardOutput.toString().trim().toInt()
+    val versionCode = commitCount + libs.versions.versionCodeOffset.get().toInt()
+    project.logger.debug("Generating version code = $versionCode")
+    return versionCode
 }
 
 tasks.create("version") {
