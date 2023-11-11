@@ -60,7 +60,7 @@ class DaedalusActivity : ComponentActivity() {
             val slideDownAnimation = ObjectAnimator.ofFloat(
                 /* target = */ view,
                 /* property = */ View.TRANSLATION_Y,
-                /* ...values = */ SPLASHSCREEN_EXIT_ANIMATION_START,
+                /* ...values = */ 0f,
                 view.height.toFloat(),
             )
             slideDownAnimation.interpolator = LinearInterpolator()
