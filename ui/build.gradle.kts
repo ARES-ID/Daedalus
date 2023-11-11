@@ -1,15 +1,24 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlinter)
+    alias(libs.plugins.detekt)
 }
-
-apply(from = "dependencies.gradle.kts")
 
 android {
     namespace = libs.versions.namespace.get() + ".ui"
     compileSdk = libs.versions.compileSdk.get().toInt()
     defaultConfig {
+        minSdk = libs.versions.minSdk.get().toInt()
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            ndk.debugSymbolLevel = "FULL"
+        }
     }
 
     buildFeatures {
@@ -18,6 +27,12 @@ android {
 
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
+    }
+
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
     }
 }
 
@@ -36,4 +51,6 @@ kotlin {
 dependencies {
     implementation(libs.composeMaterial3)
     implementation(libs.accompanistSystemUiController)
+    testImplementation(libs.junit5Api)
+    testRuntimeOnly(libs.junit5Engine)
 }

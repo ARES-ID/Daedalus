@@ -14,6 +14,7 @@ koin = "3.4.6"
 koin-test = "3.4.3"
 koin-annotations = "1.3.0"
 namespace = "com.rjspies.daedalus"
+junit5 = "5.10.0"
 
 # Raise these two together
 kotlin = "1.9.20"
@@ -27,6 +28,7 @@ detekt = "io.gitlab.arturbosch.detekt:1.23.3"
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinter = "org.jmailen.kotlinter:4.0.0"
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+junit5 = { id = "de.mannodermaus.android-junit5", version.ref = "junit5" }
 
 [libraries]
 
@@ -54,6 +56,8 @@ test-junit = "junit:junit:4.13.2"
 test-kotest-property = "io.kotest:kotest-property:5.8.0"
 test-roboelectric = "org.robolectric:robolectric:4.11.1"
 test-koin-junit4 = "io.insert-koin:koin-test-junit4:3.5.0"
+junit5Api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit5" }
+junit5Engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit5" }
 
 [bundles]
 

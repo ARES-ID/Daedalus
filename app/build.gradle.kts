@@ -2,25 +2,24 @@ import java.io.ByteArrayOutputStream
 
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.ksp)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlinter)
     alias(libs.plugins.detekt)
-    alias(libs.plugins.ksp)
     id("kotlin-parcelize")
 }
 
 android {
-    namespace = "com.rjspies.daedalus"
+    namespace = libs.versions.namespace.get()
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "com.rjspies.daedalus"
+        applicationId = libs.versions.namespace.get()
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.targetSdk.get().toInt()
-        versionCode = 1
+        versionCode = generateVersionCode()
         versionName = libs.versions.versionName.get()
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        resourceConfigurations.addAll(arrayOf("en", "de"))
     }
 
     signingConfigs {
@@ -43,7 +42,6 @@ android {
 
         debug {
             applicationIdSuffix = ".debug"
-            versionNameSuffix = "-debug"
             isDebuggable = true
             isCrunchPngs = false
         }
@@ -61,12 +59,6 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
-
-    testOptions {
-        unitTests {
-            isIncludeAndroidResources = true
         }
     }
 }
@@ -88,10 +80,6 @@ dependencies {
     testImplementation(libs.bundles.testImplementation)
     ksp(libs.roomCompiler)
     ksp(libs.koinCompiler)
-}
-
-detekt {
-    baseline = file("$rootDir/config/detekt/baseline.xml")
 }
 
 ksp {

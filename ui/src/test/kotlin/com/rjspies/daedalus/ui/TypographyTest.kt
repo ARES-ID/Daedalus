@@ -1,4 +1,4 @@
-package com.rjspies.daedalus
+package com.rjspies.daedalus.ui
 
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
@@ -6,10 +6,10 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.rjspies.daedalus.ui.theme.Typography
-import org.junit.Assert
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
 
-class TypographyTest {
+public class TypographyTest {
     private val medium = FontFamily(Font(R.font.poppins_medium, weight = FontWeight.Medium))
     private val regular = FontFamily(Font(R.font.poppins_regular, weight = FontWeight.Normal))
 
@@ -164,77 +164,26 @@ class TypographyTest {
     }
 
     @Test
-    fun displayLarge() {
-        Assert.assertEquals(displayLarge, Typography.displayLarge)
-    }
-
-    @Test
     fun displayMedium() {
-        Assert.assertEquals(displayMedium, Typography.displayMedium)
+
     }
 
     @Test
-    fun displaySmall() {
-        Assert.assertEquals(displaySmall, Typography.displaySmall)
-    }
-
-    @Test
-    fun headlineLarge() {
-        Assert.assertEquals(headlineLarge, Typography.headlineLarge)
-    }
-
-    @Test
-    fun headlineMedium() {
-        Assert.assertEquals(headlineMedium, Typography.headlineMedium)
-    }
-
-    @Test
-    fun headlineSmall() {
-        Assert.assertEquals(headlineSmall, Typography.headlineSmall)
-    }
-
-    @Test
-    fun titleLarge() {
-        Assert.assertEquals(titleLarge, Typography.titleLarge)
-    }
-
-    @Test
-    fun titleMedium() {
-        Assert.assertEquals(titleMedium, Typography.titleMedium)
-    }
-
-    @Test
-    fun titleSmall() {
-        Assert.assertEquals(titleSmall, Typography.titleSmall)
-    }
-
-    @Test
-    fun labelLarge() {
-        Assert.assertEquals(labelLarge, Typography.labelLarge)
-    }
-
-    @Test
-    fun labelMedium() {
-        Assert.assertEquals(labelMedium, Typography.labelMedium)
-    }
-
-    @Test
-    fun labelSmall() {
-        Assert.assertEquals(labelSmall, Typography.labelSmall)
-    }
-
-    @Test
-    fun bodyLarge() {
-        Assert.assertEquals(bodyLarge, Typography.bodyLarge)
-    }
-
-    @Test
-    fun bodyMedium() {
-        Assert.assertEquals(bodyMedium, Typography.bodyMedium)
-    }
-
-    @Test
-    fun bodySmall() {
-        Assert.assertEquals(bodySmall, Typography.bodySmall)
+    fun `Text style configuration`() {
+        assertEquals(displayLarge, Typography.displayLarge)
+        assertEquals(displayMedium, Typography.displayMedium)
+        assertEquals(displaySmall, Typography.displaySmall)
+        assertEquals(headlineLarge, Typography.headlineLarge)
+        assertEquals(headlineMedium, Typography.headlineMedium)
+        assertEquals(headlineSmall, Typography.headlineSmall)
+        assertEquals(titleLarge, Typography.titleLarge)
+        assertEquals(titleMedium, Typography.titleMedium)
+        assertEquals(titleSmall, Typography.titleSmall)
+        assertEquals(labelLarge, Typography.labelLarge)
+        assertEquals(labelMedium, Typography.labelMedium)
+        assertEquals(labelSmall, Typography.labelSmall)
+        assertEquals(bodyLarge, Typography.bodyLarge)
+        assertEquals(bodyMedium, Typography.bodyMedium)
+        assertEquals(bodySmall, Typography.bodySmall)
     }
 }
