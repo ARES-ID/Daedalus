@@ -5,6 +5,7 @@ plugins {
 
 android {
     namespace = "com.rjspies.daedalus.ui"
+    compileSdk = 34
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

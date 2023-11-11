@@ -71,23 +71,6 @@ android {
     }
 }
 
-kotlin {
-    jvmToolchain {
-        languageVersion.set(JavaLanguageVersion.of(libs.versions.java.get()))
-        vendor.set(JvmVendorSpec.AZUL)
-    }
-
-    compilerOptions {
-        allWarningsAsErrors.set(true)
-    }
-}
-
-dependencies {
-    implementation(libs.bundles.implementation)
-    testImplementation(libs.bundles.testImplementation)
-    ksp(libs.bundles.ksp)
-}
-
 detekt {
     baseline = file("$rootDir/config/detekt/baseline.xml")
 }
@@ -95,8 +78,6 @@ detekt {
 ksp {
     arg("room.schemaLocation", "$projectDir/schemas")
 }
-
-
 
 tasks.create("version") {
     doLast {
