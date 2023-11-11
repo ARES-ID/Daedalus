@@ -5,9 +5,9 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.rjspies.daedalus.R
 import com.rjspies.daedalus.compose.greenEngineeringMenuGestureDetector
 import com.rjspies.daedalus.greenengineeringmenu.ButtonGalleryScreen
@@ -19,10 +19,8 @@ import com.rjspies.daedalus.weight.weighthistory.WeightHistoryScreen
 
 @Suppress("LongMethod")
 @Composable
-fun NavigationHost(
-    controller: NavHostController,
-    snackbarHostState: SnackbarHostState,
-) {
+fun NavigationHost(snackbarHostState: SnackbarHostState) {
+    val controller = rememberNavController()
     NavHost(
         navController = controller,
         startDestination = Routes.Home,
