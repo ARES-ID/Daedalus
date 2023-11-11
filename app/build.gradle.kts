@@ -1,5 +1,3 @@
-import java.io.ByteArrayOutputStream
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -9,6 +7,8 @@ plugins {
     id("kotlin-parcelize")
 }
 
+apply(from = "util.gradle.kts")
+
 android {
     namespace = "com.rjspies.daedalus"
     compileSdk = libs.versions.compileSdk.get().toInt()
@@ -17,7 +17,7 @@ android {
         applicationId = "com.rjspies.daedalus"
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.targetSdk.get().toInt()
-        versionCode = generateVersionCode()
+        versionCode = 1
         versionName = libs.versions.versionName.get()
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         resourceConfigurations.addAll(arrayOf("en", "de"))

@@ -12,12 +12,6 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
-
-    versionCatalogs {
-        create("libs") {
-            from(files("gradle/libs.versions.toml"))
-        }
-    }
 }
 
 plugins {
@@ -25,5 +19,5 @@ plugins {
 }
 
 rootProject.name = "Daedalus"
-include(":Daedalus")
+include(":app")
 include(":ui")
