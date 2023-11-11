@@ -7,7 +7,6 @@ on:
 jobs:
   detekt-and-kotlinter:
     runs-on: self-hosted
-    needs: cancel
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -24,7 +23,6 @@ jobs:
 
   lint-and-tests:
     runs-on: self-hosted
-    needs: cancel
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -41,7 +39,6 @@ jobs:
 
   assemble:
     runs-on: self-hosted
-    needs: cancel
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
