@@ -9,9 +9,9 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.rjspies.daedalus.compose.ToolbarContent
-import com.rjspies.daedalus.compose.VerticalSpacerM
-import com.rjspies.daedalus.compose.horizontalSpacingM
-import com.rjspies.daedalus.compose.verticalSpacingXXL
+import com.rjspies.daedalus.ui.VerticalSpacerM
+import com.rjspies.daedalus.ui.horizontalSpacingM
+import com.rjspies.daedalus.ui.verticalSpacingXXL
 import com.rjspies.daedalus.ui.widgets.ButtonType
 import com.rjspies.daedalus.ui.widgets.DaedalusButton
 

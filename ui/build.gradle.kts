@@ -11,6 +11,14 @@ android {
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
+    }
 }
 
 kotlin {
@@ -21,5 +29,11 @@ kotlin {
 
     compilerOptions {
         allWarningsAsErrors.set(true)
+        explicitApi()
     }
+}
+
+dependencies {
+    implementation(libs.composeMaterial3)
+    implementation(libs.accompanistSystemUiController)
 }

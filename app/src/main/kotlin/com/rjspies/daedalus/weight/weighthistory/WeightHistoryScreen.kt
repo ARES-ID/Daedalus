@@ -40,11 +40,11 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import com.rjspies.daedalus.R
 import com.rjspies.daedalus.compose.ToolbarContent
-import com.rjspies.daedalus.compose.horizontalSpacingM
 import com.rjspies.daedalus.compose.tableItems
-import com.rjspies.daedalus.compose.verticalSpacingM
+import com.rjspies.daedalus.ui.horizontalSpacingM
 import com.rjspies.daedalus.ui.theme.DaedalusTheme
 import com.rjspies.daedalus.ui.theme.Spacings
+import com.rjspies.daedalus.ui.verticalSpacingM
 import com.rjspies.daedalus.ui.widgets.ButtonType
 import com.rjspies.daedalus.ui.widgets.DaedalusButton
 import com.rjspies.daedalus.ui.widgets.EmptyScreen

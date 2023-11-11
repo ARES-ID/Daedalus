@@ -15,9 +15,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.rjspies.daedalus.R
 import com.rjspies.daedalus.compose.WeightedSpacer
-import com.rjspies.daedalus.compose.horizontalSpacingM
-import com.rjspies.daedalus.compose.verticalSpacingM
+import com.rjspies.daedalus.ui.horizontalSpacingM
 import com.rjspies.daedalus.ui.theme.Spacings
+import com.rjspies.daedalus.ui.verticalSpacingM
 import com.rjspies.daedalus.ui.widgets.ButtonType
 import com.rjspies.daedalus.ui.widgets.DaedalusButton
 import com.rjspies.daedalus.weight.weightgraph.WeightGraphScreen

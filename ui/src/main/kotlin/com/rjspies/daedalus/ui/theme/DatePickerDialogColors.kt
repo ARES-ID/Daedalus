@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 
 @ExperimentalMaterial3Api
 @Composable
-fun daedalusDatePickerDialogColors(): DatePickerColors {
+public fun daedalusDatePickerDialogColors(): DatePickerColors {
     return DatePickerDefaults.colors(
         containerColor = DaedalusTheme.colors.background,
         titleContentColor = DaedalusTheme.colors.text,

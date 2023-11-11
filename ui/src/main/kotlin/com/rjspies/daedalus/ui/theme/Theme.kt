@@ -13,7 +13,7 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
-fun DaedalusTheme(
+public fun DaedalusTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit,
 ) {
@@ -41,13 +41,13 @@ fun DaedalusTheme(
     )
 }
 
-object DaedalusTheme {
-    val colors: DaedalusColors
+public object DaedalusTheme {
+    public val colors: DaedalusColors
         @Composable
         @ReadOnlyComposable
         get() = LocalDaedalusColors.current
 }
 
-val LocalDaedalusColors: ProvidableCompositionLocal<DaedalusColors> = staticCompositionLocalOf {
+public val LocalDaedalusColors: ProvidableCompositionLocal<DaedalusColors> = staticCompositionLocalOf {
     error("LocalDaedalusColors are not provided!")
 }

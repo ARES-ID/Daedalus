@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import com.rjspies.daedalus.ui.theme.DaedalusTheme
 
 @Composable
-fun DaedalusSnackbar(data: SnackbarData) {
+public fun DaedalusSnackbar(data: SnackbarData) {
     Snackbar(
         snackbarData = data,
         containerColor = DaedalusTheme.colors.secondary,

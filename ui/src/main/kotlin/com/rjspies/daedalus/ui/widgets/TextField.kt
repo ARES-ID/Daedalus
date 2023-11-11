@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import com.rjspies.daedalus.ui.theme.daedalusOutlinedTextFieldColors
 
 @Composable
-fun DaedalusOutlinedTextField(
+public fun DaedalusOutlinedTextField(
     value: String?,
     label: String,
     onValueChange: (String) -> Unit,

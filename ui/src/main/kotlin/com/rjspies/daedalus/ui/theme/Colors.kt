@@ -2,20 +2,20 @@ package com.rjspies.daedalus.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-interface DaedalusColors {
-    val primary: Color
-    val onPrimary: Color
-    val secondary: Color
-    val onSecondary: Color
-    val text: Color
-    val background: Color
-    val positive: Color
-    val negative: Color
-    val outlinedTextFieldUnfocused: Color
-    val disabled: Color
+public interface DaedalusColors {
+    public val primary: Color
+    public val onPrimary: Color
+    public val secondary: Color
+    public val onSecondary: Color
+    public val text: Color
+    public val background: Color
+    public val positive: Color
+    public val negative: Color
+    public val outlinedTextFieldUnfocused: Color
+    public val disabled: Color
 }
 
-object DaedalusLightColors : DaedalusColors {
+public object DaedalusLightColors : DaedalusColors {
     override val primary: Color
         get() = Color(0xFF006C4D)
     override val onPrimary: Color
@@ -38,7 +38,7 @@ object DaedalusLightColors : DaedalusColors {
         get() = text.copy(alpha = .3f)
 }
 
-object DaedalusDarkColors : DaedalusColors {
+public object DaedalusDarkColors : DaedalusColors {
     override val primary: Color
         get() = Color(0xFF6BDBAD)
     override val onPrimary: Color

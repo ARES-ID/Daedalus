@@ -21,8 +21,8 @@ import com.patrykandpatrick.vico.compose.chart.line.lineChart
 import com.patrykandpatrick.vico.core.chart.values.AxisValuesOverrider
 import com.patrykandpatrick.vico.core.entry.ChartEntryModelProducer
 import com.rjspies.daedalus.R
-import com.rjspies.daedalus.compose.horizontalSpacingM
-import com.rjspies.daedalus.compose.verticalSpacingM
+import com.rjspies.daedalus.ui.horizontalSpacingM
+import com.rjspies.daedalus.ui.verticalSpacingM
 import com.rjspies.daedalus.ui.widgets.EmptyScreen
 import com.rjspies.daedalus.weight.weightgraph.ui.rememberMarker
 import org.koin.androidx.compose.koinViewModel

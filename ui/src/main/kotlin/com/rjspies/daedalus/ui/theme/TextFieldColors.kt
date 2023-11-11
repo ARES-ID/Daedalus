@@ -5,7 +5,7 @@ import androidx.compose.material3.TextFieldColors
 import androidx.compose.runtime.Composable
 
 @Composable
-fun daedalusOutlinedTextFieldColors(): TextFieldColors {
+public fun daedalusOutlinedTextFieldColors(): TextFieldColors {
     return OutlinedTextFieldDefaults.colors(
         cursorColor = DaedalusTheme.colors.text,
         errorBorderColor = DaedalusTheme.colors.negative,

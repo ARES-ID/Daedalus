@@ -83,6 +83,7 @@ kotlin {
 }
 
 dependencies {
+    implementation(project(":ui"))
     implementation(libs.bundles.implementation)
     testImplementation(libs.bundles.testImplementation)
     ksp(libs.roomCompiler)

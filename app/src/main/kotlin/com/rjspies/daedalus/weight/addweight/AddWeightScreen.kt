@@ -28,13 +28,13 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.window.DialogProperties
 import com.rjspies.daedalus.R
 import com.rjspies.daedalus.compose.ToolbarContent
-import com.rjspies.daedalus.compose.VerticalSpacerM
-import com.rjspies.daedalus.compose.VerticalSpacerXS
 import com.rjspies.daedalus.compose.WeightedSpacer
-import com.rjspies.daedalus.compose.horizontalSpacingM
-import com.rjspies.daedalus.compose.verticalSpacingM
+import com.rjspies.daedalus.ui.VerticalSpacerM
+import com.rjspies.daedalus.ui.VerticalSpacerXS
+import com.rjspies.daedalus.ui.horizontalSpacingM
 import com.rjspies.daedalus.ui.theme.Spacings
 import com.rjspies.daedalus.ui.theme.daedalusDatePickerDialogColors
+import com.rjspies.daedalus.ui.verticalSpacingM
 import com.rjspies.daedalus.ui.widgets.ButtonType
 import com.rjspies.daedalus.ui.widgets.DaedalusButton
 import com.rjspies.daedalus.ui.widgets.DaedalusOutlinedTextField

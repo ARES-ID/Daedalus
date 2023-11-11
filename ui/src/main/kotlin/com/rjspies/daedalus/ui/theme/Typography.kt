@@ -6,12 +6,12 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import com.rjspies.daedalus.R
+import com.rjspies.daedalus.ui.R
 
 private val Medium = FontFamily(Font(R.font.poppins_medium, weight = FontWeight.Medium))
 private val Regular = FontFamily(Font(R.font.poppins_regular, weight = FontWeight.Normal))
 
-val Typography = Typography(
+public val Typography: Typography = Typography(
     displayLarge = TextStyle(
         fontFamily = Regular,
         lineHeight = 64.sp,

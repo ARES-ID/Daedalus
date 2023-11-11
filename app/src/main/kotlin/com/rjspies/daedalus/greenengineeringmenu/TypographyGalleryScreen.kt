@@ -17,10 +17,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import com.rjspies.daedalus.R
 import com.rjspies.daedalus.compose.ToolbarContent
-import com.rjspies.daedalus.compose.VerticalSpacerM
-import com.rjspies.daedalus.compose.horizontalSpacingM
-import com.rjspies.daedalus.compose.verticalSpacingXXL
+import com.rjspies.daedalus.ui.VerticalSpacerM
+import com.rjspies.daedalus.ui.horizontalSpacingM
 import com.rjspies.daedalus.ui.theme.DaedalusTheme
+import com.rjspies.daedalus.ui.verticalSpacingXXL
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
