@@ -70,7 +70,16 @@ android {
         }
     }
 }
+kotlin {
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(libs.versions.java.get()))
+        vendor.set(JvmVendorSpec.AZUL)
+    }
 
+    compilerOptions {
+        allWarningsAsErrors.set(true)
+    }
+}
 detekt {
     baseline = file("$rootDir/config/detekt/baseline.xml")
 }
