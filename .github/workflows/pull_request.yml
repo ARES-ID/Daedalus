@@ -47,7 +47,7 @@ jobs:
         uses: timheuer/base64-to-file@v1
         with:
           fileName: 'release.keystore'
-          fileDir: '${{ github.workspace }}/Daedalus/keystore'
+          fileDir: '${{ github.workspace }}/app/keystore'
           encodedString: ${{ secrets.KEYSTORE }}
 
       - name: Assemble

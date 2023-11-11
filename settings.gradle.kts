@@ -8,6 +8,7 @@ pluginManagement {
 
 dependencyResolutionManagement {
     repositories {
+        gradlePluginPortal()
         google()
         mavenCentral()
     }
@@ -18,4 +19,5 @@ plugins {
 }
 
 rootProject.name = "Daedalus"
-include(":Daedalus")
+include(":app")
+include(":ui")
