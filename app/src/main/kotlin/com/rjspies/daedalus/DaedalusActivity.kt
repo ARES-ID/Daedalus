@@ -64,7 +64,7 @@ class DaedalusActivity : ComponentActivity() {
                 view.height.toFloat(),
             )
             slideDownAnimation.interpolator = LinearInterpolator()
-            slideDownAnimation.duration = SPLASHSCREEN_EXIT_ANIMATION_DURATION
+            slideDownAnimation.duration = 200L
             slideDownAnimation.doOnEnd { view.remove() }
             slideDownAnimation.start()
         }
