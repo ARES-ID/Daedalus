@@ -26,7 +26,7 @@ android-application = { id = "com.android.application", version.ref = "androidGr
 android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
 detekt = "io.gitlab.arturbosch.detekt:1.23.3"
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-kotlinter = "org.jmailen.kotlinter:4.0.0"
+kotlinter = "org.jmailen.kotlinter:4.1.0"
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 junit5 = { id = "de.mannodermaus.android-junit5", version.ref = "junit5" }
 
