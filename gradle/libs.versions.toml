@@ -29,6 +29,7 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinter = "org.jmailen.kotlinter:4.1.0"
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 junit5 = { id = "de.mannodermaus.android-junit5", version.ref = "junit5" }
+dependencyGraph = { id = "io.github.adityabhaskar.dependencygraph", version = "0.1.5" }
 
 [libraries]
 
