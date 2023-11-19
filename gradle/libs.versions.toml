@@ -45,7 +45,7 @@ roomCompiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 androidx-materialIconsExtended = { module = "androidx.compose.material:material-icons-extended", version.ref = "compose" }
 timber = "com.jakewharton.timber:timber:5.0.1"
-vico-compose = "com.patrykandpatrick.vico:compose-m3:1.12.0"
+vico-compose = "com.patrykandpatrick.vico:compose-m3:1.13.0"
 accompanistSystemUiController = "com.google.accompanist:accompanist-systemuicontroller:0.32.0"
 koin-androidx-compose = "io.insert-koin:koin-androidx-compose:3.5.0"
 koin-annotations = { module = "io.insert-koin:koin-annotations", version.ref = "koin-annotations" }
