@@ -21,3 +21,5 @@ plugins {
 rootProject.name = "Daedalus"
 include(":app")
 include(":ui")
+include(":domain")
+include(":data")

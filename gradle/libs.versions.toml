@@ -19,6 +19,12 @@ junit5 = "5.10.1"
 # Raise these two together
 kotlin = "1.9.20"
 ksp = "1.9.20-1.0.14"
+core-ktx = "1.9.0"
+junit = "4.13.2"
+androidx-test-ext-junit = "1.1.5"
+espresso-core = "3.5.1"
+appcompat = "1.6.1"
+material = "1.10.0"
 
 [plugins]
 
@@ -59,6 +65,12 @@ test-roboelectric = "org.robolectric:robolectric:4.11.1"
 test-koin-junit4 = "io.insert-koin:koin-test-junit4:3.5.0"
 junit5Api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit5" }
 junit5Engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit5" }
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [bundles]
 
