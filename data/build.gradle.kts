@@ -12,7 +12,6 @@ android {
 
     defaultConfig {
         minSdk = libs.versions.minSdk.int()
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -21,6 +20,7 @@ android {
         release {
             isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            ndk.debugSymbolLevel = "FULL"
         }
     }
 }
@@ -29,8 +29,15 @@ android {
 fun Provider<String>.int() = get().toInt()
 
 kotlin {
-    explicitApi()
-    jvmToolchain(libs.versions.java.get().toInt())
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(libs.versions.java.get()))
+        vendor.set(JvmVendorSpec.AZUL)
+    }
+
+    compilerOptions {
+        allWarningsAsErrors.set(true)
+        explicitApi()
+    }
 }
 
 ksp {

@@ -8,9 +8,11 @@ plugins {
 android {
     namespace = libs.versions.namespace.get() + ".ui"
     compileSdk = libs.versions.compileSdk.get().toInt()
+
     defaultConfig {
         minSdk = libs.versions.minSdk.get().toInt()
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
