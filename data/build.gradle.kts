@@ -47,5 +47,8 @@ ksp {
 dependencies {
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.room.runtime)
+    testImplementation(libs.test.roboelectric)
+    testImplementation(libs.test.kotest.property)
+    testImplementation(libs.test.junit)
     ksp(libs.roomCompiler)
 }
