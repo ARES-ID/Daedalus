@@ -1,15 +1,17 @@
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlinter)
+    alias(libs.plugins.detekt)
 }
 
 android {
-    namespace = "com.rjspies.daedalus.data"
-    compileSdk = 33
+    namespace = libs.versions.namespace.get() + ".data"
+    compileSdk = libs.versions.compileSdk.int()
 
     defaultConfig {
-        minSdk = 24
+        minSdk = libs.versions.minSdk.int()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -17,25 +19,26 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
+}
+
+@kotlin.jvm.Throws(NumberFormatException::class)
+fun Provider<String>.int() = get().toInt()
+
+kotlin {
+    explicitApi()
+    jvmToolchain(libs.versions.java.get().toInt())
+}
+
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas")
 }
 
 dependencies {
-
-    implementation(libs.core.ktx)
-    implementation(libs.appcompat)
-    implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.roomCompiler)
 }

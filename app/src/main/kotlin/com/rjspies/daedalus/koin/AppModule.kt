@@ -1,8 +1,8 @@
 package com.rjspies.daedalus.koin
 
 import android.content.Context
-import com.rjspies.daedalus.database.WeightDatabase
-import com.rjspies.daedalus.weight.service.WeightService
+import com.rjspies.daedalus.data.WeightDatabase
+import com.rjspies.daedalus.data.WeightService
 import com.rjspies.daedalus.weight.service.data.WeightDao
 import org.koin.core.annotation.ComponentScan
 import org.koin.core.annotation.Module

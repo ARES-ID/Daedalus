@@ -76,14 +76,10 @@ kotlin {
 
 dependencies {
     implementation(project(":ui"))
+    implementation(project(":data"))
     implementation(libs.bundles.implementation)
     testImplementation(libs.bundles.testImplementation)
-    ksp(libs.roomCompiler)
     ksp(libs.koinCompiler)
-}
-
-ksp {
-    arg("room.schemaLocation", "$projectDir/schemas")
 }
 
 fun generateVersionCode(): Int {

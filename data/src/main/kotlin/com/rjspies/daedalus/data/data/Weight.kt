@@ -8,7 +8,7 @@ import java.time.ZonedDateTime
 
 @Entity
 @TypeConverters(ZonedDateTimeConverter::class)
-data class Weight(
+public data class Weight(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     val value: Float,

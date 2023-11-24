@@ -1,4 +1,4 @@
-package com.rjspies.daedalus.database
+package com.rjspies.daedalus.data
 
 import android.content.Context
 import androidx.room.Database
@@ -8,14 +8,14 @@ import com.rjspies.daedalus.weight.service.data.Weight
 import com.rjspies.daedalus.weight.service.data.WeightDao
 
 @Database(entities = [Weight::class], version = 1)
-abstract class WeightDatabase : RoomDatabase() {
-    abstract fun weightDao(): WeightDao
+public abstract class WeightDatabase : RoomDatabase() {
+    public abstract fun weightDao(): WeightDao
 
-    companion object {
+    public companion object {
         @Volatile
         private var INSTANCE: WeightDatabase? = null
 
-        fun getDatabase(context: Context): WeightDatabase {
+        public fun getDatabase(context: Context): WeightDatabase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context,
