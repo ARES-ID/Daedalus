@@ -25,11 +25,7 @@ android {
     }
 }
 
-@kotlin.jvm.Throws(NumberFormatException::class)
-fun Provider<String>.int() = get().toInt()
-
 kotlin {
-    explicitApi()
     jvmToolchain {
         languageVersion.set(JavaLanguageVersion.of(libs.versions.java.get()))
         vendor.set(JvmVendorSpec.AZUL)
@@ -37,6 +33,7 @@ kotlin {
 
     compilerOptions {
         allWarningsAsErrors.set(true)
+        explicitApi()
     }
 }
 
@@ -54,4 +51,8 @@ dependencies {
     testImplementation(libs.orgRoboelectric.roboelectric)
     testImplementation(libs.junit.junit)
     testImplementation(libs.ioKotest.kotestProperty)
+    testImplementation(libs.ioInsertKoin.koinTestJunit4)
 }
+
+@kotlin.jvm.Throws(NumberFormatException::class)
+fun Provider<String>.int() = get().toInt()

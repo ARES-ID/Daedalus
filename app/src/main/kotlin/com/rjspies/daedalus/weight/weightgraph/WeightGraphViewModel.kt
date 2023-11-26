@@ -10,8 +10,8 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
 
 @KoinViewModel
-class WeightGraphViewModel(weightService: WeightService) : ViewModel() {
-    val weights: StateFlow<List<Weight>> = weightService.weights().stateIn(
+class WeightGraphViewModel(service: WeightService) : ViewModel() {
+    val weights: StateFlow<List<Weight>> = service.weights().stateIn(
         scope = viewModelScope,
         started = SharingStarted.WhileSubscribed(),
         initialValue = emptyList(),
