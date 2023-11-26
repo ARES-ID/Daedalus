@@ -1,8 +1,8 @@
 plugins {
-    alias(libs.plugins.android.library)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlinter)
-    alias(libs.plugins.detekt)
+    alias(libs.plugins.comAndroidLibrary)
+    alias(libs.plugins.ioGitlabArturboschDetekt)
+    alias(libs.plugins.orgJetbrainsKotlinAndroid)
+    alias(libs.plugins.orgJmailenKotlinter)
 }
 
 android {
@@ -51,8 +51,8 @@ kotlin {
 }
 
 dependencies {
-    implementation(libs.composeMaterial3)
-    implementation(libs.accompanistSystemUiController)
-    testImplementation(libs.junit5Api)
-    testRuntimeOnly(libs.junit5Engine)
+    implementation(libs.androidxComposeMaterial3.material3)
+    implementation(libs.comGoogleAccompanist.accompanistSystemuicontroller)
+    testImplementation(libs.orgJunitJupiter.junitJupiterApi)
+    testImplementation(libs.orgJunitJupiter.junitJupiterEngine)
 }

@@ -1,9 +1,9 @@
 plugins {
-    alias(libs.plugins.android.library)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.ksp)
-    alias(libs.plugins.kotlinter)
-    alias(libs.plugins.detekt)
+    alias(libs.plugins.comAndroidLibrary)
+    alias(libs.plugins.ioGitlabArturboschDetekt)
+    alias(libs.plugins.orgJetbrainsKotlinAndroid)
+    alias(libs.plugins.orgJmailenKotlinter)
+    alias(libs.plugins.comGoogleDevtoolsKsp)
 }
 
 android {
@@ -29,6 +29,7 @@ android {
 fun Provider<String>.int() = get().toInt()
 
 kotlin {
+    explicitApi()
     jvmToolchain {
         languageVersion.set(JavaLanguageVersion.of(libs.versions.java.get()))
         vendor.set(JvmVendorSpec.AZUL)
@@ -36,7 +37,6 @@ kotlin {
 
     compilerOptions {
         allWarningsAsErrors.set(true)
-        explicitApi()
     }
 }
 
@@ -45,10 +45,13 @@ ksp {
 }
 
 dependencies {
-    implementation(libs.androidx.room.ktx)
-    implementation(libs.androidx.room.runtime)
-    testImplementation(libs.test.roboelectric)
-    testImplementation(libs.test.kotest.property)
-    testImplementation(libs.test.junit)
-    ksp(libs.roomCompiler)
+    implementation(libs.androidxRoom.roomKtx)
+    implementation(libs.androidxRoom.roomRuntime)
+    implementation(libs.ioInsertKoin.koinAnnotations)
+    implementation(libs.ioInsertKoin.koinCore)
+    ksp(libs.androidxRoom.roomCompiler)
+    ksp(libs.ioInsertKoin.koinKspCompiler)
+    testImplementation(libs.orgRoboelectric.roboelectric)
+    testImplementation(libs.junit.junit)
+    testImplementation(libs.ioKotest.kotestProperty)
 }

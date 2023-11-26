@@ -21,6 +21,7 @@ import androidx.core.view.WindowCompat
 import com.rjspies.daedalus.navigation.NavigationHost
 import com.rjspies.daedalus.ui.theme.DaedalusTheme
 import com.rjspies.daedalus.ui.widgets.DaedalusSnackbar
+import org.koin.compose.KoinContext
 
 private const val SPLASHSCREEN_EXIT_ANIMATION_START = 0f
 private const val SPLASHSCREEN_EXIT_ANIMATION_DURATION = 200L
@@ -37,19 +38,21 @@ class DaedalusActivity : ComponentActivity() {
         }
 
         setContent {
-            DaedalusTheme {
-                val snackbarHostState = remember { SnackbarHostState() }
-                Scaffold(
-                    modifier = Modifier.fillMaxSize(),
-                    containerColor = DaedalusTheme.colors.background,
-                    snackbarHost = {
-                        SnackbarHost(
-                            hostState = snackbarHostState,
-                            snackbar = { DaedalusSnackbar(it) },
-                        )
-                    },
-                    content = { NavigationHost(snackbarHostState) },
-                )
+            KoinContext {
+                DaedalusTheme {
+                    val snackbarHostState = remember { SnackbarHostState() }
+                    Scaffold(
+                        modifier = Modifier.fillMaxSize(),
+                        containerColor = DaedalusTheme.colors.background,
+                        snackbarHost = {
+                            SnackbarHost(
+                                hostState = snackbarHostState,
+                                snackbar = { DaedalusSnackbar(it) },
+                            )
+                        },
+                        content = { NavigationHost(snackbarHostState) },
+                    )
+                }
             }
         }
     }
@@ -58,9 +61,9 @@ class DaedalusActivity : ComponentActivity() {
     private fun SplashScreen.animateExit() {
         setOnExitAnimationListener { view ->
             val slideDownAnimation = ObjectAnimator.ofFloat(
-                /* target = */ view,
-                /* property = */ View.TRANSLATION_Y,
-                /* ...values = */ SPLASHSCREEN_EXIT_ANIMATION_START,
+                view,
+                View.TRANSLATION_Y,
+                SPLASHSCREEN_EXIT_ANIMATION_START,
                 view.height.toFloat(),
             )
             slideDownAnimation.interpolator = LinearInterpolator()

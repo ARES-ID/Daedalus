@@ -1,6 +1,7 @@
 package com.rjspies.daedalus
 
 import android.app.Application
+import com.rjspies.daedalus.data.koin.DataModule
 import com.rjspies.daedalus.koin.AppModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -20,7 +21,10 @@ class DaedalusApplication : Application() {
         return startKoin {
             androidLogger()
             androidContext(applicationContext)
-            modules(AppModule().module)
+            modules(
+                AppModule().module,
+                DataModule().module,
+            )
         }
     }
 }

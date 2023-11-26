@@ -1,4 +1,4 @@
-package com.rjspies.daedalus.weight.service.data
+package com.rjspies.daedalus.data.data
 
 import androidx.room.Dao
 import androidx.room.Insert

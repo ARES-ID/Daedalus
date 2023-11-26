@@ -1,4 +1,4 @@
-package com.rjspies.daedalus.database.converters
+package com.rjspies.daedalus.data.converters
 
 import androidx.room.TypeConverter
 import java.time.ZonedDateTime
