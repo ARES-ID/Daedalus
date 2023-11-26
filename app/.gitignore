@@ -3,3 +3,9 @@
 /r8-seeds-report.txt
 /release
 /keystore
+.gradle
+/local.properties
+.DS_Store
+/captures
+/.google-cloud
+/.idea
