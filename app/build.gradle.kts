@@ -92,8 +92,8 @@ dependencies {
     implementation(libs.ioInsertKoin.koinAnnotations)
     ksp(libs.ioInsertKoin.koinKspCompiler)
     testImplementation(libs.orgJunitJupiter.junitJupiterApi)
-    testImplementation(libs.orgJunitJupiter.junitJupiterEngine)
     testImplementation(libs.ioInsertKoin.koinTestJunit4)
+    testRuntimeOnly(libs.orgJunitJupiter.junitJupiterEngine)
 }
 
 fun generateVersionCode(): Int {

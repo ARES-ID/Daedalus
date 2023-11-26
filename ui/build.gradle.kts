@@ -54,5 +54,5 @@ dependencies {
     implementation(libs.androidxComposeMaterial3.material3)
     implementation(libs.comGoogleAccompanist.accompanistSystemuicontroller)
     testImplementation(libs.orgJunitJupiter.junitJupiterApi)
-    testImplementation(libs.orgJunitJupiter.junitJupiterEngine)
+    testRuntimeOnly(libs.orgJunitJupiter.junitJupiterEngine)
 }
