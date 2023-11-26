@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = libs.versions.namespace.get() + ".ui"
+    namespace = libs.versions.namespace.get() + ".domain"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
@@ -21,14 +21,6 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             ndk.debugSymbolLevel = "FULL"
         }
-    }
-
-    buildFeatures {
-        compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
     }
 
     packaging {
@@ -51,8 +43,4 @@ kotlin {
 }
 
 dependencies {
-    implementation(libs.androidxComposeMaterial3.material3)
-    implementation(libs.comGoogleAccompanist.accompanistSystemuicontroller)
-    testImplementation(libs.orgJunitJupiter.junitJupiterApi)
-    testRuntimeOnly(libs.orgJunitJupiter.junitJupiterEngine)
 }

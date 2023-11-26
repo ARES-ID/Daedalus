@@ -29,6 +29,7 @@ import androidx.compose.ui.window.DialogProperties
 import com.rjspies.daedalus.R
 import com.rjspies.daedalus.compose.ToolbarContent
 import com.rjspies.daedalus.compose.WeightedSpacer
+import com.rjspies.daedalus.data.data.Weight
 import com.rjspies.daedalus.ui.VerticalSpacerM
 import com.rjspies.daedalus.ui.VerticalSpacerXS
 import com.rjspies.daedalus.ui.horizontalSpacingM
@@ -38,7 +39,6 @@ import com.rjspies.daedalus.ui.verticalSpacingM
 import com.rjspies.daedalus.ui.widgets.ButtonType
 import com.rjspies.daedalus.ui.widgets.DaedalusButton
 import com.rjspies.daedalus.ui.widgets.DaedalusOutlinedTextField
-import com.rjspies.daedalus.weight.service.data.Weight
 import com.rjspies.daedalus.weight.weighthistory.asUserfacingString
 import org.koin.androidx.compose.koinViewModel
 import java.time.Instant

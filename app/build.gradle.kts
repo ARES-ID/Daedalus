@@ -1,11 +1,11 @@
 import java.io.ByteArrayOutputStream
 
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.ksp)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlinter)
-    alias(libs.plugins.detekt)
+    alias(libs.plugins.comAndroidApplication)
+    alias(libs.plugins.orgJetbrainsKotlinAndroid)
+    alias(libs.plugins.comGoogleDevtoolsKsp)
+    alias(libs.plugins.orgJmailenKotlinter)
+    alias(libs.plugins.ioGitlabArturboschDetekt)
     id("kotlin-parcelize")
 }
 
@@ -76,14 +76,24 @@ kotlin {
 
 dependencies {
     implementation(project(":ui"))
-    implementation(libs.bundles.implementation)
-    testImplementation(libs.bundles.testImplementation)
-    ksp(libs.roomCompiler)
-    ksp(libs.koinCompiler)
-}
-
-ksp {
-    arg("room.schemaLocation", "$projectDir/schemas")
+    implementation(project(":data"))
+    implementation(libs.androidxActivity.activityCompose)
+    implementation(libs.androidxComposeUi.ui)
+    implementation(libs.androidxCore.coreKtx)
+    implementation(libs.androidxCore.coreSplashscreen)
+    implementation(libs.androidxLifecycle.lifecycleRuntimeKtx)
+    implementation(libs.androidxNavigation.navigationCompose)
+    implementation(libs.androidxComposeMaterial3.material3)
+    implementation(libs.androidxConstraintlayout.constraintlayoutCompose)
+    implementation(libs.androidxComposeMaterial.materialIconsExtended)
+    implementation(libs.comJakewhartonTimer.timber)
+    implementation(libs.comPatrykandpatrickVico.composeM3)
+    implementation(libs.ioInsertKoin.koinAndroidxCompose)
+    implementation(libs.ioInsertKoin.koinAnnotations)
+    ksp(libs.ioInsertKoin.koinKspCompiler)
+    testImplementation(libs.orgJunitJupiter.junitJupiterApi)
+    testImplementation(libs.ioInsertKoin.koinTestJunit4)
+    testRuntimeOnly(libs.orgJunitJupiter.junitJupiterEngine)
 }
 
 fun generateVersionCode(): Int {

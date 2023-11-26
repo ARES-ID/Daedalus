@@ -164,11 +164,6 @@ public class TypographyTest {
     }
 
     @Test
-    fun displayMedium() {
-
-    }
-
-    @Test
     fun `Text style configuration`() {
         assertEquals(displayLarge, Typography.displayLarge)
         assertEquals(displayMedium, Typography.displayMedium)

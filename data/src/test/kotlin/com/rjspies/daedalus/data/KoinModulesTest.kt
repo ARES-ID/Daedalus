@@ -1,6 +1,6 @@
-package com.rjspies.daedalus
+package com.rjspies.daedalus.data
 
-import com.rjspies.daedalus.koin.AppModule
+import com.rjspies.daedalus.data.koin.DataModule
 import org.junit.Test
 import org.koin.core.annotation.KoinExperimentalAPI
 import org.koin.ksp.generated.module
@@ -10,11 +10,7 @@ import org.koin.test.verify.verify
 class KoinModulesTest : KoinTest {
     @Test
     @OptIn(KoinExperimentalAPI::class)
-    fun verifyAppModule() {
-        AppModule().module.verify(
-            extraTypes = listOf(
-                androidx.lifecycle.SavedStateHandle::class,
-            ),
-        )
+    fun verifyDataModule() {
+        DataModule().module.verify()
     }
 }

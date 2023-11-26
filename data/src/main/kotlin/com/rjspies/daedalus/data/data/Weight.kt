@@ -1,14 +1,14 @@
-package com.rjspies.daedalus.weight.service.data
+package com.rjspies.daedalus.data.data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
-import com.rjspies.daedalus.database.converters.ZonedDateTimeConverter
+import com.rjspies.daedalus.data.converters.ZonedDateTimeConverter
 import java.time.ZonedDateTime
 
 @Entity
 @TypeConverters(ZonedDateTimeConverter::class)
-data class Weight(
+public data class Weight(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     val value: Float,

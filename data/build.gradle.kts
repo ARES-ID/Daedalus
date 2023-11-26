@@ -3,14 +3,15 @@ plugins {
     alias(libs.plugins.ioGitlabArturboschDetekt)
     alias(libs.plugins.orgJetbrainsKotlinAndroid)
     alias(libs.plugins.orgJmailenKotlinter)
+    alias(libs.plugins.comGoogleDevtoolsKsp)
 }
 
 android {
-    namespace = libs.versions.namespace.get() + ".ui"
-    compileSdk = libs.versions.compileSdk.get().toInt()
+    namespace = libs.versions.namespace.get() + ".data"
+    compileSdk = libs.versions.compileSdk.int()
 
     defaultConfig {
-        minSdk = libs.versions.minSdk.get().toInt()
+        minSdk = libs.versions.minSdk.int()
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -21,14 +22,6 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             ndk.debugSymbolLevel = "FULL"
         }
-    }
-
-    buildFeatures {
-        compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
     }
 
     packaging {
@@ -50,9 +43,22 @@ kotlin {
     }
 }
 
-dependencies {
-    implementation(libs.androidxComposeMaterial3.material3)
-    implementation(libs.comGoogleAccompanist.accompanistSystemuicontroller)
-    testImplementation(libs.orgJunitJupiter.junitJupiterApi)
-    testRuntimeOnly(libs.orgJunitJupiter.junitJupiterEngine)
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas")
 }
+
+dependencies {
+    implementation(libs.androidxRoom.roomKtx)
+    implementation(libs.androidxRoom.roomRuntime)
+    implementation(libs.ioInsertKoin.koinAnnotations)
+    implementation(libs.ioInsertKoin.koinCore)
+    ksp(libs.androidxRoom.roomCompiler)
+    ksp(libs.ioInsertKoin.koinKspCompiler)
+    testImplementation(libs.orgRoboelectric.roboelectric)
+    testImplementation(libs.junit.junit)
+    testImplementation(libs.ioKotest.kotestProperty)
+    testImplementation(libs.ioInsertKoin.koinTestJunit4)
+}
+
+@kotlin.jvm.Throws(NumberFormatException::class)
+fun Provider<String>.int() = get().toInt()

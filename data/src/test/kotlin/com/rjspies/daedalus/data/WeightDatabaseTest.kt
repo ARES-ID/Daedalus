@@ -1,10 +1,9 @@
-package com.rjspies.daedalus
+package com.rjspies.daedalus.data
 
 import android.database.sqlite.SQLiteConstraintException
 import androidx.room.Room
-import com.rjspies.daedalus.database.WeightDatabase
-import com.rjspies.daedalus.weight.service.data.Weight
-import com.rjspies.daedalus.weight.service.data.WeightDao
+import com.rjspies.daedalus.data.data.Weight
+import com.rjspies.daedalus.data.data.WeightDao
 import io.kotest.assertions.throwables.shouldThrowExactly
 import io.kotest.property.checkAll
 import org.junit.After
