@@ -53,6 +53,7 @@ kotlin {
 dependencies {
     implementation(libs.androidxComposeMaterial3.material3)
     implementation(libs.comGoogleAccompanist.accompanistSystemuicontroller)
+    implementation(libs.androidxNavigation.navigationCompose)
     testImplementation(libs.orgJunitJupiter.junitJupiterApi)
     testRuntimeOnly(libs.orgJunitJupiter.junitJupiterEngine)
 }

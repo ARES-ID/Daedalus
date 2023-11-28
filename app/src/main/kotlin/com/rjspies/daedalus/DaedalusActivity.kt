@@ -19,12 +19,12 @@ import androidx.compose.ui.Modifier
 import androidx.core.animation.doOnEnd
 import androidx.core.view.WindowCompat
 import com.rjspies.daedalus.navigation.NavigationHost
+import com.rjspies.daedalus.ui.common.ANIMATION_DURATION_MILLISECONDS
 import com.rjspies.daedalus.ui.theme.DaedalusTheme
 import com.rjspies.daedalus.ui.widgets.DaedalusSnackbar
 import org.koin.compose.KoinContext
 
 private const val SPLASHSCREEN_EXIT_ANIMATION_START = 0f
-private const val SPLASHSCREEN_EXIT_ANIMATION_DURATION = 200L
 
 class DaedalusActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -62,12 +62,12 @@ class DaedalusActivity : ComponentActivity() {
         setOnExitAnimationListener { view ->
             val slideDownAnimation = ObjectAnimator.ofFloat(
                 view,
-                View.TRANSLATION_Y,
+                View.TRANSLATION_X,
                 SPLASHSCREEN_EXIT_ANIMATION_START,
-                view.height.toFloat(),
+                -view.width.toFloat(),
             )
             slideDownAnimation.interpolator = LinearInterpolator()
-            slideDownAnimation.duration = SPLASHSCREEN_EXIT_ANIMATION_DURATION
+            slideDownAnimation.duration = ANIMATION_DURATION_MILLISECONDS.toLong()
             slideDownAnimation.doOnEnd { view.remove() }
             slideDownAnimation.start()
         }
