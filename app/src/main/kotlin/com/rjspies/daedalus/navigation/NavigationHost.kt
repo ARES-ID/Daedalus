@@ -6,7 +6,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.rjspies.daedalus.R
 import com.rjspies.daedalus.compose.greenEngineeringMenuGestureDetector
@@ -14,6 +13,7 @@ import com.rjspies.daedalus.greenengineeringmenu.ButtonGalleryScreen
 import com.rjspies.daedalus.greenengineeringmenu.GreenEngineeringMenuScreen
 import com.rjspies.daedalus.greenengineeringmenu.TypographyGalleryScreen
 import com.rjspies.daedalus.home.HomeScreen
+import com.rjspies.daedalus.ui.common.animatedComposable
 import com.rjspies.daedalus.weight.addweight.AddWeightScreen
 import com.rjspies.daedalus.weight.weighthistory.WeightHistoryScreen
 
@@ -32,7 +32,7 @@ fun NavigationHost(snackbarHostState: SnackbarHostState) {
                 }
             },
         builder = {
-            composable(
+            animatedComposable(
                 route = Routes.GreenEngineeringMenu,
                 content = { _ ->
                     GreenEngineeringMenuScreen(
@@ -41,7 +41,7 @@ fun NavigationHost(snackbarHostState: SnackbarHostState) {
                     )
                 },
             )
-            composable(
+            animatedComposable(
                 route = Routes.Home,
                 content = {
                     HomeScreen(
@@ -50,11 +50,11 @@ fun NavigationHost(snackbarHostState: SnackbarHostState) {
                     )
                 },
             )
-            composable(
+            animatedComposable(
                 route = Routes.Typography,
                 content = { TypographyGalleryScreen(controller::navigateUp) },
             )
-            composable(
+            animatedComposable(
                 route = Routes.AddWeight,
                 content = {
                     val message = stringResource(R.string.add_weight_add_success_message)
@@ -69,11 +69,11 @@ fun NavigationHost(snackbarHostState: SnackbarHostState) {
                     )
                 },
             )
-            composable(
+            animatedComposable(
                 route = Routes.WeightHistory,
                 content = { WeightHistoryScreen(controller::navigateUp) },
             )
-            composable(
+            animatedComposable(
                 route = Routes.Button,
                 content = { ButtonGalleryScreen(controller::navigateUp) },
             )
