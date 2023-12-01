@@ -1,4 +1,4 @@
-name: Store CD
+name: CD/Store
 on:
   workflow_dispatch:
     branches: main
@@ -36,6 +36,7 @@ jobs:
           releaseFiles: app/build/outputs/bundle/release/app-release.aab
           track: production
           status: completed
+          changesNotSentForReview: false
           mappingFile: app/build/outputs/mapping/release/mapping.txt
 
       - name: Get current date
