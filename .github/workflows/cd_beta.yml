@@ -11,22 +11,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Decode keystore
-        id: decode_keystore
-        uses: timheuer/base64-to-file@v1
-        with:
-          fileName: 'release.keystore'
-          fileDir: '${{ github.workspace }}/app/keystore'
-          encodedString: ${{ secrets.KEYSTORE }}
-
       - name: Build release
         uses: gradle/gradle-build-action@v2
         with:
           arguments: app:bundleBeta
-        env:
-          DAEDALUS_SIGNING_KEY: ${{ secrets.DAEDALUS_SIGNING_KEY }}
-          DAEDALUS_STORE_PASSWORD: ${{ secrets.DAEDALUS_STORE_PASSWORD }}
-          DAEDALUS_SIGNING_KEY_PASSWORD: ${{ secrets.DAEDALUS_SIGNING_KEY_PASSWORD }}
 
       - name: Upload release to Play Console
         uses: r0adkll/upload-google-play@v1
@@ -37,16 +25,3 @@ jobs:
           track: alpha
           status: completed
           mappingFile: app/build/outputs/mapping/beta/mapping.txt
-
-      - name: Get current date
-        run: echo "builddate=$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_OUTPUT
-        id: date
-
-      - name: Get current version
-        run: echo "version=$(./gradlew version -q)" >> $GITHUB_OUTPUT
-        id: version
-
-      - name: Create release tag
-        uses: rickstaa/action-create-tag@v1
-        with:
-          tag: Beta/V${{ steps.version.outputs.version }}_${{ steps.date.outputs.builddate }}
