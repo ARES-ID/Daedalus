@@ -1,6 +1,6 @@
 [versions]
 
-androidGradlePlugin = "8.1.4"
+androidGradlePlugin = "8.2.0"
 compileSdk = "34"
 compose = "1.5.4"
 composeCompiler = "1.5.4"
