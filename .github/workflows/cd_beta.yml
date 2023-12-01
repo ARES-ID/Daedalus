@@ -1,7 +1,7 @@
 name: Beta CD
 on:
-  workflow_dispatch:
-    branches: main
+  schedule:
+    - cron: 0 0,19 * * 1-5
 jobs:
   release:
     runs-on: self-hosted
