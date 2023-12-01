@@ -1,0 +1,52 @@
+name: Store CD
+on:
+  workflow_dispatch:
+    branches: main
+jobs:
+  release:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Decode keystore
+        id: decode_keystore
+        uses: timheuer/base64-to-file@v1
+        with:
+          fileName: 'release.keystore'
+          fileDir: '${{ github.workspace }}/app/keystore'
+          encodedString: ${{ secrets.KEYSTORE }}
+
+      - name: Build release
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: app:bundleRelease
+        env:
+          DAEDALUS_SIGNING_KEY: ${{ secrets.DAEDALUS_SIGNING_KEY }}
+          DAEDALUS_STORE_PASSWORD: ${{ secrets.DAEDALUS_STORE_PASSWORD }}
+          DAEDALUS_SIGNING_KEY_PASSWORD: ${{ secrets.DAEDALUS_SIGNING_KEY_PASSWORD }}
+
+      - name: Upload release to Play Console
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.PUBLISHER_SERVICE }}
+          packageName: com.rjspies.daedalus
+          releaseFiles: app/build/outputs/bundle/release/app-release.aab
+          track: production
+          status: completed
+          mappingFile: app/build/outputs/mapping/release/mapping.txt
+
+      - name: Get current date
+        run: echo "builddate=$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_OUTPUT
+        id: date
+
+      - name: Get current version
+        run: echo "version=$(./gradlew version -q)" >> $GITHUB_OUTPUT
+        id: version
+
+      - name: Create release tag
+        uses: rickstaa/action-create-tag@v1
+        with:
+          tag: Release/V${{ steps.version.outputs.version }}_${{ steps.date.outputs.builddate }}

@@ -44,6 +44,15 @@ android {
             applicationIdSuffix = ".debug"
             isDebuggable = true
             isCrunchPngs = false
+            signingConfig = signingConfigs.getByName("debug")
+        }
+
+        create("beta") {
+            applicationIdSuffix = ".beta"
+            isMinifyEnabled = true
+            isShrinkResources = true
+            signingConfig = signingConfigs.getByName("debug")
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
 
