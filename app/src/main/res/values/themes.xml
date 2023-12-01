@@ -10,5 +10,6 @@
         <item name="windowSplashScreenBackground">#191C1A</item>
     </style>
 
-    <color name="daedalus_apk_background">#006C4D</color>
+    <color name="app_icon_background">#006C4D</color>
+    <color name="app_icon_variant_layer">#00000000</color>
 </resources>

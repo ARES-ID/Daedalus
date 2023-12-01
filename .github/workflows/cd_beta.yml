@@ -1,0 +1,27 @@
+name: Beta CD
+on:
+  schedule:
+    - cron: 0 12,19 * * 1-5
+jobs:
+  release:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build release
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: app:bundleBeta
+
+      - name: Upload release to Play Console
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.PUBLISHER_SERVICE }}
+          packageName: com.rjspies.daedalus
+          releaseFiles: app/build/outputs/bundle/beta/app-beta.aab
+          track: alpha
+          status: completed
+          mappingFile: app/build/outputs/mapping/beta/mapping.txt

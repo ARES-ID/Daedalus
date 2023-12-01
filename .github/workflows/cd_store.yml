@@ -1,4 +1,4 @@
-name: Build Release App Bundle
+name: Store CD
 on:
   workflow_dispatch:
     branches: main
@@ -22,7 +22,7 @@ jobs:
       - name: Build release
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: Daedalus:bundleRelease
+          arguments: app:bundleRelease
         env:
           DAEDALUS_SIGNING_KEY: ${{ secrets.DAEDALUS_SIGNING_KEY }}
           DAEDALUS_STORE_PASSWORD: ${{ secrets.DAEDALUS_STORE_PASSWORD }}
@@ -33,10 +33,10 @@ jobs:
         with:
           serviceAccountJsonPlainText: ${{ secrets.PUBLISHER_SERVICE }}
           packageName: com.rjspies.daedalus
-          releaseFiles: Daedalus/build/outputs/bundle/release/Daedalus-release.aab
-          track: alpha
+          releaseFiles: app/build/outputs/bundle/release/app-release.aab
+          track: production
           status: completed
-          mappingFile: Daedalus/build/outputs/mapping/release/mapping.txt
+          mappingFile: app/build/outputs/mapping/release/mapping.txt
 
       - name: Get current date
         run: echo "builddate=$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_OUTPUT
