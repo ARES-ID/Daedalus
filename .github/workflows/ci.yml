@@ -47,8 +47,8 @@ jobs:
         id: decode_keystore
         uses: timheuer/base64-to-file@v1
         with:
-          fileName: 'release.keystore'
-          fileDir: '${{ github.workspace }}/app/keystore'
+          fileName: "release.keystore"
+          fileDir: ${{ secrets.DAEDALUS_STORE_PATH }}
           encodedString: ${{ secrets.KEYSTORE }}
 
       - name: Assemble
@@ -56,6 +56,7 @@ jobs:
         with:
           arguments: assembleRelease
         env:
+          DAEDALUS_STORE_PATH: ${{ secrets.DAEDALUS_STORE_PATH }}
           DAEDALUS_SIGNING_KEY: ${{ secrets.DAEDALUS_SIGNING_KEY }}
           DAEDALUS_STORE_PASSWORD: ${{ secrets.DAEDALUS_STORE_PASSWORD }}
           DAEDALUS_SIGNING_KEY_PASSWORD: ${{ secrets.DAEDALUS_SIGNING_KEY_PASSWORD }}
