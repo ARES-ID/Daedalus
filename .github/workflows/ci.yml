@@ -6,6 +6,8 @@ on:
 
 jobs:
   detekt-and-kotlinter:
+    env:
+      DAEDALUS_STORE_PATH: ${{ secrets.DAEDALUS_STORE_PATH }}
     runs-on: self-hosted
     steps:
       - name: Checkout repository
@@ -22,6 +24,8 @@ jobs:
           arguments: lintKotlinRelease
 
   lint-and-tests:
+    env:
+      DAEDALUS_STORE_PATH: ${{ secrets.DAEDALUS_STORE_PATH }}
     runs-on: self-hosted
     steps:
       - name: Checkout repository
