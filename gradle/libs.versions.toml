@@ -18,7 +18,7 @@ junit5 = "5.10.1"
 
 # Raise these two together
 kotlin = "1.9.21"
-ksp = "1.9.21-1.0.15"
+ksp = "1.9.21-1.0.16"
 
 [plugins]
 
