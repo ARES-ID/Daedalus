@@ -37,21 +37,21 @@ android {
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             ndk.debugSymbolLevel = "FULL"
-            signingConfig = signingConfigs.getByName("release")
+            signingConfig = signingConfigs["release"]
         }
 
         debug {
             applicationIdSuffix = ".debug"
             isDebuggable = true
             isCrunchPngs = false
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs["debug"]
         }
 
         create("beta") {
             applicationIdSuffix = ".beta"
             isMinifyEnabled = true
             isShrinkResources = true
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs["release"]
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
