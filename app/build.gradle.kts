@@ -94,7 +94,6 @@ dependencies {
     implementation(libs.androidxNavigation.navigationCompose)
     implementation(libs.androidxComposeMaterial3.material3)
     implementation(libs.androidxConstraintlayout.constraintlayoutCompose)
-    implementation(libs.androidxComposeMaterial.materialIconsExtended)
     implementation(libs.comJakewhartonTimer.timber)
     implementation(libs.comPatrykandpatrickVico.composeM3)
     implementation(libs.ioInsertKoin.koinAndroidxCompose)
