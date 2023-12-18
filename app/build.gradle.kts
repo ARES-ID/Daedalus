@@ -48,7 +48,7 @@ android {
         }
 
         create("beta") {
-            versionNameSuffix = "-beta"
+            applicationIdSuffix = ".beta"
             isMinifyEnabled = true
             isShrinkResources = true
             signingConfig = signingConfigs["release"]
