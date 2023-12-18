@@ -7,8 +7,6 @@
 
     <style name="Theme.Daedalus.Splashscreen" parent="Theme.SplashScreen">
         <item name="windowSplashScreenAnimatedIcon">@drawable/animated_splashscreen_icon</item>
-        <item name="windowSplashScreenBackground">#191C1A</item>
+        <item name="windowSplashScreenBackground">@color/splashscreen_background</item>
     </style>
-
-    <color name="app_icon_background">#006C4D</color>
 </resources>
