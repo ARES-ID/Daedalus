@@ -259,7 +259,7 @@ private fun Avatar(
 }
 
 private sealed class ArrowState(
-    @DrawableRes val iconResource: Int
+    @DrawableRes val iconResource: Int,
 ) {
     data object Neutral : ArrowState(R.drawable.icon_trending_flat_24)
     data object Negative : ArrowState(R.drawable.icon_trending_down_24)
