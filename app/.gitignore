@@ -2,6 +2,7 @@
 /r8-usage-report.txt
 /r8-seeds-report.txt
 /release
+/beta
 /keystore
 .gradle
 /local.properties
