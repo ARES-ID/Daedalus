@@ -11,10 +11,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Cache gradle dependencies
-        uses: actions/setup-java@v4
+      - name: Gradle cache
+        uses: actions/cache@v3
         with:
-          cache: "gradle"
+          key: gradle-${{ runner.os }}
+          restore-keys: |
+            gradle-${{ runner.os }}
+            gradle-
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
 
       - name: Detekt
         uses: gradle/gradle-build-action@v2
