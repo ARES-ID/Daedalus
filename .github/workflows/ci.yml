@@ -11,22 +11,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: detekt
+      - name: Detekt
         uses: gradle/gradle-build-action@v2
         with:
           arguments: detektRelease
 
-      - name: kotlinter
+      - name: Kotlinter
         uses: gradle/gradle-build-action@v2
         with:
           arguments: lintKotlinRelease
 
-      - name: lint
+      - name: Lint
         uses: gradle/gradle-build-action@v2
         with:
           arguments: lintAnalyzeRelease
 
-      - name: tests
+      - name: Tests
         uses: gradle/gradle-build-action@v2
         with:
           arguments: testReleaseUnitTest
