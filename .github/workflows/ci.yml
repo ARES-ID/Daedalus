@@ -11,6 +11,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Cache gradle dependencies
+        uses: actions/setup-java@v4
+        with:
+          cache: "gradle"
+
       - name: Detekt
         uses: gradle/gradle-build-action@v2
         with:
@@ -35,8 +40,8 @@ jobs:
         id: decode_keystore
         uses: timheuer/base64-to-file@v1
         with:
-          fileName: 'release.keystore'
-          fileDir: '${{ github.workspace }}/app/keystore'
+          fileName: "release.keystore"
+          fileDir: "${{ github.workspace }}/app/keystore"
           encodedString: ${{ secrets.KEYSTORE }}
 
       - name: Assemble

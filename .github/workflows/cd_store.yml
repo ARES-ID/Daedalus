@@ -15,8 +15,8 @@ jobs:
         id: decode_keystore
         uses: timheuer/base64-to-file@v1
         with:
-          fileName: 'release.keystore'
-          fileDir: '${{ github.workspace }}/app/keystore'
+          fileName: "release.keystore"
+          fileDir: "${{ github.workspace }}/app/keystore"
           encodedString: ${{ secrets.KEYSTORE }}
 
       - name: Build release
@@ -40,7 +40,7 @@ jobs:
           mappingFile: app/build/outputs/mapping/release/mapping.txt
 
       - name: Get current date
-        run: echo "builddate=$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_OUTPUT
+        run: echo "builddate=$(date +"%Y-%m-%dT%H-%M-%S")" >> $GITHUB_OUTPUT
         id: date
 
       - name: Get current version
