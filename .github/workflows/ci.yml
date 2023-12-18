@@ -1,54 +1,42 @@
 name: CI
 on:
   pull_request:
-    branches: main
+    branches: [ main ]
     types: [ synchronize, opened, reopened, ready_for_review ]
 
 jobs:
-  detekt-and-kotlinter:
+  ci:
     runs-on: self-hosted
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: detekt
+      - name: Detekt
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: detektRelease
+          arguments: detekt
 
-      - name: kotlinter
+      - name: Kotlinter
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: lintKotlinRelease
+          arguments: lintKotlin
 
-  lint-and-tests:
-    runs-on: self-hosted
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: lint
+      - name: Lint
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: lintAnalyzeRelease
+          arguments: lint
 
-      - name: tests
+      - name: Tests
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: testReleaseUnitTest
-
-  assemble:
-    runs-on: self-hosted
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+          arguments: test
 
       - name: Decode keystore
         id: decode_keystore
         uses: timheuer/base64-to-file@v1
         with:
-          fileName: 'release.keystore'
-          fileDir: '${{ github.workspace }}/app/keystore'
+          fileName: "release.keystore"
+          fileDir: "${{ github.workspace }}/app/keystore"
           encodedString: ${{ secrets.KEYSTORE }}
 
       - name: Assemble
