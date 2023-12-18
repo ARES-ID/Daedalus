@@ -1,5 +1,6 @@
 package com.rjspies.daedalus.weight.weighthistory
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -11,12 +12,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Delete
-import androidx.compose.material.icons.outlined.FormatListBulleted
-import androidx.compose.material.icons.outlined.TrendingDown
-import androidx.compose.material.icons.outlined.TrendingFlat
-import androidx.compose.material.icons.outlined.TrendingUp
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -33,8 +28,8 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
@@ -73,7 +68,7 @@ fun WeightHistoryScreen(onBack: () -> Unit) {
             )
         } else {
             EmptyScreen(
-                icon = Icons.Outlined.FormatListBulleted,
+                icon = painterResource(R.drawable.icon_list_24),
                 contentDescription = stringResource(R.string.extensions_content_description_list),
                 title = stringResource(R.string.weight_history_empty_screen_title),
                 subtitle = stringResource(R.string.weight_history_empty_screen_subtitle),
@@ -228,7 +223,7 @@ private fun WeightRow(
                 },
                 content = {
                     Icon(
-                        imageVector = Icons.Outlined.Delete,
+                        painter = painterResource(R.drawable.icon_delete_24),
                         contentDescription = stringResource(R.string.extensions_content_description_delete_action),
                     )
                 },
@@ -255,7 +250,7 @@ private fun Avatar(
             }
 
             Icon(
-                imageVector = state.icon,
+                painter = painterResource(state.iconResource),
                 contentDescription = contentDescription,
                 modifier = Modifier.padding(Spacings.S),
             )
@@ -263,10 +258,12 @@ private fun Avatar(
     )
 }
 
-private sealed class ArrowState(val icon: ImageVector) {
-    object Neutral : ArrowState(Icons.Outlined.TrendingFlat)
-    object Negative : ArrowState(Icons.Outlined.TrendingUp)
-    object Positive : ArrowState(Icons.Outlined.TrendingDown)
+private sealed class ArrowState(
+    @DrawableRes val iconResource: Int,
+) {
+    data object Neutral : ArrowState(R.drawable.icon_trending_flat_24)
+    data object Negative : ArrowState(R.drawable.icon_trending_down_24)
+    data object Positive : ArrowState(R.drawable.icon_trending_up_24)
 }
 
 private fun Float.asUserfacingString(locale: Locale): String {

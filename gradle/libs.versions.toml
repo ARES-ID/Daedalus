@@ -43,7 +43,6 @@ androidxConstraintlayout-constraintlayoutCompose = { group = "androidx.constrain
 androidxRoom-roomRuntime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 androidxRoom-roomCompiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 androidxRoom-roomKtx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
-androidxComposeMaterial-materialIconsExtended = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "compose" }
 comJakewhartonTimer-timber = { group = "com.jakewharton.timber", name = "timber", version = "5.0.1" }
 comPatrykandpatrickVico-composeM3 = { group = "com.patrykandpatrick.vico", name = "compose-m3", version = "1.13.1" }
 comGoogleAccompanist-accompanistSystemuicontroller = { group = "com.google.accompanist", name = "accompanist-systemuicontroller", version = "0.32.0" }
