@@ -11,36 +11,25 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Gradle cache
-        uses: actions/cache@v3
-        with:
-          key: gradle-${{ runner.os }}
-          restore-keys: |
-            gradle-${{ runner.os }}
-            gradle-
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-
       - name: Detekt
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: detektRelease
+          arguments: detekt
 
       - name: Kotlinter
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: lintKotlinRelease
+          arguments: lintKotlin
 
       - name: Lint
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: lintAnalyzeRelease
+          arguments: lint
 
       - name: Tests
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: testReleaseUnitTest
+          arguments: test
 
       - name: Decode keystore
         id: decode_keystore
