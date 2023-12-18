@@ -36,6 +36,6 @@ jobs:
           serviceAccountJsonPlainText: ${{ secrets.PUBLISHER_SERVICE }}
           packageName: com.rjspies.daedalus
           releaseFiles: app/build/outputs/bundle/beta/app-beta.aab
-          track: alpha
+          track: internal
           status: completed
           mappingFile: app/build/outputs/mapping/beta/mapping.txt
