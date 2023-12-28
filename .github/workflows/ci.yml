@@ -11,6 +11,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: 21
+          distribution: azul
+
+      - name: Setup Android SDK
+        uses: amyu/setup-android@v4
+
       - name: Detekt
         uses: gradle/gradle-build-action@v2
         with:

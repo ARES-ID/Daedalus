@@ -11,6 +11,15 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: 21
+          distribution: azul
+
+      - name: Setup Android SDK
+        uses: amyu/setup-android@v4
+
       - name: Decode keystore
         id: decode_keystore
         uses: timheuer/base64-to-file@v1
