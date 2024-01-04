@@ -49,7 +49,7 @@ class WeightDatabaseTest {
                     weightDao.insert(Weight(value = weight, note = optionalNote))
                 }
 
-                weightDao.weights().onEach { weights ->
+                weightDao.weightsDescending().onEach { weights ->
                     weights.forEach {
                         assert(it.value == weight)
                         assert(it.note == optionalNote)

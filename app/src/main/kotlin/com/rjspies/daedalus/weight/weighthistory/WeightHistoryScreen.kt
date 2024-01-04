@@ -97,7 +97,7 @@ private fun Weights(
                 itemContent = {
                     val predecessor = remember(weights) {
                         val index = weights.indexOf(it)
-                        weights.getOrNull(index - 1)
+                        weights.getOrNull(index + 1)
                     }
                     val state = when {
                         predecessor?.value == null -> ArrowState.Neutral

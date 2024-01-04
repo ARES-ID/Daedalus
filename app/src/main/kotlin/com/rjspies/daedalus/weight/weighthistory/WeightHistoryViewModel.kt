@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.stateIn
 
 @KoinViewModel
 class WeightHistoryViewModel(private val service: WeightService) : ViewModel() {
-    val weights = service.weights().stateIn(viewModelScope, SharingStarted.WhileSubscribed(), emptyList())
+    val weights = service.weightsDescending().stateIn(viewModelScope, SharingStarted.WhileSubscribed(), emptyList())
 
     suspend fun deleteWeight(weight: Weight) = service.deleteWeight(weight)
 }
