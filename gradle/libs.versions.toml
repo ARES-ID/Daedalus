@@ -3,7 +3,7 @@
 androidGradlePlugin = "8.2.1"
 compileSdk = "34"
 compose = "1.5.4"
-composeCompiler = "1.5.6"
+composeCompiler = "1.5.8"
 minSdk = "26"
 targetSdk = "33"
 versionName = "1.1"
@@ -17,8 +17,8 @@ namespace = "com.rjspies.daedalus"
 junit5 = "5.10.1"
 
 # Raise these two together
-kotlin = "1.9.21"
-ksp = "1.9.21-1.0.16"
+kotlin = "1.9.22"
+ksp = "1.9.22-1.0.16"
 
 [plugins]
 
