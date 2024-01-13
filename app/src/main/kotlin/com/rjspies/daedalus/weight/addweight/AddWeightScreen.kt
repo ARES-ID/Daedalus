@@ -26,6 +26,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.window.DialogProperties
+import com.rjspies.daedalus.LocalNotificationManager
 import com.rjspies.daedalus.R
 import com.rjspies.daedalus.compose.ToolbarContent
 import com.rjspies.daedalus.compose.WeightedSpacer
@@ -174,6 +175,9 @@ private fun AddButton(
 ) {
     val coroutineScope = rememberCoroutineScope()
     val successMessage = stringResource(R.string.add_weight_add_success_message)
+    successMessage.toString()
+    showSnackbar.toString()
+    val notificationManager = LocalNotificationManager.current
 
     DaedalusButton(
         text = stringResource(R.string.add_weight_add_button_text),
@@ -188,8 +192,10 @@ private fun AddButton(
                             dateTime = ZonedDateTime.ofInstant(date, ZoneId.systemDefault()),
                         ),
                     )
-
-                    showSnackbar(successMessage)
+                    notificationManager.showNotification(
+                        title = "Erfolg",
+                        description = "Sie haben erfolgreich einen Eintrag hinzugefügt."
+                    )
                 }
             } ?: run {
                 if (weight.isNullOrEmpty()) {
