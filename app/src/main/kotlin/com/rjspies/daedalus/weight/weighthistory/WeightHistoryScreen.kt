@@ -101,8 +101,8 @@ private fun Weights(
                     }
                     val state = when {
                         predecessor?.value == null -> ArrowState.Neutral
-                        it.value > predecessor.value -> ArrowState.Negative
-                        it.value < predecessor.value -> ArrowState.Positive
+                        it.value > predecessor.value -> ArrowState.Upwards
+                        it.value < predecessor.value -> ArrowState.Downwards
                         else -> ArrowState.Neutral
                     }
                     WeightRow(
@@ -245,8 +245,8 @@ private fun Avatar(
         content = {
             val contentDescription = when (state) {
                 ArrowState.Neutral -> stringResource(R.string.extensions_content_description_trending_flat)
-                ArrowState.Positive -> stringResource(R.string.extensions_content_description_trending_down)
-                ArrowState.Negative -> stringResource(R.string.extensions_content_description_trending_up)
+                ArrowState.Upwards -> stringResource(R.string.extensions_content_description_trending_up)
+                ArrowState.Downwards -> stringResource(R.string.extensions_content_description_trending_down)
             }
 
             Icon(
@@ -262,8 +262,8 @@ private sealed class ArrowState(
     @DrawableRes val iconResource: Int,
 ) {
     data object Neutral : ArrowState(R.drawable.icon_trending_flat_24)
-    data object Negative : ArrowState(R.drawable.icon_trending_down_24)
-    data object Positive : ArrowState(R.drawable.icon_trending_up_24)
+    data object Downwards : ArrowState(R.drawable.icon_trending_down_24)
+    data object Upwards : ArrowState(R.drawable.icon_trending_up_24)
 }
 
 private fun Float.asUserfacingString(locale: Locale): String {
