@@ -58,20 +58,20 @@ class DaedalusActivity : ComponentActivity() {
             }
         }
     }
-}
 
-@RequiresApi(Build.VERSION_CODES.S)
-private fun SplashScreen.animateExit() {
-    setOnExitAnimationListener { view ->
-        val slideDownAnimation = ObjectAnimator.ofFloat(
-            view,
-            View.TRANSLATION_X,
-            SPLASHSCREEN_EXIT_ANIMATION_START,
-            -view.width.toFloat(),
-        )
-        slideDownAnimation.interpolator = LinearInterpolator()
-        slideDownAnimation.duration = ANIMATION_DURATION_MILLISECONDS.toLong()
-        slideDownAnimation.doOnEnd { view.remove() }
-        slideDownAnimation.start()
+    @RequiresApi(Build.VERSION_CODES.S)
+    private fun SplashScreen.animateExit() {
+        setOnExitAnimationListener { view ->
+            val slideDownAnimation = ObjectAnimator.ofFloat(
+                view,
+                View.TRANSLATION_X,
+                SPLASHSCREEN_EXIT_ANIMATION_START,
+                -view.width.toFloat(),
+            )
+            slideDownAnimation.interpolator = LinearInterpolator()
+            slideDownAnimation.duration = ANIMATION_DURATION_MILLISECONDS.toLong()
+            slideDownAnimation.doOnEnd { view.remove() }
+            slideDownAnimation.start()
+        }
     }
 }
