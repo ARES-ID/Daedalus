@@ -33,7 +33,6 @@ import com.rjspies.daedalus.data.data.Weight
 import com.rjspies.daedalus.ui.VerticalSpacerM
 import com.rjspies.daedalus.ui.VerticalSpacerXS
 import com.rjspies.daedalus.ui.horizontalSpacingM
-import com.rjspies.daedalus.ui.theme.LocalBannerPresenter
 import com.rjspies.daedalus.ui.theme.Spacings
 import com.rjspies.daedalus.ui.theme.daedalusDatePickerDialogColors
 import com.rjspies.daedalus.ui.verticalSpacingM
@@ -175,9 +174,6 @@ private fun AddButton(
 ) {
     val coroutineScope = rememberCoroutineScope()
     val successMessage = stringResource(R.string.add_weight_add_success_message)
-    successMessage.toString()
-    showSnackbar.toString()
-    val notificationManager = LocalBannerPresenter.current
 
     DaedalusButton(
         text = stringResource(R.string.add_weight_add_button_text),
@@ -192,10 +188,7 @@ private fun AddButton(
                             dateTime = ZonedDateTime.ofInstant(date, ZoneId.systemDefault()),
                         ),
                     )
-                    notificationManager.showBanner(
-                        title = "Erfolg",
-                        description = "Sie haben erfolgreich einen Eintrag hinzugefügt.",
-                    )
+                    showSnackbar(successMessage)
                 }
             } ?: run {
                 if (weight.isNullOrEmpty()) {

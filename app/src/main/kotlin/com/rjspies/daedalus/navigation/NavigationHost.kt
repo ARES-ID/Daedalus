@@ -57,12 +57,11 @@ fun NavigationHost(snackbarHostState: SnackbarHostState) {
             animatedComposable(
                 route = Routes.AddWeight,
                 content = {
-                    val message = stringResource(R.string.add_weight_add_success_message)
                     AddWeightScreen(
                         onBack = controller::navigateUp,
                         showSnackbar = {
                             snackbarHostState.showSnackbar(
-                                message = message,
+                                message = it,
                                 withDismissAction = true,
                             )
                         },
