@@ -188,7 +188,6 @@ private fun AddButton(
                             dateTime = ZonedDateTime.ofInstant(date, ZoneId.systemDefault()),
                         ),
                     )
-
                     showSnackbar(successMessage)
                 }
             } ?: run {

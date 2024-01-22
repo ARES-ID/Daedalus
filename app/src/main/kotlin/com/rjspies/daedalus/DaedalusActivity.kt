@@ -11,6 +11,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -47,6 +48,7 @@ class DaedalusActivity : ComponentActivity() {
                         snackbarHost = {
                             SnackbarHost(
                                 hostState = snackbarHostState,
+                                modifier = Modifier.imePadding(),
                                 snackbar = { DaedalusSnackbar(it) },
                             )
                         },
