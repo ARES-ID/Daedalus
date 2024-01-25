@@ -10,7 +10,6 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.staticCompositionLocalOf
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
 public fun DaedalusTheme(
@@ -22,8 +21,6 @@ public fun DaedalusTheme(
     } else {
         DaedalusLightColors
     }
-
-    rememberSystemUiController().setStatusBarColor(colors.background)
 
     MaterialTheme(
         typography = Typography,
