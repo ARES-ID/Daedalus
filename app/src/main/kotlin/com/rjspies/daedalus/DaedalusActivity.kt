@@ -9,6 +9,7 @@ import android.view.animation.LinearInterpolator
 import android.window.SplashScreen
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.imePadding
@@ -18,7 +19,6 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.core.animation.doOnEnd
-import androidx.core.view.WindowCompat
 import com.rjspies.daedalus.navigation.NavigationHost
 import com.rjspies.daedalus.ui.common.ANIMATION_DURATION_MILLISECONDS
 import com.rjspies.daedalus.ui.theme.DaedalusTheme
@@ -30,8 +30,8 @@ private const val SPLASHSCREEN_EXIT_ANIMATION_START = 0f
 class DaedalusActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
-        WindowCompat.setDecorFitsSystemWindows(window, false)
         setTheme(R.style.Theme_Daedalus)
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {

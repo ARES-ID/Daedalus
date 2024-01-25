@@ -45,7 +45,6 @@ androidxRoom-roomCompiler = { group = "androidx.room", name = "room-compiler", v
 androidxRoom-roomKtx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 comJakewhartonTimer-timber = { group = "com.jakewharton.timber", name = "timber", version = "5.0.1" }
 comPatrykandpatrickVico-composeM3 = { group = "com.patrykandpatrick.vico", name = "compose-m3", version = "1.13.1" }
-comGoogleAccompanist-accompanistSystemuicontroller = { group = "com.google.accompanist", name = "accompanist-systemuicontroller", version = "0.34.0" }
 ioInsertKoin-koinAndroidxCompose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
 ioInsertKoin-koinAnnotations = { group = "io.insert-koin", name = "koin-annotations", version.ref = "koin-annotations" }
 ioInsertKoin-koinKspCompiler = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref = "koin-annotations" }
