@@ -31,7 +31,7 @@ jobs:
           encodedString: ${{ secrets.KEYSTORE }}
 
       - name: Build release
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           arguments: app:bundleRelease
         env:
