@@ -23,22 +23,22 @@ jobs:
           cache-disabled: true
 
       - name: Detekt
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           arguments: detekt
 
       - name: Kotlinter
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           arguments: lintKotlin
 
       - name: Lint
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           arguments: lint
 
       - name: Tests
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           arguments: test
 
@@ -51,7 +51,7 @@ jobs:
           encodedString: ${{ secrets.KEYSTORE }}
 
       - name: Assemble
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           arguments: assembleRelease
         env:
