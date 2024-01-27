@@ -31,8 +31,6 @@ import com.rjspies.daedalus.ui.widgets.EmptyScreen
 import com.rjspies.daedalus.weight.weightgraph.ui.rememberMarker
 import org.koin.androidx.compose.koinViewModel
 
-private const val Y_AXIS_VALUE_PADDING = 1.01f
-
 @Composable
 fun WeightGraphScreen() {
     val viewModel: WeightGraphViewModel = koinViewModel()

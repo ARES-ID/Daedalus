@@ -25,8 +25,6 @@ import com.rjspies.daedalus.ui.theme.DaedalusTheme
 import com.rjspies.daedalus.ui.widgets.DaedalusSnackbar
 import org.koin.compose.KoinContext
 
-private const val SPLASHSCREEN_EXIT_ANIMATION_START = 0f
-
 class DaedalusActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,12 +60,7 @@ class DaedalusActivity : ComponentActivity() {
     @RequiresApi(Build.VERSION_CODES.S)
     private fun SplashScreen.animateExit() {
         setOnExitAnimationListener { view ->
-            val slideDownAnimation = ObjectAnimator.ofFloat(
-                view,
-                View.TRANSLATION_X,
-                SPLASHSCREEN_EXIT_ANIMATION_START,
-                -view.width.toFloat(),
-            )
+            val slideDownAnimation = ObjectAnimator.ofFloat(view, View.ALPHA, 1f, 0f)
             slideDownAnimation.interpolator = LinearInterpolator()
             slideDownAnimation.duration = ANIMATION_DURATION_MILLISECONDS.toLong()
             slideDownAnimation.doOnEnd { view.remove() }
