@@ -68,7 +68,7 @@ private fun Chart(entries: List<WeightChartEntry>) {
     val context = LocalContext.current
     val lineProducer = remember(entries) { ChartEntryModelProducer(entries) }
     val axisFormatter = remember { WeightDateAxisFormatter }
-    val valuesOverrider = remember { AxisValuesOverrider.adaptiveYValues(Y_AXIS_VALUE_PADDING) }
+    val valuesOverrider = remember(entries) { AxisValuesOverrider.fixed(minY = 0f, maxY = entries.maxOf { it.y } * 1.1f) }
     val typeface = remember { ResourcesCompat.getFont(context, R.font.poppins_regular) ?: Typeface.MONOSPACE }
     val axisLabel = axisLabelComponent(typeface = typeface)
     val chartScrollState = rememberChartScrollState()
