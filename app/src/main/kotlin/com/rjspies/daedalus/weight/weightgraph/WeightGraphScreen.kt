@@ -17,8 +17,10 @@ import com.patrykandpatrick.vico.compose.axis.horizontal.rememberBottomAxis
 import com.patrykandpatrick.vico.compose.axis.vertical.rememberStartAxis
 import com.patrykandpatrick.vico.compose.chart.Chart
 import com.patrykandpatrick.vico.compose.chart.line.lineChart
+import com.patrykandpatrick.vico.compose.chart.scroll.rememberChartScrollSpec
 import com.patrykandpatrick.vico.core.chart.values.AxisValuesOverrider
 import com.patrykandpatrick.vico.core.entry.ChartEntryModelProducer
+import com.patrykandpatrick.vico.core.scroll.InitialScroll
 import com.rjspies.daedalus.R
 import com.rjspies.daedalus.ui.horizontalSpacingM
 import com.rjspies.daedalus.ui.verticalSpacingM
@@ -77,5 +79,6 @@ private fun Chart(entries: List<WeightChartEntry>) {
         ),
         marker = rememberMarker(),
         isZoomEnabled = false,
+        chartScrollSpec = rememberChartScrollSpec(initialScroll = InitialScroll.End),
     )
 }
