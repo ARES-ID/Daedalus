@@ -1,8 +1,10 @@
 package com.rjspies.daedalus.weight.weightgraph
 
 import android.graphics.Typeface
+import androidx.compose.foundation.gestures.animateScrollBy
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -18,6 +20,7 @@ import com.patrykandpatrick.vico.compose.axis.vertical.rememberStartAxis
 import com.patrykandpatrick.vico.compose.chart.Chart
 import com.patrykandpatrick.vico.compose.chart.line.lineChart
 import com.patrykandpatrick.vico.compose.chart.scroll.rememberChartScrollSpec
+import com.patrykandpatrick.vico.compose.chart.scroll.rememberChartScrollState
 import com.patrykandpatrick.vico.core.chart.values.AxisValuesOverrider
 import com.patrykandpatrick.vico.core.entry.ChartEntryModelProducer
 import com.patrykandpatrick.vico.core.scroll.InitialScroll
@@ -68,6 +71,11 @@ private fun Chart(entries: List<WeightChartEntry>) {
     val valuesOverrider = remember { AxisValuesOverrider.adaptiveYValues(Y_AXIS_VALUE_PADDING) }
     val typeface = remember { ResourcesCompat.getFont(context, R.font.poppins_regular) ?: Typeface.MONOSPACE }
     val axisLabel = axisLabelComponent(typeface = typeface)
+    val chartScrollState = rememberChartScrollState()
+
+    LaunchedEffect(entries) {
+        chartScrollState.animateScrollBy(chartScrollState.maxValue)
+    }
 
     Chart(
         chart = lineChart(axisValuesOverrider = valuesOverrider),
@@ -79,6 +87,7 @@ private fun Chart(entries: List<WeightChartEntry>) {
         ),
         marker = rememberMarker(),
         isZoomEnabled = false,
+        chartScrollState = chartScrollState,
         chartScrollSpec = rememberChartScrollSpec(initialScroll = InitialScroll.End),
     )
 }
