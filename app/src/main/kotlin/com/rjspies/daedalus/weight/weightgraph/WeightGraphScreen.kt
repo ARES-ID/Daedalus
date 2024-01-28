@@ -84,7 +84,8 @@ private fun Chart(entries: List<WeightChartEntry>) {
             label = axisLabel,
         ),
         marker = rememberMarker(),
-        isZoomEnabled = false,
+        isZoomEnabled = true,
+        runInitialAnimation = false,
         chartScrollState = chartScrollState,
         chartScrollSpec = rememberChartScrollSpec(initialScroll = InitialScroll.End),
     )
