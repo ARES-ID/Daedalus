@@ -49,14 +49,6 @@ android {
             isCrunchPngs = false
             signingConfig = signingConfigs["debug"]
         }
-
-        create("beta") {
-            applicationIdSuffix = ".beta"
-            isMinifyEnabled = true
-            isShrinkResources = true
-            signingConfig = signingConfigs["release"]
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-        }
     }
 
     buildFeatures {
