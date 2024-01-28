@@ -3,6 +3,8 @@ package com.rjspies.daedalus.weight.weightgraph
 import android.graphics.Typeface
 import androidx.compose.foundation.gestures.animateScrollBy
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.AreaChart
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -10,6 +12,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -49,7 +52,7 @@ fun WeightGraphScreen() {
         Chart(entries)
     } else {
         EmptyScreen(
-            icon = painterResource(R.drawable.icon_monitoring_24),
+            icon = rememberVectorPainter(Icons.Rounded.AreaChart),
             contentDescription = stringResource(R.string.extensions_content_description_chart),
             title = stringResource(R.string.home_empty_screen_title),
             subtitle = stringResource(R.string.home_empty_screen_subtitle),
