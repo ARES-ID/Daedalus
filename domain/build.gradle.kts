@@ -1,3 +1,6 @@
+import org.gradle.internal.jvm.inspection.JvmVendor
+import org.gradle.jvm.toolchain.internal.DefaultJvmVendorSpec
+
 plugins {
     alias(libs.plugins.comAndroidLibrary)
     alias(libs.plugins.ioGitlabArturboschDetekt)
@@ -33,7 +36,7 @@ android {
 kotlin {
     jvmToolchain {
         languageVersion.set(JavaLanguageVersion.of(libs.versions.java.get()))
-        vendor.set(JvmVendorSpec.AZUL)
+        vendor.set(DefaultJvmVendorSpec.of(JvmVendor.fromString(libs.versions.javaVendor.get()).knownVendor))
     }
 
     compilerOptions {
