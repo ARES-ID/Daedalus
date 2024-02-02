@@ -1,0 +1,2 @@
+GitPython >= 1.7.0
+jira >= 3.6.0
