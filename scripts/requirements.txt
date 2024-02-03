@@ -1,2 +1,3 @@
 GitPython >= 1.7.0
 jira >= 3.6.0
+PyGithub >= 2.2.0
