@@ -13,9 +13,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.imePadding
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.core.animation.doOnEnd
@@ -26,6 +29,7 @@ import com.rjspies.daedalus.ui.widgets.DaedalusSnackbar
 import org.koin.compose.KoinContext
 
 class DaedalusActivity : ComponentActivity() {
+    @OptIn(ExperimentalMaterial3Api::class)
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Theme_Daedalus)
@@ -48,6 +52,13 @@ class DaedalusActivity : ComponentActivity() {
                                 hostState = snackbarHostState,
                                 modifier = Modifier.imePadding(),
                                 snackbar = { DaedalusSnackbar(it) },
+                            )
+                        },
+                        topBar = {
+                            TopAppBar(
+                                title = {
+                                    Text(text = "Title")
+                                },
                             )
                         },
                         content = { NavigationHost(snackbarHostState) },
