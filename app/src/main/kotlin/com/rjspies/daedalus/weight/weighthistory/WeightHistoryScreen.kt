@@ -18,6 +18,7 @@ import androidx.compose.material.icons.automirrored.rounded.TrendingFlat
 import androidx.compose.material.icons.automirrored.rounded.TrendingUp
 import androidx.compose.material.icons.rounded.DeleteOutline
 import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -44,11 +45,8 @@ import com.rjspies.daedalus.compose.ToolbarContent
 import com.rjspies.daedalus.compose.tableItems
 import com.rjspies.daedalus.data.data.Weight
 import com.rjspies.daedalus.ui.horizontalSpacingM
-import com.rjspies.daedalus.ui.theme.DaedalusTheme
 import com.rjspies.daedalus.ui.theme.Spacings
 import com.rjspies.daedalus.ui.verticalSpacingM
-import com.rjspies.daedalus.ui.widgets.ButtonType
-import com.rjspies.daedalus.ui.widgets.DaedalusButton
 import com.rjspies.daedalus.ui.widgets.EmptyScreen
 import org.koin.androidx.compose.koinViewModel
 import java.text.DecimalFormat
@@ -155,19 +153,17 @@ private fun WeightRow(
                         )
                     },
                     confirmButton = {
-                        DaedalusButton(
-                            text = stringResource(R.string.weight_history_dialog_delete_item_button),
-                            type = ButtonType.Filled,
+                        Button(
                             onClick = {
                                 coroutineScope.launch {
                                     viewModel.deleteWeight(weight)
                                 }
                             },
+                            content = {
+                                Text(text = stringResource(R.string.weight_history_dialog_delete_item_button))
+                            },
                         )
                     },
-                    titleContentColor = DaedalusTheme.colors.text,
-                    textContentColor = DaedalusTheme.colors.text,
-                    containerColor = DaedalusTheme.colors.background,
                 )
             }
 

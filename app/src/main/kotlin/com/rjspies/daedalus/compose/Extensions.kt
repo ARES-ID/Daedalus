@@ -39,7 +39,6 @@ fun ColumnScope.WeightedSpacer(weight: Float = 1f) = Spacer(modifier = Modifier.
 fun Divider(modifier: Modifier = Modifier) {
     HorizontalDivider(
         thickness = Dp.Hairline,
-        color = DaedalusTheme.colors.primary.copy(alpha = .3f),
         modifier = modifier,
     )
 }
@@ -81,10 +80,8 @@ fun ToolbarContent(
     content: @Composable () -> Unit,
 ) {
     Scaffold(
-        containerColor = DaedalusTheme.colors.background,
         topBar = {
             TopAppBar(
-                colors = daedalusTopAppBarColors(),
                 title = {
                     Text(
                         text = title,

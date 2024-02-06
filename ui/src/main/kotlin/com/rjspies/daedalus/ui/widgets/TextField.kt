@@ -6,7 +6,6 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.rjspies.daedalus.ui.theme.daedalusOutlinedTextFieldColors
 
 @Composable
 public fun DaedalusOutlinedTextField(
@@ -33,7 +32,6 @@ public fun DaedalusOutlinedTextField(
         singleLine = singleLine,
         maxLines = maxLines,
         label = { Text(text = label) },
-        colors = daedalusOutlinedTextFieldColors(),
         supportingText = {
             if (supportingText != null) {
                 Text(text = supportingText)

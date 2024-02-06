@@ -1,13 +1,10 @@
 package com.rjspies.daedalus.weight.weightgraph.ui
 
-import android.graphics.Typeface
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import androidx.core.content.res.ResourcesCompat
 import com.patrykandpatrick.vico.compose.component.lineComponent
 import com.patrykandpatrick.vico.compose.component.shapeComponent
 import com.patrykandpatrick.vico.compose.component.textComponent
@@ -21,32 +18,21 @@ import com.patrykandpatrick.vico.core.component.shape.cornered.Corner
 import com.patrykandpatrick.vico.core.component.shape.cornered.MarkerCorneredShape
 import com.patrykandpatrick.vico.core.context.MeasureContext
 import com.patrykandpatrick.vico.core.marker.Marker
-import com.rjspies.daedalus.R
-import com.rjspies.daedalus.ui.theme.DaedalusTheme
 
 @Composable
 internal fun rememberMarker(): Marker {
-    val context = LocalContext.current
-    val typeface = remember { ResourcesCompat.getFont(context, R.font.poppins_regular) ?: Typeface.MONOSPACE }
-    val indicator = shapeComponent(Shapes.pillShape, DaedalusTheme.colors.primary)
-
-    val labelBackground = shapeComponent(
-        shape = MarkerCorneredShape(Corner.FullyRounded),
-        color = DaedalusTheme.colors.primary,
-    )
+    val indicator = shapeComponent(Shapes.pillShape)
+    val labelBackground = shapeComponent(MarkerCorneredShape(Corner.FullyRounded))
 
     val label = textComponent(
         background = labelBackground,
         lineCount = LABEL_LINE_COUNT,
         padding = LabelPadding,
-        typeface = typeface,
-        color = DaedalusTheme.colors.onPrimary,
     )
 
     val guideline = lineComponent(
-        DaedalusTheme.colors.primary,
-        GuidelineThickness,
-        GuidelineShape,
+        thickness = GuidelineThickness,
+        shape = GuidelineShape,
     )
 
     return remember(label, indicator, guideline) {

@@ -8,7 +8,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -18,8 +20,6 @@ import com.rjspies.daedalus.compose.WeightedSpacer
 import com.rjspies.daedalus.ui.horizontalSpacingM
 import com.rjspies.daedalus.ui.theme.Spacings
 import com.rjspies.daedalus.ui.verticalSpacingM
-import com.rjspies.daedalus.ui.widgets.ButtonType
-import com.rjspies.daedalus.ui.widgets.DaedalusButton
 import com.rjspies.daedalus.weight.weightgraph.WeightGraphScreen
 
 @Composable
@@ -48,23 +48,25 @@ fun HomeScreen(
                 content = { WeightGraphScreen() },
             )
             WeightedSpacer()
-            DaedalusButton(
-                text = stringResource(R.string.home_add_weight_button_text),
-                type = ButtonType.Filled,
+            Button(
                 onClick = toAddWeight,
                 modifier = Modifier
                     .fillMaxWidth()
                     .horizontalSpacingM()
                     .padding(top = Spacings.M),
+                content = {
+                    Text(text = stringResource(R.string.home_add_weight_button_text))
+                },
             )
-            DaedalusButton(
-                text = stringResource(R.string.home_weight_history_button_text),
-                type = ButtonType.Outlined,
+            OutlinedButton(
                 onClick = toWeightHistory,
                 modifier = Modifier
                     .fillMaxWidth()
                     .horizontalSpacingM()
                     .padding(top = Spacings.XS),
+                content = {
+                    Text(text = stringResource(R.string.home_weight_history_button_text))
+                },
             )
         },
     )

@@ -10,10 +10,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
 import androidx.compose.material3.DatePicker
 import androidx.compose.material3.DatePickerDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
@@ -34,10 +36,7 @@ import com.rjspies.daedalus.ui.VerticalSpacerM
 import com.rjspies.daedalus.ui.VerticalSpacerXS
 import com.rjspies.daedalus.ui.horizontalSpacingM
 import com.rjspies.daedalus.ui.theme.Spacings
-import com.rjspies.daedalus.ui.theme.daedalusDatePickerDialogColors
 import com.rjspies.daedalus.ui.verticalSpacingM
-import com.rjspies.daedalus.ui.widgets.ButtonType
-import com.rjspies.daedalus.ui.widgets.DaedalusButton
 import com.rjspies.daedalus.ui.widgets.DaedalusOutlinedTextField
 import com.rjspies.daedalus.weight.weighthistory.asUserfacingString
 import org.koin.androidx.compose.koinViewModel
@@ -148,13 +147,14 @@ fun AddWeightScreen(
                         onError = { viewModel.setWeightError(it) },
                     )
                     VerticalSpacerXS()
-                    DaedalusButton(
-                        text = stringResource(R.string.add_weight_choose_date_button),
-                        type = ButtonType.Outlined,
+                    OutlinedButton(
                         onClick = { viewModel.setShouldShowBanner(true) },
                         modifier = Modifier
                             .fillMaxWidth()
                             .horizontalSpacingM(),
+                        content = {
+                            Text(text = stringResource(R.string.add_weight_choose_date_button))
+                        },
                     )
                 }
             },
@@ -175,9 +175,7 @@ private fun AddButton(
     val coroutineScope = rememberCoroutineScope()
     val successMessage = stringResource(R.string.add_weight_add_success_message)
 
-    DaedalusButton(
-        text = stringResource(R.string.add_weight_add_button_text),
-        type = ButtonType.Filled,
+    Button(
         onClick = {
             weight?.parseToFloat()?.let {
                 coroutineScope.launch(context) {
@@ -201,6 +199,9 @@ private fun AddButton(
         modifier = Modifier
             .fillMaxWidth()
             .horizontalSpacingM(),
+        content = {
+            Text(text = stringResource(R.string.add_weight_add_button_text))
+        },
     )
 }
 
@@ -215,23 +216,20 @@ private fun DatePicker(
     DatePickerDialog(
         onDismissRequest = onDismiss,
         confirmButton = {
-            DaedalusButton(
-                text = stringResource(R.string.add_weight_date_picker_button),
-                type = ButtonType.Filled,
+            Button(
                 onClick = { onConfirm(datePickerState.selectedDateMillis) },
+                content = {
+                    Text(text = stringResource(R.string.add_weight_date_picker_button))
+                },
             )
         },
         modifier = Modifier.horizontalSpacingM(),
-        colors = daedalusDatePickerDialogColors(),
         properties = DialogProperties(
             usePlatformDefaultWidth = false,
             decorFitsSystemWindows = false,
         ),
         content = {
-            DatePicker(
-                state = datePickerState,
-                colors = daedalusDatePickerDialogColors(),
-            )
+            DatePicker(state = datePickerState)
         },
     )
 }

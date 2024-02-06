@@ -7,9 +7,6 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.rjspies.daedalus.compose.greenEngineeringMenuGestureDetector
-import com.rjspies.daedalus.greenengineeringmenu.ButtonGalleryScreen
-import com.rjspies.daedalus.greenengineeringmenu.GreenEngineeringMenuScreen
-import com.rjspies.daedalus.greenengineeringmenu.TypographyGalleryScreen
 import com.rjspies.daedalus.home.HomeScreen
 import com.rjspies.daedalus.ui.common.animatedComposable
 import com.rjspies.daedalus.weight.addweight.AddWeightScreen
@@ -31,15 +28,6 @@ fun NavigationHost(snackbarHostState: SnackbarHostState) {
             },
         builder = {
             animatedComposable(
-                route = Routes.GreenEngineeringMenu,
-                content = { _ ->
-                    GreenEngineeringMenuScreen(
-                        onBack = controller::navigateUp,
-                        navigateToItem = { controller.navigate(it) },
-                    )
-                },
-            )
-            animatedComposable(
                 route = Routes.Home,
                 content = {
                     HomeScreen(
@@ -47,10 +35,6 @@ fun NavigationHost(snackbarHostState: SnackbarHostState) {
                         toWeightHistory = { controller.navigate(Routes.WeightHistory) },
                     )
                 },
-            )
-            animatedComposable(
-                route = Routes.Typography,
-                content = { TypographyGalleryScreen(controller::navigateUp) },
             )
             animatedComposable(
                 route = Routes.AddWeight,
@@ -69,10 +53,6 @@ fun NavigationHost(snackbarHostState: SnackbarHostState) {
             animatedComposable(
                 route = Routes.WeightHistory,
                 content = { WeightHistoryScreen(controller::navigateUp) },
-            )
-            animatedComposable(
-                route = Routes.Button,
-                content = { ButtonGalleryScreen(controller::navigateUp) },
             )
         },
     )

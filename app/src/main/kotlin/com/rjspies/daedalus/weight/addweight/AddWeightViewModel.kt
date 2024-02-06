@@ -2,11 +2,13 @@ package com.rjspies.daedalus.weight.addweight
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.rjspies.daedalus.data.WeightService
 import com.rjspies.daedalus.data.data.Weight
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
 import java.time.Instant
-import kotlinx.coroutines.flow.StateFlow
 
 private const val HANDLE_KEY_WEIGHT_ERROR = "weight_error"
 private const val HANDLE_KEY_WEIGHT = "weight"
@@ -65,5 +67,7 @@ class AddWeightViewModel(private val savedStateHandle: SavedStateHandle, private
         savedStateHandle[HANDLE_KEY_SELECTED_DATE] = value
     }
 
-    suspend fun saveWeight(weight: Weight) = service.saveWeight(weight)
+    fun saveWeight(weight: Weight) = viewModelScope.launch {
+        service.saveWeight(weight)
+    }
 }
