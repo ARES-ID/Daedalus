@@ -26,8 +26,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import com.rjspies.daedalus.BuildConfig
 import com.rjspies.daedalus.R
-import com.rjspies.daedalus.ui.theme.DaedalusTheme
-import com.rjspies.daedalus.ui.theme.daedalusTopAppBarColors
 
 @Composable
 fun RowScope.WeightedSpacer(weight: Float = 1f) = Spacer(modifier = Modifier.weight(weight))

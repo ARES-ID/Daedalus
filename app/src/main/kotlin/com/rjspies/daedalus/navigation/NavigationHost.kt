@@ -6,7 +6,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
-import com.rjspies.daedalus.compose.greenEngineeringMenuGestureDetector
 import com.rjspies.daedalus.home.HomeScreen
 import com.rjspies.daedalus.ui.common.animatedComposable
 import com.rjspies.daedalus.weight.addweight.AddWeightScreen
@@ -18,17 +17,11 @@ fun NavigationHost(snackbarHostState: SnackbarHostState) {
     val controller = rememberNavController()
     NavHost(
         navController = controller,
-        startDestination = Routes.Home,
-        modifier = Modifier
-            .fillMaxSize()
-            .greenEngineeringMenuGestureDetector("navigationHost") {
-                controller.navigate(Routes.GreenEngineeringMenu) {
-                    launchSingleTop = true
-                }
-            },
+        startDestination = Routes.WeightGraph,
+        modifier = Modifier.fillMaxSize(),
         builder = {
             animatedComposable(
-                route = Routes.Home,
+                route = Routes.WeightGraph,
                 content = {
                     HomeScreen(
                         toAddWeight = { controller.navigate(Routes.AddWeight) },
