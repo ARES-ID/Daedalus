@@ -30,9 +30,7 @@ fun HomeScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .verticalScroll(rememberScrollState())
-            .systemBarsPadding()
-            .verticalSpacingM(),
+            .verticalScroll(rememberScrollState()),
         content = {
             Text(
                 text = stringResource(R.string.home_title),
