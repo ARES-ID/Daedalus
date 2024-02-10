@@ -1,4 +1,4 @@
-package com.rjspies.daedalus
+package com.rjspies.daedalus.navigation
 
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar

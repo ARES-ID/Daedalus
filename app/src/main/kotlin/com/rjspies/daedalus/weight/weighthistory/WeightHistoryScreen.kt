@@ -3,7 +3,6 @@ package com.rjspies.daedalus.weight.weighthistory
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -19,7 +18,6 @@ import androidx.compose.material.icons.automirrored.rounded.TrendingUp
 import androidx.compose.material.icons.rounded.DeleteOutline
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -41,7 +39,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import com.rjspies.daedalus.R
-import com.rjspies.daedalus.compose.ToolbarContent
 import com.rjspies.daedalus.compose.tableItems
 import com.rjspies.daedalus.data.data.Weight
 import com.rjspies.daedalus.ui.horizontalSpacingM
@@ -58,31 +55,28 @@ import java.time.format.FormatStyle
 import java.util.Locale
 import kotlinx.coroutines.launch
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun WeightHistoryScreen(onBack: () -> Unit) {
-    ToolbarContent(title = stringResource(R.string.weight_history_toolbar_title), onBack = onBack) {
-        val viewModel: WeightHistoryViewModel = koinViewModel()
-        val weights by viewModel.weights.collectAsState()
+fun WeightHistoryScreen() {
+    val viewModel: WeightHistoryViewModel = koinViewModel()
+    val weights by viewModel.weights.collectAsState()
 
-        if (weights.isNotEmpty()) {
-            Weights(
-                weights = weights,
-                viewModel = viewModel,
-            )
-        } else {
-            EmptyScreen(
-                icon = rememberVectorPainter(Icons.AutoMirrored.Rounded.List),
-                contentDescription = stringResource(R.string.extensions_content_description_list),
-                title = stringResource(R.string.weight_history_empty_screen_title),
-                subtitle = stringResource(R.string.weight_history_empty_screen_subtitle),
-                modifier = Modifier
-                    .fillMaxSize()
-                    .verticalScroll(rememberScrollState())
-                    .verticalSpacingM()
-                    .horizontalSpacingM(),
-            )
-        }
+    if (weights.isNotEmpty()) {
+        Weights(
+            weights = weights,
+            viewModel = viewModel,
+        )
+    } else {
+        EmptyScreen(
+            icon = rememberVectorPainter(Icons.AutoMirrored.Rounded.List),
+            contentDescription = stringResource(R.string.extensions_content_description_list),
+            title = stringResource(R.string.weight_history_empty_screen_title),
+            subtitle = stringResource(R.string.weight_history_empty_screen_subtitle),
+            modifier = Modifier
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState())
+                .verticalSpacingM()
+                .horizontalSpacingM(),
+        )
     }
 }
 
@@ -93,7 +87,7 @@ private fun Weights(
     viewModel: WeightHistoryViewModel,
 ) {
     LazyColumn(
-        contentPadding = PaddingValues(vertical = Spacings.M),
+        modifier = Modifier.fillMaxSize(),
         content = {
             tableItems(
                 items = weights,

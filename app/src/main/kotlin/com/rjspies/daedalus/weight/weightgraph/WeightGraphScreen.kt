@@ -1,7 +1,10 @@
 package com.rjspies.daedalus.weight.weightgraph
 
 import androidx.compose.foundation.gestures.animateScrollBy
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.AreaChart
 import androidx.compose.runtime.Composable
@@ -45,7 +48,13 @@ fun WeightGraphScreen() {
     }
 
     if (entries.isNotEmpty()) {
-        Chart(entries)
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState()),
+        ) {
+            Chart(entries)
+        }
     } else {
         EmptyScreen(
             icon = rememberVectorPainter(Icons.Rounded.AreaChart),
@@ -53,7 +62,8 @@ fun WeightGraphScreen() {
             title = stringResource(R.string.home_empty_screen_title),
             subtitle = stringResource(R.string.home_empty_screen_subtitle),
             modifier = Modifier
-                .fillMaxWidth()
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState())
                 .verticalSpacingM()
                 .horizontalSpacingM(),
         )
