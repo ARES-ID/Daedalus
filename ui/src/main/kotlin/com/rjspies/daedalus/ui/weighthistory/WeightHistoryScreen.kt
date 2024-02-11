@@ -1,4 +1,4 @@
-package com.rjspies.daedalus.ui
+package com.rjspies.daedalus.ui.weighthistory
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -39,11 +39,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import com.rjspies.daedalus.data.data.Weight
+import com.rjspies.daedalus.ui.R
 import com.rjspies.daedalus.ui.common.horizontalSpacingM
 import com.rjspies.daedalus.ui.common.tableItems
 import com.rjspies.daedalus.ui.common.verticalSpacingM
-import com.rjspies.daedalus.ui.theme.Spacings
-import com.rjspies.daedalus.ui.widgets.EmptyScreen
+import com.rjspies.daedalus.ui.common.theme.Spacings
+import com.rjspies.daedalus.ui.common.widgets.EmptyScreen
 import org.koin.androidx.compose.koinViewModel
 import java.text.DecimalFormat
 import java.time.Instant

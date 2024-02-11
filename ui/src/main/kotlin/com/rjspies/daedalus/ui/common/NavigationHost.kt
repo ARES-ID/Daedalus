@@ -4,8 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.rjspies.daedalus.ui.WeightGraphScreen
-import com.rjspies.daedalus.ui.WeightHistoryScreen
+import com.rjspies.daedalus.ui.weightgraph.WeightGraphScreen
+import com.rjspies.daedalus.ui.weighthistory.WeightHistoryScreen
 
 @Composable
 internal fun NavigationHost(navigationController: NavHostController) {

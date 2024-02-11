@@ -13,7 +13,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.rjspies.daedalus.ui.AddWeightDialog
+import com.rjspies.daedalus.ui.addweight.AddWeightDialog
 import com.rjspies.daedalus.ui.common.NavigationBar
 import com.rjspies.daedalus.ui.common.NavigationHost
 import com.rjspies.daedalus.ui.common.navigateToTopLevelDestination

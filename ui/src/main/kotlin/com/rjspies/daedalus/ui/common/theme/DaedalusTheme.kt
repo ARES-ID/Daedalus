@@ -1,4 +1,4 @@
-package com.rjspies.daedalus.ui.theme
+package com.rjspies.daedalus.ui.common.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

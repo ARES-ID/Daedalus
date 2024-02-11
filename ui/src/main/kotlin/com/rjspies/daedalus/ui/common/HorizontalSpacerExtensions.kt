@@ -4,7 +4,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.rjspies.daedalus.ui.theme.Spacings
+import com.rjspies.daedalus.ui.common.theme.Spacings
 
 @Composable
 public fun HorizontalSpacerXXS(): Unit = Spacer(modifier = Modifier.width(Spacings.XXS))

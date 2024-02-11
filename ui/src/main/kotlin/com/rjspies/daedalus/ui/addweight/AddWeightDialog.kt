@@ -1,4 +1,4 @@
-package com.rjspies.daedalus.ui
+package com.rjspies.daedalus.ui.addweight
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -27,6 +27,7 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import com.rjspies.daedalus.ui.R
 import com.rjspies.daedalus.ui.common.VerticalSpacerXXS
 import org.koin.androidx.compose.koinViewModel
 import com.rjspies.daedalus.common.R as commonR

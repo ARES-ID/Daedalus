@@ -4,7 +4,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.rjspies.daedalus.ui.theme.Spacings
+import com.rjspies.daedalus.ui.common.theme.Spacings
 
 @Composable
 public fun VerticalSpacerXXS(): Unit = Spacer(modifier = Modifier.height(Spacings.XXS))

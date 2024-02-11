@@ -1,4 +1,4 @@
-package com.rjspies.daedalus.ui
+package com.rjspies.daedalus.ui.weightgraph
 
 import android.os.Build
 import androidx.annotation.RequiresApi
@@ -48,7 +48,7 @@ internal fun rememberMarker(): Marker {
                 outInsets: Insets,
                 horizontalDimensions: HorizontalDimensions,
             ) = with(context) {
-                outInsets.top = label.getHeight(context) + LabelBackgroundShape.tickSizeDp.pixels + com.rjspies.daedalus.ui.LABEL_BACKGROUND_SHADOW_RADIUS.pixels * com.rjspies.daedalus.ui.SHADOW_RADIUS_MULTIPLIER - com.rjspies.daedalus.ui.LABEL_BACKGROUND_SHADOW_DY.pixels
+                outInsets.top = label.getHeight(context) + LabelBackgroundShape.tickSizeDp.pixels + LABEL_BACKGROUND_SHADOW_RADIUS.pixels * SHADOW_RADIUS_MULTIPLIER - LABEL_BACKGROUND_SHADOW_DY.pixels
             }
         }
     }

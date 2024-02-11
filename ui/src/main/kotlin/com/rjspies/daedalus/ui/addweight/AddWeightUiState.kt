@@ -1,4 +1,4 @@
-package com.rjspies.daedalus.ui
+package com.rjspies.daedalus.ui.addweight
 
 import com.rjspies.daedalus.common.AddWeightError
 import com.rjspies.daedalus.ui.common.UiState

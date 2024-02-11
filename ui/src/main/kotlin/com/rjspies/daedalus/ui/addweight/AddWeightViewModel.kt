@@ -1,4 +1,4 @@
-package com.rjspies.daedalus.ui
+package com.rjspies.daedalus.ui.addweight
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel

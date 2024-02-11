@@ -1,4 +1,4 @@
-package com.rjspies.daedalus.ui
+package com.rjspies.daedalus.ui.weightgraph
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

@@ -2,7 +2,7 @@ package com.rjspies.daedalus.ui.common
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.ui.Modifier
-import com.rjspies.daedalus.ui.theme.Spacings
+import com.rjspies.daedalus.ui.common.theme.Spacings
 
 public fun Modifier.verticalSpacingXXS(): Modifier = padding(vertical = Spacings.XXS)
 public fun Modifier.verticalSpacingXS(): Modifier = padding(vertical = Spacings.XS)

@@ -1,4 +1,4 @@
-package com.rjspies.daedalus.ui
+package com.rjspies.daedalus.ui.weightgraph
 
 import androidx.compose.foundation.gestures.animateScrollBy
 import androidx.compose.foundation.layout.Box
@@ -26,9 +26,10 @@ import com.patrykandpatrick.vico.compose.chart.scroll.rememberChartScrollState
 import com.patrykandpatrick.vico.core.chart.values.AxisValuesOverrider
 import com.patrykandpatrick.vico.core.entry.ChartEntryModelProducer
 import com.patrykandpatrick.vico.core.scroll.InitialScroll
+import com.rjspies.daedalus.ui.R
 import com.rjspies.daedalus.ui.common.horizontalSpacingM
 import com.rjspies.daedalus.ui.common.verticalSpacingM
-import com.rjspies.daedalus.ui.widgets.EmptyScreen
+import com.rjspies.daedalus.ui.common.widgets.EmptyScreen
 import org.koin.androidx.compose.koinViewModel
 
 @Composable

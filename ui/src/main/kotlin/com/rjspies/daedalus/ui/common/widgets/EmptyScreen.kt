@@ -1,4 +1,4 @@
-package com.rjspies.daedalus.ui.widgets
+package com.rjspies.daedalus.ui.common.widgets
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

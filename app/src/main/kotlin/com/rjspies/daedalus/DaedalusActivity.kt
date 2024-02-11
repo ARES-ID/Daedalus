@@ -11,7 +11,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.core.animation.doOnEnd
 import com.rjspies.daedalus.ui.common.ANIMATION_DURATION_MILLISECONDS
 import com.rjspies.daedalus.ui.main.MainScreen
-import com.rjspies.daedalus.ui.theme.DaedalusTheme
+import com.rjspies.daedalus.ui.common.theme.DaedalusTheme
 import org.koin.compose.KoinContext
 
 class DaedalusActivity : ComponentActivity() {

@@ -1,4 +1,4 @@
-package com.rjspies.daedalus.ui
+package com.rjspies.daedalus.ui.weightgraph
 
 import com.patrykandpatrick.vico.core.entry.ChartEntry
 import java.time.ZonedDateTime
