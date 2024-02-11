@@ -1,5 +1,4 @@
 import org.gradle.internal.jvm.inspection.JvmVendor
-import org.gradle.internal.jvm.inspection.JvmVendor.KnownJvmVendor
 import org.gradle.jvm.toolchain.internal.DefaultJvmVendorSpec
 import java.io.ByteArrayOutputStream
 
@@ -7,8 +6,6 @@ plugins {
     alias(libs.plugins.comAndroidApplication)
     alias(libs.plugins.orgJetbrainsKotlinAndroid)
     alias(libs.plugins.comGoogleDevtoolsKsp)
-    alias(libs.plugins.orgJmailenKotlinter)
-    alias(libs.plugins.ioGitlabArturboschDetekt)
     id("kotlin-parcelize")
 }
 
