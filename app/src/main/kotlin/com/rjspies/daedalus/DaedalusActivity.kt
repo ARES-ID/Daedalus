@@ -8,6 +8,10 @@ import android.window.SplashScreen
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.graphics.toArgb
 import androidx.core.animation.doOnEnd
 import com.rjspies.daedalus.ui.common.theme.DaedalusTheme
 import com.rjspies.daedalus.ui.main.MainScreen
@@ -24,9 +28,18 @@ class DaedalusActivity : ComponentActivity() {
         setContent {
             KoinContext {
                 DaedalusTheme {
+                    StatusBar()
                     MainScreen()
                 }
             }
+        }
+    }
+
+    @Composable
+    private fun StatusBar() {
+        val backgroundColor = MaterialTheme.colorScheme.background.copy(alpha = .69f).toArgb()
+        SideEffect {
+            window.statusBarColor = backgroundColor
         }
     }
 

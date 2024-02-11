@@ -3,6 +3,7 @@ package com.rjspies.daedalus.ui.weighthistory
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -54,7 +55,7 @@ import java.util.Locale
 import kotlinx.coroutines.launch
 
 @Composable
-internal fun WeightHistoryScreen() {
+internal fun WeightHistoryScreen(innerPadding: PaddingValues) {
     val viewModel: WeightHistoryViewModel = koinViewModel()
     val weights by viewModel.weights.collectAsState()
 
@@ -62,6 +63,7 @@ internal fun WeightHistoryScreen() {
         Weights(
             weights = weights,
             viewModel = viewModel,
+            innerPadding = innerPadding,
         )
     } else {
         EmptyScreen(
@@ -72,6 +74,7 @@ internal fun WeightHistoryScreen() {
             modifier = Modifier
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
+                .padding(innerPadding)
                 .verticalSpacingM()
                 .horizontalSpacingM(),
         )
@@ -83,9 +86,11 @@ internal fun WeightHistoryScreen() {
 private fun Weights(
     weights: List<Weight>,
     viewModel: WeightHistoryViewModel,
+    innerPadding: PaddingValues,
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
+        contentPadding = innerPadding,
         content = {
             tableItems(
                 items = weights,

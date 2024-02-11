@@ -2,7 +2,9 @@ package com.rjspies.daedalus.ui.weightgraph
 
 import androidx.compose.foundation.gestures.animateScrollBy
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -33,7 +35,7 @@ import com.rjspies.daedalus.ui.common.widgets.EmptyScreen
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-internal fun WeightGraphScreen() {
+internal fun WeightGraphScreen(innerPadding: PaddingValues) {
     val viewModel = koinViewModel<WeightGraphViewModel>()
     val weights by viewModel.weights.collectAsState()
     val entries = rememberSaveable(weights) {
@@ -50,10 +52,10 @@ internal fun WeightGraphScreen() {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .verticalScroll(rememberScrollState()),
-        ) {
-            Chart(entries)
-        }
+                .verticalScroll(rememberScrollState())
+                .padding(innerPadding),
+            content = { Chart(entries) },
+        )
     } else {
         EmptyScreen(
             icon = rememberVectorPainter(Icons.Rounded.AreaChart),
@@ -63,6 +65,7 @@ internal fun WeightGraphScreen() {
             modifier = Modifier
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
+                .padding(innerPadding)
                 .verticalSpacingM()
                 .horizontalSpacingM(),
         )
