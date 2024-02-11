@@ -15,7 +15,3 @@ class MainViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel(
         savedStateHandle[HANDLE_KEY_UI_STATE] = uiState.value.copy(showDialog = showDialog)
     }
 }
-
-data class MainUiState(
-    val showDialog: Boolean = false,
-) : UiState()
