@@ -34,7 +34,7 @@ import org.koin.androidx.compose.koinViewModel
 
 @Composable
 internal fun WeightGraphScreen() {
-    val viewModel: WeightGraphViewModel = koinViewModel()
+    val viewModel = koinViewModel<WeightGraphViewModel>()
     val weights by viewModel.weights.collectAsState()
     val entries = rememberSaveable(weights) {
         weights.mapIndexed { index, weight ->

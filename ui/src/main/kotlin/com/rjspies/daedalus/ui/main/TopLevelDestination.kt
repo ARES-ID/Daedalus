@@ -1,4 +1,4 @@
-package com.rjspies.daedalus.ui.common
+package com.rjspies.daedalus.ui.main
 
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
@@ -6,9 +6,10 @@ import androidx.compose.material.icons.automirrored.rounded.List
 import androidx.compose.material.icons.rounded.AreaChart
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.rjspies.daedalus.ui.R
+import com.rjspies.daedalus.ui.common.Route
 
 internal enum class TopLevelDestination(
-    val route: String,
+    val route: Route,
     val icon: ImageVector,
     @StringRes val labelResourceId: Int,
 ) {

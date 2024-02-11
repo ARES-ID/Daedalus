@@ -1,7 +1,5 @@
 package com.rjspies.daedalus.ui.weightgraph
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.unit.dp
@@ -42,13 +40,15 @@ internal fun rememberMarker(): Marker {
                 indicatorSizeDp = INDICATOR_SIZE_DP
             }
 
-            @RequiresApi(Build.VERSION_CODES.Q)
             override fun getInsets(
                 context: MeasureContext,
                 outInsets: Insets,
                 horizontalDimensions: HorizontalDimensions,
             ) = with(context) {
-                outInsets.top = label.getHeight(context) + LabelBackgroundShape.tickSizeDp.pixels + LABEL_BACKGROUND_SHADOW_RADIUS.pixels * SHADOW_RADIUS_MULTIPLIER - LABEL_BACKGROUND_SHADOW_DY.pixels
+                outInsets.top = label.getHeight(context) +
+                        LabelBackgroundShape.tickSizeDp.pixels +
+                        (LABEL_BACKGROUND_SHADOW_RADIUS.pixels * SHADOW_RADIUS_MULTIPLIER) -
+                        LABEL_BACKGROUND_SHADOW_DY.pixels
             }
         }
     }

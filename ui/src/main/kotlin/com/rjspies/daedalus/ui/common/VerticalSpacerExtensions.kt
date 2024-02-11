@@ -7,25 +7,25 @@ import androidx.compose.ui.Modifier
 import com.rjspies.daedalus.ui.common.theme.Spacings
 
 @Composable
-public fun VerticalSpacerXXS(): Unit = Spacer(modifier = Modifier.height(Spacings.XXS))
+internal fun VerticalSpacerXXS(): Unit = Spacer(modifier = Modifier.height(Spacings.XXS))
 
 @Composable
-public fun VerticalSpacerXS(): Unit = Spacer(modifier = Modifier.height(Spacings.XS))
+internal fun VerticalSpacerXS(): Unit = Spacer(modifier = Modifier.height(Spacings.XS))
 
 @Composable
-public fun VerticalSpacerS(): Unit = Spacer(modifier = Modifier.height(Spacings.S))
+internal fun VerticalSpacerS(): Unit = Spacer(modifier = Modifier.height(Spacings.S))
 
 @Composable
-public fun VerticalSpacerM(): Unit = Spacer(modifier = Modifier.height(Spacings.M))
+internal fun VerticalSpacerM(): Unit = Spacer(modifier = Modifier.height(Spacings.M))
 
 @Composable
-public fun VerticalSpacerL(): Unit = Spacer(modifier = Modifier.height(Spacings.L))
+internal fun VerticalSpacerL(): Unit = Spacer(modifier = Modifier.height(Spacings.L))
 
 @Composable
-public fun VerticalSpacerXL(): Unit = Spacer(modifier = Modifier.height(Spacings.XL))
+internal fun VerticalSpacerXL(): Unit = Spacer(modifier = Modifier.height(Spacings.XL))
 
 @Composable
-public fun VerticalSpacerXXL(): Unit = Spacer(modifier = Modifier.height(Spacings.XXL))
+internal fun VerticalSpacerXXL(): Unit = Spacer(modifier = Modifier.height(Spacings.XXL))
 
 @Composable
-public fun VerticalSpacerXXXL(): Unit = Spacer(modifier = Modifier.height(Spacings.XXXL))
+internal fun VerticalSpacerXXXL(): Unit = Spacer(modifier = Modifier.height(Spacings.XXXL))

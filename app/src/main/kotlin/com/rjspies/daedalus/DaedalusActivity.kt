@@ -9,9 +9,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.core.animation.doOnEnd
-import com.rjspies.daedalus.ui.common.ANIMATION_DURATION_MILLISECONDS
-import com.rjspies.daedalus.ui.main.MainScreen
 import com.rjspies.daedalus.ui.common.theme.DaedalusTheme
+import com.rjspies.daedalus.ui.main.MainScreen
 import org.koin.compose.KoinContext
 
 class DaedalusActivity : ComponentActivity() {
@@ -35,7 +34,7 @@ class DaedalusActivity : ComponentActivity() {
         setOnExitAnimationListener { view ->
             val slideDownAnimation = ObjectAnimator.ofFloat(view, View.ALPHA, 1f, 0f)
             slideDownAnimation.interpolator = LinearInterpolator()
-            slideDownAnimation.duration = ANIMATION_DURATION_MILLISECONDS.toLong()
+            slideDownAnimation.duration = 250L
             slideDownAnimation.doOnEnd { view.remove() }
             slideDownAnimation.start()
         }

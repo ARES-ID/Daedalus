@@ -33,7 +33,7 @@ import org.koin.androidx.compose.koinViewModel
 import com.rjspies.daedalus.common.R as commonR
 
 @Composable
-public fun AddWeightDialog(onDismiss: () -> Unit) {
+internal fun AddWeightDialog(onDismiss: () -> Unit) {
     val viewModel = koinViewModel<AddWeightViewModel>()
     val uiState by viewModel.uiState.collectAsState()
     var weightValue by rememberSaveable { mutableStateOf("") }

@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import com.rjspies.daedalus.ui.common.VerticalSpacerM
 
 @Composable
-public fun EmptyScreen(
+internal fun EmptyScreen(
     icon: Painter,
     contentDescription: String,
     title: String,

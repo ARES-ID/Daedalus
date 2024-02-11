@@ -42,13 +42,11 @@ import com.rjspies.daedalus.data.data.Weight
 import com.rjspies.daedalus.ui.R
 import com.rjspies.daedalus.ui.common.horizontalSpacingM
 import com.rjspies.daedalus.ui.common.tableItems
-import com.rjspies.daedalus.ui.common.verticalSpacingM
 import com.rjspies.daedalus.ui.common.theme.Spacings
+import com.rjspies.daedalus.ui.common.verticalSpacingM
 import com.rjspies.daedalus.ui.common.widgets.EmptyScreen
 import org.koin.androidx.compose.koinViewModel
 import java.text.DecimalFormat
-import java.time.Instant
-import java.time.ZoneId
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
@@ -267,15 +265,4 @@ private fun Float.asUserfacingString(locale: Locale): String {
 private fun ZonedDateTime.asUserfacingString(
     locale: Locale,
     style: FormatStyle = FormatStyle.MEDIUM,
-): String {
-    return format(DateTimeFormatter.ofLocalizedDateTime(style).withLocale(locale))
-}
-
-internal fun Instant.asUserfacingString(
-    locale: Locale,
-    style: FormatStyle = FormatStyle.MEDIUM,
-): String {
-    val zone = ZoneId.systemDefault()
-    val formatter = DateTimeFormatter.ofLocalizedDate(style)
-    return atZone(zone).toLocalDate().format(formatter.withLocale(locale))
-}
+) = format(DateTimeFormatter.ofLocalizedDateTime(style).withLocale(locale))
