@@ -6,7 +6,6 @@ plugins {
     alias(libs.plugins.comAndroidApplication)
     alias(libs.plugins.orgJetbrainsKotlinAndroid)
     alias(libs.plugins.comGoogleDevtoolsKsp)
-    id("kotlin-parcelize")
 }
 
 android {
@@ -86,9 +85,7 @@ dependencies {
     implementation(libs.androidxNavigation.navigationCompose)
     implementation(libs.androidxComposeMaterial.materialIconsExtendedAndroid)
     implementation(libs.androidxComposeMaterial3.material3)
-    implementation(libs.androidxConstraintlayout.constraintlayoutCompose)
     implementation(libs.comJakewhartonTimer.timber)
-    implementation(libs.comPatrykandpatrickVico.composeM3)
     implementation(libs.ioInsertKoin.koinAndroidxCompose)
     implementation(libs.ioInsertKoin.koinAnnotations)
     ksp(libs.ioInsertKoin.koinKspCompiler)

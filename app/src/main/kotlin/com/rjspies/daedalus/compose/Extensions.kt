@@ -1,14 +1,11 @@
 package com.rjspies.daedalus.compose
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyItemScope
-import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -39,22 +36,6 @@ fun Divider(modifier: Modifier = Modifier) {
         thickness = Dp.Hairline,
         modifier = modifier,
     )
-}
-
-@ExperimentalFoundationApi
-inline fun <T> LazyListScope.tableItems(
-    items: List<T>,
-    noinline key: ((item: T) -> Any)? = null,
-    noinline contentType: (item: T) -> Any? = { null },
-    crossinline itemContent: @Composable LazyItemScope.(item: T) -> Unit,
-) = items(
-    count = items.size,
-    key = if (key != null) { index: Int -> key(items[index]) } else null,
-    contentType = { index: Int -> contentType(items[index]) },
-) {
-    Divider(Modifier.animateItemPlacement())
-    itemContent(items[it])
-    if (it >= items.lastIndex) Divider(Modifier.animateItemPlacement())
 }
 
 fun Modifier.greenEngineeringMenuGestureDetector(

@@ -4,11 +4,11 @@ import org.gradle.jvm.toolchain.internal.DefaultJvmVendorSpec
 plugins {
     alias(libs.plugins.comAndroidLibrary)
     alias(libs.plugins.orgJetbrainsKotlinAndroid)
-    alias(libs.plugins.comGoogleDevtoolsKsp)
+    id("kotlin-parcelize")
 }
 
 android {
-    namespace = libs.versions.namespace.get() + ".data"
+    namespace = libs.versions.namespace.get() + ".common"
     compileSdk = libs.versions.compileSdk.int()
 
     defaultConfig {
@@ -19,7 +19,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = true
+            isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             ndk.debugSymbolLevel = "FULL"
         }
@@ -44,21 +44,8 @@ kotlin {
     }
 }
 
-ksp {
-    arg("room.schemaLocation", "$projectDir/schemas")
-}
-
 dependencies {
-    implementation(libs.androidxRoom.roomKtx)
-    implementation(libs.androidxRoom.roomRuntime)
-    implementation(libs.ioInsertKoin.koinAnnotations)
-    implementation(libs.ioInsertKoin.koinCore)
-    ksp(libs.androidxRoom.roomCompiler)
-    ksp(libs.ioInsertKoin.koinKspCompiler)
-    testImplementation(libs.orgRoboelectric.roboelectric)
-    testImplementation(libs.junit.junit)
-    testImplementation(libs.ioKotest.kotestProperty)
-    testImplementation(libs.ioInsertKoin.koinTestJunit4)
+    implementation(libs.androidxCore.coreKtx)
 }
 
 @kotlin.jvm.Throws(NumberFormatException::class)

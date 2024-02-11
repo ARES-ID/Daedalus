@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="navigation_bar_graph">Graph</string>
+    <string name="navigation_bar_history">Historie</string>
+</resources>
