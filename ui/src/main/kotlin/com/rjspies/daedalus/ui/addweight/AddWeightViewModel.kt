@@ -8,6 +8,7 @@ import com.rjspies.daedalus.data.WeightService
 import com.rjspies.daedalus.data.data.Weight
 import com.rjspies.daedalus.ui.common.SAVED_STATE_HANDLE_KEY_UI_STATE
 import org.koin.android.annotation.KoinViewModel
+import timber.log.Timber
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -26,7 +27,7 @@ internal class AddWeightViewModel(
         savedStateHandle[SAVED_STATE_HANDLE_KEY_UI_STATE] = uiState.value.copy(dismissDialog = dismissDialog)
     }
 
-    private fun setError(error: AddWeightError?) {
+    fun setError(error: AddWeightError?) {
         savedStateHandle[SAVED_STATE_HANDLE_KEY_UI_STATE] = uiState.value.copy(error = error)
     }
 

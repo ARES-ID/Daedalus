@@ -46,6 +46,7 @@ kotlin {
 
 dependencies {
     implementation(libs.androidxCore.coreKtx)
+    implementation(libs.comJakewhartonTimer.timber)
 }
 
 @kotlin.jvm.Throws(NumberFormatException::class)

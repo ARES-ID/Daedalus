@@ -46,4 +46,5 @@ kotlin {
 }
 
 dependencies {
+    implementation(libs.comJakewhartonTimer.timber)
 }

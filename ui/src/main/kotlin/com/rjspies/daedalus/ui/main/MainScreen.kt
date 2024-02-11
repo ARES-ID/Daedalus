@@ -3,7 +3,7 @@ package com.rjspies.daedalus.ui.main
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.AddChart
+import androidx.compose.material.icons.rounded.Add
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
@@ -37,7 +37,7 @@ public fun MainScreen() {
                 onClick = { viewModel.setShowDialog(true) },
                 content = {
                     Icon(
-                        imageVector = Icons.Rounded.AddChart,
+                        imageVector = Icons.Rounded.Add,
                         contentDescription = null,
                     )
                 },

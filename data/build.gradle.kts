@@ -53,6 +53,7 @@ dependencies {
     implementation(libs.androidxRoom.roomRuntime)
     implementation(libs.ioInsertKoin.koinAnnotations)
     implementation(libs.ioInsertKoin.koinCore)
+    implementation(libs.comJakewhartonTimer.timber)
     ksp(libs.androidxRoom.roomCompiler)
     ksp(libs.ioInsertKoin.koinKspCompiler)
     testImplementation(libs.orgRoboelectric.roboelectric)

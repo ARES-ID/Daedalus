@@ -13,6 +13,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -40,6 +41,12 @@ internal fun AddWeightDialog(onDismiss: () -> Unit) {
     val focusRequester = remember { FocusRequester() }
 
     viewModel.setDismissDialog(onDismiss)
+
+    DisposableEffect(Unit) {
+        onDispose {
+            viewModel.setError(null)
+        }
+    }
 
     AlertDialog(
         onDismissRequest = onDismiss,

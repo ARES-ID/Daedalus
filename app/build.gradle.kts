@@ -77,6 +77,7 @@ kotlin {
 dependencies {
     implementation(project(":ui"))
     implementation(project(":data"))
+    implementation(libs.comJakewhartonTimer.timber)
     implementation(libs.androidxActivity.activityCompose)
     implementation(libs.androidxComposeUi.ui)
     implementation(libs.androidxCore.coreKtx)
@@ -85,7 +86,6 @@ dependencies {
     implementation(libs.androidxNavigation.navigationCompose)
     implementation(libs.androidxComposeMaterial.materialIconsExtendedAndroid)
     implementation(libs.androidxComposeMaterial3.material3)
-    implementation(libs.comJakewhartonTimer.timber)
     implementation(libs.ioInsertKoin.koinAndroidxCompose)
     implementation(libs.ioInsertKoin.koinAnnotations)
     ksp(libs.ioInsertKoin.koinKspCompiler)
