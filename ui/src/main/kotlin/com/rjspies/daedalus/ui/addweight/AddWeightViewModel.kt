@@ -45,6 +45,7 @@ internal class AddWeightViewModel(
                     note = null,
                 )
                 service.saveWeight(weight)
+                uiState.value.dismissDialog()
             } else {
                 setError(AddWeightError.ParseFloatError)
             }
@@ -52,7 +53,6 @@ internal class AddWeightViewModel(
 
         job.invokeOnCompletion {
             setIsLoading(false)
-            uiState.value.dismissDialog()
         }
     }
 }
