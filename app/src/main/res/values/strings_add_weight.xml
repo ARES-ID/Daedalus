@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="add_weight_toolbar_title">Messung hinzufügen</string>
+    <string name="add_weight_dialog_title">Gewicht hinzufügen</string>
     <string name="add_weight_weight_text_field_label">Gewicht</string>
-    <string name="add_weight_weight_text_field_error_message">Hier scheint etwas nicht korrekt zu sein.</string>
+    <string name="add_weight_weight_text_field_supporting_message_error">Hier scheint etwas nicht zu stimmen.</string>
     <string name="add_weight_weight_text_field_supporting_message">Gib hier dein genaues Gewicht in Kilogramm an, z. B. 123,45.</string>
-    <string name="add_weight_note_text_field_label">Notiz</string>
     <string name="add_weight_add_button_text">Hinzufügen</string>
-    <string name="add_weight_add_success_message">Erfolgreich hinzugefügt</string>
-    <string name="add_weight_date_picker_button">Datum setzen</string>
-    <string name="add_weight_choose_date_button">Datum anpassen</string>
-    <string name="add_weight_date_label">Datum:</string>
 </resources>
