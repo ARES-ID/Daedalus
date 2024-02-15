@@ -39,7 +39,7 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
-import com.rjspies.daedalus.data.data.Weight
+import com.rjspies.daedalus.domain.Weight
 import com.rjspies.daedalus.ui.R
 import com.rjspies.daedalus.ui.common.horizontalSpacingM
 import com.rjspies.daedalus.ui.common.tableItems

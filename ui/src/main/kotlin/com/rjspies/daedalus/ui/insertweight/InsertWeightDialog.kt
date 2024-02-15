@@ -1,4 +1,4 @@
-package com.rjspies.daedalus.ui.addweight
+package com.rjspies.daedalus.ui.insertweight
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -35,7 +35,7 @@ import com.rjspies.daedalus.common.R as commonR
 
 @Composable
 internal fun AddWeightDialog(onDismiss: () -> Unit) {
-    val viewModel = koinViewModel<AddWeightViewModel>()
+    val viewModel = koinViewModel<InsertWeightViewModel>()
     val uiState by viewModel.uiState.collectAsState()
     var weightValue by rememberSaveable { mutableStateOf("") }
     val focusRequester = remember { FocusRequester() }
@@ -90,7 +90,7 @@ internal fun AddWeightDialog(onDismiss: () -> Unit) {
                     imeAction = ImeAction.Done,
                 ),
                 keyboardActions = KeyboardActions(
-                    onDone = { viewModel.saveWeight(weightValue) },
+                    onDone = { viewModel.insertWeight(weightValue) },
                 ),
                 isError = uiState.error != null,
                 singleLine = true,
@@ -99,7 +99,7 @@ internal fun AddWeightDialog(onDismiss: () -> Unit) {
         },
         confirmButton = {
             TextButton(
-                onClick = { viewModel.saveWeight(weightValue) },
+                onClick = { viewModel.insertWeight(weightValue) },
                 content = { Text(stringResource(R.string.add_weight_add_button_text)) },
                 enabled = !uiState.isLoading,
             )

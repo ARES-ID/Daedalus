@@ -1,26 +1,24 @@
-package com.rjspies.daedalus.ui.addweight
+package com.rjspies.daedalus.ui.insertweight
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rjspies.daedalus.common.AddWeightError
-import com.rjspies.daedalus.data.WeightService
-import com.rjspies.daedalus.data.data.Weight
+import com.rjspies.daedalus.domain.InsertWeightUseCase
 import com.rjspies.daedalus.ui.common.SAVED_STATE_HANDLE_KEY_UI_STATE
 import org.koin.android.annotation.KoinViewModel
-import timber.log.Timber
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 @KoinViewModel
-internal class AddWeightViewModel(
+internal class InsertWeightViewModel(
     private val savedStateHandle: SavedStateHandle,
-    private val service: WeightService,
+    private val insertWeightUseCase: InsertWeightUseCase,
 ) : ViewModel() {
-    val uiState: StateFlow<AddWeightUiState> = savedStateHandle.getStateFlow(
+    val uiState: StateFlow<InsertWeightUiState> = savedStateHandle.getStateFlow(
         key = SAVED_STATE_HANDLE_KEY_UI_STATE,
-        initialValue = AddWeightUiState(),
+        initialValue = InsertWeightUiState(),
     )
 
     fun setDismissDialog(dismissDialog: () -> Unit) {
@@ -35,17 +33,14 @@ internal class AddWeightViewModel(
         savedStateHandle[SAVED_STATE_HANDLE_KEY_UI_STATE] = uiState.value.copy(isLoading = isLoading)
     }
 
-    fun saveWeight(weightValue: String) {
+    fun insertWeight(weightValue: String) {
         val job = viewModelScope.launch(Dispatchers.IO) {
             setError(null)
             setIsLoading(true)
             val parsedWeightValue = weightValue.parseToFloat()
             if (parsedWeightValue != null) {
-                val weight = Weight(
-                    value = parsedWeightValue,
-                    note = null,
-                )
-                service.saveWeight(weight)
+                val weight = com.rjspies.daedalus.domain.Weight(value = parsedWeightValue)
+                insertWeightUseCase(weight)
                 uiState.value.dismissDialog()
             } else {
                 setError(AddWeightError.ParseFloatError)

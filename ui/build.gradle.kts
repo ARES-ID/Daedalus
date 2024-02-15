@@ -56,7 +56,6 @@ kotlin {
 dependencies {
     implementation(project(":common"))
     implementation(project(":domain"))
-    implementation(project(":data"))
     implementation(libs.comJakewhartonTimer.timber)
     implementation(libs.androidxComposeMaterial3.material3)
     implementation(libs.androidxComposeMaterial.materialIconsExtendedAndroid)

@@ -2,19 +2,23 @@ package com.rjspies.daedalus.ui.weighthistory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.rjspies.daedalus.data.WeightService
-import com.rjspies.daedalus.data.data.Weight
+import com.rjspies.daedalus.domain.DeleteWeightUseCase
 import com.rjspies.daedalus.domain.GetWeightsDescendingUseCase
+import com.rjspies.daedalus.domain.Weight
+import org.koin.android.annotation.KoinViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
-import org.koin.android.annotation.KoinViewModel
 
 @KoinViewModel
 internal class WeightHistoryViewModel(
-    private val service: WeightService,
-    getWeightsDescendingUseCase: GetWeightsDescendingUseCase
+    getWeightsDescendingUseCase: GetWeightsDescendingUseCase,
+    private val deleteWeightUseCase: DeleteWeightUseCase,
 ) : ViewModel() {
-    val weights = getWeightsDescendingUseCase.perform().stateIn(viewModelScope, SharingStarted.WhileSubscribed(), emptyList())
+    val weights = getWeightsDescendingUseCase().stateIn(
+        scope = viewModelScope,
+        started = SharingStarted.WhileSubscribed(),
+        initialValue = emptyList(),
+    )
 
-    suspend fun deleteWeight(weight: Weight) = service.deleteWeight(weight)
+    suspend fun deleteWeight(weight: Weight) = deleteWeightUseCase(weight)
 }
