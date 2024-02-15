@@ -13,10 +13,12 @@ subgraph
   direction TB;
   :app([<a href='https://github.com/rjspies/Daedalus/blob/main/app/dependencyGraph.md' style='text-decoration:auto'>:app</a>]):::andNode;
   :data[<a href='https://github.com/rjspies/Daedalus/blob/main/data/dependencyGraph.md' style='text-decoration:auto'>:data</a>]:::andNode;
+  :domain([<a href='https://github.com/rjspies/Daedalus/blob/main/domain/dependencyGraph.md' style='text-decoration:auto'>:domain</a>]):::andNode;
 end
 
 %% Dependencies
 
 %% Dependents
 :app-.->:data
+:domain-.->:data
 ```
