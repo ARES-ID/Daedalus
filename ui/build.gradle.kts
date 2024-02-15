@@ -3,9 +3,7 @@ import org.gradle.jvm.toolchain.internal.DefaultJvmVendorSpec
 
 plugins {
     alias(libs.plugins.comAndroidLibrary)
-    alias(libs.plugins.ioGitlabArturboschDetekt)
     alias(libs.plugins.orgJetbrainsKotlinAndroid)
-    alias(libs.plugins.orgJmailenKotlinter)
     alias(libs.plugins.comGoogleDevtoolsKsp)
     id("kotlin-parcelize")
 }
@@ -57,6 +55,7 @@ kotlin {
 
 dependencies {
     implementation(project(":common"))
+    implementation(project(":domain"))
     implementation(project(":data"))
     implementation(libs.comJakewhartonTimer.timber)
     implementation(libs.androidxComposeMaterial3.material3)

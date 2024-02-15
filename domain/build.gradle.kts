@@ -3,9 +3,8 @@ import org.gradle.jvm.toolchain.internal.DefaultJvmVendorSpec
 
 plugins {
     alias(libs.plugins.comAndroidLibrary)
-    alias(libs.plugins.ioGitlabArturboschDetekt)
     alias(libs.plugins.orgJetbrainsKotlinAndroid)
-    alias(libs.plugins.orgJmailenKotlinter)
+    alias(libs.plugins.comGoogleDevtoolsKsp)
 }
 
 android {
@@ -46,5 +45,10 @@ kotlin {
 }
 
 dependencies {
+    implementation(project(":data"))
     implementation(libs.comJakewhartonTimer.timber)
+    implementation(libs.orgJetbrainsKotlinx.kotlinxCoroutinesAndroid)
+    implementation(libs.ioInsertKoin.koinAndroidxCompose)
+    implementation(libs.ioInsertKoin.koinAnnotations)
+    ksp(libs.ioInsertKoin.koinKspCompiler)
 }

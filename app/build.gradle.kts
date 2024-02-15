@@ -76,6 +76,7 @@ kotlin {
 
 dependencies {
     implementation(project(":ui"))
+    implementation(project(":domain"))
     implementation(project(":data"))
     implementation(libs.comJakewhartonTimer.timber)
     implementation(libs.androidxActivity.activityCompose)

@@ -4,6 +4,7 @@ androidGradlePlugin = "8.3.1"
 compileSdk = "34"
 compose = "1.6.4"
 composeCompiler = "1.5.8"
+kotlinxCoroutinesAndroid = "1.7.3"
 minSdk = "31"
 targetSdk = "34"
 versionName = "1.2"
@@ -57,6 +58,8 @@ ioInsertKoin-koinKspCompiler = { group = "io.insert-koin", name = "koin-ksp-comp
 androidxCore-coreSplashscreen = { group = "androidx.core", name = "core-splashscreen", version = "1.0.1" }
 junit-junit = { group = "junit", name = "junit", version = "4.13.2" }
 ioKotest-kotestProperty = { group = "io.kotest", name = "kotest-property", version = "5.8.1" }
+ioKotest-kotestProperty = { group = "io.kotest", name = "kotest-property", version = "5.8.0" }
+orgJetbrainsKotlinx-kotlinxCoroutinesAndroid = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version = "1.7.3" }
 orgRoboelectric-roboelectric = { group = "org.robolectric", name = "robolectric", version = "4.11.1" }
 ioInsertKoin-koinTestJunit4 = { group = "io.insert-koin", name = "koin-test-junit4", version = "3.5.3" }
 orgJunitJupiter-junitJupiterApi = { group = "org.junit.jupiter", name = "junit-jupiter-api", version.ref = "junit5" }
