@@ -11,6 +11,7 @@ public data class Weight(
 )
 
 internal fun Weight.convert() = DataWeight(
+    id = id,
     value = value,
     note = note,
     dateTime = dateTime,

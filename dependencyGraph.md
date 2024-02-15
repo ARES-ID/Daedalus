@@ -41,8 +41,6 @@ end
 
 %% Dependencies
 :app--->:ui
-:app--->:domain
-:app--->:data
 :ui--->:common
 :ui--->:domain
 :domain--->:data
