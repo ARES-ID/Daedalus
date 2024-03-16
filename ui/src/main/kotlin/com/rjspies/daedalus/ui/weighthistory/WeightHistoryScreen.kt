@@ -56,7 +56,7 @@ import kotlinx.coroutines.launch
 
 @Composable
 internal fun WeightHistoryScreen(innerPadding: PaddingValues) {
-    val viewModel: WeightHistoryViewModel = koinViewModel()
+    val viewModel = koinViewModel<WeightHistoryViewModel>()
     val weights by viewModel.weights.collectAsState()
 
     if (weights.isNotEmpty()) {
