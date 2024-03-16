@@ -58,7 +58,7 @@ jobs:
         id: version
 
       - name: Create release tag
-        uses: mathieudutour/github-tag-action@v6.1
+        uses: mathieudutour/github-tag-action@v6.2
         with:
           tag_prefix: ""
           github_token: ${{ github.token }}
