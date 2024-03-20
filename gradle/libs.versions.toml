@@ -30,7 +30,7 @@ orgJetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref =
 orgJmailenKotlinter = "org.jmailen.kotlinter:4.2.0"
 comGoogleDevtoolsKsp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 deMannodermausAndroidJunit5 = { id = "de.mannodermaus.android-junit5", version.ref = "junit5" }
-ioGithubAdityahaskarDependencygraph = { id = "io.github.adityabhaskar.dependencygraph", version = "0.1.5" }
+ioGithubAdityahaskarDependencygraph = { id = "io.github.adityabhaskar.dependencygraph", version = "0.1.6" }
 
 [libraries]
 
