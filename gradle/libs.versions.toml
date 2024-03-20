@@ -2,7 +2,7 @@
 
 androidGradlePlugin = "8.3.1"
 compileSdk = "34"
-compose = "1.6.3"
+compose = "1.6.4"
 composeCompiler = "1.5.8"
 minSdk = "26"
 targetSdk = "34"
