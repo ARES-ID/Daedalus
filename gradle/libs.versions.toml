@@ -18,7 +18,7 @@ namespace = "com.rjspies.daedalus"
 junit5 = "5.10.2"
 
 # Raise these two together
-kotlin = "1.9.22"
+kotlin = "1.9.23"
 ksp = "1.9.23-1.0.19"
 
 [plugins]
