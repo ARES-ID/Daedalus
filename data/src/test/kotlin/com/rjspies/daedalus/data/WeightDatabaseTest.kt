@@ -13,6 +13,7 @@ import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.RuntimeEnvironment
 import java.io.IOException
+import java.time.ZonedDateTime
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.runBlocking
 
@@ -43,10 +44,10 @@ class WeightDatabaseTest {
 
                 if (weight.isNaN()) {
                     shouldThrowExactly<SQLiteConstraintException> {
-                        weightDao.insert(Weight(value = weight, note = optionalNote))
+                        weightDao.insert(Weight(value = weight, note = optionalNote, dateTime = ZonedDateTime.now()))
                     }
                 } else {
-                    weightDao.insert(Weight(value = weight, note = optionalNote))
+                    weightDao.insert(Weight(value = weight, note = optionalNote, dateTime = ZonedDateTime.now()))
                 }
 
                 weightDao.weightsDescending().onEach { weights ->
