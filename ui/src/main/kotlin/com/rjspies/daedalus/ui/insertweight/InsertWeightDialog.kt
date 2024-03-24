@@ -37,7 +37,7 @@ import com.rjspies.daedalus.common.R as commonR
 internal fun AddWeightDialog(onDismiss: () -> Unit) {
     val viewModel = koinViewModel<InsertWeightViewModel>()
     val uiState by viewModel.uiState.collectAsState()
-    var weightValue by rememberSaveable { mutableStateOf("") }
+    val weightValue by rememberSaveable { mutableStateOf("") }
     val focusRequester = remember { FocusRequester() }
 
     viewModel.setDismissDialog(onDismiss)
@@ -57,45 +57,12 @@ internal fun AddWeightDialog(onDismiss: () -> Unit) {
             )
         },
         title = {
-            Column(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                content = {
-                    Text(stringResource(R.string.add_weight_dialog_title))
-
-                    if (uiState.isLoading) {
-                        VerticalSpacerXXS()
-                        LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
-                    }
-                },
-            )
+            Title(uiState)
         },
         text = {
             LaunchedEffect(Unit) { focusRequester.requestFocus() }
 
-            OutlinedTextField(
-                value = weightValue,
-                onValueChange = { weightValue = it.filtered() },
-                modifier = Modifier.focusRequester(focusRequester),
-                label = { Text(stringResource(R.string.add_weight_weight_text_field_label)) },
-                supportingText = {
-                    if (uiState.error != null) {
-                        Text(stringResource(R.string.add_weight_weight_text_field_supporting_message_error))
-                    } else {
-                        Text(stringResource(R.string.add_weight_weight_text_field_supporting_message))
-                    }
-                },
-                keyboardOptions = KeyboardOptions(
-                    keyboardType = KeyboardType.Decimal,
-                    imeAction = ImeAction.Done,
-                ),
-                keyboardActions = KeyboardActions(
-                    onDone = { viewModel.insertWeight(weightValue) },
-                ),
-                isError = uiState.error != null,
-                singleLine = true,
-                enabled = !uiState.isLoading,
-            )
+            Input(weightValue, focusRequester, uiState, viewModel)
         },
         confirmButton = {
             TextButton(
@@ -110,6 +77,55 @@ internal fun AddWeightDialog(onDismiss: () -> Unit) {
                 content = { Text(stringResource(commonR.string.common_cancel)) },
                 enabled = !uiState.isLoading,
             )
+        },
+    )
+}
+
+@Composable
+private fun Input(
+    weightValue: String,
+    focusRequester: FocusRequester,
+    uiState: InsertWeightUiState,
+    viewModel: InsertWeightViewModel,
+) {
+    var weightValue1 = weightValue
+    OutlinedTextField(
+        value = weightValue1,
+        onValueChange = { weightValue1 = it.filtered() },
+        modifier = Modifier.focusRequester(focusRequester),
+        label = { Text(stringResource(R.string.add_weight_weight_text_field_label)) },
+        supportingText = {
+            if (uiState.error != null) {
+                Text(stringResource(R.string.add_weight_weight_text_field_supporting_message_error))
+            } else {
+                Text(stringResource(R.string.add_weight_weight_text_field_supporting_message))
+            }
+        },
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Decimal,
+            imeAction = ImeAction.Done,
+        ),
+        keyboardActions = KeyboardActions(
+            onDone = { viewModel.insertWeight(weightValue1) },
+        ),
+        isError = uiState.error != null,
+        singleLine = true,
+        enabled = !uiState.isLoading,
+    )
+}
+
+@Composable
+private fun Title(uiState: InsertWeightUiState) {
+    Column(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        content = {
+            Text(stringResource(R.string.add_weight_dialog_title))
+
+            if (uiState.isLoading) {
+                VerticalSpacerXXS()
+                LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
+            }
         },
     )
 }

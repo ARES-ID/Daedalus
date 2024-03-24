@@ -10,10 +10,10 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.rjspies.daedalus.ui.insertweight.AddWeightDialog
 import com.rjspies.daedalus.ui.common.navigation.NavigationBar
 import com.rjspies.daedalus.ui.common.navigation.NavigationHost
 import com.rjspies.daedalus.ui.common.navigation.navigateToTopLevelDestination
+import com.rjspies.daedalus.ui.insertweight.AddWeightDialog
 import org.koin.androidx.compose.koinViewModel
 
 @Composable

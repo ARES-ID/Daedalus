@@ -17,6 +17,8 @@ import com.rjspies.daedalus.ui.common.theme.DaedalusTheme
 import com.rjspies.daedalus.ui.main.MainScreen
 import org.koin.compose.KoinContext
 
+private const val ANIMATION_DURATION = 250L
+
 class DaedalusActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Theme_Daedalus)
@@ -47,7 +49,7 @@ class DaedalusActivity : ComponentActivity() {
         setOnExitAnimationListener { view ->
             val slideDownAnimation = ObjectAnimator.ofFloat(view, View.ALPHA, 1f, 0f)
             slideDownAnimation.interpolator = LinearInterpolator()
-            slideDownAnimation.duration = 250L
+            slideDownAnimation.duration = ANIMATION_DURATION
             slideDownAnimation.doOnEnd { view.remove() }
             slideDownAnimation.start()
         }

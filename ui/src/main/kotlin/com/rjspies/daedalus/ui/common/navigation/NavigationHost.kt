@@ -12,7 +12,7 @@ import com.rjspies.daedalus.ui.weighthistory.WeightHistoryScreen
 @Composable
 internal fun NavigationHost(
     navigationController: NavHostController,
-    innerPadding: PaddingValues
+    innerPadding: PaddingValues,
 ) {
     NavHost(
         navController = navigationController,

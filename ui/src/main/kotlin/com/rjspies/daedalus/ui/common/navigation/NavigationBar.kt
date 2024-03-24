@@ -12,7 +12,7 @@ import com.rjspies.daedalus.ui.main.TopLevelDestination
 @Composable
 internal fun NavigationBar(
     currentRoute: String?,
-    navigate: (destination: TopLevelDestination) -> Unit
+    navigate: (destination: TopLevelDestination) -> Unit,
 ) {
     NavigationBar {
         val entries = remember(TopLevelDestination.entries) { TopLevelDestination.entries }
