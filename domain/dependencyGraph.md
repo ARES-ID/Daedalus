@@ -10,10 +10,10 @@ classDef javaNode fill:#ffb3ba,color:#333333;
 
 %% Modules
 subgraph  
-  direction TB;
-  :data([<a href='https://github.com/rjspies/Daedalus/blob/main/data/dependencyGraph.md' style='text-decoration:auto'>:data</a>]):::andNode;
-  :domain[<a href='https://github.com/rjspies/Daedalus/blob/main/domain/dependencyGraph.md' style='text-decoration:auto'>:domain</a>]:::andNode;
-  :ui([<a href='https://github.com/rjspies/Daedalus/blob/main/ui/dependencyGraph.md' style='text-decoration:auto'>:ui</a>]):::andNode;
+  direction LR;
+  :data([:data]):::andNode;
+  :domain[:domain]:::andNode;
+  :ui([:ui]):::andNode;
 end
 
 %% Dependencies

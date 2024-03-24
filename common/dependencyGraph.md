@@ -10,9 +10,9 @@ classDef javaNode fill:#ffb3ba,color:#333333;
 
 %% Modules
 subgraph  
-  direction TB;
-  :common[<a href='https://github.com/rjspies/Daedalus/blob/main/common/dependencyGraph.md' style='text-decoration:auto'>:common</a>]:::andNode;
-  :ui([<a href='https://github.com/rjspies/Daedalus/blob/main/ui/dependencyGraph.md' style='text-decoration:auto'>:ui</a>]):::andNode;
+  direction LR;
+  :common[:common]:::andNode;
+  :ui([:ui]):::andNode;
 end
 
 %% Dependencies
