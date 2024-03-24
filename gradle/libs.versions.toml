@@ -3,8 +3,9 @@
 androidGradlePlugin = "8.3.1"
 compileSdk = "34"
 compose = "1.6.4"
-composeCompiler = "1.5.8"
-minSdk = "26"
+composeCompiler = "1.5.11"
+kotlinxCoroutinesAndroid = "1.7.3"
+minSdk = "31"
 targetSdk = "34"
 versionName = "1.2"
 versionCodeOffset = "200000"
@@ -18,8 +19,12 @@ namespace = "com.rjspies.daedalus"
 junit5 = "5.10.2"
 
 # Raise these two together
-kotlin = "1.9.22"
+kotlin = "1.9.23"
 ksp = "1.9.23-1.0.19"
+junit = "1.1.5"
+espresso-core = "3.5.1"
+appcompat = "1.6.1"
+material = "1.9.0"
 
 [plugins]
 
@@ -53,8 +58,13 @@ ioInsertKoin-koinKspCompiler = { group = "io.insert-koin", name = "koin-ksp-comp
 androidxCore-coreSplashscreen = { group = "androidx.core", name = "core-splashscreen", version = "1.0.1" }
 junit-junit = { group = "junit", name = "junit", version = "4.13.2" }
 ioKotest-kotestProperty = { group = "io.kotest", name = "kotest-property", version = "5.8.1" }
+orgJetbrainsKotlinx-kotlinxCoroutinesAndroid = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version = "1.7.3" }
 orgRoboelectric-roboelectric = { group = "org.robolectric", name = "robolectric", version = "4.11.1" }
 ioInsertKoin-koinTestJunit4 = { group = "io.insert-koin", name = "koin-test-junit4", version = "3.5.3" }
 orgJunitJupiter-junitJupiterApi = { group = "org.junit.jupiter", name = "junit-jupiter-api", version.ref = "junit5" }
 orgJunitJupiter-junitJupiterEngine = { group = "org.junit.jupiter", name = "junit-jupiter-engine", version.ref = "junit5" }
 ioInsertKoin-koinCore = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
+junit = { group = "androidx.test.ext", name = "junit", version.ref = "junit" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }

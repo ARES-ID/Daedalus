@@ -10,13 +10,13 @@ classDef javaNode fill:#ffb3ba,color:#333333;
 
 %% Modules
 subgraph  
-  direction TB;
-  :app([<a href='https://github.com/rjspies/Daedalus/blob/main/app/dependencyGraph.md' style='text-decoration:auto'>:app</a>]):::andNode;
-  :data[<a href='https://github.com/rjspies/Daedalus/blob/main/data/dependencyGraph.md' style='text-decoration:auto'>:data</a>]:::andNode;
+  direction LR;
+  :data[:data]:::andNode;
+  :domain([:domain]):::andNode;
 end
 
 %% Dependencies
 
 %% Dependents
-:app-.->:data
+:domain-.->:data
 ```

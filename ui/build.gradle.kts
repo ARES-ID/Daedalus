@@ -3,9 +3,12 @@ import org.gradle.jvm.toolchain.internal.DefaultJvmVendorSpec
 
 plugins {
     alias(libs.plugins.comAndroidLibrary)
-    alias(libs.plugins.ioGitlabArturboschDetekt)
     alias(libs.plugins.orgJetbrainsKotlinAndroid)
+    alias(libs.plugins.comGoogleDevtoolsKsp)
+    alias(libs.plugins.ioGitlabArturboschDetekt)
     alias(libs.plugins.orgJmailenKotlinter)
+    alias(libs.plugins.ioGithubAdityahaskarDependencygraph)
+    id("kotlin-parcelize")
 }
 
 android {
@@ -54,9 +57,17 @@ kotlin {
 }
 
 dependencies {
+    implementation(project(":common"))
+    implementation(project(":domain"))
     implementation(libs.comJakewhartonTimer.timber)
     implementation(libs.androidxComposeMaterial3.material3)
+    implementation(libs.androidxComposeMaterial.materialIconsExtendedAndroid)
     implementation(libs.androidxNavigation.navigationCompose)
+    implementation(libs.ioInsertKoin.koinAndroidxCompose)
+    implementation(libs.ioInsertKoin.koinAnnotations)
+    implementation(libs.comPatrykandpatrickVico.composeM3)
+    implementation(libs.androidxConstraintlayout.constraintlayoutCompose)
+    ksp(libs.ioInsertKoin.koinKspCompiler)
     testImplementation(libs.orgJunitJupiter.junitJupiterApi)
     testRuntimeOnly(libs.orgJunitJupiter.junitJupiterEngine)
 }

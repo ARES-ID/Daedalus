@@ -5,6 +5,8 @@ plugins {
     alias(libs.plugins.comAndroidLibrary) apply false
     alias(libs.plugins.orgJetbrainsKotlinAndroid) apply false
     alias(libs.plugins.ioGithubAdityahaskarDependencygraph) apply true
+    alias(libs.plugins.orgJmailenKotlinter) apply false
+    alias(libs.plugins.ioGitlabArturboschDetekt) apply false
 }
 
 dependencyGraphConfig {

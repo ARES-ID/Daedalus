@@ -31,16 +31,19 @@ end
 
 %% Modules
 subgraph  
-  direction TB;
-  :app[<a href='https://github.com/rjspies/Daedalus/blob/main/app/dependencyGraph.md' style='text-decoration:auto'>:app</a>]:::andNode;
-  :data([<a href='https://github.com/rjspies/Daedalus/blob/main/data/dependencyGraph.md' style='text-decoration:auto'>:data</a>]):::andNode;
-  :domain[<a href='https://github.com/rjspies/Daedalus/blob/main/domain/dependencyGraph.md' style='text-decoration:auto'>:domain</a>]:::andNode;
-  :ui([<a href='https://github.com/rjspies/Daedalus/blob/main/ui/dependencyGraph.md' style='text-decoration:auto'>:ui</a>]):::andNode;
+  direction LR;
+  :app[:app]:::andNode;
+  :common([:common]):::andNode;
+  :data([:data]):::andNode;
+  :domain([:domain]):::andNode;
+  :ui([:ui]):::andNode;
 end
 
 %% Dependencies
 :app--->:ui
-:app--->:data
+:ui--->:common
+:ui--->:domain
+:domain--->:data
 
 %% Dependents
 ```

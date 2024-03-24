@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <supports-screens
         android:anyDensity="true"
@@ -21,7 +22,9 @@
         android:theme="@style/Theme.Daedalus.Splashscreen">
         <activity
             android:name=".DaedalusActivity"
-            android:exported="true">
+            android:enableOnBackInvokedCallback="true"
+            android:exported="true"
+            tools:targetApi="tiramisu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

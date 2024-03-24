@@ -1,5 +1,4 @@
 import org.gradle.internal.jvm.inspection.JvmVendor
-import org.gradle.internal.jvm.inspection.JvmVendor.KnownJvmVendor
 import org.gradle.jvm.toolchain.internal.DefaultJvmVendorSpec
 import java.io.ByteArrayOutputStream
 
@@ -7,9 +6,9 @@ plugins {
     alias(libs.plugins.comAndroidApplication)
     alias(libs.plugins.orgJetbrainsKotlinAndroid)
     alias(libs.plugins.comGoogleDevtoolsKsp)
-    alias(libs.plugins.orgJmailenKotlinter)
     alias(libs.plugins.ioGitlabArturboschDetekt)
-    id("kotlin-parcelize")
+    alias(libs.plugins.orgJmailenKotlinter)
+    alias(libs.plugins.ioGithubAdityahaskarDependencygraph)
 }
 
 android {
@@ -80,7 +79,7 @@ kotlin {
 
 dependencies {
     implementation(project(":ui"))
-    implementation(project(":data"))
+    implementation(libs.comJakewhartonTimer.timber)
     implementation(libs.androidxActivity.activityCompose)
     implementation(libs.androidxComposeUi.ui)
     implementation(libs.androidxCore.coreKtx)
@@ -89,9 +88,6 @@ dependencies {
     implementation(libs.androidxNavigation.navigationCompose)
     implementation(libs.androidxComposeMaterial.materialIconsExtendedAndroid)
     implementation(libs.androidxComposeMaterial3.material3)
-    implementation(libs.androidxConstraintlayout.constraintlayoutCompose)
-    implementation(libs.comJakewhartonTimer.timber)
-    implementation(libs.comPatrykandpatrickVico.composeM3)
     implementation(libs.ioInsertKoin.koinAndroidxCompose)
     implementation(libs.ioInsertKoin.koinAnnotations)
     ksp(libs.ioInsertKoin.koinKspCompiler)

@@ -3,10 +3,11 @@ import org.gradle.jvm.toolchain.internal.DefaultJvmVendorSpec
 
 plugins {
     alias(libs.plugins.comAndroidLibrary)
-    alias(libs.plugins.ioGitlabArturboschDetekt)
     alias(libs.plugins.orgJetbrainsKotlinAndroid)
-    alias(libs.plugins.orgJmailenKotlinter)
     alias(libs.plugins.comGoogleDevtoolsKsp)
+    alias(libs.plugins.ioGitlabArturboschDetekt)
+    alias(libs.plugins.orgJmailenKotlinter)
+    alias(libs.plugins.ioGithubAdityahaskarDependencygraph)
 }
 
 android {
@@ -55,6 +56,7 @@ dependencies {
     implementation(libs.androidxRoom.roomRuntime)
     implementation(libs.ioInsertKoin.koinAnnotations)
     implementation(libs.ioInsertKoin.koinCore)
+    implementation(libs.comJakewhartonTimer.timber)
     ksp(libs.androidxRoom.roomCompiler)
     ksp(libs.ioInsertKoin.koinKspCompiler)
     testImplementation(libs.orgRoboelectric.roboelectric)
