@@ -30,7 +30,7 @@ material = "1.11.0"
 
 comAndroidApplication = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 comAndroidLibrary = { id = "com.android.library", version.ref = "androidGradlePlugin" }
-ioGitlabArturboschDetekt = "io.gitlab.arturbosch.detekt:1.23.5"
+ioGitlabArturboschDetekt = "io.gitlab.arturbosch.detekt:1.23.6"
 orgJetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 orgJmailenKotlinter = "org.jmailen.kotlinter:4.3.0"
 comGoogleDevtoolsKsp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
