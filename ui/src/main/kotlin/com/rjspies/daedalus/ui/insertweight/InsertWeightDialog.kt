@@ -37,7 +37,7 @@ import com.rjspies.daedalus.common.R as commonR
 internal fun AddWeightDialog(onDismiss: () -> Unit) {
     val viewModel = koinViewModel<InsertWeightViewModel>()
     val uiState by viewModel.uiState.collectAsState()
-    val weightValue by rememberSaveable { mutableStateOf("") }
+    var weightValue by rememberSaveable { mutableStateOf("") }
     val focusRequester = remember { FocusRequester() }
 
     viewModel.setDismissDialog(onDismiss)
@@ -62,7 +62,13 @@ internal fun AddWeightDialog(onDismiss: () -> Unit) {
         text = {
             LaunchedEffect(Unit) { focusRequester.requestFocus() }
 
-            Input(weightValue, focusRequester, uiState, viewModel)
+            Input(
+                weightValue = weightValue,
+                focusRequester = focusRequester,
+                uiState = uiState,
+                onValueChange = { weightValue = it.filtered() },
+                onDone = { viewModel.insertWeight(weightValue) },
+            )
         },
         confirmButton = {
             TextButton(
@@ -86,12 +92,12 @@ private fun Input(
     weightValue: String,
     focusRequester: FocusRequester,
     uiState: InsertWeightUiState,
-    viewModel: InsertWeightViewModel,
+    onValueChange: (String) -> Unit,
+    onDone: (String) -> Unit,
 ) {
-    var weightValue1 = weightValue
     OutlinedTextField(
-        value = weightValue1,
-        onValueChange = { weightValue1 = it.filtered() },
+        value = weightValue,
+        onValueChange = onValueChange,
         modifier = Modifier.focusRequester(focusRequester),
         label = { Text(stringResource(R.string.add_weight_weight_text_field_label)) },
         supportingText = {
@@ -106,7 +112,7 @@ private fun Input(
             imeAction = ImeAction.Done,
         ),
         keyboardActions = KeyboardActions(
-            onDone = { viewModel.insertWeight(weightValue1) },
+            onDone = { onDone(weightValue) },
         ),
         isError = uiState.error != null,
         singleLine = true,
