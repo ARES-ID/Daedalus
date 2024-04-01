@@ -1,5 +1,6 @@
 package com.rjspies.daedalus.ui.weightgraph
 
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.unit.dp
@@ -19,18 +20,27 @@ import com.patrykandpatrick.vico.core.marker.Marker
 
 @Composable
 internal fun rememberMarker(): Marker {
-    val indicator = shapeComponent(Shapes.pillShape)
-    val labelBackground = shapeComponent(MarkerCorneredShape(Corner.FullyRounded))
+    val indicator = shapeComponent(
+        shape = Shapes.pillShape,
+        color = MaterialTheme.colorScheme.primary,
+    )
+
+    val labelBackground = shapeComponent(
+        shape = MarkerCorneredShape(Corner.FullyRounded),
+        color = MaterialTheme.colorScheme.primary,
+    )
 
     val label = textComponent(
         background = labelBackground,
         lineCount = LABEL_LINE_COUNT,
         padding = LabelPadding,
+        color = MaterialTheme.colorScheme.onPrimary,
     )
 
     val guideline = lineComponent(
         thickness = GuidelineThickness,
         shape = GuidelineShape,
+        color = MaterialTheme.colorScheme.primary,
     )
 
     return remember(label, indicator, guideline) {
