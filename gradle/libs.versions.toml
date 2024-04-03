@@ -2,7 +2,7 @@
 
 androidGradlePlugin = "8.3.1"
 compileSdk = "34"
-compose = "1.6.4"
+compose = "1.6.5"
 composeCompiler = "1.5.11"
 kotlinxCoroutinesAndroid = "1.7.3"
 minSdk = "31"
