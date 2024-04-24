@@ -2,6 +2,7 @@ package com.rjspies.daedalus.ui.weightgraph
 
 import androidx.compose.foundation.gestures.animateScrollBy
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -9,6 +10,8 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.AreaChart
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -49,19 +52,25 @@ internal fun WeightGraphScreen(innerPadding: PaddingValues) {
     }
 
     if (entries.isNotEmpty()) {
-        Box(
+        Column(
             modifier = Modifier
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
                 .padding(innerPadding),
-            content = { Chart(entries) },
-        )
+        ) {
+            Text(
+                text = stringResource(R.string.weight_graph_title),
+                modifier = Modifier.horizontalSpacingM(),
+                style = MaterialTheme.typography.headlineMedium,
+            )
+            Box(Modifier.horizontalSpacingM()) { Chart(entries) }
+        }
     } else {
         EmptyScreen(
             icon = rememberVectorPainter(Icons.Rounded.AreaChart),
             contentDescription = "",
-            title = stringResource(R.string.home_empty_screen_title),
-            subtitle = stringResource(R.string.home_empty_screen_subtitle),
+            title = stringResource(R.string.weight_graph_empty_screen_title),
+            subtitle = stringResource(R.string.weight_graph_empty_screen_subtitle),
             modifier = Modifier
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
