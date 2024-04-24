@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="home_title">Deine Statistik</string>
-    <string name="home_add_weight_button_text">Neue Messung hinzufügen</string>
-    <string name="home_weight_history_button_text">Verlauf ansehen</string>
-    <string name="home_empty_screen_title">Bereit zum Eintragen</string>
-    <string name="home_empty_screen_subtitle">Die Liniengrafik wartet darauf, mit deinen Einträgen gefüllt zu werden, um deine Fortschritte im Zeitverlauf anzuzeigen. Beginne jetzt deine Reise, indem du deinen ersten Eintrag hinzufügst.</string>
-</resources>
