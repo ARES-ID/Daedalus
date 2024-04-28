@@ -2,10 +2,15 @@
 <resources>
     <string name="weight_history_toolbar_title">Verlauf</string>
     <string name="weight_history_item_note">Notiz: %1$s</string>
+    <string name="weight_history_delete_icon_content_description">Löschen-Icon</string>
+    <string name="weight_history_avatar_neutral_icon_content_description">Gleichbleibender Trend</string>
+    <string name="weight_history_avatar_downwards_icon_content_description">Abwärts-Trend</string>
+    <string name="weight_history_avatar_upwards_icon_content_description">Aufwärts-Trend</string>
 
     <!-- Empty Screen -->
     <string name="weight_history_empty_screen_title">Bereit zum Eintragen</string>
     <string name="weight_history_empty_screen_subtitle">Dies ist der Verlaufs-Bildschirm, auf dem du deine Gewichtseinträge über einen längeren Zeitraum hinweg verfolgen kannst. Fang an, dein Gewicht aufzuzeichnen, um diese Liste mit Daten zu füllen und deine Fortschritte zu verfolgen.</string>
+    <string name="weight_history_empty_screen_content_description">Icon welches eine Liste darstellt.</string>
 
     <!-- Dialog -->
     <string name="weight_history_dialog_delete_item_title">Löschen bestätigen</string>

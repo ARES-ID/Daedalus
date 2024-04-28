@@ -24,7 +24,7 @@ internal fun NavigationBar(
                 icon = {
                     Icon(
                         imageVector = it.icon,
-                        contentDescription = null,
+                        contentDescription = stringResource(it.labelResourceId),
                     )
                 },
             )

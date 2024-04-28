@@ -53,7 +53,7 @@ internal fun AddWeightDialog(onDismiss: () -> Unit) {
         icon = {
             Icon(
                 imageVector = Icons.Rounded.AddChart,
-                contentDescription = null,
+                contentDescription = stringResource(R.string.add_weight_icon_content_description),
             )
         },
         title = {

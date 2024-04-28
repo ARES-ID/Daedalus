@@ -73,7 +73,7 @@ internal fun WeightGraphScreen(innerPadding: PaddingValues) {
     } else {
         EmptyScreen(
             icon = rememberVectorPainter(Icons.Rounded.AreaChart),
-            contentDescription = "",
+            contentDescription = stringResource(R.string.weight_graph_empty_screen_content_description),
             title = stringResource(R.string.weight_graph_empty_screen_title),
             subtitle = stringResource(R.string.weight_graph_empty_screen_subtitle),
             modifier = Modifier
