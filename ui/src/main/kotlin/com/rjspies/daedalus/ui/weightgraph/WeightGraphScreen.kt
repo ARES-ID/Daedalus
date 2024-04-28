@@ -21,6 +21,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.res.stringResource
+import com.patrykandpatrick.vico.compose.axis.axisGuidelineComponent
 import com.patrykandpatrick.vico.compose.axis.axisLabelComponent
 import com.patrykandpatrick.vico.compose.axis.horizontal.rememberBottomAxis
 import com.patrykandpatrick.vico.compose.axis.vertical.rememberStartAxis
@@ -28,8 +29,12 @@ import com.patrykandpatrick.vico.compose.chart.Chart
 import com.patrykandpatrick.vico.compose.chart.line.lineChart
 import com.patrykandpatrick.vico.compose.chart.scroll.rememberChartScrollSpec
 import com.patrykandpatrick.vico.compose.chart.scroll.rememberChartScrollState
+import com.patrykandpatrick.vico.compose.component.shapeComponent
 import com.patrykandpatrick.vico.core.chart.values.AxisValuesOverrider
+import com.patrykandpatrick.vico.core.component.marker.MarkerComponent
+import com.patrykandpatrick.vico.core.component.shape.Shapes
 import com.patrykandpatrick.vico.core.entry.ChartEntryModelProducer
+import com.patrykandpatrick.vico.core.marker.Marker
 import com.patrykandpatrick.vico.core.scroll.InitialScroll
 import com.rjspies.daedalus.ui.R
 import com.rjspies.daedalus.ui.common.horizontalSpacingM
@@ -88,13 +93,17 @@ private fun Chart(entries: List<WeightChartEntry>) {
     val valuesOverrider = remember(entries) { AxisValuesOverrider.fixed(minY = 0f, maxY = entries.maxOf { it.y } * 1.1f) }
     val axisLabel = axisLabelComponent()
     val chartScrollState = rememberChartScrollState()
+    val persistentMarker = rememberPersistentMarker(entries.indices)
 
     LaunchedEffect(entries) {
         chartScrollState.animateScrollBy(chartScrollState.maxValue)
     }
 
     Chart(
-        chart = lineChart(axisValuesOverrider = valuesOverrider),
+        chart = lineChart(
+            axisValuesOverrider = valuesOverrider,
+            persistentMarkers = persistentMarker,
+        ),
         chartModelProducer = lineProducer,
         startAxis = rememberStartAxis(label = axisLabel),
         bottomAxis = rememberBottomAxis(
@@ -108,3 +117,33 @@ private fun Chart(entries: List<WeightChartEntry>) {
         chartScrollSpec = rememberChartScrollSpec(initialScroll = InitialScroll.End),
     )
 }
+
+@Composable
+private fun rememberPersistentMarker(indices: IntRange): Map<Float, Marker> {
+    val label = axisLabelComponent()
+    val indicator = shapeComponent(
+        shape = Shapes.pillShape,
+        color = MaterialTheme.colorScheme.secondary,
+    )
+    val guideline = axisGuidelineComponent()
+
+    return remember(indices) {
+        if (indices.count() == 1) {
+            indices.associate {
+                it.toFloat() to object : MarkerComponent(
+                    label = label,
+                    indicator = indicator,
+                    guideline = guideline,
+                ) {
+                    init {
+                        indicatorSizeDp = INDICATOR_SIZE_DP
+                    }
+                }
+            }
+        } else {
+            emptyMap()
+        }
+    }
+}
+
+private const val INDICATOR_SIZE_DP = 6f
