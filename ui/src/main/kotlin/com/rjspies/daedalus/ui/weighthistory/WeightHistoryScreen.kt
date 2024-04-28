@@ -24,6 +24,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -68,7 +69,7 @@ internal fun WeightHistoryScreen(innerPadding: PaddingValues) {
     } else {
         EmptyScreen(
             icon = rememberVectorPainter(Icons.AutoMirrored.Rounded.List),
-            contentDescription = "",
+            contentDescription = stringResource(R.string.weight_history_empty_screen_content_description),
             title = stringResource(R.string.weight_history_empty_screen_title),
             subtitle = stringResource(R.string.weight_history_empty_screen_subtitle),
             modifier = Modifier
@@ -223,7 +224,7 @@ private fun WeightRow(
                 content = {
                     Icon(
                         imageVector = Icons.Rounded.DeleteOutline,
-                        contentDescription = "",
+                        contentDescription = stringResource(R.string.weight_history_delete_icon_content_description),
                     )
                 },
             )
@@ -242,15 +243,9 @@ private fun Avatar(
             .background(Color.Gray.copy(alpha = .3f))
             .then(modifier),
         content = {
-//            val contentDescription = when (state) {
-//                ArrowState.Neutral -> stringResource(R.string.extensions_content_description_trending_flat)
-//                ArrowState.Upwards -> stringResource(R.string.extensions_content_description_trending_up)
-//                ArrowState.Downwards -> stringResource(R.string.extensions_content_description_trending_down)
-//            }
-
             Icon(
                 imageVector = state.vector,
-                contentDescription = "",
+                contentDescription = state.contentDescription(),
                 modifier = Modifier.padding(Spacings.S),
             )
         },
@@ -261,6 +256,16 @@ private sealed class ArrowState(val vector: ImageVector) {
     data object Neutral : ArrowState(Icons.AutoMirrored.Rounded.TrendingFlat)
     data object Downwards : ArrowState(Icons.AutoMirrored.Rounded.TrendingDown)
     data object Upwards : ArrowState(Icons.AutoMirrored.Rounded.TrendingUp)
+}
+
+@ReadOnlyComposable
+@Composable
+private fun ArrowState.contentDescription(): String {
+    return when (this) {
+        ArrowState.Downwards -> stringResource(R.string.weight_history_avatar_downwards_icon_content_description)
+        ArrowState.Neutral -> stringResource(R.string.weight_history_avatar_neutral_icon_content_description)
+        ArrowState.Upwards -> stringResource(R.string.weight_history_avatar_upwards_icon_content_description)
+    }
 }
 
 private fun Float.asUserfacingString(locale: Locale): String {
