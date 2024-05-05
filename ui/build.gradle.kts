@@ -67,6 +67,7 @@ dependencies {
     implementation(libs.ioInsertKoin.koinAnnotations)
     implementation(libs.comPatrykandpatrickVico.composeM3)
     implementation(libs.androidxConstraintlayout.constraintlayoutCompose)
+    implementation(libs.androidxComposeUi.uiTextGoogleFonts)
     ksp(libs.ioInsertKoin.koinKspCompiler)
     testImplementation(libs.orgJunitJupiter.junitJupiterApi)
     testRuntimeOnly(libs.orgJunitJupiter.junitJupiterEngine)

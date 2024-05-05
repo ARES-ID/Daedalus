@@ -68,3 +68,4 @@ junit = { group = "androidx.test.ext", name = "junit", version.ref = "junit" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidxComposeUi-uiTextGoogleFonts = { group = "androidx.compose.ui", name = "ui-text-google-fonts", version.ref = "compose" }
