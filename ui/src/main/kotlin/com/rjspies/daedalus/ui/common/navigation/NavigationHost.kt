@@ -6,6 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.rjspies.daedalus.ui.common.Route
+import com.rjspies.daedalus.ui.settings.SettingsScreen
 import com.rjspies.daedalus.ui.weightgraph.WeightGraphScreen
 import com.rjspies.daedalus.ui.weighthistory.WeightHistoryScreen
 
@@ -23,6 +24,9 @@ internal fun NavigationHost(
         }
         composable(Route.WeightHistory.name) {
             WeightHistoryScreen(innerPadding)
+        }
+        composable(Route.Settings.name) {
+            SettingsScreen(innerPadding)
         }
     }
 }
