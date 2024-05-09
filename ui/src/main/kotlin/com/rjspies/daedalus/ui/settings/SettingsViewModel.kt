@@ -19,17 +19,17 @@ internal class SettingsViewModel(savedStateHandle: SavedStateHandle) : ViewModel
 
     private fun legals(): List<SettingItem> = listOf(
         SettingItem(
-            title = R.string.settings_legal_item_privacy,
+            titleResourceId = R.string.settings_legal_item_privacy,
             icon = Icons.Rounded.PrivacyTip,
             onClick = {},
         ),
         SettingItem(
-            title = R.string.settings_legal_item_terms_of_service,
+            titleResourceId = R.string.settings_legal_item_terms_of_service,
             icon = Icons.Rounded.Description,
             onClick = {},
         ),
         SettingItem(
-            title = R.string.settings_legal_item_imprint,
+            titleResourceId = R.string.settings_legal_item_imprint,
             icon = Icons.Rounded.Person,
             onClick = {},
         ),

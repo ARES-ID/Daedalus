@@ -69,7 +69,7 @@ internal fun SettingsScreen(
                             horizontalArrangement = Arrangement.SpaceBetween,
                             verticalAlignment = Alignment.CenterVertically,
                         ) {
-                            Text(stringResource(it.title))
+                            Text(stringResource(it.titleResourceId))
                             HorizontalSpacerM()
                             Icon(
                                 imageVector = it.icon,
@@ -85,7 +85,7 @@ internal fun SettingsScreen(
 
 @Parcelize
 internal data class SettingItem(
-    @StringRes val title: Int,
+    @StringRes val titleResourceId: Int,
     val icon: @RawValue ImageVector,
     val onClick: () -> Unit,
 ) : Parcelable
