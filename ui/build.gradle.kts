@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.ioGitlabArturboschDetekt)
     alias(libs.plugins.orgJmailenKotlinter)
     alias(libs.plugins.ioGithubAdityahaskarDependencygraph)
+    alias(libs.plugins.orgJetbrainsKotlinPluginCompose)
     id("kotlin-parcelize")
 }
 
@@ -31,10 +32,6 @@ android {
 
     buildFeatures {
         compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
     }
 
     packaging {

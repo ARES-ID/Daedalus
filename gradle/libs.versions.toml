@@ -19,7 +19,7 @@ namespace = "com.rjspies.daedalus"
 junit5 = "5.10.2"
 
 # Raise these two together
-kotlin = "1.9.24"
+kotlin = "2.0.0"
 ksp = "2.0.0-1.0.21"
 junit = "1.1.5"
 espresso-core = "3.5.1"
@@ -36,6 +36,7 @@ orgJmailenKotlinter = "org.jmailen.kotlinter:4.3.0"
 comGoogleDevtoolsKsp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 deMannodermausAndroidJunit5 = { id = "de.mannodermaus.android-junit5", version.ref = "junit5" }
 ioGithubAdityahaskarDependencygraph = { id = "io.github.adityabhaskar.dependencygraph", version = "0.1.6" }
+orgJetbrainsKotlinPluginCompose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
 [libraries]
 
