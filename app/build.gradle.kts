@@ -9,6 +9,7 @@ plugins {
     alias(libs.plugins.ioGitlabArturboschDetekt)
     alias(libs.plugins.orgJmailenKotlinter)
     alias(libs.plugins.ioGithubAdityahaskarDependencygraph)
+    alias(libs.plugins.orgJetbrainsKotlinPluginCompose)
 }
 
 android {
@@ -53,10 +54,6 @@ android {
     buildFeatures {
         compose = true
         buildConfig = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
     }
 
     packaging {
