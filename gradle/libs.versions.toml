@@ -20,7 +20,7 @@ junit5 = "5.10.2"
 
 # Raise these two together
 kotlin = "2.0.0"
-ksp = "2.0.0-1.0.21"
+ksp = "2.0.0-1.0.22"
 junit = "1.1.5"
 espresso-core = "3.5.1"
 appcompat = "1.7.0"
