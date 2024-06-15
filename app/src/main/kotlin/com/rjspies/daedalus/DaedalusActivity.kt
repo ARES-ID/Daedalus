@@ -19,6 +19,10 @@ import org.koin.compose.KoinContext
 
 private const val ANIMATION_DURATION = 250L
 
+fun test() {
+    
+}
+
 class DaedalusActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Theme_Daedalus)
