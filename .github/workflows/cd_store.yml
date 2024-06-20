@@ -22,6 +22,9 @@ jobs:
         with:
           cache-disabled: true
 
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
       - name: Decode keystore
         id: decode_keystore
         uses: timheuer/base64-to-file@v1
@@ -31,9 +34,7 @@ jobs:
           encodedString: ${{ secrets.KEYSTORE }}
 
       - name: Build release
-        uses: gradle/gradle-build-action@v3
-        with:
-          arguments: app:bundleRelease
+        run: ./gradlew app:bundleRelease
         env:
           DAEDALUS_SIGNING_KEY: ${{ secrets.DAEDALUS_SIGNING_KEY }}
           DAEDALUS_STORE_PASSWORD: ${{ secrets.DAEDALUS_STORE_PASSWORD }}

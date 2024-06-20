@@ -22,25 +22,20 @@ jobs:
         with:
           cache-disabled: true
 
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
       - name: Detekt
-        uses: gradle/gradle-build-action@v3
-        with:
-          arguments: detekt
+        run: ./gradlew detekt
 
       - name: Kotlinter
-        uses: gradle/gradle-build-action@v3
-        with:
-          arguments: lintKotlin
+        run: ./gradlew lintKotlin
 
       - name: Lint
-        uses: gradle/gradle-build-action@v3
-        with:
-          arguments: lint
+        run: ./gradlew lint
 
-      - name: Tests
-        uses: gradle/gradle-build-action@v3
-        with:
-          arguments: test
+      - name: Check
+        run: ./gradlew check
 
       - name: Decode keystore
         id: decode_keystore
@@ -51,9 +46,7 @@ jobs:
           encodedString: ${{ secrets.KEYSTORE }}
 
       - name: Assemble
-        uses: gradle/gradle-build-action@v3
-        with:
-          arguments: assembleRelease
+        run: ./gradlew assemble
         env:
           DAEDALUS_SIGNING_KEY: ${{ secrets.DAEDALUS_SIGNING_KEY }}
           DAEDALUS_STORE_PASSWORD: ${{ secrets.DAEDALUS_STORE_PASSWORD }}
