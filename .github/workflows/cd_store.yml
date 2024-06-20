@@ -1,4 +1,4 @@
-name: CD/Store
+name: cd
 on:
   workflow_dispatch:
     branches: main
