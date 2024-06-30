@@ -6,6 +6,8 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 @Factory
-public class GetWeightsAscendingUseCase(private val service: WeightService) {
+public class GetWeightsAscendingUseCase(
+    private val service: WeightService,
+) {
     public operator fun invoke(): Flow<List<Weight>> = service.weightsAscending().map { it.map { it.toWeight() } }
 }

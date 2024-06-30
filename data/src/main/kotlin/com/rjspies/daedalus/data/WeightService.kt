@@ -6,7 +6,9 @@ import org.koin.core.annotation.Single
 import kotlinx.coroutines.flow.Flow
 
 @Single
-public class WeightService(private val weightDao: WeightDao) {
+public class WeightService(
+    private val weightDao: WeightDao,
+) {
     public suspend fun insertWeight(weight: Weight): Unit = weightDao.insert(weight)
     public fun weightsDescending(): Flow<List<Weight>> = weightDao.weightsDescending()
     public fun weightsAscending(): Flow<List<Weight>> = weightDao.weightsAscending()

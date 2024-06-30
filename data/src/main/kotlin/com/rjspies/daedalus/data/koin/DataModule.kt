@@ -11,12 +11,8 @@ import org.koin.core.annotation.Single
 @ComponentScan("com.rjspies.daedalus.data")
 public class DataModule {
     @Single
-    public fun provideWeightDatabase(context: Context): WeightDatabase {
-        return WeightDatabase.getDatabase(context)
-    }
+    public fun provideWeightDatabase(context: Context): WeightDatabase = WeightDatabase.getDatabase(context)
 
     @Single
-    public fun provideWeightDao(database: WeightDatabase): WeightDao {
-        return database.weightDao()
-    }
+    public fun provideWeightDao(database: WeightDatabase): WeightDao = database.weightDao()
 }
