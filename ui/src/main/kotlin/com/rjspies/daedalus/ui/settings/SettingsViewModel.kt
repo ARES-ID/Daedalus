@@ -11,7 +11,9 @@ import com.rjspies.daedalus.ui.common.SAVED_STATE_HANDLE_KEY_UI_STATE
 import org.koin.android.annotation.KoinViewModel
 
 @KoinViewModel
-internal class SettingsViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+internal class SettingsViewModel(
+    savedStateHandle: SavedStateHandle,
+) : ViewModel() {
     val uiState = savedStateHandle.getStateFlow(
         key = SAVED_STATE_HANDLE_KEY_UI_STATE,
         initialValue = SettingsUiState(legals()),

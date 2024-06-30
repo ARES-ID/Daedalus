@@ -39,7 +39,9 @@ class DaedalusActivity : ComponentActivity() {
 
     @Composable
     private fun StatusBar() {
-        val backgroundColor = MaterialTheme.colorScheme.background.copy(alpha = .69f).toArgb()
+        val backgroundColor = MaterialTheme.colorScheme.background
+            .copy(alpha = .69f)
+            .toArgb()
         SideEffect {
             window.statusBarColor = backgroundColor
         }

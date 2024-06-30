@@ -39,7 +39,8 @@ internal class InsertWeightViewModel(
             setIsLoading(true)
             val parsedWeightValue = weightValue.parseToFloat()
             if (parsedWeightValue != null) {
-                val weight = com.rjspies.daedalus.domain.Weight(value = parsedWeightValue)
+                val weight = com.rjspies.daedalus.domain
+                    .Weight(value = parsedWeightValue)
                 insertWeightUseCase(weight)
                 uiState.value.dismissDialog()
             } else {

@@ -8,7 +8,9 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
 
 @KoinViewModel
-internal class WeightGraphViewModel(getWeightsAscendingUseCase: GetWeightsAscendingUseCase) : ViewModel() {
+internal class WeightGraphViewModel(
+    getWeightsAscendingUseCase: GetWeightsAscendingUseCase,
+) : ViewModel() {
     val weights = getWeightsAscendingUseCase().stateIn(
         scope = viewModelScope,
         started = SharingStarted.WhileSubscribed(),

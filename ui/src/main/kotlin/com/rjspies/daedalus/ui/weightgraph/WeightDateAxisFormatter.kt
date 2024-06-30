@@ -11,7 +11,9 @@ internal object WeightDateAxisFormatter : AxisValueFormatter<AxisPosition.Horizo
         value: Float,
         chartValues: ChartValues,
     ): CharSequence {
-        val weightEntries = chartValues.chartEntryModel.entries.filterIsInstance<List<WeightChartEntry>>().flatten()
+        val weightEntries = chartValues.chartEntryModel.entries
+            .filterIsInstance<List<WeightChartEntry>>()
+            .flatten()
         return if (weightEntries.isNotEmpty()) {
             val weight = weightEntries.elementAtOrNull(value.toInt())
             weight?.dateTime?.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT)).orEmpty()

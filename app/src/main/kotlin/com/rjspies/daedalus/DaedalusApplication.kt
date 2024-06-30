@@ -16,11 +16,9 @@ class DaedalusApplication : Application() {
         startKoin()
     }
 
-    private fun startKoin(): KoinApplication {
-        return startKoin {
-            androidLogger()
-            androidContext(applicationContext)
-            modules(AppModule().module)
-        }
+    private fun startKoin(): KoinApplication = startKoin {
+        androidLogger()
+        androidContext(applicationContext)
+        modules(AppModule().module)
     }
 }

@@ -14,17 +14,15 @@ internal object DaedalusMarkerLabelFormatter : MarkerLabelFormatter {
     override fun getLabel(
         markedEntries: List<Marker.EntryModel>,
         chartValues: ChartValues,
-    ): CharSequence {
-        return markedEntries.transformToSpannable(
-            prefix = if (markedEntries.size > 1) PATTERN.format(markedEntries.sumOf { it.entry.y }) + " (" else "",
-            postfix = if (markedEntries.size > 1) ")" else "",
-            separator = "; ",
-        ) { model ->
-            appendCompat(
-                text = PATTERN.format(model.entry.y),
-                what = Any(),
-                flags = Spannable.SPAN_EXCLUSIVE_EXCLUSIVE,
-            )
-        }
+    ): CharSequence = markedEntries.transformToSpannable(
+        prefix = if (markedEntries.size > 1) PATTERN.format(markedEntries.sumOf { it.entry.y }) + " (" else "",
+        postfix = if (markedEntries.size > 1) ")" else "",
+        separator = "; ",
+    ) { model ->
+        appendCompat(
+            text = PATTERN.format(model.entry.y),
+            what = Any(),
+            flags = Spannable.SPAN_EXCLUSIVE_EXCLUSIVE,
+        )
     }
 }

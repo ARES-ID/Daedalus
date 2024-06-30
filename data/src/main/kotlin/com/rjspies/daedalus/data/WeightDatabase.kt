@@ -15,18 +15,17 @@ public abstract class WeightDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: WeightDatabase? = null
 
-        public fun getDatabase(context: Context): WeightDatabase {
-            return INSTANCE ?: synchronized(this) {
-                val instance = Room.databaseBuilder(
+        public fun getDatabase(context: Context): WeightDatabase = INSTANCE ?: synchronized(this) {
+            val instance = Room
+                .databaseBuilder(
                     context,
                     WeightDatabase::class.java,
                     "weight_database",
                 ).apply {
                     fallbackToDestructiveMigration()
                 }.build()
-                INSTANCE = instance
-                instance
-            }
+            INSTANCE = instance
+            instance
         }
     }
 }

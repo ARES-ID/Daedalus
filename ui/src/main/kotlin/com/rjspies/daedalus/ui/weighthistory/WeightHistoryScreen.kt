@@ -252,7 +252,9 @@ private fun Avatar(
     )
 }
 
-private sealed class ArrowState(val vector: ImageVector) {
+private sealed class ArrowState(
+    val vector: ImageVector,
+) {
     data object Neutral : ArrowState(Icons.AutoMirrored.Rounded.TrendingFlat)
     data object Downwards : ArrowState(Icons.AutoMirrored.Rounded.TrendingDown)
     data object Upwards : ArrowState(Icons.AutoMirrored.Rounded.TrendingUp)
@@ -260,17 +262,13 @@ private sealed class ArrowState(val vector: ImageVector) {
 
 @ReadOnlyComposable
 @Composable
-private fun ArrowState.contentDescription(): String {
-    return when (this) {
-        ArrowState.Downwards -> stringResource(R.string.weight_history_avatar_downwards_icon_content_description)
-        ArrowState.Neutral -> stringResource(R.string.weight_history_avatar_neutral_icon_content_description)
-        ArrowState.Upwards -> stringResource(R.string.weight_history_avatar_upwards_icon_content_description)
-    }
+private fun ArrowState.contentDescription(): String = when (this) {
+    ArrowState.Downwards -> stringResource(R.string.weight_history_avatar_downwards_icon_content_description)
+    ArrowState.Neutral -> stringResource(R.string.weight_history_avatar_neutral_icon_content_description)
+    ArrowState.Upwards -> stringResource(R.string.weight_history_avatar_upwards_icon_content_description)
 }
 
-private fun Float.asUserfacingString(locale: Locale): String {
-    return "${DecimalFormat.getInstance(locale).format(this)} kg"
-}
+private fun Float.asUserfacingString(locale: Locale): String = "${DecimalFormat.getInstance(locale).format(this)} kg"
 
 private fun ZonedDateTime.asUserfacingString(
     locale: Locale,
