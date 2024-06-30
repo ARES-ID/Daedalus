@@ -10,5 +10,11 @@
   "rebaseWhen": "behind-base-branch",
   "commitMessagePrefix": "Renovate: ",
   "dependencyDashboard": true,
-  "prCreation": "approval"
+  "prCreation": "approval",
+  "packageRules": [
+    {
+      "description": "Automerge everything",
+      "automerge": true
+    }
+  ]
 }
