@@ -14,7 +14,12 @@
   "packageRules": [
     {
       "description": "Automerge everything",
-      "matchUpdateTypes": "bump",
+      "matchUpdateTypes": [
+        "major",
+        "minor",
+        "patch",
+        "bump"
+      ],
       "automerge": true
     }
   ]
