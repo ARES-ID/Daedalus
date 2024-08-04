@@ -23,7 +23,7 @@ jobs:
           cache-disabled: true
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/actions/setup-gradle@v4
 
       - name: Detekt
         run: ./gradlew detekt
