@@ -19,7 +19,7 @@ namespace = "com.rjspies.daedalus"
 junit5 = "5.10.3"
 
 # Raise these two together
-kotlin = "2.0.0"
+kotlin = "2.0.10"
 ksp = "2.0.0-1.0.24"
 junit = "1.2.1"
 espresso-core = "3.6.1"
