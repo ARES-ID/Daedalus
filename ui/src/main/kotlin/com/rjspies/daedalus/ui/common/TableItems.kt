@@ -18,7 +18,7 @@ internal inline fun <T> LazyListScope.tableItems(
     key = if (key != null) { index: Int -> key(items[index]) } else null,
     contentType = { index: Int -> contentType(items[index]) },
 ) {
-    HorizontalDivider(Modifier.animateItemPlacement())
+    HorizontalDivider(Modifier.animateItem())
     itemContent(items[it])
-    if (it >= items.lastIndex) HorizontalDivider(Modifier.animateItemPlacement())
+    if (it >= items.lastIndex) HorizontalDivider(Modifier.animateItem())
 }

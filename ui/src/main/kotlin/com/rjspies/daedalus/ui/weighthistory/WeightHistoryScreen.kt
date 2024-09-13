@@ -111,7 +111,7 @@ private fun Weights(
                         weight = it,
                         state = state,
                         viewModel = viewModel,
-                        modifier = Modifier.animateItemPlacement(),
+                        modifier = Modifier.animateItem(),
                     )
                 },
             )
