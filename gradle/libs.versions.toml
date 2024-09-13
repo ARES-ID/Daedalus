@@ -42,7 +42,7 @@ orgJetbrainsKotlinPluginCompose = { id = "org.jetbrains.kotlin.plugin.compose", 
 
 androidxActivity-activityCompose = { group = "androidx.activity", name = "activity-compose", version = "1.9.2" }
 androidxComposeMaterial-materialIconsExtendedAndroid = { group = "androidx.compose.material", name = "material-icons-extended-android", version = "1.7.1" }
-androidxComposeMaterial3-material3 = { group = "androidx.compose.material3", name = "material3", version = "1.2.1" }
+androidxComposeMaterial3-material3 = { group = "androidx.compose.material3", name = "material3", version = "1.3.0" }
 androidxComposeUi-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "compose" }
 androidxNavigation-navigationCompose = { group = "androidx.navigation", name = "navigation-compose", version = "2.7.7" }
 androidxCore-coreKtx = { group = "androidx.core", name = "core-ktx", version = "1.13.1" }
