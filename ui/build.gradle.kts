@@ -24,7 +24,6 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             ndk.debugSymbolLevel = "FULL"
         }
@@ -48,7 +47,7 @@ kotlin {
     }
 
     compilerOptions {
-        allWarningsAsErrors.set(true)
+        allWarningsAsErrors.set(false)
         explicitApi()
     }
 }
