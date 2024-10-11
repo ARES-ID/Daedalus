@@ -34,8 +34,6 @@ ioGitlabArturboschDetekt = "io.gitlab.arturbosch.detekt:1.23.7"
 orgJetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 orgJmailenKotlinter = "org.jmailen.kotlinter:4.4.1"
 comGoogleDevtoolsKsp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-deMannodermausAndroidJunit5 = { id = "de.mannodermaus.android-junit5", version.ref = "junit5" }
-ioGithubAdityahaskarDependencygraph = { id = "io.github.adityabhaskar.dependencygraph", version = "0.1.6" }
 orgJetbrainsKotlinPluginCompose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
 [libraries]

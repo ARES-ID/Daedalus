@@ -13,8 +13,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.toArgb
 import androidx.core.animation.doOnEnd
-import com.rjspies.daedalus.ui.common.theme.DaedalusTheme
-import com.rjspies.daedalus.ui.main.MainScreen
 import org.koin.compose.KoinContext
 
 private const val ANIMATION_DURATION = 250L
