@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Waagenfreund</string>
+    <string name="common_cancel">Abbrechen</string>
 </resources>
