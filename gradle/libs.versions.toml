@@ -10,9 +10,9 @@ kotlin = "2.0.21"
 ksp = "2.0.21-1.0.26"
 
 # App config
-compileSdk = "34"
-targetSdk = "34"
-minSdk = "31"
+compileSdk = "35"
+targetSdk = "35"
+minSdk = "21"
 versionName = "1.2"
 versionCodeOffset = "200000"
 namespace = "com.rjspies.daedalus"
