@@ -20,10 +20,10 @@ val appModule = module {
         Room.databaseBuilder(
             context = get(),
             klass = WeightDatabase::class.java,
-            name = "weight_database", // TODO
+            name = "weight_database",
         ).build()
     }
-    single { get<WeightDatabase>(WeightDatabase::class).weightDao() }
+    single { get<WeightDatabase>().weightDao() }
     single { WeightService(get()) }
     viewModel { MainViewModel(get()) }
     factory { GetWeightsAscendingUseCase(get()) }
