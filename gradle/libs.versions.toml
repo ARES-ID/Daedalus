@@ -1,21 +1,25 @@
 [versions]
 
-androidGradlePlugin = "8.7.1"
-compileSdk = "34"
-compose = "1.7.4"
-minSdk = "31"
-targetSdk = "34"
-versionName = "1.2"
-versionCodeOffset = "200000"
+androidGradlePlugin = "8.7.0"
+compose = "1.7.3"
 room = "2.6.1"
-java = "17"
-javaVendor = "ORACLE"
 koin = "4.0.0"
-namespace = "com.rjspies.daedalus"
 
 # Raise these two together
 kotlin = "2.0.21"
 ksp = "2.0.21-1.0.26"
+
+# App config
+compileSdk = "34"
+targetSdk = "34"
+minSdk = "31"
+versionName = "1.2"
+versionCodeOffset = "200000"
+namespace = "com.rjspies.daedalus"
+
+# Project config
+java = "17"
+javaVendor = "ORACLE"
 
 [plugins]
 
