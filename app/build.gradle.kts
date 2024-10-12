@@ -89,17 +89,13 @@ dependencies {
     implementation(libs.androidxComposeMaterial.materialIconsExtendedAndroid)
     implementation(libs.androidxComposeMaterial3.material3)
     implementation(libs.ioInsertKoin.koinAndroidxCompose)
-    implementation(libs.ioInsertKoin.koinAnnotations)
-    ksp(libs.androidxRoom.roomCompiler)
-    ksp(libs.ioInsertKoin.koinKspCompiler)
     implementation(libs.comPatrykandpatrickVico.composeM3)
     implementation(libs.androidxComposeUi.uiTextGoogleFonts)
     implementation(libs.androidxRoom.roomKtx)
     implementation(libs.androidxRoom.roomRuntime)
     implementation(libs.androidxConstraintlayout.constraintlayoutCompose)
-    testImplementation(libs.orgJunitJupiter.junitJupiterApi)
+    ksp(libs.androidxRoom.roomCompiler)
     testImplementation(libs.ioInsertKoin.koinTestJunit4)
-    testRuntimeOnly(libs.orgJunitJupiter.junitJupiterEngine)
 }
 
 fun generateVersionCode(): Int {
