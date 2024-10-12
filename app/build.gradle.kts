@@ -70,7 +70,7 @@ kotlin {
     }
 
     compilerOptions {
-        allWarningsAsErrors.set(false)
+        allWarningsAsErrors.set(true)
     }
 }
 
