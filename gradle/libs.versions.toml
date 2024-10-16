@@ -14,7 +14,7 @@ java = "17"
 javaVendor = "ORACLE"
 koin = "4.0.0"
 koin-test = "3.4.3"
-koin-annotations = "1.3.1"
+koin-annotations = "1.4.0"
 namespace = "com.rjspies.daedalus"
 junit5 = "5.11.2"
 
