@@ -17,11 +17,12 @@ import org.koin.dsl.module
 
 val appModule = module {
     single {
-        Room.databaseBuilder(
-            context = get(),
-            klass = WeightDatabase::class.java,
-            name = "weight_database",
-        ).build()
+        Room
+            .databaseBuilder(
+                context = get(),
+                klass = WeightDatabase::class.java,
+                name = "weight_database",
+            ).build()
     }
     single { get<WeightDatabase>().weightDao() }
     single { WeightService(get()) }
