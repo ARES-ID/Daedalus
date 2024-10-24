@@ -1,4 +1,4 @@
-package com.rjspies.daedalus.ui
+package com.rjspies.daedalus.ui.diagram
 
 import androidx.compose.foundation.gestures.animateScrollBy
 import androidx.compose.foundation.layout.Box
@@ -37,11 +37,14 @@ import com.patrykandpatrick.vico.core.marker.Marker
 import com.patrykandpatrick.vico.core.scroll.InitialScroll
 import com.rjspies.daedalus.R
 import com.rjspies.daedalus.data.WeightChartEntry
+import com.rjspies.daedalus.ui.EmptyScreen
+import com.rjspies.daedalus.ui.horizontalSpacingM
+import com.rjspies.daedalus.ui.verticalSpacingM
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-internal fun WeightGraphScreen(innerPadding: PaddingValues) {
-    val viewModel = koinViewModel<WeightGraphViewModel>()
+fun WeightDiagramScreen(innerPadding: PaddingValues) {
+    val viewModel = koinViewModel<WeightDiagramViewModel>()
     val weights by viewModel.weights.collectAsState()
     val entries = rememberSaveable(weights) {
         weights.mapIndexed { index, weight ->
@@ -61,7 +64,7 @@ internal fun WeightGraphScreen(innerPadding: PaddingValues) {
                 .padding(innerPadding),
         ) {
             Text(
-                text = stringResource(R.string.weight_graph_title),
+                text = stringResource(R.string.weight_diagram_title),
                 modifier = Modifier.horizontalSpacingM(),
                 style = MaterialTheme.typography.headlineMedium,
             )
@@ -70,9 +73,9 @@ internal fun WeightGraphScreen(innerPadding: PaddingValues) {
     } else {
         EmptyScreen(
             icon = rememberVectorPainter(Icons.Rounded.AreaChart),
-            contentDescription = stringResource(R.string.weight_graph_empty_screen_content_description),
-            title = stringResource(R.string.weight_graph_empty_screen_title),
-            subtitle = stringResource(R.string.weight_graph_empty_screen_subtitle),
+            contentDescription = stringResource(R.string.weight_diagram_empty_screen_content_description),
+            title = stringResource(R.string.weight_diagram_empty_screen_title),
+            subtitle = stringResource(R.string.weight_diagram_empty_screen_subtitle),
             modifier = Modifier
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())

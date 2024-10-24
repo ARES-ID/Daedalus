@@ -9,7 +9,7 @@ plugins {
     alias(libs.plugins.ioGitlabArturboschDetekt)
     alias(libs.plugins.orgJmailenKotlinter)
     alias(libs.plugins.orgJetbrainsKotlinPluginCompose)
-    id("kotlin-parcelize")
+    alias(libs.plugins.orgJetbrainsKotlinPluginParcelize)
 }
 
 android {

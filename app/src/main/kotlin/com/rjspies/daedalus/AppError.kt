@@ -3,9 +3,9 @@ package com.rjspies.daedalus
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
-public interface AppError : Parcelable
+interface AppError : Parcelable
 
 @Parcelize
-public sealed class AddWeightError : AppError {
-    public data object ParseFloatError : AddWeightError()
+sealed class AddWeightError : AppError {
+    data object ParseFloatError : AddWeightError()
 }

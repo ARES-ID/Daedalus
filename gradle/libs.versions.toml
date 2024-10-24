@@ -25,11 +25,12 @@ javaVendor = "ORACLE"
 
 comAndroidApplication = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 comAndroidLibrary = { id = "com.android.library", version.ref = "androidGradlePlugin" }
-ioGitlabArturboschDetekt = "io.gitlab.arturbosch.detekt:1.23.7"
+ioGitlabArturboschDetekt = { id = "io.gitlab.arturbosch.detekt", version = "1.23.7" }
 orgJetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-orgJmailenKotlinter = "org.jmailen.kotlinter:4.4.1"
+orgJmailenKotlinter = { id = "org.jmailen.kotlinter", version = "4.4.1" }
 comGoogleDevtoolsKsp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 orgJetbrainsKotlinPluginCompose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+orgJetbrainsKotlinPluginParcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 
 [libraries]
 

@@ -10,7 +10,7 @@ import com.rjspies.daedalus.ui.InsertWeightUseCase
 import com.rjspies.daedalus.ui.InsertWeightViewModel
 import com.rjspies.daedalus.ui.MainViewModel
 import com.rjspies.daedalus.ui.SettingsViewModel
-import com.rjspies.daedalus.ui.WeightGraphViewModel
+import com.rjspies.daedalus.ui.diagram.WeightDiagramViewModel
 import com.rjspies.daedalus.ui.WeightHistoryViewModel
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
@@ -28,7 +28,7 @@ val appModule = module {
     single { WeightService(get()) }
     viewModel { MainViewModel(get()) }
     factory { GetWeightsAscendingUseCase(get()) }
-    viewModel { WeightGraphViewModel(get()) }
+    viewModel { WeightDiagramViewModel(get()) }
     factory { GetWeightsDescendingUseCase(get()) }
     factory { DeleteWeightUseCase(get()) }
     viewModel { WeightHistoryViewModel(get(), get()) }

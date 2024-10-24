@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.rjspies.daedalus.ui.diagram.WeightDiagramScreen
 
 @Composable
 internal fun NavigationHost(
@@ -16,7 +17,7 @@ internal fun NavigationHost(
         startDestination = Route.WeightGraph.name,
     ) {
         composable(Route.WeightGraph.name) {
-            WeightGraphScreen(innerPadding)
+            WeightDiagramScreen(innerPadding)
         }
         composable(Route.WeightHistory.name) {
             WeightHistoryScreen(innerPadding)

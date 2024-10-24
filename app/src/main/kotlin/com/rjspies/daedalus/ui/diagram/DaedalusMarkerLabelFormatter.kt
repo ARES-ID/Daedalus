@@ -1,4 +1,4 @@
-package com.rjspies.daedalus.ui
+package com.rjspies.daedalus.ui.diagram
 
 import android.text.Spannable
 import com.patrykandpatrick.vico.core.chart.values.ChartValues

@@ -1,4 +1,4 @@
-package com.rjspies.daedalus.ui
+package com.rjspies.daedalus.ui.diagram
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
