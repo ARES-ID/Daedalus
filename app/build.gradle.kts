@@ -8,8 +8,8 @@ plugins {
     alias(libs.plugins.comGoogleDevtoolsKsp)
     alias(libs.plugins.ioGitlabArturboschDetekt)
     alias(libs.plugins.orgJmailenKotlinter)
-    alias(libs.plugins.ioGithubAdityahaskarDependencygraph)
     alias(libs.plugins.orgJetbrainsKotlinPluginCompose)
+    alias(libs.plugins.orgJetbrainsKotlinPluginParcelize)
 }
 
 android {
@@ -74,8 +74,11 @@ kotlin {
     }
 }
 
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas")
+}
+
 dependencies {
-    implementation(project(":ui"))
     implementation(libs.comJakewhartonTimer.timber)
     implementation(libs.androidxActivity.activityCompose)
     implementation(libs.androidxComposeUi.ui)
@@ -86,11 +89,13 @@ dependencies {
     implementation(libs.androidxComposeMaterial.materialIconsExtendedAndroid)
     implementation(libs.androidxComposeMaterial3.material3)
     implementation(libs.ioInsertKoin.koinAndroidxCompose)
-    implementation(libs.ioInsertKoin.koinAnnotations)
-    ksp(libs.ioInsertKoin.koinKspCompiler)
-    testImplementation(libs.orgJunitJupiter.junitJupiterApi)
+    implementation(libs.comPatrykandpatrickVico.composeM3)
+    implementation(libs.androidxComposeUi.uiTextGoogleFonts)
+    implementation(libs.androidxRoom.roomKtx)
+    implementation(libs.androidxRoom.roomRuntime)
+    implementation(libs.androidxConstraintlayout.constraintlayoutCompose)
+    ksp(libs.androidxRoom.roomCompiler)
     testImplementation(libs.ioInsertKoin.koinTestJunit4)
-    testRuntimeOnly(libs.orgJunitJupiter.junitJupiterEngine)
 }
 
 fun generateVersionCode(): Int {

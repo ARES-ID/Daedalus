@@ -1,12 +1,11 @@
 package com.rjspies.daedalus
 
 import android.app.Application
-import com.rjspies.daedalus.koin.AppModule
+import com.rjspies.daedalus.koin.appModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.KoinApplication
 import org.koin.core.context.startKoin
-import org.koin.ksp.generated.module
 import timber.log.Timber
 
 class DaedalusApplication : Application() {
@@ -19,6 +18,6 @@ class DaedalusApplication : Application() {
     private fun startKoin(): KoinApplication = startKoin {
         androidLogger()
         androidContext(applicationContext)
-        modules(AppModule().module)
+        modules(appModule)
     }
 }
