@@ -10,8 +10,8 @@ import com.rjspies.daedalus.ui.InsertWeightUseCase
 import com.rjspies.daedalus.ui.InsertWeightViewModel
 import com.rjspies.daedalus.ui.MainViewModel
 import com.rjspies.daedalus.ui.SettingsViewModel
-import com.rjspies.daedalus.ui.diagram.WeightDiagramViewModel
 import com.rjspies.daedalus.ui.WeightHistoryViewModel
+import com.rjspies.daedalus.ui.diagram.WeightDiagramViewModel
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
