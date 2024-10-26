@@ -1,4 +1,4 @@
-package com.rjspies.daedalus.ui
+package com.rjspies.daedalus.ui.common
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
