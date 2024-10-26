@@ -1,10 +1,11 @@
-package com.rjspies.daedalus.ui
+package com.rjspies.daedalus.ui.insertweight
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rjspies.daedalus.AddWeightError
 import com.rjspies.daedalus.data.Weight
+import com.rjspies.daedalus.ui.common.SAVED_STATE_HANDLE_KEY_UI_STATE
 import java.time.ZonedDateTime
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.StateFlow

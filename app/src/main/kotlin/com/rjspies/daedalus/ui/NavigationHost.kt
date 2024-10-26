@@ -5,7 +5,10 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.rjspies.daedalus.ui.common.Route
 import com.rjspies.daedalus.ui.diagram.WeightDiagramScreen
+import com.rjspies.daedalus.ui.history.WeightHistoryScreen
+import com.rjspies.daedalus.ui.settings.SettingsScreen
 
 @Composable
 internal fun NavigationHost(

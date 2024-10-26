@@ -37,9 +37,9 @@ import com.patrykandpatrick.vico.core.marker.Marker
 import com.patrykandpatrick.vico.core.scroll.InitialScroll
 import com.rjspies.daedalus.R
 import com.rjspies.daedalus.data.WeightChartEntry
-import com.rjspies.daedalus.ui.EmptyScreen
-import com.rjspies.daedalus.ui.horizontalSpacingM
-import com.rjspies.daedalus.ui.verticalSpacingM
+import com.rjspies.daedalus.ui.common.EmptyScreen
+import com.rjspies.daedalus.ui.common.horizontalSpacingM
+import com.rjspies.daedalus.ui.common.verticalSpacingM
 import org.koin.androidx.compose.koinViewModel
 
 @Composable

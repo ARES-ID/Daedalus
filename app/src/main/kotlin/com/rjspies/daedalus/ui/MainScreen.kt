@@ -12,6 +12,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.rjspies.daedalus.R
+import com.rjspies.daedalus.ui.insertweight.AddWeightDialog
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
