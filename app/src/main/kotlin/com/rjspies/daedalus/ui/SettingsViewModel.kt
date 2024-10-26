@@ -1,4 +1,4 @@
-package com.rjspies.daedalus.ui.settings
+package com.rjspies.daedalus.ui
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Description
@@ -7,7 +7,6 @@ import androidx.compose.material.icons.rounded.PrivacyTip
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.rjspies.daedalus.R
-import com.rjspies.daedalus.ui.common.SAVED_STATE_HANDLE_KEY_UI_STATE
 
 internal class SettingsViewModel(
     savedStateHandle: SavedStateHandle,

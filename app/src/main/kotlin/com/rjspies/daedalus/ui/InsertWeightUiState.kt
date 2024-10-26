@@ -1,7 +1,6 @@
-package com.rjspies.daedalus.ui.insertweight
+package com.rjspies.daedalus.ui
 
 import com.rjspies.daedalus.AddWeightError
-import com.rjspies.daedalus.ui.common.UiState
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

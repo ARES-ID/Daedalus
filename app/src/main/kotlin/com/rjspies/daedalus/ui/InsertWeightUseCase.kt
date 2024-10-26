@@ -1,4 +1,4 @@
-package com.rjspies.daedalus.ui.insertweight
+package com.rjspies.daedalus.ui
 
 import com.rjspies.daedalus.data.Weight
 import com.rjspies.daedalus.data.WeightService

@@ -1,4 +1,4 @@
-package com.rjspies.daedalus.ui.common
+package com.rjspies.daedalus.ui
 
 import android.os.Parcelable
 

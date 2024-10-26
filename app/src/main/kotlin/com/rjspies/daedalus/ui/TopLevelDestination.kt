@@ -7,7 +7,6 @@ import androidx.compose.material.icons.rounded.AreaChart
 import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.rjspies.daedalus.R
-import com.rjspies.daedalus.ui.common.Route
 
 internal enum class TopLevelDestination(
     val route: Route,

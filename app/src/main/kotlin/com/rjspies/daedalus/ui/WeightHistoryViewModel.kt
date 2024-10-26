@@ -1,4 +1,4 @@
-package com.rjspies.daedalus.ui.history
+package com.rjspies.daedalus.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

@@ -1,4 +1,4 @@
-package com.rjspies.daedalus.ui.settings
+package com.rjspies.daedalus.ui
 
 import android.os.Parcelable
 import androidx.annotation.StringRes
@@ -23,10 +23,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import com.rjspies.daedalus.R
-import com.rjspies.daedalus.ui.common.HorizontalSpacerM
-import com.rjspies.daedalus.ui.common.Spacings
-import com.rjspies.daedalus.ui.common.VerticalSpacerM
-import com.rjspies.daedalus.ui.common.horizontalSpacingM
 import org.koin.androidx.compose.koinViewModel
 import kotlinx.parcelize.Parcelize
 import kotlinx.parcelize.RawValue

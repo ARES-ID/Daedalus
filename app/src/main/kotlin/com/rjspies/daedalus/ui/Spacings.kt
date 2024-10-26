@@ -1,4 +1,4 @@
-package com.rjspies.daedalus.ui.common
+package com.rjspies.daedalus.ui
 
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
