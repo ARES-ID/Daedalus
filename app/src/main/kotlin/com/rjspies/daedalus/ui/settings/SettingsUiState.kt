@@ -1,5 +1,6 @@
-package com.rjspies.daedalus.ui
+package com.rjspies.daedalus.ui.settings
 
+import com.rjspies.daedalus.ui.common.UiState
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
