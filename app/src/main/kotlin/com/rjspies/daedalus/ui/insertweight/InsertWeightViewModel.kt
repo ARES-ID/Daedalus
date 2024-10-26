@@ -21,7 +21,8 @@ internal class InsertWeightViewModel(
     )
 
     fun setDismissDialog(dismissDialog: () -> Unit) {
-        savedStateHandle[SAVED_STATE_HANDLE_KEY_UI_STATE] = uiState.value.copy(dismissDialog = dismissDialog)
+        savedStateHandle[SAVED_STATE_HANDLE_KEY_UI_STATE] =
+            uiState.value.copy(dismissDialog = dismissDialog)
     }
 
     fun setError(error: AddWeightError?) {
@@ -29,7 +30,8 @@ internal class InsertWeightViewModel(
     }
 
     private fun setIsLoading(isLoading: Boolean) {
-        savedStateHandle[SAVED_STATE_HANDLE_KEY_UI_STATE] = uiState.value.copy(isLoading = isLoading)
+        savedStateHandle[SAVED_STATE_HANDLE_KEY_UI_STATE] =
+            uiState.value.copy(isLoading = isLoading)
     }
 
     fun insertWeight(weightValue: String) {
@@ -38,7 +40,8 @@ internal class InsertWeightViewModel(
             setIsLoading(true)
             val parsedWeightValue = weightValue.parseToFloat()
             if (parsedWeightValue != null) {
-                val weight = Weight(value = parsedWeightValue, note = null, dateTime = ZonedDateTime.now())
+                val weight =
+                    Weight(value = parsedWeightValue, note = null, dateTime = ZonedDateTime.now())
                 insertWeightUseCase(weight)
                 uiState.value.dismissDialog()
             } else {

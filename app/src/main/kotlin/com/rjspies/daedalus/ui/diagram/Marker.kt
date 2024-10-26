@@ -56,9 +56,9 @@ internal fun rememberMarker(): Marker {
                 horizontalDimensions: HorizontalDimensions,
             ) = with(context) {
                 outInsets.top = label.getHeight(context) +
-                    LabelBackgroundShape.tickSizeDp.pixels +
-                    (LABEL_BACKGROUND_SHADOW_RADIUS.pixels * SHADOW_RADIUS_MULTIPLIER) -
-                    LABEL_BACKGROUND_SHADOW_DY.pixels
+                        LabelBackgroundShape.tickSizeDp.pixels +
+                        (LABEL_BACKGROUND_SHADOW_RADIUS.pixels * SHADOW_RADIUS_MULTIPLIER) -
+                        LABEL_BACKGROUND_SHADOW_DY.pixels
             }
         }
     }
