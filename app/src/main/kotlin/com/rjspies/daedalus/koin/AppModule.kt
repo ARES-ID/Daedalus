@@ -6,12 +6,12 @@ import com.rjspies.daedalus.data.WeightService
 import com.rjspies.daedalus.domain.DeleteWeightUseCase
 import com.rjspies.daedalus.domain.GetWeightsAscendingUseCase
 import com.rjspies.daedalus.domain.GetWeightsDescendingUseCase
+import com.rjspies.daedalus.ui.MainViewModel
+import com.rjspies.daedalus.ui.diagram.WeightDiagramViewModel
+import com.rjspies.daedalus.ui.history.WeightHistoryViewModel
 import com.rjspies.daedalus.ui.insertweight.InsertWeightUseCase
 import com.rjspies.daedalus.ui.insertweight.InsertWeightViewModel
-import com.rjspies.daedalus.ui.MainViewModel
 import com.rjspies.daedalus.ui.settings.SettingsViewModel
-import com.rjspies.daedalus.ui.history.WeightHistoryViewModel
-import com.rjspies.daedalus.ui.diagram.WeightDiagramViewModel
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
