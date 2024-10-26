@@ -16,7 +16,7 @@ import com.rjspies.daedalus.ui.insertweight.AddWeightDialog
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-public fun MainScreen() {
+fun MainScreen() {
     val navigationController = rememberNavController()
     val viewModel = koinViewModel<MainViewModel>()
     val uiState by viewModel.uiState.collectAsState()

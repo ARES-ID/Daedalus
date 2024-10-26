@@ -3,8 +3,8 @@ package com.rjspies.daedalus.ui.insertweight
 import com.rjspies.daedalus.data.Weight
 import com.rjspies.daedalus.data.WeightService
 
-public class InsertWeightUseCase(
+class InsertWeightUseCase(
     private val service: WeightService,
 ) {
-    public suspend operator fun invoke(weight: Weight): Unit = service.insertWeight(weight)
+    suspend operator fun invoke(weight: Weight): Unit = service.insertWeight(weight)
 }

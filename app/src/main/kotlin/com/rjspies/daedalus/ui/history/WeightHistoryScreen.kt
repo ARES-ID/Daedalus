@@ -268,7 +268,8 @@ private fun ArrowState.contentDescription(): String = when (this) {
     ArrowState.Upwards -> stringResource(R.string.weight_history_avatar_upwards_icon_content_description)
 }
 
-private fun Float.asUserfacingString(locale: Locale): String = "${DecimalFormat.getInstance(locale).format(this)} kg"
+private fun Float.asUserfacingString(locale: Locale): String =
+    "${DecimalFormat.getInstance(locale).format(this)} kg"
 
 private fun ZonedDateTime.asUserfacingString(
     locale: Locale,
