@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 internal fun EmptyScreen(
-    icon: Painter,
+    painter: Painter,
     contentDescription: String,
     title: String,
     subtitle: String,
@@ -27,7 +27,7 @@ internal fun EmptyScreen(
         verticalArrangement = Arrangement.Center,
         content = {
             Icon(
-                painter = icon,
+                painter = painter,
                 contentDescription = contentDescription,
                 modifier = Modifier.size(48.dp),
             )

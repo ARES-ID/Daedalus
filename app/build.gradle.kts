@@ -86,7 +86,6 @@ dependencies {
     implementation(libs.androidxCore.coreSplashscreen)
     implementation(libs.androidxLifecycle.lifecycleRuntimeKtx)
     implementation(libs.androidxNavigation.navigationCompose)
-    implementation(libs.androidxComposeMaterial.materialIconsExtendedAndroid)
     implementation(libs.androidxComposeMaterial3.material3)
     implementation(libs.ioInsertKoin.koinAndroidxCompose)
     implementation(libs.comPatrykandpatrickVico.composeM3)

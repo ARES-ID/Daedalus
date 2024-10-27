@@ -1,32 +1,28 @@
 package com.rjspies.daedalus.ui
 
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.rounded.List
-import androidx.compose.material.icons.rounded.AreaChart
-import androidx.compose.material.icons.rounded.Settings
-import androidx.compose.ui.graphics.vector.ImageVector
 import com.rjspies.daedalus.R
 import com.rjspies.daedalus.ui.common.Route
 
 internal enum class TopLevelDestination(
     val route: Route,
-    val icon: ImageVector,
+    @DrawableRes val iconResourceId: Int,
     @StringRes val labelResourceId: Int,
 ) {
     GraphItem(
         route = Route.WeightGraph,
-        icon = Icons.Rounded.AreaChart,
+        iconResourceId = R.drawable.chart_line_fill,
         labelResourceId = R.string.navigation_bar_graph,
     ),
     HistoryItem(
         route = Route.WeightHistory,
-        icon = Icons.AutoMirrored.Rounded.List,
+        iconResourceId = R.drawable.list_bullets_fill,
         labelResourceId = R.string.navigation_bar_history,
     ),
     SettingsItem(
         route = Route.Settings,
-        icon = Icons.Rounded.Settings,
+        iconResourceId = R.drawable.gear_fine_fill,
         labelResourceId = R.string.navigation_bar_settings,
     ),
 }

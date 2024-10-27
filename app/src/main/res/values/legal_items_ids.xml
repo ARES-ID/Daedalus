@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="legal_item_privacy_policy" type="id" />
+    <item name="legal_item_terms_of_service" type="id" />
+    <item name="legal_item_imprint" type="id" />
+</resources>

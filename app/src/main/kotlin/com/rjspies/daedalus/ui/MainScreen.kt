@@ -1,13 +1,12 @@
 package com.rjspies.daedalus.ui
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Add
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
@@ -33,7 +32,7 @@ fun MainScreen() {
                 onClick = { viewModel.setShowDialog(true) },
                 content = {
                     Icon(
-                        imageVector = Icons.Rounded.Add,
+                        painter = painterResource(R.drawable.plus_circle_fill),
                         contentDescription = stringResource(R.string.main_screen_floating_action_button_content_description),
                     )
                 },
