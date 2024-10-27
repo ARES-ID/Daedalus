@@ -1,5 +1,6 @@
 package com.rjspies.daedalus.ui.history
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -11,12 +12,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.rounded.List
-import androidx.compose.material.icons.automirrored.rounded.TrendingDown
-import androidx.compose.material.icons.automirrored.rounded.TrendingFlat
-import androidx.compose.material.icons.automirrored.rounded.TrendingUp
-import androidx.compose.material.icons.rounded.DeleteOutline
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
@@ -34,9 +29,8 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
@@ -68,7 +62,7 @@ internal fun WeightHistoryScreen(innerPadding: PaddingValues) {
         )
     } else {
         EmptyScreen(
-            icon = rememberVectorPainter(Icons.AutoMirrored.Rounded.List),
+            painter = painterResource(R.drawable.list_bullets_fill),
             contentDescription = stringResource(R.string.weight_history_empty_screen_content_description),
             title = stringResource(R.string.weight_history_empty_screen_title),
             subtitle = stringResource(R.string.weight_history_empty_screen_subtitle),
@@ -223,7 +217,7 @@ private fun WeightRow(
                 },
                 content = {
                     Icon(
-                        imageVector = Icons.Rounded.DeleteOutline,
+                        painter = painterResource(R.drawable.trash_fill),
                         contentDescription = stringResource(R.string.weight_history_delete_icon_content_description),
                     )
                 },
@@ -244,7 +238,7 @@ private fun Avatar(
             .then(modifier),
         content = {
             Icon(
-                imageVector = state.vector,
+                painter = painterResource(state.iconResourceId),
                 contentDescription = state.contentDescription(),
                 modifier = Modifier.padding(Spacings.S),
             )
@@ -252,12 +246,10 @@ private fun Avatar(
     )
 }
 
-private sealed class ArrowState(
-    val vector: ImageVector,
-) {
-    data object Neutral : ArrowState(Icons.AutoMirrored.Rounded.TrendingFlat)
-    data object Downwards : ArrowState(Icons.AutoMirrored.Rounded.TrendingDown)
-    data object Upwards : ArrowState(Icons.AutoMirrored.Rounded.TrendingUp)
+private sealed class ArrowState(@DrawableRes val iconResourceId: Int) {
+    data object Neutral : ArrowState(R.drawable.arrow_right_fill)
+    data object Downwards : ArrowState(R.drawable.arrow_down_right_fill)
+    data object Upwards : ArrowState(R.drawable.arrow_up_right_fill)
 }
 
 @ReadOnlyComposable
@@ -268,8 +260,7 @@ private fun ArrowState.contentDescription(): String = when (this) {
     ArrowState.Upwards -> stringResource(R.string.weight_history_avatar_upwards_icon_content_description)
 }
 
-private fun Float.asUserfacingString(locale: Locale): String =
-    "${DecimalFormat.getInstance(locale).format(this)} kg"
+private fun Float.asUserfacingString(locale: Locale): String = "${DecimalFormat.getInstance(locale).format(this)} kg"
 
 private fun ZonedDateTime.asUserfacingString(
     locale: Locale,

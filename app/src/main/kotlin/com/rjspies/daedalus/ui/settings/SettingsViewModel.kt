@@ -1,36 +1,35 @@
 package com.rjspies.daedalus.ui.settings
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Description
-import androidx.compose.material.icons.rounded.Person
-import androidx.compose.material.icons.rounded.PrivacyTip
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.rjspies.daedalus.R
 import com.rjspies.daedalus.ui.common.SAVED_STATE_HANDLE_KEY_UI_STATE
 
-internal class SettingsViewModel(
+class SettingsViewModel(
     savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
     val uiState = savedStateHandle.getStateFlow(
         key = SAVED_STATE_HANDLE_KEY_UI_STATE,
-        initialValue = SettingsUiState(legals()),
+        initialValue = SettingsUiState(legals().toList()),
     )
 
-    private fun legals(): List<SettingItem> = listOf(
+    private fun legals(): Set<SettingItem> = setOf(
         SettingItem(
+            itemIdResourceId = R.id.legal_item_privacy_policy,
             titleResourceId = R.string.settings_legal_item_privacy,
-            icon = Icons.Rounded.PrivacyTip,
+            iconResourceId = R.drawable.shield_warning_fill,
             onClick = {},
         ),
         SettingItem(
+            itemIdResourceId = R.id.legal_item_terms_of_service,
             titleResourceId = R.string.settings_legal_item_terms_of_service,
-            icon = Icons.Rounded.Description,
+            iconResourceId = R.drawable.file_text_fill,
             onClick = {},
         ),
         SettingItem(
+            itemIdResourceId = R.id.legal_item_imprint,
             titleResourceId = R.string.settings_legal_item_imprint,
-            icon = Icons.Rounded.Person,
+            iconResourceId = R.drawable.user_list_fill,
             onClick = {},
         ),
     )

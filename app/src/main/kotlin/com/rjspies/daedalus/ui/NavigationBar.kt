@@ -6,6 +6,7 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 
 @Composable
@@ -22,7 +23,7 @@ internal fun NavigationBar(
                 label = { Text(stringResource(it.labelResourceId)) },
                 icon = {
                     Icon(
-                        imageVector = it.icon,
+                        painter = painterResource(it.iconResourceId),
                         contentDescription = stringResource(it.labelResourceId),
                     )
                 },
