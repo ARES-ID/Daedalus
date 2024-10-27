@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="navigation_bar_graph">Graph</string>
-    <string name="navigation_bar_history">Historie</string>
+    <string name="navigation_bar_graph">Diagramm</string>
+    <string name="navigation_bar_history">Verlauf</string>
     <string name="navigation_bar_settings">Einstellungen</string>
 </resources>
