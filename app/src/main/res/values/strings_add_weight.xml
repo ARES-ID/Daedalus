@@ -5,5 +5,5 @@
     <string name="add_weight_weight_text_field_supporting_message_error">Hier scheint etwas nicht zu stimmen.</string>
     <string name="add_weight_weight_text_field_supporting_message">Gib hier dein genaues Gewicht in Kilogramm an, z. B. 123,45.</string>
     <string name="add_weight_add_button_text">Hinzufügen</string>
-    <string name="add_weight_icon_content_description">Icon welches eine Liniengrafik darstellt.</string>
+    <string name="add_weight_icon_content_description">Liniendiagramm-Icon</string>
 </resources>
