@@ -246,7 +246,9 @@ private fun Avatar(
     )
 }
 
-private sealed class ArrowState(@DrawableRes val iconResourceId: Int) {
+private sealed class ArrowState(
+    @DrawableRes val iconResourceId: Int,
+) {
     data object Neutral : ArrowState(R.drawable.arrow_right_fill)
     data object Downwards : ArrowState(R.drawable.arrow_down_right_fill)
     data object Upwards : ArrowState(R.drawable.arrow_up_right_fill)
