@@ -179,7 +179,7 @@ private fun WeightRow(
             )
             Text(
                 text = weight.dateTime.asUserfacingString(locale),
-                style = MaterialTheme.typography.titleSmall,
+                style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier.constrainAs(date) {
                     width = Dimension.fillToConstraints
                     top.linkTo(title.bottom)
