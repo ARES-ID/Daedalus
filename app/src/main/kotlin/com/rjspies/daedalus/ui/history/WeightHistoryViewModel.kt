@@ -8,7 +8,7 @@ import com.rjspies.daedalus.domain.GetWeightsDescendingUseCase
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
 
-internal class WeightHistoryViewModel(
+class WeightHistoryViewModel(
     getWeightsDescendingUseCase: GetWeightsDescendingUseCase,
     private val deleteWeightUseCase: DeleteWeightUseCase,
 ) : ViewModel() {

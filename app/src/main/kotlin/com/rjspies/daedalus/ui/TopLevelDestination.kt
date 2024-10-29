@@ -2,26 +2,29 @@ package com.rjspies.daedalus.ui
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import com.ramcosta.composedestinations.spec.DirectionDestinationSpec
 import com.rjspies.daedalus.R
-import com.rjspies.daedalus.ui.common.Route
+import com.rjspies.daedalus.ui.destinations.SettingsScreenDestination
+import com.rjspies.daedalus.ui.destinations.WeightDiagramScreenDestination
+import com.rjspies.daedalus.ui.destinations.WeightHistoryScreenDestination
 
-internal enum class TopLevelDestination(
-    val route: Route,
+enum class TopLevelDestination(
+    val destination: DirectionDestinationSpec,
     @DrawableRes val iconResourceId: Int,
     @StringRes val labelResourceId: Int,
 ) {
-    GraphItem(
-        route = Route.WeightGraph,
+    Diagram(
+        destination = WeightDiagramScreenDestination,
         iconResourceId = R.drawable.chart_line_fill,
         labelResourceId = R.string.navigation_bar_graph,
     ),
-    HistoryItem(
-        route = Route.WeightHistory,
+    History(
+        destination = WeightHistoryScreenDestination,
         iconResourceId = R.drawable.list_bullets_fill,
         labelResourceId = R.string.navigation_bar_history,
     ),
-    SettingsItem(
-        route = Route.Settings,
+    Settings(
+        destination = SettingsScreenDestination,
         iconResourceId = R.drawable.gear_fine_fill,
         labelResourceId = R.string.navigation_bar_settings,
     ),

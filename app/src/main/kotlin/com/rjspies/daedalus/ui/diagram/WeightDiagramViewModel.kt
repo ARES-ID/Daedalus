@@ -6,7 +6,7 @@ import com.rjspies.daedalus.domain.GetWeightsAscendingUseCase
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
 
-internal class WeightDiagramViewModel(
+class WeightDiagramViewModel(
     getWeightsAscendingUseCase: GetWeightsAscendingUseCase,
 ) : ViewModel() {
     val weights = getWeightsAscendingUseCase().stateIn(

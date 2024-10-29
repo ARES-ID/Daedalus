@@ -5,7 +5,6 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.IdRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -24,6 +23,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import com.ramcosta.composedestinations.annotation.Destination
 import com.rjspies.daedalus.R
 import com.rjspies.daedalus.ui.common.HorizontalSpacerM
 import com.rjspies.daedalus.ui.common.Spacings
@@ -32,55 +32,57 @@ import com.rjspies.daedalus.ui.common.horizontalSpacingM
 import org.koin.androidx.compose.koinViewModel
 import kotlinx.parcelize.Parcelize
 
+@Destination
 @Composable
 fun SettingsScreen(
-    innerPadding: PaddingValues,
     viewModel: SettingsViewModel = koinViewModel(),
+    scaffoldPadding: PaddingValues,
 ) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(innerPadding),
+    val uiState by viewModel.uiState.collectAsState()
+    val legals = uiState.legals
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.spacedBy(Spacings.M),
+        contentPadding = scaffoldPadding,
     ) {
-        val uiState by viewModel.uiState.collectAsState()
-        val legals = uiState.legals
-        Text(
-            text = stringResource(R.string.settings_title),
-            modifier = Modifier
-                .fillMaxWidth()
-                .horizontalSpacingM(),
-            style = MaterialTheme.typography.headlineLarge,
-        )
-        VerticalSpacerM()
-        LazyColumn(verticalArrangement = Arrangement.spacedBy(Spacings.M)) {
-            items(
-                items = legals,
-                key = { it.itemIdResourceId },
-                itemContent = {
-                    Card(
-                        onClick = it.onClick,
+        item {
+            Text(
+                text = stringResource(R.string.settings_title),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .horizontalSpacingM(),
+                style = MaterialTheme.typography.headlineLarge,
+            )
+            VerticalSpacerM()
+        }
+
+        items(
+            items = legals,
+            key = { it.itemIdResourceId },
+            itemContent = {
+                Card(
+                    onClick = it.onClick,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .horizontalSpacingM(),
+                ) {
+                    Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .horizontalSpacingM(),
+                            .padding(Spacings.M),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically,
                     ) {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(Spacings.M),
-                            horizontalArrangement = Arrangement.SpaceBetween,
-                            verticalAlignment = Alignment.CenterVertically,
-                        ) {
-                            Text(stringResource(it.titleResourceId))
-                            HorizontalSpacerM()
-                            Icon(
-                                painter = painterResource(it.iconResourceId),
-                                contentDescription = null,
-                            )
-                        }
+                        Text(stringResource(it.titleResourceId))
+                        HorizontalSpacerM()
+                        Icon(
+                            painter = painterResource(it.iconResourceId),
+                            contentDescription = null,
+                        )
                     }
-                },
-            )
-        }
+                }
+            },
+        )
     }
 }
 
