@@ -35,7 +35,7 @@ orgJetbrainsKotlinPluginParcelize = { id = "org.jetbrains.kotlin.plugin.parceliz
 [libraries]
 
 androidxActivity-activityCompose = { group = "androidx.activity", name = "activity-compose", version = "1.9.3" }
-androidxComposeMaterial-materialIconsExtendedAndroid = { group = "androidx.compose.material", name = "material-icons-extended-android", version = "1.7.4" }
+androidxComposeMaterial-materialIconsExtendedAndroid = { group = "androidx.compose.material", name = "material-icons-extended-android", version = "1.7.5" }
 androidxComposeMaterial3-material3 = { group = "androidx.compose.material3", name = "material3", version = "1.3.1" }
 androidxComposeUi-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "compose" }
 androidxNavigation-navigationCompose = { group = "androidx.navigation", name = "navigation-compose", version = "2.8.3" }
