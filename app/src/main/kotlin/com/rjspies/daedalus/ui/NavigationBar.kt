@@ -8,18 +8,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import com.ramcosta.composedestinations.spec.DirectionDestinationSpec
+import com.rjspies.daedalus.ui.destinations.TypedDestination
 
 @Composable
-internal fun NavigationBar(
-    currentRoute: String?,
-    navigate: (destination: TopLevelDestination) -> Unit,
+fun NavigationBar(
+    currentDestination: TypedDestination<*>,
+    navigate: (destination: DirectionDestinationSpec) -> Unit,
 ) {
     NavigationBar {
         val entries = remember(TopLevelDestination.entries) { TopLevelDestination.entries }
         entries.forEach {
             NavigationBarItem(
-                selected = currentRoute == it.route.name,
-                onClick = { navigate(it) },
+                selected = currentDestination == it.destination,
+                onClick = { navigate(it.destination) },
                 label = { Text(stringResource(it.labelResourceId)) },
                 icon = {
                     Icon(

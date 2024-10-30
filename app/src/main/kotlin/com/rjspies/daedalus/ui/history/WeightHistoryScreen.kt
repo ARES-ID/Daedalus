@@ -34,6 +34,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
+import com.ramcosta.composedestinations.annotation.Destination
 import com.rjspies.daedalus.R
 import com.rjspies.daedalus.data.Weight
 import com.rjspies.daedalus.ui.common.EmptyScreen
@@ -49,16 +50,19 @@ import java.time.format.FormatStyle
 import java.util.Locale
 import kotlinx.coroutines.launch
 
+@Destination
 @Composable
-internal fun WeightHistoryScreen(innerPadding: PaddingValues) {
-    val viewModel = koinViewModel<WeightHistoryViewModel>()
+fun WeightHistoryScreen(
+    viewModel: WeightHistoryViewModel = koinViewModel(),
+    scaffoldPadding: PaddingValues,
+) {
     val weights by viewModel.weights.collectAsState()
 
     if (weights.isNotEmpty()) {
         Weights(
             weights = weights,
             viewModel = viewModel,
-            innerPadding = innerPadding,
+            scaffoldPadding = scaffoldPadding,
         )
     } else {
         EmptyScreen(
@@ -69,7 +73,7 @@ internal fun WeightHistoryScreen(innerPadding: PaddingValues) {
             modifier = Modifier
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
-                .padding(innerPadding)
+                .padding(scaffoldPadding)
                 .verticalSpacingM()
                 .horizontalSpacingM(),
         )
@@ -81,11 +85,11 @@ internal fun WeightHistoryScreen(innerPadding: PaddingValues) {
 private fun Weights(
     weights: List<Weight>,
     viewModel: WeightHistoryViewModel,
-    innerPadding: PaddingValues,
+    scaffoldPadding: PaddingValues,
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
-        contentPadding = innerPadding,
+        contentPadding = scaffoldPadding,
         content = {
             tableItems(
                 items = weights,

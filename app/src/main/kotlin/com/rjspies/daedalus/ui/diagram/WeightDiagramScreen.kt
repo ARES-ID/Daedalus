@@ -33,16 +33,22 @@ import com.patrykandpatrick.vico.core.component.shape.Shapes
 import com.patrykandpatrick.vico.core.entry.ChartEntryModelProducer
 import com.patrykandpatrick.vico.core.marker.Marker
 import com.patrykandpatrick.vico.core.scroll.InitialScroll
+import com.ramcosta.composedestinations.annotation.Destination
 import com.rjspies.daedalus.R
 import com.rjspies.daedalus.data.WeightChartEntry
+import com.rjspies.daedalus.ui.MainNavigationGraph
 import com.rjspies.daedalus.ui.common.EmptyScreen
 import com.rjspies.daedalus.ui.common.horizontalSpacingM
 import com.rjspies.daedalus.ui.common.verticalSpacingM
 import org.koin.androidx.compose.koinViewModel
 
+@MainNavigationGraph(start = true)
+@Destination
 @Composable
-fun WeightDiagramScreen(innerPadding: PaddingValues) {
-    val viewModel = koinViewModel<WeightDiagramViewModel>()
+fun WeightDiagramScreen(
+    viewModel: WeightDiagramViewModel = koinViewModel(),
+    scaffoldPadding: PaddingValues,
+) {
     val weights by viewModel.weights.collectAsState()
     val entries = rememberSaveable(weights) {
         weights.mapIndexed { index, weight ->
@@ -59,7 +65,7 @@ fun WeightDiagramScreen(innerPadding: PaddingValues) {
             modifier = Modifier
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
-                .padding(innerPadding),
+                .padding(scaffoldPadding),
         ) {
             Text(
                 text = stringResource(R.string.weight_diagram_title),
@@ -77,7 +83,7 @@ fun WeightDiagramScreen(innerPadding: PaddingValues) {
             modifier = Modifier
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
-                .padding(innerPadding)
+                .padding(scaffoldPadding)
                 .verticalSpacingM()
                 .horizontalSpacingM(),
         )

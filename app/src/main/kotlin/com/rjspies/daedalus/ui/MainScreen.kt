@@ -1,5 +1,6 @@
 package com.rjspies.daedalus.ui
 
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
@@ -8,16 +9,21 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.ramcosta.composedestinations.DestinationsNavHost
+import com.ramcosta.composedestinations.animations.defaults.RootNavGraphDefaultAnimations
+import com.ramcosta.composedestinations.animations.rememberAnimatedNavHostEngine
+import com.ramcosta.composedestinations.navigation.dependency
+import com.ramcosta.composedestinations.utils.rememberDestinationsNavigator
 import com.rjspies.daedalus.R
 import com.rjspies.daedalus.ui.insertweight.AddWeightDialog
 import org.koin.androidx.compose.koinViewModel
 
+@OptIn(ExperimentalAnimationApi::class)
 @Composable
-fun MainScreen() {
+fun MainScreen(viewModel: MainViewModel = koinViewModel()) {
     val navigationController = rememberNavController()
-    val viewModel = koinViewModel<MainViewModel>()
+    val navigator = navigationController.rememberDestinationsNavigator()
     val uiState by viewModel.uiState.collectAsState()
 
     if (uiState.showDialog) {
@@ -39,13 +45,29 @@ fun MainScreen() {
             )
         },
         bottomBar = {
-            val currentBackStackEntry by navigationController.currentBackStackEntryAsState()
-            val currentRoute = currentBackStackEntry?.destination?.route
+            val currentDestination = navigationController.appCurrentDestinationAsState().value ?: NavGraphs.mainNavigationGraph.startAppDestination
             NavigationBar(
-                currentRoute = currentRoute,
-                navigate = navigationController::navigateToTopLevelDestination,
+                currentDestination = currentDestination,
+                navigate = {
+                    navigator.navigate(it) {
+                        restoreState = true
+                        launchSingleTop = true
+                        popUpTo(NavGraphs.mainNavigationGraph.startRoute) {
+                            saveState = true
+                        }
+                    }
+                },
             )
         },
-        content = { NavigationHost(navigationController, it) },
+        content = {
+            DestinationsNavHost(
+                navController = navigationController,
+                navGraph = NavGraphs.mainNavigationGraph,
+                dependenciesContainerBuilder = {
+                    dependency(it)
+                },
+                engine = rememberAnimatedNavHostEngine(rootDefaultAnimations = RootNavGraphDefaultAnimations.ACCOMPANIST_FADING),
+            )
+        },
     )
 }

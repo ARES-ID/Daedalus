@@ -85,7 +85,6 @@ dependencies {
     implementation(libs.androidxCore.coreKtx)
     implementation(libs.androidxCore.coreSplashscreen)
     implementation(libs.androidxLifecycle.lifecycleRuntimeKtx)
-    implementation(libs.androidxNavigation.navigationCompose)
     implementation(libs.androidxComposeMaterial3.material3)
     implementation(libs.ioInsertKoin.koinAndroidxCompose)
     implementation(libs.comPatrykandpatrickVico.composeM3)
@@ -93,7 +92,9 @@ dependencies {
     implementation(libs.androidxRoom.roomKtx)
     implementation(libs.androidxRoom.roomRuntime)
     implementation(libs.androidxConstraintlayout.constraintlayoutCompose)
+    implementation(libs.ioGithubRaamcostaComposeDestinations.animationsCore)
     ksp(libs.androidxRoom.roomCompiler)
+    ksp(libs.ioGithubRaamcostaComposeDestinations.ksp)
     testImplementation(libs.ioInsertKoin.koinTestJunit4)
 }
 

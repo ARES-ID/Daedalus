@@ -4,7 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.rjspies.daedalus.ui.common.SAVED_STATE_HANDLE_KEY_UI_STATE
 
-internal class MainViewModel(
+class MainViewModel(
     private val savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
     val uiState = savedStateHandle.getStateFlow(
