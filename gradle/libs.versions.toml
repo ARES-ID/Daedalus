@@ -52,3 +52,4 @@ androidxComposeUi-uiTextGoogleFonts = { group = "androidx.compose.ui", name = "u
 ioInsertKoin-koinTestJunit4 = { group = "io.insert-koin", name = "koin-test-junit4", version.ref = "koin" }
 ioGithubRaamcostaComposeDestinations-animationsCore = { group = "io.github.raamcosta.compose-destinations", name = "animations-core", version.ref = "composeDestinations"}
 ioGithubRaamcostaComposeDestinations-ksp = { group = "io.github.raamcosta.compose-destinations", name = "ksp", version.ref = "composeDestinations"}
+androidxWebkit-webkit = { group = "androidx.webkit", name = "webkit", version = "1.12.1"}

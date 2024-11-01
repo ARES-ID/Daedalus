@@ -65,6 +65,7 @@ fun MainScreen(viewModel: MainViewModel = koinViewModel()) {
                 navGraph = NavGraphs.mainNavigationGraph,
                 dependenciesContainerBuilder = {
                     dependency(it)
+                    dependency(navigator)
                 },
                 engine = rememberAnimatedNavHostEngine(rootDefaultAnimations = RootNavGraphDefaultAnimations.ACCOMPANIST_FADING),
             )
