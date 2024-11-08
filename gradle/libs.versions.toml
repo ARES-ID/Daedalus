@@ -8,7 +8,7 @@ composeDestinations = "1.11.7"
 
 # Raise these two together
 kotlin = "2.0.21"
-ksp = "2.0.21-1.0.26"
+ksp = "2.0.21-1.0.27"
 
 # App config
 compileSdk = "35"
