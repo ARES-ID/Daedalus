@@ -24,6 +24,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
+import com.ramcosta.composedestinations.spec.DirectionDestinationSpec
 import com.rjspies.daedalus.R
 import com.rjspies.daedalus.ui.common.HorizontalSpacerM
 import com.rjspies.daedalus.ui.common.Spacings
@@ -37,6 +39,7 @@ import kotlinx.parcelize.Parcelize
 fun SettingsScreen(
     viewModel: SettingsViewModel = koinViewModel(),
     scaffoldPadding: PaddingValues,
+    navigator: DestinationsNavigator,
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val legals = uiState.legals
@@ -61,7 +64,7 @@ fun SettingsScreen(
             key = { it.itemIdResourceId },
             itemContent = {
                 Card(
-                    onClick = it.onClick,
+                    onClick = { navigator.navigate(it.destination()) },
                     modifier = Modifier
                         .fillMaxWidth()
                         .horizontalSpacingM(),
@@ -91,5 +94,5 @@ data class SettingItem(
     @IdRes val itemIdResourceId: Int,
     @StringRes val titleResourceId: Int,
     @DrawableRes val iconResourceId: Int,
-    val onClick: () -> Unit,
+    val destination: () -> DirectionDestinationSpec,
 ) : Parcelable

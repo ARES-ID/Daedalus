@@ -93,6 +93,7 @@ dependencies {
     implementation(libs.androidxRoom.roomRuntime)
     implementation(libs.androidxConstraintlayout.constraintlayoutCompose)
     implementation(libs.ioGithubRaamcostaComposeDestinations.animationsCore)
+    implementation(libs.androidxWebkit.webkit)
     ksp(libs.androidxRoom.roomCompiler)
     ksp(libs.ioGithubRaamcostaComposeDestinations.ksp)
     testImplementation(libs.ioInsertKoin.koinTestJunit4)
