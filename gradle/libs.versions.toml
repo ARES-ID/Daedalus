@@ -1,6 +1,6 @@
 [versions]
 
-androidGradlePlugin = "8.7.2"
+androidGradlePlugin = "8.7.3"
 compose = "1.7.5"
 room = "2.6.1"
 koin = "4.0.0"
