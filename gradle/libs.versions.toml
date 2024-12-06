@@ -45,7 +45,7 @@ androidxRoom-roomRuntime = { group = "androidx.room", name = "room-runtime", ver
 androidxRoom-roomCompiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 androidxRoom-roomKtx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 comJakewhartonTimer-timber = { group = "com.jakewharton.timber", name = "timber", version = "5.0.1" }
-comPatrykandpatrickVico-composeM3 = { group = "com.patrykandpatrick.vico", name = "compose-m3", version = "1.15.0" }
+comPatrykandpatrickVico-composeM3 = { group = "com.patrykandpatrick.vico", name = "compose-m3", version = "1.16.0" }
 ioInsertKoin-koinAndroidxCompose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
 androidxCore-coreSplashscreen = { group = "androidx.core", name = "core-splashscreen", version = "1.0.1" }
 androidxComposeUi-uiTextGoogleFonts = { group = "androidx.compose.ui", name = "ui-text-google-fonts", version.ref = "compose" }
