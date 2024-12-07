@@ -7,7 +7,7 @@ koin = "4.0.0"
 composeDestinations = "1.11.7"
 
 # Raise these two together
-kotlin = "2.0.21"
+kotlin = "2.1.0"
 ksp = "2.0.21-1.0.28"
 
 # App config
