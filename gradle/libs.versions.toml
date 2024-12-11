@@ -1,7 +1,7 @@
 [versions]
 
 androidGradlePlugin = "8.7.3"
-compose = "1.7.5"
+compose = "1.7.6"
 room = "2.6.1"
 koin = "4.0.0"
 composeDestinations = "1.11.7"
