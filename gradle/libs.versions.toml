@@ -28,7 +28,7 @@ comAndroidApplication = { id = "com.android.application", version.ref = "android
 comAndroidLibrary = { id = "com.android.library", version.ref = "androidGradlePlugin" }
 ioGitlabArturboschDetekt = { id = "io.gitlab.arturbosch.detekt", version = "1.23.7" }
 orgJetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-orgJmailenKotlinter = { id = "org.jmailen.kotlinter", version = "4.5.0" }
+orgJmailenKotlinter = { id = "org.jmailen.kotlinter", version = "5.0.1" }
 comGoogleDevtoolsKsp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 orgJetbrainsKotlinPluginCompose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 orgJetbrainsKotlinPluginParcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
