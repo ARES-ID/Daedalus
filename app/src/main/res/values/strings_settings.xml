@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="settings_title">Einstellungen</string>
-    <string name="settings_legal_item_privacy">Datenschutz</string>
+    <string name="settings_legal_item_privacy_policy">Datenschutz</string>
     <string name="settings_legal_item_terms_of_service">Nutzungsbedinungen</string>
     <string name="settings_legal_item_imprint">Impressum</string>
 </resources>
